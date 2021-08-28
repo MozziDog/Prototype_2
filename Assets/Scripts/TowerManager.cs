@@ -227,6 +227,7 @@ public class TowerManager : MonoBehaviour
     {
         if (temporarilyPlacedTower != null)
             temporarilyPlacedTower.transform.Rotate(new Vector3(0, 90, 0));
+        CheckTowerSpawnableInDelay();
     }
 
     public void invertTempTower()
@@ -241,6 +242,7 @@ public class TowerManager : MonoBehaviour
                 childTransform.localScale = new Vector3(childTransform.localScale.x * -1, 1, 1);
             }
         }
+        CheckTowerSpawnableInDelay();
     }
 
     public void destroyTempTower()
@@ -252,6 +254,7 @@ public class TowerManager : MonoBehaviour
 
             _inven.SetToggleInteractable(true);
         }
+        CheckTowerSpawnableInDelay();
     }
 
     IEnumerator CannotBuildPopUp() //k
