@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other) //적과 충돌시 상호작용
     {
-        if (1<<other.gameObject.layer != 12) return;
+        if (other.gameObject.layer != 12) return;
         if(other.transform != target) return;
 
         if (other.CompareTag("GroundEnemy"))
