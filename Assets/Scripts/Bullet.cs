@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other) //적과 충돌시 상호작용
     {
-        if (other.gameObject.layer != 12) return;
+        if (1<<other.gameObject.layer != 12) return;
         if(other.transform != target) return;
 
         if (other.CompareTag("GroundEnemy"))
@@ -41,7 +41,7 @@ public class Bullet : MonoBehaviour
         if (target != null)
         {
             //조준방향으로 발사
-            Vector3 aimPosition = new Vector3(target.position.x, 0.5f, target.position.z); //k
+            Vector3 aimPosition = new Vector3(target.position.x, target.position.y+0.5f, target.position.z); //k
             transform.LookAt(aimPosition);
             this.transform.position = Vector3.MoveTowards(this.transform.position, aimPosition, bulletSpeed * Time.deltaTime);
         } 
