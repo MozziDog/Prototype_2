@@ -810,8 +810,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - spawnTime: 1
-    maxEnemyCount: 20
+    maxEnemyCount: 5
     enemyPrefabs:
+    - {fileID: 6462731293169419925, guid: f662bb43aceeb0a45b1123e44e3b7178, type: 3}
+    - {fileID: 6462731293169419925, guid: f662bb43aceeb0a45b1123e44e3b7178, type: 3}
+    - {fileID: 4449752608684807761, guid: a434011a80b6ab74da0a5edebf3a7490, type: 3}
+    - {fileID: 6462731293169419925, guid: f662bb43aceeb0a45b1123e44e3b7178, type: 3}
     - {fileID: 6462731293169419925, guid: f662bb43aceeb0a45b1123e44e3b7178, type: 3}
   enemySpawner: {fileID: 1477708610}
   obstacleManager: {fileID: 625576665}
@@ -833,6 +837,7 @@ MonoBehaviour:
   towerToSpawn: {fileID: 0}
   temporarilyPlacedTower: {fileID: 0}
   towerSpawned: []
+  lastSelectedTilePosition: {x: 0, y: 0, z: 0}
   _inven: {fileID: 222947787}
 --- !u!114 &625576664
 MonoBehaviour:
@@ -869,6 +874,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3258875691275653630, guid: acd5971cff513e74dbf12af3324cc7c4, type: 3}
+      propertyPath: m_Size.y
+      value: 4.34
+      objectReference: {fileID: 0}
     - target: {fileID: 8883414049995495623, guid: acd5971cff513e74dbf12af3324cc7c4, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -916,6 +925,10 @@ PrefabInstance:
     - target: {fileID: 8883414049995719975, guid: acd5971cff513e74dbf12af3324cc7c4, type: 3}
       propertyPath: m_Name
       value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168502179105692773, guid: acd5971cff513e74dbf12af3324cc7c4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acd5971cff513e74dbf12af3324cc7c4, type: 3}

@@ -19,9 +19,13 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other) //적과 충돌시 상호작용
     {
-        if (!other.CompareTag("Enemy")) return;
+        if (other.gameObject.layer != 12) return;
         if(other.transform != target) return;
-        other.GetComponent<Enemy>().GetDamage(bulletDamage);
+
+        if (other.CompareTag("GroundEnemy"))
+            other.GetComponent<GroundEnemy>().GetDamage(bulletDamage);
+        else if (other.CompareTag("FlyingEnemy"))
+            other.GetComponent<FlyingEnemy>().GetDamage(bulletDamage);
         Destroy(gameObject);
     }
    
