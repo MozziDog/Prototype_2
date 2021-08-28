@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public class GroundEnemy : MonoBehaviour
 {
     [SerializeField]
     private float maxHP;
@@ -48,10 +48,10 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        AgentStuckAvoid();
+       // AgentStuckAvoid();
 
     }
-
+    /*
     public void AgentStuckAvoid()
     {
         if (isWalking && !agent.hasPath && agent.pathStatus == NavMeshPathStatus.PathComplete && agent.speed > 0.3)
@@ -63,6 +63,7 @@ public class Enemy : MonoBehaviour
             agent.speed = moveSpeed;
         }
     }
+    */
     
     public void GetDamage(float Damage) //k
     {
@@ -90,7 +91,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator HitPlayer()
     {
-
+        
         anim.SetBool("ContactPlayer", true);
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(Player.GetComponent<Player>().GetHitCoroutine(hitDamage));
