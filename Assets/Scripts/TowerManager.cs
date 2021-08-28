@@ -26,6 +26,7 @@ public class TowerManager : MonoBehaviour
     public GameObject towerToSpawn;
     public GameObject temporarilyPlacedTower;
     public List<GameObject> towerSpawned = new List<GameObject>();
+    public Vector3 lastSelectedTilePosition;
 
     public Inventory _inven;
     // Start is called before the first frame update
@@ -45,10 +46,12 @@ public class TowerManager : MonoBehaviour
             RaycastHit hit = new RaycastHit();
             if (Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Floor")))
             {
-                temporarilyPlacedTower.transform.position = new Vector3(Mathf.Floor(hit.point.x) + 0.5f, 0.5f, Mathf.Floor(hit.point.z) + 0.5f);
-                if (CheckTowerSpawnable() != TowerSpawnCheck.OK)
+                Vector3 targetPosition = new Vector3(Mathf.Floor(hit.point.x) + 0.5f, 0.5f, Mathf.Floor(hit.point.z) + 0.5f);
+                if (lastSelectedTilePosition != targetPosition)
                 {
-                    StartCoroutine(CannotBuildPopUp()); // 설치 불가능을 나타내는 효과
+                    temporarilyPlacedTower.transform.position = targetPosition;
+                    CheckTowerSpawnableInDelay();
+                    lastSelectedTilePosition = targetPosition;
                 }
             }
         }
@@ -83,6 +86,28 @@ public class TowerManager : MonoBehaviour
             temporarilyPlacedTower = null;
         else temporarilyPlacedTower = Instantiate(tower, position, Quaternion.identity);
         return temporarilyPlacedTower;
+    }
+
+    private Coroutine SpawnCheckObejct;
+    private readonly float waitTime = 0.5f;
+    public TowerSpawnCheck CheckTowerSpawnableInDelay()
+    {
+        TowerSpawnCheck checkResult = TowerSpawnCheck.OK;
+        IEnumerator Check()
+        {
+            yield return new WaitForSeconds(waitTime);
+
+            if (CheckTowerSpawnable() != TowerSpawnCheck.OK)
+            {
+                StartCoroutine(CannotBuildPopUp()); // 설치 불가능을 나타내는 효과
+            }
+            SpawnCheckObejct = null;
+        }
+        if (SpawnCheckObejct == null)
+        {
+            SpawnCheckObejct = StartCoroutine(Check());
+        }
+        return checkResult;
     }
 
     public TowerSpawnCheck CheckTowerSpawnable()
