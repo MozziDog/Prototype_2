@@ -103,10 +103,11 @@ public class TowerManager : MonoBehaviour
             }
             SpawnCheckObejct = null;
         }
-        if (SpawnCheckObejct == null)
+        if (SpawnCheckObejct != null)
         {
-            SpawnCheckObejct = StartCoroutine(Check());
+            StopCoroutine(SpawnCheckObejct);
         }
+        SpawnCheckObejct = StartCoroutine(Check());
         return checkResult;
     }
 
