@@ -47,7 +47,7 @@ public class Inventory : MonoBehaviour
     public void AddItem(GameObject tower)
     {
         GameObject toggle = Instantiate(_togglePrefab);
-        toggle.transform.SetParent(_toggleGrid.transform);
+        toggle.transform.SetParent(_toggleGrid.transform, false);
         _toggle.Add(toggle.GetComponent<Toggle>());
         SetToggleContents(toggle, tower);
 
@@ -57,6 +57,8 @@ public class Inventory : MonoBehaviour
     private void SetToggleContents(GameObject toggle, GameObject tower)
     {
         // TODO: 인벤토리 버튼 내용 꾸미기
+        Toggle toggleComponent = toggle.GetComponent<Toggle>();
+        toggleComponent.group = _toggleGrid.GetComponent<ToggleGroup>();
         Text label = toggle.GetComponentInChildren<Text>();
         label.text = tower.name;
     }

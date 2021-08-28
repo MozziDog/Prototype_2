@@ -58,7 +58,7 @@ public class TowerShop : MonoBehaviour
         _towerOnList.Add(_towerAll[towerCode]);
         GameObject newButton = Instantiate(_shopButtonPrefab);
         SetShoppingButton(newButton, towerCode);
-        newButton.transform.SetParent(_shopButtonsGrid.transform);
+        newButton.transform.SetParent(_shopButtonsGrid.transform, false);
         _shopButtons.Add(newButton);
     }
 
