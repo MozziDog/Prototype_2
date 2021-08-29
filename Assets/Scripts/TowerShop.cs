@@ -8,15 +8,16 @@ public class TowerShop : MonoBehaviour
     public GameObject _shopButtonPrefab;
     public Inventory _inven;
     private readonly int MAX_SHOP_ITEMS = 5; // 진열될 수 있는 최대 갯수
-    // 모든 타워 리스트
-    [SerializeField] List<GameObject> _towerAll;
-    // 현재 상점에 올라와 있는 타워 리스트 (프리팹)
-    [SerializeField] List<GameObject> _towerOnList;
-    // _towerOnList와 1대1 대응하는 토글 리스트
-    [SerializeField] List<GameObject> _shopButtons;
+    [SerializeField] MoneyManager _wallet;
     [SerializeField] GameObject _shopUI;
     // Button Instantiate할 부모 오브젝트
     [SerializeField] GameObject _shopButtonsGrid;
+    // _towerOnList와 1대1 대응하는 토글 리스트
+    [SerializeField] List<GameObject> _shopButtons;
+    // 현재 상점에 올라와 있는 타워 리스트 (프리팹)
+    [SerializeField] List<GameObject> _towerOnList;
+    // 모든 타워 리스트
+    [SerializeField] List<GameObject> _towerAll;
 
 
     // Start is called before the first frame update
@@ -102,6 +103,7 @@ public class TowerShop : MonoBehaviour
             return;
         }
         // 가능하다면 구매진행
+        _wallet.SpendMoney(_towerOnList[GetSelectedItemIndex()].GetComponent<TowerInfo>().GetPrice());
         _inven.AddItem(_towerOnList[GetSelectedItemIndex()]);
         DisableUsedButton();
         return;
@@ -109,8 +111,16 @@ public class TowerShop : MonoBehaviour
 
     private bool CheckEnoughMoney()
     {
-        // TODO: 구매시 남은 가루량 체크 구현
-        return true;
+        int price = _towerOnList[GetSelectedItemIndex()].GetComponent<TowerInfo>().GetPrice();
+        Debug.Log("price : " + price);
+        if (price < _wallet.GetLeftMoney())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     private bool CheckEnoughInventory()

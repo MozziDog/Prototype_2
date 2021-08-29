@@ -5,6 +5,7 @@ using UnityEngine;
 public class TowerInfo : MonoBehaviour
 {
     public Vector3[] _myposition;
+    [SerializeField] private int price = 30;
     [SerializeField]
     private float numberOfBlocks;
     public TowerHead[] TowerHeads;
@@ -24,28 +25,34 @@ public class TowerInfo : MonoBehaviour
             gameObject.transform.GetChild(i).gameObject.layer = LayerMask.NameToLayer("Floor");
         }
     }
-    public void Setup() //°ø°Ý¼ºÅ¸¿ö ¼Ó¼º ¼¼ÆÃ
-    {for (int i = 0; i < TowerHeads.Length; i++)
+    public void Setup() //ï¿½ï¿½ï¿½Ý¼ï¿½Å¸ï¿½ï¿½ ï¿½Ó¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+    {
+        for (int i = 0; i < TowerHeads.Length; i++)
         {
-            TowerHeads[i].BulletPrefab= this.BulletPrefab ;
+            TowerHeads[i].BulletPrefab = this.BulletPrefab;
             TowerHeads[i].bulletSpeed = this.bulletSpeed;
             TowerHeads[i].bulletDamage = this.bulletDamage;
             TowerHeads[i].attackRate = this.attackRate;
             TowerHeads[i].attackRange = this.attackRange;
-            
-            
+
+
         }
     }
 
     void Start()
     {
-        if (TowerHeads.Length > 0) //°ø°Ý¼º Å¸¿ö Á¸ÀçÇÒ¶§ setup ½ÇÇà
+        if (TowerHeads.Length > 0) //ï¿½ï¿½ï¿½Ý¼ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½ setup ï¿½ï¿½ï¿½ï¿½
             Setup();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public int GetPrice()
+    {
+        return price;
     }
 }
