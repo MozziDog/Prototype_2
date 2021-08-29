@@ -7,6 +7,7 @@ public class GroundEnemy : Enemy_Base
 {
     NavMeshAgent agent;
 
+
     new void Start()
     {
         base.Start();
