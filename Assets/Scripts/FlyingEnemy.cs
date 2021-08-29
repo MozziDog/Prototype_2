@@ -19,8 +19,8 @@ public class FlyingEnemy : MonoBehaviour
     GameObject target;
     GameObject Player;
     Vector3 targetPositionForAir;
-    
 
+    Vector3 tempPos;
 
 
 
@@ -35,7 +35,7 @@ public class FlyingEnemy : MonoBehaviour
         GameManagerObject = GameObject.Find("SpawnPoint"); 
         target = GameObject.Find("EndPoint");
         Player = GameObject.Find("Player1");
-        transform.position = GameManagerObject.transform.position;
+        tempPos = transform.TransformPoint(GameManagerObject.transform.position);
         targetPositionForAir = new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z);
     }
 
@@ -46,7 +46,8 @@ public class FlyingEnemy : MonoBehaviour
     private void Update()
     {
         // AgentStuckAvoid();
-        if(isWalking)
+        
+        if (isWalking)
             AirMove();
 
     }
@@ -66,7 +67,8 @@ public class FlyingEnemy : MonoBehaviour
     public void AirMove()
     {
         transform.LookAt(new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z));
-        transform.position = Vector3.MoveTowards(this.transform.position, targetPositionForAir, moveSpeed*Time.deltaTime);
+        transform.position = Vector3.MoveTowards(tempPos, targetPositionForAir, moveSpeed*Time.deltaTime);
+        tempPos = transform.position;
     }
 
     public void GetDamage(float Damage) //k

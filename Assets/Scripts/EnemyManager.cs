@@ -11,15 +11,16 @@ public class EnemyManager : MonoBehaviour
     public NavMeshSurface surface;
     public UnityEngine.AI.NavMeshPath navMeshPath;
     public UnityEngine.AI.NavMeshAgent agent;
-    Transform spawnPos;
+    Vector3 originSpawnTransform;
     [SerializeField] GameObject _endpoint;
-    [SerializeField] GameObject _enemypoint;
+    [SerializeField] GameObject _startpoint;
     public bool pathAvailable;
 
     private Wave currentWave;
     GameObject CurrentSpawnenemy;
     public List<GameObject> CurrentEnemyList;
 
+    private Transform spawnPos;
     private int enemySpawnCount = 0;
     [SerializeField]
     private int enemyMaxCount;
@@ -29,6 +30,8 @@ public class EnemyManager : MonoBehaviour
     {
         CurrentEnemyList = new List<GameObject>(); //현재 생성되어있는 적 정보 참고용 리스트
         navMeshPath = new UnityEngine.AI.NavMeshPath();
+        originSpawnTransform = _startpoint.transform.position;
+        spawnPos = _startpoint.transform;
     }
 
     public void StartWave(Wave wave)
@@ -72,7 +75,7 @@ public class EnemyManager : MonoBehaviour
     public void StartSpawn()
     {
         BakeNav();
-        _enemypoint.GetComponent<NavMeshAgent>().enabled = false;
+        _startpoint.GetComponent<NavMeshAgent>().enabled = false;
         StartCoroutine(EnemySpawner());
     }
 
@@ -82,18 +85,19 @@ public class EnemyManager : MonoBehaviour
         switch (currentWave.enemyPrefabs[enemySpawnCount].tag )
         {
             case "FlyingEnemy":
-                spawnPos.position = new Vector3(_enemypoint.transform.position.x, 3, _enemypoint.transform.position.z);
+                spawnPos.position = new Vector3(_startpoint.transform.position.x, 3, _startpoint.transform.position.z);
                 break;
+            
             case "GroundEnemy":
-                spawnPos = _enemypoint.transform;
+                spawnPos.position = originSpawnTransform;
                 break;
 
         }
             
 
 
-            GameObject clone = Instantiate(currentWave.enemyPrefabs[enemySpawnCount],spawnPos);
-            CurrentSpawnenemy = clone;
+            GameObject clone = Instantiate(currentWave.enemyPrefabs[enemySpawnCount], spawnPos);
+             CurrentSpawnenemy = clone;
             enemySpawnCount++; //생존유무와 상관없이 생성된 적 카운트
             CurrentEnemyList.Add(CurrentSpawnenemy);
             yield return new WaitForSeconds(currentWave.spawnTime); //생성 빈도 
