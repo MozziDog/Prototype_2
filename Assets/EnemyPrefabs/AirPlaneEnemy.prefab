@@ -2193,6 +2193,7 @@ MonoBehaviour:
   moveSpeed: 1
   anim: {fileID: 3898918170305815962}
   hitDamage: 1
+  rewardMoney: 5
   GameManagerObject: {fileID: 0}
 --- !u!1 &5389253356460690187
 GameObject:
