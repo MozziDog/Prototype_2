@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class GroundEnemy : Enemy_Base
+public class GroundEnemy : MonoBehaviour
 {
     [SerializeField]
     private float maxHP;
@@ -20,9 +20,14 @@ public class GroundEnemy : Enemy_Base
     GameObject Player;
     NavMeshAgent agent;
 
+
+
     public GameObject enemyManager;
 
-     void Start()
+
+
+
+    void Start()
     {
         currentHP = maxHP;
         anim = this.GetComponent<Animator>();
@@ -34,7 +39,11 @@ public class GroundEnemy : Enemy_Base
         agent.speed = moveSpeed;
 
 
+
     }
+
+
+
 
 
     private void Update()

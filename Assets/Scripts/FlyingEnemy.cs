@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class FlyingEnemy : Enemy_Base
+public class FlyingEnemy : MonoBehaviour
 {
     [SerializeField]
     private float maxHP;
@@ -20,6 +20,11 @@ public class FlyingEnemy : Enemy_Base
     Vector3 targetPositionForAir;
     Vector3 tempPos;
 
+
+
+
+
+
     void Start()
     {
         currentHP = maxHP;
@@ -31,9 +36,13 @@ public class FlyingEnemy : Enemy_Base
     }
 
 
+
+
+
     private void Update()
     {
         // AgentStuckAvoid();
+
         if (isWalking)
             AirMove();
 
@@ -41,7 +50,7 @@ public class FlyingEnemy : Enemy_Base
     /*
     public void AgentStuckAvoid()
     {
-        if (isWalking && !agent.hasPath && agent.pathStatus == NavMeshPathStatus.PathComplete && agent.speed > 0.3)
+        if (isWalking && !agent.hasPath && agent.pathStatus == NavMeshPathStatus.PathComplete && agent.speed < 0.3)
         {
             Debug.LogWarning("enemy Repathing!!");
             agent.enabled = false;
@@ -55,6 +64,7 @@ public class FlyingEnemy : Enemy_Base
     {
         transform.LookAt(new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z));
         transform.position = Vector3.MoveTowards(this.transform.position, targetPositionForAir, moveSpeed * Time.deltaTime);
+
     }
 
     public void RemoveObject()

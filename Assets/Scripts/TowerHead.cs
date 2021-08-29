@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //k all
-public enum WeaponState { SearchTarget, AttackToTarget}
+public enum WeaponState { SearchTarget, AttackToTarget }
 
 public class TowerHead : MonoBehaviour
 {
@@ -13,12 +13,12 @@ public class TowerHead : MonoBehaviour
     public float bulletDamage = 1;
     public float attackRate = 0.5f;
     public float attackRange = 3.5f;
-   
+
     public Transform attackTarget = null;
     public GameObject SpawnPoint;
     public List<GameObject> enemyList;
-    
-    
+
+
 
     public void ChangeState(WeaponState newState) //적에 대한  탐색, 공격  모드의 코루틴 전환
     {
@@ -27,13 +27,13 @@ public class TowerHead : MonoBehaviour
         StartCoroutine(weaponState.ToString());
     }
 
-    
 
-    
+
+
 
     private void RotateToTarget() //적을 바라봄
     {
-        
+
         transform.LookAt(new Vector3(attackTarget.position.x, transform.position.y, attackTarget.position.z));
     }
 
@@ -91,17 +91,17 @@ public class TowerHead : MonoBehaviour
 
     private void SpawnBullet() //발사체 생성
     {
-       
-            GameObject clone = Instantiate(BulletPrefab, BulletSpawnPoint.position, Quaternion.identity);
-            clone.GetComponent<Bullet>().Setup(attackTarget, bulletSpeed, bulletDamage);
-        
-        }
 
-        void Start()
-        {
-        SpawnPoint = GameObject.Find("SpawnPoint");
+        GameObject clone = Instantiate(BulletPrefab, BulletSpawnPoint.position, Quaternion.identity);
+        clone.GetComponent<Bullet>().Setup(attackTarget, bulletSpeed, bulletDamage);
+
+    }
+
+    void Start()
+    {
+        SpawnPoint = GameObject.Find("SpawnPointGroup");
         this.enemyList = SpawnPoint.GetComponent<EnemyManager>().CurrentEnemyList;
-        }
+    }
 
     private void OnEnable()
     {
@@ -110,12 +110,12 @@ public class TowerHead : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-        {
+    {
         this.enemyList = SpawnPoint.GetComponent<EnemyManager>().CurrentEnemyList; //매 프레임마다 적 리스트 갱신
         if (attackTarget != null)
-            {
-                RotateToTarget();
-            }
+        {
+            RotateToTarget();
         }
-    
+    }
+
 }
