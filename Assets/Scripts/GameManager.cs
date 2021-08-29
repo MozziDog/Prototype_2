@@ -12,12 +12,14 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] EnemyManager enemyManager;
     [SerializeField] TowerManager towerManager;
+    [SerializeField] TowerShop towerShop;
+    [SerializeField] MoneyManager wallet;
 
     public float _scaleFactor = 1f;
 
     GameObject tower;
     public GameObject[] _selected;
-    public GameObject _rangeGizmo; 
+    public GameObject _rangeGizmo;
 
 
     private void Awake()
@@ -54,7 +56,7 @@ public class GameManager : MonoBehaviour
         {
             if (hit.transform.tag == "Floor")
             {
-                if(hit.transform.tag == "Tower")
+                if (hit.transform.tag == "Tower")
                 {
                     _selected[0].transform.position = new Vector3(Mathf.Floor(hit.point.x) + 0.5f, 0f, Mathf.Floor(hit.point.z) + 0.5f);
                     _selected[0].SetActive(true);
@@ -64,7 +66,7 @@ public class GameManager : MonoBehaviour
                     _selected[1].transform.position = new Vector3(Mathf.Floor(hit.point.x) + 0.5f, 0f, Mathf.Floor(hit.point.z) + 0.5f);
                     _selected[1].SetActive(true);
                 }
-                    
+
 
                 _rangeGizmo.transform.position = new Vector3(Mathf.Floor(hit.point.x) + 0.5f, 0f, Mathf.Floor(hit.point.z) + 0.5f);
                 _rangeGizmo.SetActive(true);
@@ -91,6 +93,11 @@ public class GameManager : MonoBehaviour
             rect.x = (1f - scalewidth) / 2f;
         }
         cam.rect = rect;
+    }
+
+    public void OnEnemyDie(int rewardMoney)
+    {
+        wallet.AddMoney(rewardMoney);
     }
 
 }
