@@ -67,14 +67,20 @@ public class FlyingEnemy : MonoBehaviour
         
     }
 
+    public void RemoveObject()
+    {
+        enemyManager.GetComponent<EnemyManager>().CurrentEnemyList.Remove(gameObject);
+        enemyManager.GetComponent<EnemyManager>().SpawnedAirEnemyCount--;
+        Destroy(gameObject);
+
+    }
+
     public void GetDamage(float Damage) //k
     {
         currentHP -= Damage;
         if (currentHP <= 0)
         {
-           
-            enemyManager.GetComponent<EnemyManager>().CurrentEnemyList.Remove(gameObject);
-            Destroy(gameObject);
+            RemoveObject();
         }
     }
 
@@ -96,9 +102,7 @@ public class FlyingEnemy : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(Player.GetComponent<Player>().GetHitCoroutine(hitDamage));
         yield return new WaitForSeconds(0.75f);
-        enemyManager.GetComponent<EnemyManager>().CurrentEnemyList.Remove(gameObject);
-        enemyManager.GetComponent<EnemyManager>().SpawnedAirEnemyCount--;
-        Destroy(gameObject);
+        RemoveObject();
     }
 
 
