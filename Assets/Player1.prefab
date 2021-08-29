@@ -1657,7 +1657,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 8883414049986246479}
-  maxHP: 5
   currentHP: 5
 --- !u!1 &8883414049995719977
 GameObject:

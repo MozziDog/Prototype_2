@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 [System.Serializable]
 public struct Wave
@@ -20,10 +19,6 @@ public class WaveManager : MonoBehaviour
     [SerializeField]
     private ObstacleManager obstacleManager;
     private int currentWaveIndex = -1;
-
-    private int _waveMode = 0;
-    [SerializeField] Button StartBtn;
-    [SerializeField] Sprite[] BtnImages;
     // Start is called before the first frame update
 
     public void StartWave()
@@ -34,23 +29,6 @@ public class WaveManager : MonoBehaviour
             obstacleManager.WayObstacleActiveSwitch();
             enemySpawner.StartWave(waves[currentWaveIndex]);
         }
-    }
-
-    public void ChangeWaveSpeed()
-    {
-        if(_waveMode == 0)
-        {
-            StartBtn.GetComponent<Image>().sprite = BtnImages[_waveMode];
-            Time.timeScale = 1;
-            _waveMode = 1;
-        }
-        else if(_waveMode == 1)
-        {
-            StartBtn.GetComponent<Image>().sprite = BtnImages[_waveMode];
-            Time.timeScale = 2;
-            _waveMode = 0;
-        }
-            
     }
 
    

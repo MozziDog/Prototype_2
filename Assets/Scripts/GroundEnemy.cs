@@ -36,13 +36,4 @@ public class GroundEnemy : Enemy_Base
     }
     */
 
-    private new void OnTriggerEnter(Collider other)
-    {
-        base.OnTriggerEnter(other);
-        if (other.gameObject.CompareTag("Player"))
-        {
-            agent.speed = 0;
-        }
-
-    }
 }
