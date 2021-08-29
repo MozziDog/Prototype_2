@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -8,16 +9,16 @@ public class Player : MonoBehaviour
     private Animator anim;
     private float maxHP=5;
     public float currentHP;
+
+    [SerializeField]
+    Text _lifeText;
     
     
     // Start is called before the first frame update
     void Start()
     {
         this.anim = transform.GetComponent<Animator>();
-    }
-
-    
-    
+    }    
 
     public IEnumerator GetHitCoroutine(float damage)
     {
@@ -40,5 +41,6 @@ public class Player : MonoBehaviour
     void Update()
     {
         if (currentHP <= 0) OnDie();
+        _lifeText.text = "Life : " + currentHP.ToString();
     }
 }
