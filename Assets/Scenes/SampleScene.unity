@@ -562,6 +562,36 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3060751451659426394, guid: f971e8be421536d48a1bacce9e7154e2, type: 3}
   m_PrefabInstance: {fileID: 492548029}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &486993242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 486993243}
+  m_Layer: 0
+  m_Name: GroundSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &486993243
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486993242}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1477708608}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &492548029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2253,7 +2283,7 @@ GameObject:
   - component: {fileID: 1477708610}
   - component: {fileID: 1477708611}
   m_Layer: 0
-  m_Name: SpawnPoint
+  m_Name: SpawnPointGroup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2269,7 +2299,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.5, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1752338701}
+  - {fileID: 486993243}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2309,10 +2341,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   surface: {fileID: 664370446}
   agent: {fileID: 1477708609}
-  _endpoint: {fileID: 1777891062}
-  _startpoint: {fileID: 1477708607}
+  _endPoint: {fileID: 1777891062}
+  _groundStartPoint: {fileID: 486993242}
+  _airStartPoint: {fileID: 1752338700}
   pathAvailable: 0
   CurrentEnemyList: []
+  SpawnedAirEnemyCount: 0
   enemyMaxCount: 10
 --- !u!120 &1477708611
 LineRenderer:
@@ -2762,12 +2796,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1752338700}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.5, y: 3, z: 0.5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_Father: {fileID: 1477708608}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1777891062 stripped
 GameObject:
