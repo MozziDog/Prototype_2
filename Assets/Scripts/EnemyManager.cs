@@ -11,7 +11,6 @@ public class EnemyManager : MonoBehaviour
     public NavMeshSurface surface;
     public UnityEngine.AI.NavMeshPath navMeshPath;
     public UnityEngine.AI.NavMeshAgent agent;
-    Vector3 originSpawnTransform;
     [SerializeField] GameObject _endPoint;
     [SerializeField] GameObject _groundStartPoint;
     [SerializeField] GameObject _airStartPoint;
@@ -22,19 +21,24 @@ public class EnemyManager : MonoBehaviour
     GameObject clone;
     public List<GameObject> CurrentEnemyList;
 
-    
-    private int enemySpawnCount = 0;
-    public int SpawnedAirEnemyCount = 0;
     [SerializeField]
     private int enemyMaxCount;
+    private int enemySpawnCount = 0;
+    public int SpawnedAirEnemyCount = 0;
+
+    
 
     // Start is called before the first frame update
     void Start()
     {
         CurrentEnemyList = new List<GameObject>(); //현재 생성되어있는 적 정보 참고용 리스트
         navMeshPath = new UnityEngine.AI.NavMeshPath();
-        originSpawnTransform = _groundStartPoint.transform.position;
         
+        
+    }
+    void Update()
+    {
+            AirRouteDraw();
     }
 
     public void StartWave(Wave wave)
@@ -44,9 +48,28 @@ public class EnemyManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+   
+
+
+
+    public void AirRouteDraw()
     {
- 
+        var lineForAir = GameObject.Find("GroundSpawnPoint").GetComponent< LineRenderer>();
+        switch (SpawnedAirEnemyCount > 0)
+        {
+            case true:
+                lineForAir.enabled = true;
+            lineForAir.SetPosition(0, _groundStartPoint.transform.position);
+            lineForAir.SetPosition(1, _endPoint.transform.position);
+            break;
+
+            case false:
+                lineForAir.enabled = false;
+                break;
+
+        }
+
+        
     }
 
     public void BakeNav()
