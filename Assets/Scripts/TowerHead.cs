@@ -99,7 +99,7 @@ public class TowerHead : MonoBehaviour
 
         void Start()
         {
-        SpawnPoint = GameObject.Find("SpawnPoint");
+        SpawnPoint = GameObject.Find("SpawnPointGroup");
         this.enemyList = SpawnPoint.GetComponent<EnemyManager>().CurrentEnemyList;
         }
 
