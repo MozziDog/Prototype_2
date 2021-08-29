@@ -792,6 +792,8 @@ MonoBehaviour:
   _floor: {fileID: 46099908}
   enemyManager: {fileID: 1477708610}
   towerManager: {fileID: 625576663}
+  towerShop: {fileID: 1761398617}
+  wallet: {fileID: 1761398616}
   _scaleFactor: 1
   _selected:
   - {fileID: 1914876479}
