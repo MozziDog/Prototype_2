@@ -22,7 +22,7 @@ public class GroundEnemy : MonoBehaviour
 
     
 
-    public GameObject GameManagerObject;
+    public GameObject enemyManager;
    
 
     
@@ -31,7 +31,7 @@ public class GroundEnemy : MonoBehaviour
     {
         currentHP = maxHP;
         anim = this.GetComponent<Animator>();
-        GameManagerObject = GameObject.Find("SpawnPoint"); 
+        enemyManager = GameObject.Find("SpawnPointGroup"); 
         target = GameObject.Find("EndPoint");
         Player = GameObject.Find("Player1");
         agent = GetComponent<NavMeshAgent>();
@@ -71,7 +71,7 @@ public class GroundEnemy : MonoBehaviour
         if (currentHP <= 0)
         {
             isDie = true;
-            GameManagerObject.GetComponent<EnemyManager>().CurrentEnemyList.Remove(gameObject);
+            enemyManager.GetComponent<EnemyManager>().CurrentEnemyList.Remove(gameObject);
             Destroy(gameObject);
         }
     }
@@ -95,8 +95,8 @@ public class GroundEnemy : MonoBehaviour
         anim.SetBool("ContactPlayer", true);
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(Player.GetComponent<Player>().GetHitCoroutine(hitDamage));
-        GameManagerObject.GetComponent<EnemyManager>().CurrentEnemyList.Remove(gameObject);
         yield return new WaitForSeconds(0.75f);
+        enemyManager.GetComponent<EnemyManager>().CurrentEnemyList.Remove(gameObject);
         Destroy(gameObject);
     }
 

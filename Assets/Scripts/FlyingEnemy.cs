@@ -11,20 +11,16 @@ public class FlyingEnemy : MonoBehaviour
     private float moveSpeed;
     [SerializeField]
     private Animator anim;
-    
+    public GameObject enemyManager;
     private float currentHP;
-    private bool isDie = false;
     private bool isWalking = true;
     public float hitDamage;
     GameObject target;
     GameObject Player;
     Vector3 targetPositionForAir;
-
     Vector3 tempPos;
 
-
-
-    public GameObject GameManagerObject;
+   
    
 
     
@@ -32,10 +28,10 @@ public class FlyingEnemy : MonoBehaviour
     void Start()
     {
         currentHP = maxHP;
-        GameManagerObject = GameObject.Find("SpawnPoint"); 
         target = GameObject.Find("EndPoint");
         Player = GameObject.Find("Player1");
-        tempPos = transform.TransformPoint(GameManagerObject.transform.position);
+        enemyManager = GameObject.Find("SpawnPointGroup");
+        //tempPos = transform.TransformPoint(GameManagerObject.transform.position);
         targetPositionForAir = new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z);
     }
 
@@ -54,7 +50,7 @@ public class FlyingEnemy : MonoBehaviour
     /*
     public void AgentStuckAvoid()
     {
-        if (isWalking && !agent.hasPath && agent.pathStatus == NavMeshPathStatus.PathComplete && agent.speed > 0.3)
+        if (isWalking && !agent.hasPath && agent.pathStatus == NavMeshPathStatus.PathComplete && agent.speed < 0.3)
         {
             Debug.LogWarning("enemy Repathing!!");
             agent.enabled = false;
@@ -67,8 +63,8 @@ public class FlyingEnemy : MonoBehaviour
     public void AirMove()
     {
         transform.LookAt(new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z));
-        transform.position = Vector3.MoveTowards(tempPos, targetPositionForAir, moveSpeed*Time.deltaTime);
-        tempPos = transform.position;
+        transform.position = Vector3.MoveTowards(this.transform.position, targetPositionForAir, moveSpeed*Time.deltaTime);
+        
     }
 
     public void GetDamage(float Damage) //k
@@ -76,8 +72,8 @@ public class FlyingEnemy : MonoBehaviour
         currentHP -= Damage;
         if (currentHP <= 0)
         {
-            isDie = true;
-            GameManagerObject.GetComponent<EnemyManager>().CurrentEnemyList.Remove(gameObject);
+           
+            enemyManager.GetComponent<EnemyManager>().CurrentEnemyList.Remove(gameObject);
             Destroy(gameObject);
         }
     }
@@ -89,8 +85,6 @@ public class FlyingEnemy : MonoBehaviour
             
             isWalking = false;
             StartCoroutine(HitPlayer());
-            
-           
         }
         
     }
@@ -101,8 +95,9 @@ public class FlyingEnemy : MonoBehaviour
         anim.SetBool("ContactPlayer", true);
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(Player.GetComponent<Player>().GetHitCoroutine(hitDamage));
-        GameManagerObject.GetComponent<EnemyManager>().CurrentEnemyList.Remove(gameObject);
         yield return new WaitForSeconds(0.75f);
+        enemyManager.GetComponent<EnemyManager>().CurrentEnemyList.Remove(gameObject);
+        enemyManager.GetComponent<EnemyManager>().SpawnedAirEnemyCount--;
         Destroy(gameObject);
     }
 

@@ -6,13 +6,14 @@ public class Player : MonoBehaviour
 {
     [SerializeField]
     private Animator anim;
-    private float maxHP=5;
+    public float maxHP;
     public float currentHP;
     
     
     // Start is called before the first frame update
     void Start()
     {
+        currentHP = maxHP;
         this.anim = transform.GetComponent<Animator>();
     }
 
