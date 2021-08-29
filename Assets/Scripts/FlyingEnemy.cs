@@ -5,12 +5,28 @@ using UnityEngine.AI;
 
 public class FlyingEnemy : Enemy_Base
 {
+    [SerializeField]
+    private float maxHP;
+    [SerializeField]
+    private float moveSpeed;
+    [SerializeField]
+    private Animator anim;
+    public GameObject enemyManager;
+    private float currentHP;
+    private bool isWalking = true;
+    public float hitDamage;
+    GameObject target;
+    GameObject Player;
     Vector3 targetPositionForAir;
+    Vector3 tempPos;
 
-    new void Start()
+    void Start()
     {
-        base.Start();
-        transform.position = GameManagerObject.transform.position;
+        currentHP = maxHP;
+        target = GameObject.Find("EndPoint");
+        Player = GameObject.Find("Player1");
+        enemyManager = GameObject.Find("SpawnPointGroup");
+        //tempPos = transform.TransformPoint(GameManagerObject.transform.position);
         targetPositionForAir = new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z);
     }
 
@@ -40,5 +56,48 @@ public class FlyingEnemy : Enemy_Base
         transform.LookAt(new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z));
         transform.position = Vector3.MoveTowards(this.transform.position, targetPositionForAir, moveSpeed * Time.deltaTime);
     }
+
+    public void RemoveObject()
+    {
+        enemyManager.GetComponent<EnemyManager>().CurrentEnemyList.Remove(gameObject);
+        enemyManager.GetComponent<EnemyManager>().SpawnedAirEnemyCount--;
+        Destroy(gameObject);
+
+    }
+
+    public void GetDamage(float Damage) //k
+    {
+        currentHP -= Damage;
+        if (currentHP <= 0)
+        {
+            RemoveObject();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+
+            isWalking = false;
+            StartCoroutine(HitPlayer());
+        }
+
+    }
+
+    IEnumerator HitPlayer()
+    {
+
+        anim.SetBool("ContactPlayer", true);
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(Player.GetComponent<Player>().GetHitCoroutine(hitDamage));
+        yield return new WaitForSeconds(0.75f);
+        RemoveObject();
+    }
+
+
+
+
+
 
 }
