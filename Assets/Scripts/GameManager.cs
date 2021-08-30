@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] EnemyManager enemyManager;
     [SerializeField] TowerManager towerManager;
+    [SerializeField] WaveManager waveManager;
     [SerializeField] TowerShop towerShop;
     [SerializeField] MoneyManager wallet;
 
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] _selected;
     public GameObject _rangeGizmo;
     public GameObject GameOverPanel;
+    public GameObject StageClearPanel;
     public float _scaleFactor = 1f;
     public bool isGameOver = false;
 
@@ -31,6 +33,7 @@ public class GameManager : MonoBehaviour
     {
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 120;
+        Time.timeScale = 1;
     }
 
     private void Update()
@@ -38,7 +41,10 @@ public class GameManager : MonoBehaviour
         CheckTileUnderCursor();
         _floor.GetComponent<Renderer>().material.SetFloat("_GridScaleFactor", _scaleFactor);
         CheckGameOver();
+        CheckStageClear();
     }
+
+
 
     void CheckGameOver()
     {
@@ -49,6 +55,17 @@ public class GameManager : MonoBehaviour
             
         }
       
+    }
+
+    void CheckStageClear()
+    {
+        if (waveManager.allWaveClear)
+            Reward();
+    }
+
+    void Reward()
+    {
+        StageClearPanel.SetActive(true);
     }
 
     IEnumerator GameOver()

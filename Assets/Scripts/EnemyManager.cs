@@ -21,12 +21,9 @@ public class EnemyManager : MonoBehaviour
     GameObject CurrentSpawnenemy;
     GameObject clone;
     public List<GameObject> CurrentEnemyList;
-
-    private int enemySpawnCount = 0;
+    public int enemySpawnCount = 0;
     public int SpawnedAirEnemyCount = 0;
-
-    [SerializeField]
-    private int enemyMaxCount;
+    public int enemyKilledCount =0;
 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +61,8 @@ public class EnemyManager : MonoBehaviour
         
         
     }
+
+   
 
     public void AirRouteDraw()
     {

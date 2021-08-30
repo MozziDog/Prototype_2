@@ -10,18 +10,15 @@ public class GroundEnemy : MonoBehaviour
     [SerializeField]
     private float moveSpeed;
     public Animator anim;
-
+    public GameObject enemyManager;
+    public float hitDamage;
     private float currentHP;
     private bool isDie = false;
     private bool isWalking = true;
-    public float hitDamage;
     GameObject target;
     GameObject Player;
     NavMeshAgent agent;
-
-
-
-    public GameObject enemyManager;
+    
 
 
 
@@ -42,27 +39,11 @@ public class GroundEnemy : MonoBehaviour
     }
 
 
-
-
-
     private void Update()
     {
-        // AgentStuckAvoid();
 
     }
-    /*
-    public void AgentStuckAvoid()
-    {
-        if (isWalking && !agent.hasPath && agent.pathStatus == NavMeshPathStatus.PathComplete && agent.speed > 0.3)
-        {
-            Debug.LogWarning("enemy Repathing!!");
-            agent.enabled = false;
-            agent.enabled = true;
-            agent.SetDestination(target.transform.position);
-            agent.speed = moveSpeed;
-        }
-    }
-    */
+   
 
     public void GetDamage(float Damage) //k
     {
@@ -77,8 +58,8 @@ public class GroundEnemy : MonoBehaviour
     {
         isDie = true;
         enemyManager.GetComponent<EnemyManager>().CurrentEnemyList.Remove(gameObject);
+        enemyManager.GetComponent<EnemyManager>().enemyKilledCount++;
         Destroy(gameObject);
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -96,13 +77,11 @@ public class GroundEnemy : MonoBehaviour
 
     IEnumerator HitPlayer()
     {
-
         anim.SetBool("ContactPlayer", true);
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(Player.GetComponent<Player>().GetHitCoroutine(hitDamage));
         yield return new WaitForSeconds(0.75f);
-        enemyManager.GetComponent<EnemyManager>().CurrentEnemyList.Remove(gameObject);
-        Destroy(gameObject);
+        RemoveObject();
     }
 
     public void ReadyToDie()
@@ -116,7 +95,6 @@ public class GroundEnemy : MonoBehaviour
         agent.speed = 0;
         yield return new WaitForSeconds(2f);
         RemoveObject();
-
     }
 
 

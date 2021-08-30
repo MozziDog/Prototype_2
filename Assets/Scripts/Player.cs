@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public float currentHP;
     public GameManager gameManager;
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -19,6 +19,10 @@ public class Player : MonoBehaviour
        
     }
 
+    void Update()
+    {
+        if (currentHP <= 0) StartCoroutine(OnDie());
+    }
 
 
 
@@ -44,9 +48,6 @@ public class Player : MonoBehaviour
     }
 
     
-    // Update is called once per frame
-    void Update()
-    {
-        if (currentHP <= 0) StartCoroutine(OnDie());
-    }
+   
+    
 }

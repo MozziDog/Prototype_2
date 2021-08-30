@@ -70,6 +70,7 @@ public class FlyingEnemy : MonoBehaviour
     {
         enemyManager.GetComponent<EnemyManager>().CurrentEnemyList.Remove(gameObject);
         enemyManager.GetComponent<EnemyManager>().SpawnedAirEnemyCount--;
+        enemyManager.GetComponent<EnemyManager>().enemyKilledCount++;
         Destroy(gameObject);
 
     }
