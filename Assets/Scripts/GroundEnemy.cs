@@ -12,7 +12,7 @@ public class GroundEnemy : MonoBehaviour
     public Animator anim;
     public GameObject enemyManager;
     public float hitDamage;
-    private float currentHP;
+    public float currentHP;
     private bool isDie = false;
     private bool isWalking = true;
     GameObject target;

@@ -11,7 +11,7 @@ public class FlyingEnemy : MonoBehaviour
     private float moveSpeed;
     public Animator anim;
     public GameObject enemyManager;
-    private float currentHP;
+    public float currentHP;
     private bool isWalking = true;
     public float hitDamage;
     GameObject target;
