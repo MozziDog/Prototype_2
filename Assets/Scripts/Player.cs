@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -9,14 +10,16 @@ public class Player : MonoBehaviour
     public float maxHP;
     public float currentHP;
     public GameManager gameManager;
-
+    public Text hpText;
     
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         currentHP = maxHP;
         this.anim = transform.GetComponent<Animator>();
-       
+        UpdateHpText(currentHP);
+
+
     }
 
     void Update()
@@ -24,11 +27,21 @@ public class Player : MonoBehaviour
         if (currentHP <= 0) StartCoroutine(OnDie());
     }
 
+    public void UpdateHpText(float hp) // 피격시 실행
+    {
+        if (hp < 0)
+        {
+            hp = 0;
+        }
+        hpText.text = string.Format("X {0}", hp);
+    }
+
 
 
     public IEnumerator GetHitCoroutine(float damage)
     {
         currentHP -= damage;
+        UpdateHpText(currentHP);
         anim.SetBool("isHit", true);
         yield return new WaitForSeconds(0.7f);
         anim.SetBool("isHit", false);
