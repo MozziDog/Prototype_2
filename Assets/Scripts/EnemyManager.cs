@@ -41,6 +41,19 @@ public class EnemyManager : MonoBehaviour
         AirRouteDraw();
     }
 
+
+    public void KillAllEnemy()
+    {
+        if (CurrentEnemyList.Count>0)
+        for (int i = 0; i < CurrentEnemyList.Count; i++)
+        {
+            CurrentEnemyList.RemoveAt(i);
+            Destroy(CurrentEnemyList[i]);
+        }
+        
+        
+    }
+
     public void AirRouteDraw()
     {
         var lineForAir = GameObject.Find("GroundSpawnPoint").GetComponent<LineRenderer>();

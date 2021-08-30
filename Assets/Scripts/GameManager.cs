@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,12 +16,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] TowerShop towerShop;
     [SerializeField] MoneyManager wallet;
 
-    public float _scaleFactor = 1f;
-
-    GameObject tower;
+   
     public GameObject[] _selected;
     public GameObject _rangeGizmo;
-
+    public GameObject GameOverPanel;
+    public float _scaleFactor = 1f;
+    public bool isGameOver = false;
 
     private void Awake()
     {
@@ -36,7 +37,33 @@ public class GameManager : MonoBehaviour
     {
         CheckTileUnderCursor();
         _floor.GetComponent<Renderer>().material.SetFloat("_GridScaleFactor", _scaleFactor);
+        CheckGameOver();
     }
+
+    void CheckGameOver()
+    {
+        if (isGameOver)
+        {
+            isGameOver = false;
+            StartCoroutine(GameOver());
+            
+        }
+      
+    }
+
+    IEnumerator GameOver()
+    {
+        enemyManager.KillAllEnemy();
+        yield return new WaitForSeconds(3f);
+        //Time.timeScale = 0;
+        GameOverPanel.SetActive(true);
+    }
+
+    public void GameRetry()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 
     private void CheckTileUnderCursor()
     {
