@@ -9,8 +9,7 @@ public class FlyingEnemy : MonoBehaviour
     private float maxHP;
     [SerializeField]
     private float moveSpeed;
-    [SerializeField]
-    private Animator anim;
+    public Animator anim;
     public GameObject enemyManager;
     private float currentHP;
     private bool isWalking = true;
@@ -31,7 +30,6 @@ public class FlyingEnemy : MonoBehaviour
         target = GameObject.Find("EndPoint");
         Player = GameObject.Find("Player1");
         enemyManager = GameObject.Find("SpawnPointGroup");
-        //tempPos = transform.TransformPoint(GameManagerObject.transform.position);
         targetPositionForAir = new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z);
     }
 
@@ -47,6 +45,7 @@ public class FlyingEnemy : MonoBehaviour
             AirMove();
 
     }
+
     /*
     public void AgentStuckAvoid()
     {
@@ -80,7 +79,7 @@ public class FlyingEnemy : MonoBehaviour
         currentHP -= Damage;
         if (currentHP <= 0)
         {
-            RemoveObject();
+            ReadyToDie();
         }
     }
 
@@ -102,6 +101,19 @@ public class FlyingEnemy : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(Player.GetComponent<Player>().GetHitCoroutine(hitDamage));
         yield return new WaitForSeconds(0.75f);
+        RemoveObject();
+    }
+
+    public void ReadyToDie()
+    {
+        StartCoroutine(DieCoroutine());
+    }
+
+    IEnumerator DieCoroutine()
+    {
+        anim.SetBool("isDead", true);
+        isWalking = false;
+        yield return new WaitForSeconds(2f);
         RemoveObject();
     }
 

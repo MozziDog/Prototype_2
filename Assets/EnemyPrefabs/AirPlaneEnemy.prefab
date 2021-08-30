@@ -2190,7 +2190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 15
-  moveSpeed: 1
+  moveSpeed: 1.2
   anim: {fileID: 3898918170305815962}
   enemyManager: {fileID: 0}
   hitDamage: 1

@@ -9,8 +9,7 @@ public class GroundEnemy : MonoBehaviour
     private float maxHP;
     [SerializeField]
     private float moveSpeed;
-    [SerializeField]
-    private Animator anim;
+    public Animator anim;
 
     private float currentHP;
     private bool isDie = false;
@@ -70,10 +69,16 @@ public class GroundEnemy : MonoBehaviour
         currentHP -= Damage;
         if (currentHP <= 0)
         {
-            isDie = true;
-            enemyManager.GetComponent<EnemyManager>().CurrentEnemyList.Remove(gameObject);
-            Destroy(gameObject);
+            ReadyToDie();
         }
+    }
+
+    public void RemoveObject()
+    {
+        isDie = true;
+        enemyManager.GetComponent<EnemyManager>().CurrentEnemyList.Remove(gameObject);
+        Destroy(gameObject);
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -98,6 +103,20 @@ public class GroundEnemy : MonoBehaviour
         yield return new WaitForSeconds(0.75f);
         enemyManager.GetComponent<EnemyManager>().CurrentEnemyList.Remove(gameObject);
         Destroy(gameObject);
+    }
+
+    public void ReadyToDie()
+    {
+        StartCoroutine(DieCoroutine());
+    }
+
+    IEnumerator DieCoroutine()
+    {
+        anim.SetBool("isDead", true);
+        agent.speed = 0;
+        yield return new WaitForSeconds(2f);
+        RemoveObject();
+
     }
 
 

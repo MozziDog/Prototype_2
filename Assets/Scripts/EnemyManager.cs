@@ -44,11 +44,22 @@ public class EnemyManager : MonoBehaviour
 
     public void KillAllEnemy()
     {
-        if (CurrentEnemyList.Count>0)
+        
         for (int i = 0; i < CurrentEnemyList.Count; i++)
         {
-            CurrentEnemyList.RemoveAt(i);
-            Destroy(CurrentEnemyList[i]);
+                if (CurrentEnemyList[i] == null)
+                    continue;
+
+            switch (CurrentEnemyList[i].tag)
+            {
+                case "GroundEnemy":
+                    CurrentEnemyList[i].GetComponent<GroundEnemy>().ReadyToDie();
+                    break;
+                case "FlyingEnemy":
+                    CurrentEnemyList[i].GetComponent<FlyingEnemy>().ReadyToDie();
+                    break;
+            }
+              
         }
         
         
@@ -79,7 +90,7 @@ public class EnemyManager : MonoBehaviour
         StartSpawn(); //currentWave의 웨이브 정보에 기반해서 웨이브 스타트
     }
 
-    // Update is called once per frame
+  
     
 
     public void BakeNav()
