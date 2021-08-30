@@ -2189,12 +2189,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e65849df17bbc894e8fa388880afd1d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 3
+  maxHP: 15
   moveSpeed: 1
   anim: {fileID: 3898918170305815962}
+  enemyManager: {fileID: 0}
   hitDamage: 1
-  rewardMoney: 5
-  GameManagerObject: {fileID: 0}
 --- !u!1 &5389253356460690187
 GameObject:
   m_ObjectHideFlags: 0

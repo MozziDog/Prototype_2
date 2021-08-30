@@ -62,6 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myposition: []
+  price: 30
   numberOfBlocks: 1
   TowerHeads:
   - {fileID: 883025411497175900}
