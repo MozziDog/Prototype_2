@@ -176,7 +176,6 @@ public class TowerManager : MonoBehaviour
         enemyManager.BakeNav();
         if (enemyManager.CalculateNewPath())
         {
-
             temporarilyPlacedTower.SetActive(false);
             enemyManager.BakeNav();
             temporarilyPlacedTower.SetActive(true);

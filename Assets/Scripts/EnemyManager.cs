@@ -6,14 +6,16 @@ using UnityEngine.EventSystems;
 
 public class EnemyManager : MonoBehaviour
 {
-    
-    
+
+
     public NavMeshSurface surface;
     public UnityEngine.AI.NavMeshPath navMeshPath;
     public UnityEngine.AI.NavMeshAgent agent;
     [SerializeField] GameObject _endPoint;
     [SerializeField] GameObject _groundStartPoint;
     [SerializeField] GameObject _airStartPoint;
+    public WavePathDisplay _pathDisplay_Ground;
+    public WavePathDisplay _pathDisplay_Air;
     public bool pathAvailable;
     Transform spawnPos;
 
@@ -31,43 +33,31 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CurrentEnemyList = new List<GameObject>(); //ÇöÀç »ı¼ºµÇ¾îÀÖ´Â Àû Á¤º¸ Âü°í¿ë ¸®½ºÆ®
+        CurrentEnemyList = new List<GameObject>(); //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
         navMeshPath = new UnityEngine.AI.NavMeshPath();
 
 
     }
     void Update()
     {
-        AirRouteDraw();
     }
 
     public void AirRouteDraw()
     {
-        var lineForAir = GameObject.Find("GroundSpawnPoint").GetComponent<LineRenderer>();
-        switch (SpawnedAirEnemyCount > 0)
-        {
-            case true:
-                lineForAir.enabled = true;
-                lineForAir.SetPosition(0, _groundStartPoint.transform.position);
-                lineForAir.SetPosition(1, _endPoint.transform.position);
-                break;
-
-            case false:
-                lineForAir.enabled = false;
-                break;
-
-        }
-
+        Vector3[] airPath = new Vector3[2];
+        airPath[0] = _groundStartPoint.transform.position;
+        airPath[1] = _endPoint.transform.position;
+        _pathDisplay_Air.DisplayPath(airPath);
     }
 
-        public void StartWave(Wave wave)
+    public void StartWave(Wave wave)
     {
         currentWave = wave;
-        StartSpawn(); //currentWaveÀÇ ¿şÀÌºê Á¤º¸¿¡ ±â¹İÇØ¼­ ¿şÀÌºê ½ºÅ¸Æ®
+        StartSpawn(); //currentWaveï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½Å¸Æ®
     }
 
     // Update is called once per frame
-    
+
 
     public void BakeNav()
     {
@@ -80,12 +70,15 @@ public class EnemyManager : MonoBehaviour
         NavMeshPath path = new NavMeshPath();
         var line = this.GetComponent<LineRenderer>();
         NavMesh.CalculatePath(transform.position, _endPoint.transform.position, NavMesh.AllAreas, path);
-        line.positionCount = path.corners.Length;
-        for (int i = 0; i < path.corners.Length; i++)
-            line.SetPosition(i, path.corners[i]);
-        if (line.positionCount == 0) return false;
+
+        _pathDisplay_Ground.DisplayPath(path.corners);
+
+        if (path.corners.Length == 0)
+        {
+            return false;
+        }
         print("New path calculated");
-        if (navMeshPath.status ==  NavMeshPathStatus.PathPartial) 
+        if (navMeshPath.status == NavMeshPathStatus.PathPartial)
         {
             return false;
         }
@@ -97,7 +90,7 @@ public class EnemyManager : MonoBehaviour
 
     public void StartSpawn()
     {
-       // BakeNav();
+        // BakeNav();
         this.GetComponent<NavMeshAgent>().enabled = false;
         StartCoroutine(EnemySpawner());
     }
@@ -105,25 +98,27 @@ public class EnemyManager : MonoBehaviour
     IEnumerator EnemySpawner()
     {
 
-        switch (currentWave.enemyPrefabs[enemySpawnCount].tag )
+        switch (currentWave.enemyPrefabs[enemySpawnCount].tag)
         {
             case "FlyingEnemy":
                 clone = Instantiate(currentWave.enemyPrefabs[enemySpawnCount], _airStartPoint.transform);
                 SpawnedAirEnemyCount++;
+                // ì  ê²½ë¡œ í‘œì‹œ
+                AirRouteDraw();
                 break;
             case "GroundEnemy":
                 clone = Instantiate(currentWave.enemyPrefabs[enemySpawnCount], _groundStartPoint.transform);
                 break;
 
         }
-            
 
 
-            
-            CurrentSpawnenemy = clone;
-            enemySpawnCount++; //»ıÁ¸À¯¹«¿Í »ó°ü¾øÀÌ »ı¼ºµÈ Àû Ä«¿îÆ®
-            CurrentEnemyList.Add(CurrentSpawnenemy);
-            yield return new WaitForSeconds(currentWave.spawnTime); //»ı¼º ºóµµ 
+
+
+        CurrentSpawnenemy = clone;
+        enemySpawnCount++; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ä«ï¿½ï¿½Æ®
+        CurrentEnemyList.Add(CurrentSpawnenemy);
+        yield return new WaitForSeconds(currentWave.spawnTime); //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
         if (enemySpawnCount < currentWave.maxEnemyCount) StartCoroutine(EnemySpawner());
     }
 
