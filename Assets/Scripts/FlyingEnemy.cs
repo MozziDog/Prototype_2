@@ -99,9 +99,9 @@ public class FlyingEnemy : MonoBehaviour
     {
 
         anim.SetBool("ContactPlayer", true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
         StartCoroutine(Player.GetComponent<Player>().GetHitCoroutine(hitDamage));
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(0.67f);
         RemoveObject();
     }
 
@@ -114,7 +114,7 @@ public class FlyingEnemy : MonoBehaviour
     {
         anim.SetBool("isDead", true);
         isWalking = false;
-        yield return new WaitForSeconds(1.1f);
+        yield return new WaitForSeconds(1.07f);
         RemoveObject();
     }
 

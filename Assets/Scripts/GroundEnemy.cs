@@ -80,7 +80,7 @@ public class GroundEnemy : MonoBehaviour
         anim.SetBool("ContactPlayer", true);
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(Player.GetComponent<Player>().GetHitCoroutine(hitDamage));
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(0.65f);
         RemoveObject();
     }
 
