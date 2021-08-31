@@ -1160,9 +1160,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dfdca745d5bfa54496919dff80ab4fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panSpeed: 3
-  perspectiveZoomSpeed: 0.1
-  orthoZoomSpeed: 0.1
+  panSpeed: 10
+  perspectiveZoomSpeed: 0.01
+  orthoZoomSpeed: 0.01
 --- !u!114 &625576665
 MonoBehaviour:
   m_ObjectHideFlags: 0

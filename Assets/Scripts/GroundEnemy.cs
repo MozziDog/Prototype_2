@@ -13,7 +13,8 @@ public class GroundEnemy : MonoBehaviour
     public GameObject enemyManager;
     public float hitDamage;
     public float currentHP;
-    private bool isDie = false;
+    public bool isDie = false;
+    public bool isHit = false;
     private bool isWalking = true;
     GameObject target;
     GameObject Player;
@@ -56,7 +57,6 @@ public class GroundEnemy : MonoBehaviour
 
     public void RemoveObject()
     {
-        isDie = true;
         enemyManager.GetComponent<EnemyManager>().CurrentEnemyList.Remove(gameObject);
         enemyManager.GetComponent<EnemyManager>().enemyKilledCount++;
         Destroy(gameObject);
@@ -64,7 +64,10 @@ public class GroundEnemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (isDie)
+            return;
+
+            if (other.gameObject.CompareTag("Player"))
         {
             agent.speed = 0;
             isWalking = false;
@@ -77,15 +80,21 @@ public class GroundEnemy : MonoBehaviour
 
     IEnumerator HitPlayer()
     {
+        
+            yield return null;
+        isHit = true;
         anim.SetBool("ContactPlayer", true);
-        yield return new WaitForSeconds(0.5f);
-        StartCoroutine(Player.GetComponent<Player>().GetHitCoroutine(hitDamage));
-        yield return new WaitForSeconds(0.65f);
+        yield return new WaitForSeconds(0.35f);
+        Player.GetComponent<Player>().StartGetHit(hitDamage);
+        yield return new WaitForSeconds(0.62f);
         RemoveObject();
     }
 
     public void ReadyToDie()
     {
+        if (isHit)
+            return;
+        isDie = true;
         StartCoroutine(DieCoroutine());
     }
 

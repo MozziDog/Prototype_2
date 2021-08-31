@@ -517,6 +517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myposition: []
+  price: 30
   numberOfBlocks: 5
   TowerHeads:
   - {fileID: 984725755630479882}
@@ -526,7 +527,7 @@ MonoBehaviour:
   BulletPrefab: {fileID: 3416147399978214580, guid: ae353f2b8a0137240a3314e1734d8382, type: 3}
   bulletSpeed: 10
   bulletDamage: 1
-  attackRate: 0.5
+  attackRate: 0.2
   attackRange: 3.5
 --- !u!1 &8310692416242285440
 GameObject:

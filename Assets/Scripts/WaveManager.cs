@@ -39,7 +39,8 @@ public class WaveManager : MonoBehaviour
        
         if (enemySpawner.enemySpawnCount == waves[currentWaveIndex].maxEnemyCount
             && player.currentHP > 0
-            && enemySpawner.enemyKilledCount == waves[currentWaveIndex].maxEnemyCount)
+            && enemySpawner.enemyKilledCount >= waves[currentWaveIndex].maxEnemyCount
+            && enemySpawner.CurrentEnemyList.Count==0)
         {
             return true;
         }

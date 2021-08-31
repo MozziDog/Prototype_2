@@ -12,6 +12,8 @@ public class FlyingEnemy : MonoBehaviour
     public Animator anim;
     public GameObject enemyManager;
     public float currentHP;
+    public bool isDie = false;
+    public bool isHit = false;
     private bool isWalking = true;
     public float hitDamage;
     GameObject target;
@@ -68,6 +70,7 @@ public class FlyingEnemy : MonoBehaviour
 
     public void RemoveObject()
     {
+        isDie = true;
         enemyManager.GetComponent<EnemyManager>().CurrentEnemyList.Remove(gameObject);
         enemyManager.GetComponent<EnemyManager>().SpawnedAirEnemyCount--;
         enemyManager.GetComponent<EnemyManager>().enemyKilledCount++;
@@ -86,7 +89,10 @@ public class FlyingEnemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+
+        if (isDie)
+            return;
+            if (other.gameObject.CompareTag("Player"))
         {
 
             isWalking = false;
@@ -97,16 +103,19 @@ public class FlyingEnemy : MonoBehaviour
 
     IEnumerator HitPlayer()
     {
+        
 
         anim.SetBool("ContactPlayer", true);
-        yield return new WaitForSeconds(0.4f);
-        StartCoroutine(Player.GetComponent<Player>().GetHitCoroutine(hitDamage));
-        yield return new WaitForSeconds(0.67f);
+        yield return new WaitForSeconds(0.35f);
+        Player.GetComponent<Player>().StartGetHit(hitDamage);
+        yield return new WaitForSeconds(0.65f);
         RemoveObject();
     }
 
     public void ReadyToDie()
     {
+        if (isHit)
+            return;
         StartCoroutine(DieCoroutine());
     }
 

@@ -71,6 +71,20 @@ public class TowerHead : MonoBehaviour
                 ChangeState(WeaponState.SearchTarget);
                 break;
             }
+            /*
+            if (attackTarget.tag == "GroundEnemy" && attackTarget.Find("Enemy01").gameObject.GetComponent<GroundEnemy>().isDie)
+            {
+                ChangeState(WeaponState.SearchTarget);
+                break;
+            }
+
+           else if (attackTarget.tag == "FlyingEnemy" && attackTarget.Find("AirPlaneEnemy").gameObject.GetComponent<FlyingEnemy>().isDie)
+            {
+                ChangeState(WeaponState.SearchTarget);
+                break;
+            }
+            */
+
 
             float distance = Vector3.Distance(attackTarget.position, transform.position);
 
