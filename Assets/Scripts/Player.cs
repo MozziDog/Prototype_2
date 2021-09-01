@@ -36,10 +36,6 @@ public class Player : MonoBehaviour
         hpText.text = string.Format("X {0}", hp);
     }
 
-    public void StartGetHit(float hitDamage)
-    {
-        StartCoroutine(GetHitCoroutine(hitDamage));
-    }
 
 
     public IEnumerator GetHitCoroutine(float damage)
@@ -47,7 +43,7 @@ public class Player : MonoBehaviour
         currentHP -= damage;
         UpdateHpText(currentHP);
         anim.SetBool("isHit", true);
-        yield return new WaitForSeconds(0.65f);
+        yield return new WaitForSeconds(0.7f);
         anim.SetBool("isHit", false);
 
 

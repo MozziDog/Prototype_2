@@ -60,14 +60,12 @@ public class GameManager : MonoBehaviour
     void CheckStageClear()
     {
         if (waveManager.allWaveClear)
-            StartCoroutine(Reward());
+            Reward();
     }
 
-    IEnumerator Reward()
+    void Reward()
     {
-        yield return new WaitForSeconds(2.2f);
         StageClearPanel.SetActive(true);
-        
     }
 
     IEnumerator GameOver()
