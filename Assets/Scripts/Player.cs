@@ -8,15 +8,13 @@ public class Player : MonoBehaviour
     private Animator anim;
     public float maxHP;
     public float currentHP;
-    public GameManager gameManager;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         currentHP = maxHP;
         this.anim = transform.GetComponent<Animator>();
-       
     }
 
 
@@ -33,20 +31,15 @@ public class Player : MonoBehaviour
     }
 
 
-    IEnumerator OnDie()
+    void OnDie()
     {
         this.transform.GetComponent<BoxCollider>().enabled = false;
-        anim.SetBool("isHit", false);
-        anim.SetBool("isDead", true);
-        gameManager.isGameOver = true;
-        yield return null;
-        
-    }
 
-    
+        Time.timeScale = 0;
+    }
     // Update is called once per frame
     void Update()
     {
-        if (currentHP <= 0) StartCoroutine(OnDie());
+        if (currentHP <= 0) OnDie();
     }
 }

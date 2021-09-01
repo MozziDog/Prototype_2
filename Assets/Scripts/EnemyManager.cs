@@ -42,19 +42,6 @@ public class EnemyManager : MonoBehaviour
     {
     }
 
-
-    public void KillAllEnemy()
-    {
-        if (CurrentEnemyList.Count>0)
-        for (int i = 0; i < CurrentEnemyList.Count; i++)
-        {
-            CurrentEnemyList.RemoveAt(i);
-            Destroy(CurrentEnemyList[i]);
-        }
-        
-        
-    }
-
     public void AirRouteDraw()
     {
         Vector3[] airPath = new Vector3[2];
