@@ -614,8 +614,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.6, z: 0.6}
-  m_Center: {x: -5.8633627e-12, y: 0.5313765, z: -0.0012980314}
+  m_Size: {x: 0.6, y: 0.6000001, z: 0.6859237}
+  m_Center: {x: -5.7042468e-11, y: 0.5313765, z: -0.04426005}
 --- !u!195 &6462731293169419928
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -656,6 +656,8 @@ MonoBehaviour:
   enemyManager: {fileID: 0}
   hitDamage: 1
   currentHP: 0
+  isDie: 0
+  isHit: 0
 --- !u!1 &6462731293169419927
 GameObject:
   m_ObjectHideFlags: 0

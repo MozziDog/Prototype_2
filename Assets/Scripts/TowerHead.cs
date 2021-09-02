@@ -107,9 +107,18 @@ public class TowerHead : MonoBehaviour
     {
 
         GameObject clone = Instantiate(BulletPrefab, BulletSpawnPoint.position, Quaternion.identity);
-        clone.GetComponent<Bullet>().Setup(attackTarget, bulletSpeed, bulletDamage);
+        switch (clone.gameObject.tag)
+        {
+            case "BombBullet":
+                clone.GetComponent<BombBullet>().Setup(attackTarget, bulletSpeed, bulletDamage);
+                break;
+            case "Bullet":
+                clone.GetComponent<Bullet>().Setup(attackTarget, bulletSpeed, bulletDamage);
+                break;
 
+        }
     }
+
 
     void Start()
     {
