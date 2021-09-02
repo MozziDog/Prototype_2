@@ -525,6 +525,7 @@ MonoBehaviour:
   - {fileID: 8057874376744535452}
   isTemp: 1
   BulletPrefab: {fileID: 3416147399978214580, guid: ae353f2b8a0137240a3314e1734d8382, type: 3}
+  towerData: {fileID: 11400000, guid: 3f8570bb847e5bb48b1261a4ee40b462, type: 2}
   bulletSpeed: 10
   bulletDamage: 1
   attackRate: 0.2

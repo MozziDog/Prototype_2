@@ -19,6 +19,8 @@ public class GroundEnemy : MonoBehaviour
     GameObject target;
     GameObject Player;
     NavMeshAgent agent;
+
+    public EnemyData enemyData;
     
 
 
@@ -26,6 +28,11 @@ public class GroundEnemy : MonoBehaviour
 
     void Start()
     {
+        maxHP = enemyData.MaxHP;
+        moveSpeed = enemyData.MoveSpeed;
+        hitDamage = enemyData.HitDamage;
+
+
         currentHP = maxHP;
         anim = this.GetComponent<Animator>();
         enemyManager = GameObject.Find("SpawnPointGroup");
@@ -36,12 +43,6 @@ public class GroundEnemy : MonoBehaviour
         agent.speed = moveSpeed;
 
 
-
-    }
-
-
-    private void Update()
-    {
 
     }
    

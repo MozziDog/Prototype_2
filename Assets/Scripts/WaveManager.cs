@@ -22,6 +22,8 @@ public class WaveManager : MonoBehaviour
     public Player player;
     private int currentWaveIndex = -1;
     public bool allWaveClear = false;
+
+    public WaveData[] waveData;
     // Start is called before the first frame update
 
     public void StartWave()
@@ -62,7 +64,15 @@ public class WaveManager : MonoBehaviour
         allWaveClear = true; //전체 웨이브 완수 시 보상화면 이동 , allWaveDone 은  GameManager 이 사용할 것임
     }
 
-
+    private void Start()
+    {
+        for(int i = 0; i < waves.Length; i++)
+        {
+            waves[i].spawnTime = waveData[i].SpawnTime;
+            waves[i].maxEnemyCount = waveData[i].MaxEnemyCount;
+            waves[i].enemyPrefabs = waveData[i].EnemyPrefabs;
+        }
+    }
 
     // Update is called once per frame
     void Update()

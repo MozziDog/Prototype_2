@@ -113,7 +113,7 @@ public class TowerShop : MonoBehaviour
     {
         int price = _towerOnList[GetSelectedItemIndex()].GetComponent<TowerInfo>().GetPrice();
         Debug.Log("price : " + price);
-        if (price < _wallet.GetLeftMoney())
+        if (price <= _wallet.GetLeftMoney())
         {
             return true;
         }
