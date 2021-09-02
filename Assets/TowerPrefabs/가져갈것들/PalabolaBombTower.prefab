@@ -5073,7 +5073,7 @@ GameObject:
   - component: {fileID: 5933684276153848014}
   - component: {fileID: 6161430828665937308}
   m_Layer: 11
-  m_Name: FastTower
+  m_Name: PalabolaBombTower
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -5190,8 +5190,8 @@ MonoBehaviour:
   TowerHeads:
   - {fileID: 3862504935729062350}
   isTemp: 1
-  BulletPrefab: {fileID: 1548777328554500, guid: 52de705d1b0868149904557a62f16274, type: 3}
-  bulletSpeed: 5
-  bulletDamage: 1
-  attackRate: 0.5
-  attackRange: 3.5
+  BulletPrefab: {fileID: 1548777328554500, guid: 763a7d3491e1a7c409692f6bcd3b0925, type: 3}
+  bulletSpeed: 0.5
+  bulletDamage: 20
+  attackRate: 3
+  attackRange: 7.5

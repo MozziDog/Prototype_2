@@ -7,6 +7,15 @@ TagManager:
   - Tower
   - Floor
   - Enemy
+  - GroundEnemy
+  - FlyingEnemy
+  - Castle
+  - enemyBug
+  - NormalBombBullet
+  - PalabolaBombBullet
+  - NormalBullet
+  - Bullet
+  - BombBullet
   layers:
   - Default
   - TransparentFX

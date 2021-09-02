@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //k all
-public class BombBullet : MonoBehaviour
+public class PalabolaBombBullet : MonoBehaviour
 {
     public string BulletName;
     public float bulletSpeed;
     private float bulletDamage;
-    private Transform target;
+    public Transform target;
     public GameObject impactParticle;
     public Vector3 aimPosition;
     public Transform Projectile;
     private Transform myTransform;
-    public float firingAngle = 60.0f;
-    public float gravity = 9.8f;
-
+    public float firingAngle = 90.0f;
+    public float gravity = 7.8f;
+    public float BombRadius=1.5f;
 
     
 
@@ -56,75 +56,73 @@ public class BombBullet : MonoBehaviour
 
         while (elapse_time < flightDuration)
         {
-            Projectile.Translate(0, (Vy - (gravity * elapse_time)) * Time.deltaTime, Vx * Time.deltaTime*bulletSpeed);
+            Projectile.Translate(0, (Vy - (gravity * elapse_time)) * Time.deltaTime * bulletSpeed, Vx * Time.deltaTime*bulletSpeed);
 
-            elapse_time += Time.deltaTime;
+            elapse_time += Time.deltaTime*bulletSpeed;
 
             yield return null;
         }
+      //  Explode();
     }
-    //[출처] [Unity 5] 특정 지점으로 포물선 운동하는 물체 보내기|작성자 호이돌
+    //[출처] [Unity 5] 특정 지점으로 포물선 운동하는 물체 보내기|작성자 호이돌 + 개인 추가코드
 
-    
-    private void OnTriggerEnter(Collider other) //적 또는과 바닥과 충돌시 상호작용
+    /*
+     private void OnCollisionEnter(Collision collision)
+     {
+         if (collision.gameObject.layer == 10) { 
+             Debug.LogWarning("Bomb Exploding!!");
+         Explode(collision);
+             }
+
+     }
+    */
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (1<<other.gameObject.layer != LayerMask.NameToLayer("Floor") || 1<<other.gameObject.layer != LayerMask.NameToLayer("Enemy")) return;
-        
-        if(other.transform != target) return;
-
+        if (other.gameObject.layer == LayerMask.NameToLayer("Floor") || other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             Explode();
-        
-
-
-        //hit particle spawn
-        impactParticle = Instantiate(impactParticle, target.transform.position + Vector3.up * 0.5f, Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
-        impactParticle.transform.parent = target.transform;
-        Destroy(impactParticle, 3);
-
-        //destroy bullet prefab
-        Destroy(gameObject, 0.6f);
-         
-        
     }
-
     void Explode()
     {
-        Instantiate(impactParticle, transform.position, transform.rotation);
 
+        //hit particle spawn
+       GameObject BoomEffects = Instantiate(impactParticle, Projectile.position, Quaternion.identity) as GameObject;
+       // BoomEffects.transform.parent = target.transform;
+        Destroy(BoomEffects, 3);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, BombRadius);
 
-        Destroy(gameObject,0.6f);
+        foreach(Collider searchedObject in colliders)
+        {
+            if (searchedObject!=null &&searchedObject.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+                searchedObject.GetComponent<GroundEnemy>().GetDamage(bulletDamage);
+        }
+
+        Destroy(gameObject);
     }
 
-    
-   /* 
-    void Shoot()
+    /*
+    void AimTarget() //자동추격 기능 
     {
-        //조준방향으로 발사..추적기능 on 
-        this.transform.position = Vector3.MoveTowards(this.transform.position, aimPosition, bulletSpeed * Time.deltaTime);
+        aimPosition = new Vector3(target.position.x, target.position.y, target.position.z);
+        transform.LookAt(aimPosition);
+        Physics.Raycast(transform.position, aimPosition, out hit);
+        Debug.DrawLine(transform.position, aimPosition);
     }
-   */
+  */
 
 
     // Start is called before the first frame update
     void Start()
     {
-        aimPosition = new Vector3(target.position.x, target.position.y + 0.5f, target.position.z);
-        transform.LookAt(aimPosition);
-        StartCoroutine(SimulateProjectile());
+        if (target)
+            StartCoroutine(SimulateProjectile());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (target != null)
-        {
-            
-          //Shoot();
-            
-        } 
-        else
-        {
-            Destroy(gameObject); //적 소멸시 자체 파괴
-        }
+        //if(target)
+       // AimTarget();
+
     }
 }

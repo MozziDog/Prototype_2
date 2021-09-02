@@ -46,6 +46,8 @@ public class TowerHead : MonoBehaviour
             {
                 if (enemyList[i] == null)
                     continue;
+                if (BulletPrefab.tag == "BulletBomb" && enemyList[i].tag == "FlyingEnemy")
+                    continue;
 
                 float distance = Vector3.Distance(enemyList[i].transform.position, transform.position);
                 if (distance <= attackRange && distance <= closestDistSqr)
@@ -105,12 +107,17 @@ public class TowerHead : MonoBehaviour
 
     private void SpawnBullet() //발사체 생성
     {
+        if (!attackTarget)
+            return;
 
         GameObject clone = Instantiate(BulletPrefab, BulletSpawnPoint.position, Quaternion.identity);
         switch (clone.gameObject.tag)
         {
-            case "BombBullet":
-                clone.GetComponent<BombBullet>().Setup(attackTarget, bulletSpeed, bulletDamage);
+            case "PalabolaBombBullet":
+                clone.GetComponent<PalabolaBombBullet>().Setup(attackTarget, bulletSpeed, bulletDamage);
+                break;
+            case "NormalBombBullet":
+              clone.GetComponent<NormalBombBullet>().Setup(attackTarget, bulletSpeed, bulletDamage);
                 break;
             case "Bullet":
                 clone.GetComponent<Bullet>().Setup(attackTarget, bulletSpeed, bulletDamage);
