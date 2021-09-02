@@ -117,7 +117,12 @@ public class GameManager : MonoBehaviour
                 _rangeGizmo.transform.position = new Vector3(Mathf.Floor(hit.point.x) + 0.5f, 0f, Mathf.Floor(hit.point.z) + 0.5f);
                 _rangeGizmo.SetActive(true);
             }
-            //else _bg.SetActive(false);
+            else
+            {
+                _selected[0].SetActive(false);
+                _selected[1].SetActive(false);
+                _rangeGizmo.SetActive(false);
+            }
         }
     }
 

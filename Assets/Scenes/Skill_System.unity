@@ -1101,33 +1101,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - spawnTime: 2
-    maxEnemyCount: 20
-    enemyPrefabs:
-    - {fileID: 6462731293169419925, guid: f662bb43aceeb0a45b1123e44e3b7178, type: 3}
-    - {fileID: 6462731293169419925, guid: f662bb43aceeb0a45b1123e44e3b7178, type: 3}
-    - {fileID: 4449752608684807761, guid: a434011a80b6ab74da0a5edebf3a7490, type: 3}
-    - {fileID: 6462731293169419925, guid: f662bb43aceeb0a45b1123e44e3b7178, type: 3}
-    - {fileID: 6462731293169419925, guid: f662bb43aceeb0a45b1123e44e3b7178, type: 3}
-    - {fileID: 6462731293169419925, guid: f662bb43aceeb0a45b1123e44e3b7178, type: 3}
-    - {fileID: 6462731293169419925, guid: f662bb43aceeb0a45b1123e44e3b7178, type: 3}
-    - {fileID: 6462731293169419925, guid: f662bb43aceeb0a45b1123e44e3b7178, type: 3}
-    - {fileID: 6462731293169419925, guid: f662bb43aceeb0a45b1123e44e3b7178, type: 3}
-    - {fileID: 6462731293169419925, guid: f662bb43aceeb0a45b1123e44e3b7178, type: 3}
-    - {fileID: 6462731293169419925, guid: f662bb43aceeb0a45b1123e44e3b7178, type: 3}
-    - {fileID: 4449752608684807761, guid: a434011a80b6ab74da0a5edebf3a7490, type: 3}
-    - {fileID: 6462731293169419925, guid: f662bb43aceeb0a45b1123e44e3b7178, type: 3}
-    - {fileID: 6462731293169419925, guid: f662bb43aceeb0a45b1123e44e3b7178, type: 3}
-    - {fileID: 6462731293169419925, guid: f662bb43aceeb0a45b1123e44e3b7178, type: 3}
-    - {fileID: 6462731293169419925, guid: f662bb43aceeb0a45b1123e44e3b7178, type: 3}
-    - {fileID: 6462731293169419925, guid: f662bb43aceeb0a45b1123e44e3b7178, type: 3}
-    - {fileID: 6462731293169419925, guid: f662bb43aceeb0a45b1123e44e3b7178, type: 3}
-    - {fileID: 4449752608684807761, guid: a434011a80b6ab74da0a5edebf3a7490, type: 3}
-    - {fileID: 6462731293169419925, guid: f662bb43aceeb0a45b1123e44e3b7178, type: 3}
+  - spawnTime: 0
+    maxEnemyCount: 0
+    enemyPrefabs: []
+  - spawnTime: 0
+    maxEnemyCount: 0
+    enemyPrefabs: []
+  - spawnTime: 0
+    maxEnemyCount: 0
+    enemyPrefabs: []
   enemySpawner: {fileID: 1021901921}
   obstacleManager: {fileID: 625576665}
   player: {fileID: 1356458650}
   allWaveClear: 0
+  waveData:
+  - {fileID: 11400000, guid: c874d17704a58b3489e53a0e16df24c7, type: 2}
+  - {fileID: 11400000, guid: ebecd886b0469aa4a8a77bd44de2c36c, type: 2}
+  - {fileID: 11400000, guid: 655b94c95b173c7479152b3884989497, type: 2}
 --- !u!114 &625576663
 MonoBehaviour:
   m_ObjectHideFlags: 0

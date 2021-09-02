@@ -29,11 +29,6 @@ public class TowerManager : MonoBehaviour
     public Vector3 lastSelectedTilePosition;
 
     public Inventory _inven;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -99,8 +94,11 @@ public class TowerManager : MonoBehaviour
 
             if (CheckTowerSpawnable() != TowerSpawnCheck.OK)
             {
+                ChangeMaterial(temporarilyPlacedTower, 1);
                 StartCoroutine(CannotBuildPopUp()); // 설치 불가능을 나타내는 효과
             }
+            else
+                ChangeMaterial(temporarilyPlacedTower, 2);
             SpawnCheckObejct = null;
         }
         if (SpawnCheckObejct != null)
@@ -264,6 +262,35 @@ public class TowerManager : MonoBehaviour
         cannotBuildMessage.SetActive(false);
 
 
+    }
+
+    void ChangeMaterial(GameObject _tower, int state)
+    {
+        int numOfChildren = _tower.transform.childCount;
+        switch (state)
+        {
+            case 1:
+                for(int i = 0; i < numOfChildren; i++)
+                {
+                    GameObject child = _tower.transform.GetChild(i).gameObject;
+                    if(child.GetComponent<MeshRenderer>() != null)
+                    {
+                        //child.GetComponent<MeshRenderer>().material.render
+                        child.GetComponent<MeshRenderer>().material.color = new Color(255, 0, 0, 100);
+                    }
+                }
+                break;
+            case 2:
+                for (int i = 0; i < numOfChildren; i++)
+                {
+                    GameObject child = _tower.transform.GetChild(i).gameObject;
+                    if (child.GetComponent<MeshRenderer>() != null)
+                    {
+                        child.GetComponent<MeshRenderer>().material.color = new Color(255, 255, 255, 255);
+                    }
+                }
+                break;
+        }
     }
 
 }
