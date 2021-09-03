@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //k all
-public class Bullet : MonoBehaviour
+public class NormalBullet : MonoBehaviour
 {
     public string BulletName;
     public float bulletSpeed;
@@ -32,12 +32,12 @@ public class Bullet : MonoBehaviour
 
 
         //hit particle spawn
-        impactParticle = Instantiate(impactParticle, target.transform.position + Vector3.up * 0.5f, Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
-        impactParticle.transform.parent = target.transform;
-        Destroy(impactParticle, 3);
+        GameObject clone = Instantiate(impactParticle, target.transform.position + Vector3.up * 0.5f, Quaternion.identity) as GameObject;
+        clone.transform.parent = target.transform;
+        Destroy(clone, 3);
 
         //destroy bullet prefab
-        Destroy(gameObject, 0.6f);
+        Destroy(gameObject);
          
         
     }

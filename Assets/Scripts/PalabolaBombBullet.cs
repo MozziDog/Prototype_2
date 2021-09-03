@@ -89,11 +89,11 @@ public class PalabolaBombBullet : MonoBehaviour
        GameObject BoomEffects = Instantiate(impactParticle, Projectile.position, Quaternion.identity) as GameObject;
        // BoomEffects.transform.parent = target.transform;
         Destroy(BoomEffects, 3);
-        Collider[] colliders = Physics.OverlapSphere(transform.position, BombRadius);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, BombRadius, LayerMask.NameToLayer("Enemy"));
 
         foreach(Collider searchedObject in colliders)
         {
-            if (searchedObject!=null &&searchedObject.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            if (searchedObject!=null)
                 searchedObject.GetComponent<GroundEnemy>().GetDamage(bulletDamage);
         }
 

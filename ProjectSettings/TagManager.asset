@@ -13,9 +13,8 @@ TagManager:
   - enemyBug
   - NormalBombBullet
   - PalabolaBombBullet
+  - NormalChainBullet
   - NormalBullet
-  - Bullet
-  - BombBullet
   layers:
   - Default
   - TransparentFX
