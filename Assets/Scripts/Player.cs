@@ -41,6 +41,12 @@ public class Player : MonoBehaviour
         StartCoroutine(GetHitCoroutine(hitDamage));
     }
 
+    public void getHealed()
+    {
+        currentHP += Mathf.Round((maxHP - currentHP) / 2f);
+        UpdateHpText(currentHP);
+    }
+
 
     public IEnumerator GetHitCoroutine(float damage)
     {
