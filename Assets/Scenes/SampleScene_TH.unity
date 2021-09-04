@@ -1148,6 +1148,7 @@ GameObject:
   - component: {fileID: 625576660}
   - component: {fileID: 625576661}
   - component: {fileID: 625576663}
+  - component: {fileID: 625576666}
   - component: {fileID: 625576662}
   - component: {fileID: 625576664}
   - component: {fileID: 625576665}
@@ -1255,10 +1256,10 @@ MonoBehaviour:
   cannotBuildMessage: {fileID: 428518564}
   surface: {fileID: 664370446}
   enemyManager: {fileID: 1021901921}
+  selectManager: {fileID: 625576666}
   towerToSpawn: {fileID: 0}
   temporarilyPlacedTower: {fileID: 0}
   towerSpawned: []
-  lastSelectedTilePosition: {x: 0, y: 0, z: 0}
   _inven: {fileID: 1761398618}
 --- !u!114 &625576664
 MonoBehaviour:
@@ -1288,6 +1289,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wayPointObstacle: []
+--- !u!114 &625576666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625576659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63a2945971f6fa44094d06618c0aa4fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &631541887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2839,7 +2852,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 6.999878, y: 137}
+  m_AnchoredPosition: {x: 7, y: 137}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1190245609
