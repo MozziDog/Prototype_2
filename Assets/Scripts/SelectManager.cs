@@ -14,13 +14,16 @@ public class SelectManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.touchCount == 1 && !EventSystem.current.IsPointerOverGameObject())
+        if (!EventSystem.current.IsPointerOverGameObject())
         {
-            OnTouch();
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            OnTouchUp();
+            if (Input.touchCount == 1)
+            {
+                OnTouch();
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                OnTouchUp();
+            }
         }
     }
 
@@ -35,11 +38,8 @@ public class SelectManager : MonoBehaviour
             {
                 if (hit.transform.CompareTag("Tower"))// 타워 터치된 경우
                 {
-                    GameObject tower = hit.transform.gameObject;
-                    while (tower.transform.parent.CompareTag("Tower"))
-                    {
-                        tower = tower.transform.parent.gameObject;
-                    }
+                    GameObject tower = hit.collider.gameObject;
+                    tower = GetTowerFromTowerParts(tower);
                     selectedTower = tower;
                 }
                 else    // 바닥 터치된 경우
@@ -68,6 +68,14 @@ public class SelectManager : MonoBehaviour
             }
 
         }
+        else // 아무 빈 공간을 터치한 경우
+        {
+            if (selectedTower != null)
+            {
+                SendMessage("OnTowerUnselected", selectedTower);
+                selectedTower = null;
+            }
+        }
     }
 
     void OnTouchUp()
@@ -77,15 +85,29 @@ public class SelectManager : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Floor")))
         {
             GameObject tower = hit.transform.gameObject;
-            while (tower.transform.parent.CompareTag("Tower"))
-            {
-                tower = tower.transform.parent.gameObject;
-            }
+            tower = GetTowerFromTowerParts(tower);
             if (tower == selectedTower)
             {
                 SendMessage("OnTowerSelected", selectedTower);
             }
         }
+    }
+
+    GameObject GetTowerFromTowerParts(GameObject towerPart)
+    {
+        GameObject tower = towerPart;
+        while (tower.transform.parent != null)
+        {
+            if (tower.transform.parent.CompareTag("Tower") == true)
+            {
+                tower = tower.transform.parent.gameObject;
+            }
+            else
+            {
+                break;
+            }
+        }
+        return tower;
     }
 
     public Vector3 GetPointedTile()

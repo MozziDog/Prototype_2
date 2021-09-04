@@ -27,17 +27,16 @@ public enum TowerManagerMode
 
 public class TowerManager : MonoBehaviour
 {
-    [ReadOnly(true)] TowerManagerMode towerManagerStatus;
+    [ReadOnly] [SerializeField] TowerManagerMode towerManagerStatus;
     [SerializeField] GameObject cannotBuildMessage;
     public NavMeshSurface surface;
     public static readonly int MAX_TOWER_ENTITY = 20;
     public EnemyManager enemyManager;
     public SelectManager selectManager;
+    public Inventory _inven;
     public GameObject towerToSpawn;
     public GameObject temporarilyPlacedTower;
     public List<GameObject> towerSpawned = new List<GameObject>();
-    Vector3 selectedTilePosition;
-    public Inventory _inven;
 
     void Start()
     {
@@ -50,12 +49,21 @@ public class TowerManager : MonoBehaviour
 
     void OnTowerSelected(GameObject tower)
     {
+        towerManagerStatus = TowerManagerMode.TowerSelected;
         SetTowerUI(tower, true);
     }
 
 
     void OnTowerUnselected(GameObject tower)
     {
+        if (false /*GameManager.isEnemyWaveStarted*/)
+        {
+            towerManagerStatus = TowerManagerMode.NotSpawnable;
+        }
+        else
+        {
+            towerManagerStatus = TowerManagerMode.TowerSpawnable;
+        }
         SetTowerUI(tower, false);
     }
 
