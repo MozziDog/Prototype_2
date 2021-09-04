@@ -15,6 +15,7 @@ TagManager:
   - PalabolaBombBullet
   - NormalChainBullet
   - NormalBullet
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - Floor
   - Tower_temp
   - Enemy
-  - 
+  - Dead
   - 
   - 
   - 

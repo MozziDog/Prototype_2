@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class ChainBullet : MonoBehaviour
+public class ChainBullet : MonoBehaviour ,BulletInterFace
 {
     public string BulletName;
     public float bulletSpeed;
@@ -18,11 +18,11 @@ public class ChainBullet : MonoBehaviour
     private List<GameObject> hitTargets;
     RaycastHit hit;
 
-    public void Setup(Transform target, float bulletSpeed, float bulletDamage)
+    public void SetUp(BulletInfo bulletinfo)
     {
-        this.bulletSpeed = bulletSpeed;
-        this.currentTarget = target;
-        this.bulletDamage = bulletDamage;
+        this.bulletSpeed = bulletinfo.bulletSpeed;
+        this.currentTarget = bulletinfo.attackTarget;
+        this.bulletDamage = bulletinfo.bulletDamage;
     }
 
     public void ChangeState(WeaponState newState) //적에 대한  탐색, 공격  모드의 코루틴 전환

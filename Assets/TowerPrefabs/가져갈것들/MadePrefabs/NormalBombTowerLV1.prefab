@@ -128,15 +128,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myposition: []
   price: 30
-  numberOfBlocks: 1
-  TowerHeads:
-  - {fileID: 5983247553079788416}
-  isTemp: 1
-  BulletPrefab: {fileID: 1093651845529576, guid: 9c70add1e7bde6f4fa1ae213a18beedd, type: 3}
   bulletSpeed: 8
   bulletDamage: 15
   attackRate: 3
   attackRange: 6.5
+  numberOfBlocks: 3
+  Towers:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  isTemp: 1
 --- !u!1 &5983902089907483236
 GameObject:
   m_ObjectHideFlags: 0
@@ -9879,6 +9880,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 5984598053884031336}
   BulletSpawnPoint: {fileID: 5987610081509167768}
+  RotatingBody: {fileID: 0}
   bulletSpeed: 0
   bulletDamage: 1
   attackRate: 0.5
@@ -9886,6 +9888,7 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+  homeY: 0
 --- !u!1 &5984590659265553654
 GameObject:
   m_ObjectHideFlags: 0

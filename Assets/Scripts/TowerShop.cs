@@ -103,7 +103,7 @@ public class TowerShop : MonoBehaviour
             return;
         }
         // 가능하다면 구매진행
-        _wallet.SpendMoney(_towerOnList[GetSelectedItemIndex()].GetComponent<TowerInfo>().GetPrice());
+        _wallet.SpendMoney(_towerOnList[GetSelectedItemIndex()].GetComponent<TowerBase>().GetPrice());
         _inven.AddItem(_towerOnList[GetSelectedItemIndex()]);
         DisableUsedButton();
         return;
@@ -111,7 +111,7 @@ public class TowerShop : MonoBehaviour
 
     private bool CheckEnoughMoney()
     {
-        int price = _towerOnList[GetSelectedItemIndex()].GetComponent<TowerInfo>().GetPrice();
+        int price = _towerOnList[GetSelectedItemIndex()].GetComponent<TowerBase>().GetPrice();
         Debug.Log("price : " + price);
         if (price < _wallet.GetLeftMoney())
         {

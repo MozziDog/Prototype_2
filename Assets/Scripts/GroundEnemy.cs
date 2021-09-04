@@ -3,26 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class GroundEnemy : MonoBehaviour
+public class GroundEnemy : MonoBehaviour, EnemyInterFace
 {
-    [SerializeField]
-    private float maxHP;
-    [SerializeField]
-    private float moveSpeed;
+    [Header("Enemy Info")]
+    public float maxHP;
+    public float currentHP;
+    public float moveSpeed;
+    public float hitDamage;
+
+    [Header("Enemy State")]
+    public bool isDie = false;
+    public bool isHitting = false;
+    private bool isWalking = true;
+
+
+    [Header("Animator and EnemyManager")]
     public Animator anim;
     public GameObject enemyManager;
-    public float hitDamage;
-    public float currentHP;
-    public bool isDie = false;
-    public bool isHit = false;
-    private bool isWalking = true;
+    
     GameObject target;
     GameObject Player;
     NavMeshAgent agent;
-    
 
 
+    public void SetUp() { }
 
+    public bool CheckDead()
+    {
+        if (isDie)
+            return true;
+        else
+            return false;
+    }
 
     void Start()
     {
@@ -82,7 +94,7 @@ public class GroundEnemy : MonoBehaviour
     {
         
             yield return null;
-        isHit = true;
+        isHitting = true;
         anim.SetBool("ContactPlayer", true);
         yield return new WaitForSeconds(0.35f);
         Player.GetComponent<Player>().StartGetHit(hitDamage);
@@ -92,9 +104,10 @@ public class GroundEnemy : MonoBehaviour
 
     public void ReadyToDie()
     {
-        if (isHit)
+        if (isHitting)
             return;
         isDie = true;
+        this.gameObject.layer = LayerMask.NameToLayer("Dead");
         StartCoroutine(DieCoroutine());
     }
 

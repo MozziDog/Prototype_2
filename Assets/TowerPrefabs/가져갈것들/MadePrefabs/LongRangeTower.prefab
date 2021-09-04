@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7080314020278163431}
   - component: {fileID: 1161245893102881737}
   - component: {fileID: 4109300857901433259}
-  - component: {fileID: 6461984761024026186}
+  - component: {fileID: -675008096355167967}
   m_Layer: 11
   m_Name: LongRangeTower
   m_TagString: Tower
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!114 &6461984761024026186
+--- !u!114 &-675008096355167967
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,15 +128,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myposition: []
   price: 30
-  numberOfBlocks: 1
-  TowerHeads:
-  - {fileID: 6074046403739807744}
-  isTemp: 1
-  BulletPrefab: {fileID: 1974867370617378, guid: 49e8413d0d0a6cc4ea66b0036b8b66a1, type: 3}
-  bulletSpeed: 10
-  bulletDamage: 25
-  attackRate: 2
+  bulletSpeed: 5
+  bulletDamage: 20
+  attackRate: 1.5
   attackRange: 8.5
+  numberOfBlocks: 1
+  Towers:
+  - {fileID: 6074046403739807759}
+  isTemp: 1
 --- !u!1 &6073168843525982317
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,6 +325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 1974867370617378, guid: 49e8413d0d0a6cc4ea66b0036b8b66a1, type: 3}
   BulletSpawnPoint: {fileID: 6078778996772632719}
+  RotatingBody: {fileID: 6078804502725442343}
   bulletSpeed: 0
   bulletDamage: 1
   attackRate: 0.5
@@ -333,6 +333,7 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+  homeY: 0
 --- !u!1 &6074137720849653919
 GameObject:
   m_ObjectHideFlags: 0

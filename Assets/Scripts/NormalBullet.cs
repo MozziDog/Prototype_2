@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //k all
-public class NormalBullet : MonoBehaviour
+public class NormalBullet : MonoBehaviour, BulletInterFace
 {
     public string BulletName;
     public float bulletSpeed;
-    private float bulletDamage;
+    public float bulletDamage;
     private Transform target;
     public GameObject impactParticle;
     public Vector3 aimPosition;
     
     RaycastHit hit;
-    public void Setup(Transform target, float bulletSpeed, float bulletDamage)
+    public void SetUp(BulletInfo bulletinfo)
     {
-        this.bulletSpeed = bulletSpeed;
-        this.target = target;
-        this.bulletDamage = bulletDamage;
+        this.bulletSpeed = bulletinfo.bulletSpeed;
+        this.target = bulletinfo.attackTarget;
+        this.bulletDamage = bulletinfo.bulletDamage;
     }
 
     private void OnTriggerEnter(Collider other) //적과 충돌시 상호작용

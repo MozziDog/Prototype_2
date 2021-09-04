@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //k all
-public class PalabolaBombBullet : MonoBehaviour
+public class PalabolaBombBullet : MonoBehaviour, BulletInterFace
 {
     public string BulletName;
     public float bulletSpeed;
@@ -13,45 +13,35 @@ public class PalabolaBombBullet : MonoBehaviour
     public Vector3 aimPosition;
     public Transform Projectile;
     private Transform myTransform;
-    public float firingAngle = 90.0f;
-    public float gravity = 7.8f;
+    public float firingAngle = 45.0f;
+    public float gravity = 9.8f;
     public float BombRadius=1.5f;
 
     
 
     RaycastHit hit;
-    public void Setup(Transform target, float bulletSpeed, float bulletDamage)
+    public void SetUp(BulletInfo bulletinfo)
     {
-        this.bulletSpeed = bulletSpeed;
-        this.target = target;
-        this.bulletDamage = bulletDamage;
+        this.bulletSpeed = bulletinfo.bulletSpeed;
+        this.target = bulletinfo.attackTarget;
+        this.bulletDamage = bulletinfo.bulletDamage;
     }
 
 
     IEnumerator SimulateProjectile()
     {
-        // Short delay added before Projectile is thrown
-        //yield return new WaitForSeconds(1.5f);
-
-        // Move projectile to the position of throwing object + add some offset if needed.
+        
+     
         Projectile.position = this.transform.position + new Vector3(0, 0.0f, 0);
 
         // Calculate distance to target
         float target_Distance = Vector3.Distance(Projectile.position, target.position);
 
-        // Calculate the velocity needed to throw the object to the target at specified angle.
         float projectile_Velocity = target_Distance / (Mathf.Sin(2 * firingAngle * Mathf.Deg2Rad) / gravity);
-
-        // Extract the X  Y componenent of the velocity
         float Vx = Mathf.Sqrt(projectile_Velocity) * Mathf.Cos(firingAngle * Mathf.Deg2Rad);
         float Vy = Mathf.Sqrt(projectile_Velocity) * Mathf.Sin(firingAngle * Mathf.Deg2Rad);
-
-        // Calculate flight time.
         float flightDuration = target_Distance / Vx;
-
-        // Rotate projectile to face the target.
         Projectile.rotation = Quaternion.LookRotation(target.position - Projectile.position);
-
         float elapse_time = 0;
 
         while (elapse_time < flightDuration)
@@ -62,9 +52,9 @@ public class PalabolaBombBullet : MonoBehaviour
 
             yield return null;
         }
-      //  Explode();
+     
     }
-    //[출처] [Unity 5] 특정 지점으로 포물선 운동하는 물체 보내기|작성자 호이돌 + 개인 추가코드
+    
 
     /*
      private void OnCollisionEnter(Collision collision)
