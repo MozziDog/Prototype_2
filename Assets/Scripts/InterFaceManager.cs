@@ -16,6 +16,8 @@ public interface EnemyInterFace
     public void SetUp();
 
     public bool CheckDead();
+
+    public void GetDamage(float Damage);
 }
 
 public struct TowerInfo

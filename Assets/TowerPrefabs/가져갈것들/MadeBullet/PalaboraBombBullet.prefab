@@ -9691,11 +9691,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba1731f298f953048b67749a61a9a7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BombAreaEffect: {fileID: 2317583088921270529, guid: 82db0e47c9be46a409b289e840b852bd, type: 3}
+  impactParticle: {fileID: 1747904044913808, guid: f6c65ed4bdf426b45b8b48e34d726588, type: 3}
   BulletName: 
   bulletSpeed: 0.001
+  bulletDamage: 0
   target: {fileID: 0}
-  impactParticle: {fileID: 1747904044913808, guid: f6c65ed4bdf426b45b8b48e34d726588, type: 3}
-  aimPosition: {x: 0, y: 0, z: 0}
   Projectile: {fileID: 4797851969106442}
   firingAngle: 45
   gravity: 9.8

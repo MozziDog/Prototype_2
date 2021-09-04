@@ -5,18 +5,24 @@ using UnityEngine;
 //k all
 public class PalabolaBombBullet : MonoBehaviour, BulletInterFace
 {
+    public GameObject BombAreaEffect;
+    public GameObject impactParticle;
+    GameObject ShootArea;
+
     public string BulletName;
     public float bulletSpeed;
-    private float bulletDamage;
+    public float bulletDamage;
+    
     public Transform target;
-    public GameObject impactParticle;
-    public Vector3 aimPosition;
+    //public Vector3 aimPosition;
     public Transform Projectile;
     private Transform myTransform;
+
+
     public float firingAngle = 45.0f;
     public float gravity = 9.8f;
-    public float BombRadius=1.5f;
-
+    public float BombRadius;
+   
     
 
     RaycastHit hit;
@@ -30,8 +36,8 @@ public class PalabolaBombBullet : MonoBehaviour, BulletInterFace
 
     IEnumerator SimulateProjectile()
     {
-        
-     
+
+        ShootArea = Instantiate(BombAreaEffect, new Vector3(target.position.x, 0.1f, target.position.z), BombAreaEffect.transform.rotation);
         Projectile.position = this.transform.position + new Vector3(0, 0.0f, 0);
 
         // Calculate distance to target
@@ -69,25 +75,36 @@ public class PalabolaBombBullet : MonoBehaviour, BulletInterFace
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Floor") || other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Floor")) //|| other.gameObject.layer == LayerMask.NameToLayer("Enemy")
             Explode();
     }
     void Explode()
     {
-
+        
         //hit particle spawn
        GameObject BoomEffects = Instantiate(impactParticle, Projectile.position, Quaternion.identity) as GameObject;
        // BoomEffects.transform.parent = target.transform;
         Destroy(BoomEffects, 3);
-        Collider[] colliders = Physics.OverlapSphere(transform.position, BombRadius, LayerMask.NameToLayer("Enemy"));
+        Collider[] colliders = Physics.OverlapSphere(transform.position, BombRadius);
 
-        foreach(Collider searchedObject in colliders)
+
+        foreach (Collider searchedObject in colliders)
         {
-            if (searchedObject!=null)
-                searchedObject.GetComponent<GroundEnemy>().GetDamage(bulletDamage);
+            Debug.Log("Bomb Area Searching");
+            if (searchedObject != null && searchedObject.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            {
+                
+                searchedObject.gameObject.GetComponent<EnemyInterFace>().GetDamage(bulletDamage);
+            }
         }
-
+       
+        Destroy(ShootArea,1);
         Destroy(gameObject);
+    }
+
+    void OnDrawGizmos() //폭탄 범위 sphere 표시
+    {
+        Gizmos.DrawWireSphere(transform.position, BombRadius);
     }
 
     /*

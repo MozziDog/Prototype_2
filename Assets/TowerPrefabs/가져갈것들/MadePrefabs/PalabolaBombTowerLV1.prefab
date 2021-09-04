@@ -9,9 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3859355217199580581}
-  - component: {fileID: 3782945548816823389}
-  - component: {fileID: 3749707117131674651}
-  - component: {fileID: 3845795613329755431}
   m_Layer: 11
   m_Name: Tower_Bug 2
   m_TagString: Castle
@@ -33,48 +30,6 @@ Transform:
   m_Father: {fileID: 3859974632629154617}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &3782945548816823389
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3862162786318704973}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 4
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3749707117131674651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3862162786318704973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c38968fa289f83c4bb374de48ee8ef8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CastleHp: 30
---- !u!54 &3845795613329755431
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3862162786318704973}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &3862179633594455775
 GameObject:
   m_ObjectHideFlags: 0
@@ -4932,7 +4887,7 @@ GameObject:
   - component: {fileID: 3859974632629154617}
   - component: {fileID: 3884571107675069083}
   - component: {fileID: 3876623577693569951}
-  - component: {fileID: 3862504935729062350}
+  - component: {fileID: 251958588}
   m_Layer: 11
   m_Name: EL_draco_1
   m_TagString: Tower
@@ -5007,7 +4962,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3862504935729062350
+--- !u!114 &251958588
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5019,15 +4974,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b6b429b6f272ff4dac62457e5020aa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 1509114483518436, guid: 87d43696f3b4a73418b0b86fd9684547, type: 3}
-  BulletSpawnPoint: {fileID: 3859590451212307173}
-  bulletSpeed: 10
-  bulletDamage: 1
-  attackRate: 0.5
-  attackRange: 3.5
+  BulletPrefab: {fileID: 1548777328554500, guid: 763a7d3491e1a7c409692f6bcd3b0925, type: 3}
+  BulletSpawnPoint: {fileID: 3859531104602798193}
+  RotatingBody: {fileID: 3859974632629154617}
+  bulletSpeed: 0
+  bulletDamage: 0
+  attackRate: 0
+  attackRange: 0
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+  homeY: 0
 --- !u!1 &3862654783820126925
 GameObject:
   m_ObjectHideFlags: 0
@@ -5186,12 +5143,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myposition: []
   price: 30
-  numberOfBlocks: 1
-  TowerHeads:
-  - {fileID: 3862504935729062350}
-  isTemp: 1
-  BulletPrefab: {fileID: 1548777328554500, guid: 763a7d3491e1a7c409692f6bcd3b0925, type: 3}
-  bulletSpeed: 0.5
-  bulletDamage: 20
+  bulletSpeed: 1
+  bulletDamage: 100
   attackRate: 3
   attackRange: 9.5
+  numberOfBlocks: 1
+  Towers:
+  - {fileID: 3862504935729062351}
+  isTemp: 1
