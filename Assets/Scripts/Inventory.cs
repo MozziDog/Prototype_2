@@ -62,7 +62,7 @@ public class Inventory : MonoBehaviour
         UnityAction<bool> sendMessage = delegate (bool isSelected)
         {
             if (isSelected == true)
-                SendMessageUpwards("OnInventoryItemSelected");
+                _towerManager.SendMessage("OnInventoryItemSelected");
         };
         toggleComponent.onValueChanged.AddListener(sendMessage);
         // TODO: 인벤토리 버튼 내용 꾸미기
