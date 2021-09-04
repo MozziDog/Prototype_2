@@ -74,6 +74,7 @@ public class TowerManager : MonoBehaviour
 
     void OnSelectedTileChanged(Vector3 tilePosition)
     {
+        Debug.Log("OnSelectedTileChanged called");
         if (towerManagerStatus == TowerManagerMode.TowerSpawnable)
         {
             if (temporarilyPlacedTower != null)

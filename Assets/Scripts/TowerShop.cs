@@ -47,7 +47,6 @@ public class TowerShop : MonoBehaviour
 
     private void OffToggle()
     {
-        Debug.Log("hi");
         for (int i = 0; i < _shopButtons.Count; i++)
         {
             _shopButtons[i].GetComponent<Toggle>().isOn = false;

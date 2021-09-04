@@ -29,6 +29,7 @@ public class SelectManager : MonoBehaviour
 
     void OnTouch()
     {
+        Debug.Log("OnTouch function called");
         lastTouchPosition = Input.mousePosition;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit = new RaycastHit();
@@ -63,6 +64,7 @@ public class SelectManager : MonoBehaviour
                 if (lastSelectedTilePosition != selectedTilePosition)
                 {
                     SendMessage("OnSelectedTileChanged", selectedTilePosition);
+                    Debug.Log("SelectedTileChanged Message sent");
                     lastSelectedTilePosition = selectedTilePosition;
                 }
             }
