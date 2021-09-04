@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
+using UnityEngine.Events;
 
 public class Inventory : MonoBehaviour
 {
@@ -56,9 +57,15 @@ public class Inventory : MonoBehaviour
 
     private void SetToggleContents(GameObject toggle, GameObject tower)
     {
-        // TODO: 인벤토리 버튼 내용 꾸미기
         Toggle toggleComponent = toggle.GetComponent<Toggle>();
         toggleComponent.group = _toggleGrid.GetComponent<ToggleGroup>();
+        UnityAction<bool> sendMessage = delegate (bool isSelected)
+        {
+            if (isSelected == true)
+                SendMessageUpwards("OnInventoryItemSelected");
+        };
+        toggleComponent.onValueChanged.AddListener(sendMessage);
+        // TODO: 인벤토리 버튼 내용 꾸미기
         Text label = toggle.GetComponentInChildren<Text>();
         label.text = tower.name;
     }

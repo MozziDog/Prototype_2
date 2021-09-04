@@ -20,7 +20,7 @@ public class TowerHead : MonoBehaviour
 
 
 
-    public void ChangeState(WeaponState newState) //Àû¿¡ ´ëÇÑ  Å½»ö, °ø°Ý  ¸ðµåÀÇ ÄÚ·çÆ¾ ÀüÈ¯
+    public void ChangeState(WeaponState newState) //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  Å½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú·ï¿½Æ¾ ï¿½ï¿½È¯
     {
         StopCoroutine(weaponState.ToString());
         weaponState = newState;
@@ -31,13 +31,13 @@ public class TowerHead : MonoBehaviour
 
 
 
-    private void RotateToTarget() //ÀûÀ» ¹Ù¶óº½
+    private void RotateToTarget() //ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¶ï¿½
     {
 
         transform.LookAt(new Vector3(attackTarget.position.x, transform.position.y, attackTarget.position.z));
     }
 
-    private IEnumerator SearchTarget() //Àû Å½»ö
+    private IEnumerator SearchTarget() //ï¿½ï¿½ Å½ï¿½ï¿½
     {
         while (true)
         {
@@ -62,7 +62,7 @@ public class TowerHead : MonoBehaviour
         }
     }
 
-    private IEnumerator AttackToTarget() //Àû °ø°Ý
+    private IEnumerator AttackToTarget() //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     {
         while (true)
         {
@@ -103,7 +103,7 @@ public class TowerHead : MonoBehaviour
     }
 
 
-    private void SpawnBullet() //¹ß»çÃ¼ »ý¼º
+    private void SpawnBullet() //ï¿½ß»ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
     {
 
         GameObject clone = Instantiate(BulletPrefab, BulletSpawnPoint.position, Quaternion.identity);
@@ -125,7 +125,7 @@ public class TowerHead : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.enemyList = SpawnPoint.GetComponent<EnemyManager>().CurrentEnemyList; //¸Å ÇÁ·¹ÀÓ¸¶´Ù Àû ¸®½ºÆ® °»½Å
+        this.enemyList = SpawnPoint.GetComponent<EnemyManager>().CurrentEnemyList; //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ó¸ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
         if (attackTarget != null)
         {
             RotateToTarget();

@@ -17,80 +17,81 @@ public enum TowerSpawnCheck
     TooMuchTower,
     NoEnemyPath
 }
+
+public enum TowerManagerMode
+{
+    NotSpawnable, // 적 웨이브 진행중 등으로 타워 설치 불가능한 상태
+    TowerSpawnable, // 필드에 타워를 설치할 수 있는 상태
+    TowerSelected // 필드에 설치된 타워가 선택된 상태
+}
+
 public class TowerManager : MonoBehaviour
 {
+    [ReadOnly] [SerializeField] TowerManagerMode towerManagerStatus;
     [SerializeField] GameObject cannotBuildMessage;
     public NavMeshSurface surface;
     public static readonly int MAX_TOWER_ENTITY = 20;
     public EnemyManager enemyManager;
+    public SelectManager selectManager;
+    public Inventory _inven;
     public GameObject towerToSpawn;
     public GameObject temporarilyPlacedTower;
     public List<GameObject> towerSpawned = new List<GameObject>();
-    public Vector3 lastSelectedTilePosition;
 
-    public Inventory _inven;
-
-    // Update is called once per frame
+    void Start()
+    {
+        towerManagerStatus = TowerManagerMode.TowerSpawnable;
+    }
     void Update()
     {
-        if (temporarilyPlacedTower != null && Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
-        {
-            _inven.SetToggleInteractable(false);
-
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit = new RaycastHit();
-            if (Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Floor")))
-            {
-                Vector3 targetPosition = new Vector3(Mathf.Floor(hit.point.x) + 0.5f, 0.5f, Mathf.Floor(hit.point.z) + 0.5f);
-                if (lastSelectedTilePosition != targetPosition)
-                {
-                    temporarilyPlacedTower.transform.position = targetPosition;
-                    CheckTowerSpawnableInDelay();
-                    lastSelectedTilePosition = targetPosition;
-                }
-            }
-        }
-        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
-        {
-            if (temporarilyPlacedTower == null)
-            {
-                PlaceTowerTemp();
-            }
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            // 타워 UI 띄우기
-        }
 
     }
-    public void PlaceTowerTemp()
+
+    void OnTowerSelected(GameObject tower)
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit = new RaycastHit();
-        if (Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Floor")))
-        {
-            Vector3 towerSpawnPosition = new Vector3(Mathf.Floor(hit.point.x) + 0.5f, 0.5f, Mathf.Floor(hit.point.z) + 0.5f);
-            towerToSpawn = _inven.GetSelectedTower();
-            InstantiateTempTower(towerToSpawn, towerSpawnPosition);
-        }
+        towerManagerStatus = TowerManagerMode.TowerSelected;
+        SetTowerUI(tower, true);
     }
 
-    public GameObject InstantiateTempTower(GameObject tower, Vector3 position)
+
+    void OnTowerUnselected(GameObject tower)
     {
-        if (tower == null)
-            temporarilyPlacedTower = null;
-        else temporarilyPlacedTower = Instantiate(tower, position, Quaternion.identity);
-        return temporarilyPlacedTower;
+        if (false /*GameManager.isEnemyWaveStarted*/)
+        {
+            towerManagerStatus = TowerManagerMode.NotSpawnable;
+        }
+        else
+        {
+            towerManagerStatus = TowerManagerMode.TowerSpawnable;
+        }
+        SetTowerUI(tower, false);
+    }
+
+    void SetTowerUI(GameObject tower, bool isUIOn)
+    {
+        // 타워 UI 띄우기 / 해제
+    }
+
+    void OnSelectedTileChanged(Vector3 tilePosition)
+    {
+        if (towerManagerStatus == TowerManagerMode.TowerSpawnable)
+        {
+            if (temporarilyPlacedTower != null)
+            {
+                _inven.SetToggleInteractable(false);
+                temporarilyPlacedTower.transform.position = tilePosition;
+                CheckTowerSpawnableInDelay();
+            }
+        }
     }
 
     private Coroutine SpawnCheckObejct;
-    private readonly float waitTime = 0.5f;
-    public TowerSpawnCheck CheckTowerSpawnableInDelay()
+    private readonly float waitTime_towerCheck = 0.5f;
+    public void CheckTowerSpawnableInDelay()
     {
-        TowerSpawnCheck checkResult = TowerSpawnCheck.OK;
         IEnumerator Check()
         {
-            yield return new WaitForSeconds(waitTime);
+            yield return new WaitForSeconds(waitTime_towerCheck);
 
             if (CheckTowerSpawnable() != TowerSpawnCheck.OK)
             {
@@ -106,7 +107,6 @@ public class TowerManager : MonoBehaviour
             StopCoroutine(SpawnCheckObejct);
         }
         SpawnCheckObejct = StartCoroutine(Check());
-        return checkResult;
     }
 
     public TowerSpawnCheck CheckTowerSpawnable()
@@ -189,6 +189,33 @@ public class TowerManager : MonoBehaviour
         }
     }
 
+    void OnInventoryItemSelected()
+    {
+        if (towerManagerStatus != TowerManagerMode.NotSpawnable)
+        {
+            PlaceTempTower();
+        }
+    }
+
+    public void PlaceTempTower()
+    {
+        if (temporarilyPlacedTower != null)
+        {
+            Destroy(temporarilyPlacedTower);
+            temporarilyPlacedTower = null;
+        }
+        Vector3 towerSpawnPosition = new Vector3(0, 20, 0); // 카메라에 안보이는 어딘가
+        towerToSpawn = _inven.GetSelectedTower();
+        if (towerToSpawn != null)
+        {
+            temporarilyPlacedTower = Instantiate(towerToSpawn, towerSpawnPosition, Quaternion.identity);
+        }
+        else
+        {
+            Debug.LogError("Inventory에서 GetSelectedTower 오류!");
+        }
+    }
+
     public void TrySpawnTower()
     {
         if (temporarilyPlacedTower != null)
@@ -260,8 +287,6 @@ public class TowerManager : MonoBehaviour
         cannotBuildMessage.SetActive(true);
         yield return new WaitForSeconds(1.3f);
         cannotBuildMessage.SetActive(false);
-
-
     }
 
     void ChangeMaterial(GameObject _tower, int state)
