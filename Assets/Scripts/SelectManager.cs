@@ -63,6 +63,7 @@ public class SelectManager : MonoBehaviour
                 if (lastSelectedTilePosition != selectedTilePosition)
                 {
                     SendMessage("OnSelectedTileChanged", selectedTilePosition);
+                    Debug.Log("SelectedTileChanged Message sent");
                     lastSelectedTilePosition = selectedTilePosition;
                 }
             }

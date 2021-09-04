@@ -47,7 +47,6 @@ public class TowerShop : MonoBehaviour
 
     private void OffToggle()
     {
-        Debug.Log("hi");
         for (int i = 0; i < _shopButtons.Count; i++)
         {
             _shopButtons[i].GetComponent<Toggle>().isOn = false;
@@ -112,7 +111,6 @@ public class TowerShop : MonoBehaviour
     private bool CheckEnoughMoney()
     {
         int price = _towerOnList[GetSelectedItemIndex()].GetComponent<TowerInfo>().GetPrice();
-        Debug.Log("price : " + price);
         if (price < _wallet.GetLeftMoney())
         {
             return true;
