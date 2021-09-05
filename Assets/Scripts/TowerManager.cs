@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.EventSystems;
 
 
 // README
@@ -37,6 +36,7 @@ public class TowerManager : MonoBehaviour
     public GameObject towerToSpawn;
     public GameObject temporarilyPlacedTower;
     public List<GameObject> towerSpawned = new List<GameObject>();
+    public TowerSelectedUI selectedUI;
 
     void Start()
     {
@@ -50,9 +50,8 @@ public class TowerManager : MonoBehaviour
     void OnTowerSelected(GameObject tower)
     {
         towerManagerStatus = TowerManagerMode.TowerSelected;
-        SetTowerUI(tower, true);
+        selectedUI.SetUI(tower, true);
     }
-
 
     void OnTowerUnselected(GameObject tower)
     {
@@ -64,17 +63,11 @@ public class TowerManager : MonoBehaviour
         {
             towerManagerStatus = TowerManagerMode.TowerSpawnable;
         }
-        SetTowerUI(tower, false);
-    }
-
-    void SetTowerUI(GameObject tower, bool isUIOn)
-    {
-        // 타워 UI 띄우기 / 해제
+        selectedUI.SetUI(tower, false);
     }
 
     void OnSelectedTileChanged(Vector3 tilePosition)
     {
-        Debug.Log("OnSelectedTileChanged called");
         if (towerManagerStatus == TowerManagerMode.TowerSpawnable)
         {
             if (temporarilyPlacedTower != null)

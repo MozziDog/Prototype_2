@@ -79,8 +79,6 @@ public class Inventory : MonoBehaviour
 
     public void DestoryToggle(int selectedIndex)
     {
-        Debug.Log(_toggle.Count);
-        Debug.Log("destroy");
         if (selectedIndex != -1)
         {
             _toggle[selectedIndex].isOn = false;
