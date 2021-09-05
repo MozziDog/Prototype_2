@@ -214,8 +214,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 46099908}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
-  m_LocalScale: {x: 1.8, y: 1, z: 1.1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.02}
+  m_LocalScale: {x: 2.4198873, y: 1, z: 1.008106}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -1040,6 +1040,7 @@ GameObject:
   - component: {fileID: 625576664}
   - component: {fileID: 625576665}
   - component: {fileID: 625576666}
+  - component: {fileID: 625576667}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1114,8 +1115,6 @@ MonoBehaviour:
   enemySpawner: {fileID: 1021901921}
   obstacleManager: {fileID: 625576665}
   player: {fileID: 0}
-  currentWaveIndex: 0
-  isWave: 0
   allWaveClear: 0
   waveData:
   - {fileID: 11400000, guid: 9d9d3334c3841dc4e86f4021965b1cc3, type: 2}
@@ -1133,14 +1132,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e4b54de1a01e594c8604c2f8fb48da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerManagerStatus: 0
   cannotBuildMessage: {fileID: 428518564}
   surface: {fileID: 664370446}
   enemyManager: {fileID: 1021901921}
+  selectManager: {fileID: 625576667}
+  _inven: {fileID: 222947787}
   towerToSpawn: {fileID: 0}
   temporarilyPlacedTower: {fileID: 0}
   towerSpawned: []
-  lastSelectedTilePosition: {x: 0, y: 0, z: 0}
-  _inven: {fileID: 222947787}
 --- !u!114 &625576664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1184,6 +1184,18 @@ MonoBehaviour:
   _MeteorRain: {fileID: 1495271260725604649, guid: 0b0eeaf14eb666b498dc9d7b45b05d20, type: 3}
   _player: {fileID: 1852389140}
   _moneyManager: {fileID: 1761398616}
+--- !u!114 &625576667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625576659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63a2945971f6fa44094d06618c0aa4fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &631541887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1306,7 +1318,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.083333336
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 777d7ac29ab5c3a4e821ec809b530b7b, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 6a96cfe7a9ec4d64386f32c7cb1df0c1, type: 2}
 --- !u!4 &664370447
 Transform:
   m_ObjectHideFlags: 0
@@ -3165,7 +3177,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -644.7, y: 54.6}
+  m_AnchoredPosition: {x: -644.7002, y: 54.600098}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1735452296
