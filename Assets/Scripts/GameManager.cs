@@ -58,7 +58,6 @@ public class GameManager : MonoBehaviour
         // CheckTileUnderCursor();
         _floor.GetComponent<Renderer>().material.SetFloat("_GridScaleFactor", _scaleFactor);
         CheckGameOver();
-        CheckStageClear();
     }
 
 
@@ -131,6 +130,7 @@ public class GameManager : MonoBehaviour
     public void OnEnemyDie(int rewardMoney)
     {
         wallet.AddMoney(rewardMoney);
+        CheckStageClear();
     }
 
 }
