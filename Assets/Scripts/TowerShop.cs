@@ -88,24 +88,27 @@ public class TowerShop : MonoBehaviour
 
     public void TryPurchase()
     {
-        // 충분한 가루 / 인벤토리 공간이 있는 지 확인
-        if (CheckEnoughMoney() == false)
+        if (GetSelectedItemIndex() != -1)
         {
-            // TODO: 가루가 모자랍니다 표시
-            Debug.LogWarning("요술가루가 모자랍니다!");
+            // 충분한 가루 / 인벤토리 공간이 있는 지 확인
+            if (CheckEnoughMoney() == false)
+            {
+                // TODO: 가루가 모자랍니다 표시
+                Debug.LogWarning("요술가루가 모자랍니다!");
+                return;
+            }
+            if (CheckEnoughInventory() == false)
+            {
+                // TODO: 인벤토리가 가득 찼습니다 표시
+                Debug.LogWarning("인벤토리가 가득 찼습니다!");
+                return;
+            }
+            // 가능하다면 구매진행
+            _wallet.SpendMoney(_towerOnList[GetSelectedItemIndex()].GetComponent<TowerInfo>().GetPrice());
+            _inven.AddItem(_towerOnList[GetSelectedItemIndex()]);
+            DisableUsedButton();
             return;
         }
-        if (CheckEnoughInventory() == false)
-        {
-            // TODO: 인벤토리가 가득 찼습니다 표시
-            Debug.LogWarning("인벤토리가 가득 찼습니다!");
-            return;
-        }
-        // 가능하다면 구매진행
-        _wallet.SpendMoney(_towerOnList[GetSelectedItemIndex()].GetComponent<TowerInfo>().GetPrice());
-        _inven.AddItem(_towerOnList[GetSelectedItemIndex()]);
-        DisableUsedButton();
-        return;
     }
 
     private bool CheckEnoughMoney()
