@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4604338914279508061}
   - component: {fileID: 6867807348843093948}
   m_Layer: 11
-  m_Name: ShortRangeTower
+  m_Name: ShortRangeTowerBase
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -128,15 +128,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myposition: []
   price: 30
-  numberOfBlocks: 1
-  TowerHeads:
-  - {fileID: 6303481335926533789}
-  isTemp: 1
-  BulletPrefab: {fileID: 1436082072587936, guid: 8d7184c99ce492f42bf7ee215d7adf03, type: 3}
   bulletSpeed: 8
   bulletDamage: 45
   attackRate: 1
   attackRange: 3.5
+  bombRange: 0
+  stunTime: 0
+  slowIntensity: 0
+  slowRange: 0
+  numberOfBlocks: 1
+  Towers: []
+  isTemp: 1
 --- !u!1 &6302970765515854600
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +261,7 @@ GameObject:
   - component: {fileID: 6300091062233082670}
   - component: {fileID: 6303481335926533789}
   m_Layer: 11
-  m_Name: HM_crossbow_1 1
+  m_Name: ShortRangeTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -295,6 +297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 0}
   BulletSpawnPoint: {fileID: 6300060432388114978}
+  RotatingBody: {fileID: 0}
   bulletSpeed: 0
   bulletDamage: 1
   attackRate: 0.5
@@ -302,6 +305,7 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+  homeY: 0
 --- !u!1 &6304337098414763106
 GameObject:
   m_ObjectHideFlags: 0

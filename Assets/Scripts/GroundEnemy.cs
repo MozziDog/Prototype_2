@@ -10,7 +10,7 @@ public class GroundEnemy : MonoBehaviour, EnemyInterFace
     public float currentHP;
     public float moveSpeed;
     public float hitDamage;
-
+  
     [Header("Enemy State")]
     public bool isDie = false;
     public bool isHitting = false;
@@ -50,12 +50,24 @@ public class GroundEnemy : MonoBehaviour, EnemyInterFace
 
 
     }
-
-
     private void Update()
     {
 
     }
+
+    public float GetSpeed()
+    {
+        return moveSpeed;
+    }
+
+    public void SetSpeed(float ApplySpeed)
+    {
+        moveSpeed = ApplySpeed;
+        agent.speed = moveSpeed;
+    }
+
+
+   
    
 
     public void GetDamage(float Damage) //k

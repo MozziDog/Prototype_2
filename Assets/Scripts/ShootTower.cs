@@ -14,6 +14,7 @@ public class ShootTower : MonoBehaviour,TowerInterFace
     public Transform BulletSpawnPoint;
     public Transform RotatingBody;
     [Header("tower info")]
+    public float LV;
     public float bulletSpeed;
     public float bulletDamage ;
     public float attackRate ;
@@ -27,11 +28,21 @@ public class ShootTower : MonoBehaviour,TowerInterFace
 
     public void SetUp(TowerInfo towerinfo)
     {
+        
+        this.LV= towerinfo.LV;
+        this.attackRate = towerinfo.attackRate;
+        this.attackRange = towerinfo.attackRange;
 
         bulletinfo.bulletSpeed = towerinfo.bulletSpeed;
         bulletinfo.bulletDamage = towerinfo.bulletDamage;
-        this.attackRate =towerinfo.attackRate;
-        this.attackRange= towerinfo.attackRange;
+
+        bulletinfo.poisonDamage = towerinfo.poisonDamage;
+        bulletinfo.poisonDuration = towerinfo.poisonDuration;
+        bulletinfo.poisonRate = towerinfo.poisonRate;
+
+        bulletinfo.stunTime = towerinfo.stunTime;
+
+        
 
     }
 

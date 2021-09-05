@@ -18,21 +18,48 @@ public interface EnemyInterFace
     public bool CheckDead();
 
     public void GetDamage(float Damage);
+
+    public float GetSpeed();
+
+    public void SetSpeed(float ApplySpeed);
 }
 
 public struct TowerInfo
 {
+    public float LV;
     public float bulletSpeed;
     public float bulletDamage;
     public float attackRate;
     public float attackRange;
+
+    public float bombRange;
+
+    //stun
+    public float stunTime;
+    //poison
+    public float poisonDamage;
+    public float poisonDuration;
+    public float poisonRate;
+    //slow
+    public float slowIntensity;
+    public float slowRange;
+   
+
 }
 
 public struct BulletInfo
 {
+    public float LV;
     public float bulletSpeed;
     public float bulletDamage;
     public Transform attackTarget;
+
+    //stun
+    public float stunTime;
+    //poison
+    public float poisonDamage;
+    public float poisonDuration;
+    public float poisonRate;
 }
 
 public class InterFaceManager : MonoBehaviour

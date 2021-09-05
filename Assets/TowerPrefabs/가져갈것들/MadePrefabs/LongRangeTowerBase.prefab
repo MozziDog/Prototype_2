@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4109300857901433259}
   - component: {fileID: -675008096355167967}
   m_Layer: 11
-  m_Name: LongRangeTower
+  m_Name: LongRangeTowerBase
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -132,6 +132,10 @@ MonoBehaviour:
   bulletDamage: 25
   attackRate: 0.5
   attackRange: 10
+  bombRange: 0
+  stunTime: 0
+  slowIntensity: 0
+  slowRange: 0
   numberOfBlocks: 1
   Towers:
   - {fileID: 6074046403739807759}
@@ -288,7 +292,7 @@ GameObject:
   - component: {fileID: 6078846749838418025}
   - component: {fileID: 6074046403739807744}
   m_Layer: 0
-  m_Name: EL_bat_1 1
+  m_Name: LongRangeTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

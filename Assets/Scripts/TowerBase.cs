@@ -6,16 +6,35 @@ using UnityEngine;
 
 public class TowerBase : MonoBehaviour
 {
-    TowerInfo towerinfo= new TowerInfo(); 
+    TowerInfo towerinfo = new TowerInfo();
     public Vector3[] _myposition;
 
     [Header("Info about this Tower")]
-    [SerializeField] 
+
+
+    [SerializeField]
+    public float LV;
     private int price = 30;
     public float bulletSpeed;
     public float bulletDamage;
     public float attackRate;
     public float attackRange;
+    [Header("for ShootTower that has Bomb-Type bullet, set BombRange")]
+    public float bombRange;
+
+    [Header("for PoisonShootTower SHOULD ALSO manipulate  property below")]
+    public float poisonDamage;
+    public float poisonDuration;
+    public float poisonRate;
+
+    [Header("for StunShootTower SHOULD ALSO manipulate  property below")]
+    public float stunTime;
+
+    [Header("for DebuffAreaTower manipulate  property intensity(0~1) and range only")]
+    public float slowIntensity;
+    public float slowRange;
+
+   
 
     [Header("Inspections that should be managed per Tower 유형")]
     [SerializeField]
@@ -39,11 +58,23 @@ public class TowerBase : MonoBehaviour
     }
     public void SetUp()
     {
-        
+        towerinfo.LV = this.LV;
         towerinfo.bulletSpeed = this.bulletSpeed;
         towerinfo.bulletDamage = this.bulletDamage;
         towerinfo.attackRate = this.attackRate;
         towerinfo.attackRange = this.attackRange;
+
+        towerinfo.bombRange = this.bombRange; 
+
+        towerinfo.slowIntensity = this.slowIntensity;
+        towerinfo.slowRange = this.slowRange;
+
+        towerinfo.poisonDamage= this.poisonDamage; 
+        towerinfo.poisonDuration = this.poisonDuration;
+        towerinfo.poisonRate = this.poisonRate;
+
+
+        towerinfo.stunTime = this.stunTime;
         
         foreach (GameObject Tower in Towers)
         {

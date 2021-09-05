@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2408659907155769182}
   - component: {fileID: 4740030705067745471}
   m_Layer: 11
-  m_Name: NormalChainTowerLV1
+  m_Name: NormalChainTowerBase
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -128,15 +128,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myposition: []
   price: 30
-  numberOfBlocks: 1
-  TowerHeads:
-  - {fileID: 5914123889490565139}
-  isTemp: 1
-  BulletPrefab: {fileID: 1768389422192202, guid: 2158737d1dbc06a4ebd1ff90839a10b6, type: 3}
   bulletSpeed: 7
   bulletDamage: 10
   attackRate: 1
   attackRange: 10
+  bombRange: 0
+  stunTime: 0
+  slowIntensity: 0
+  slowRange: 0
+  numberOfBlocks: 1
+  Towers:
+  - {fileID: 5914123889490565138}
+  isTemp: 1
 --- !u!1 &5913318863808766178
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,7 +497,7 @@ GameObject:
   - component: {fileID: 5915994972758826094}
   - component: {fileID: 5914123889490565139}
   m_Layer: 11
-  m_Name: FE_toothfish_1 1
+  m_Name: NormalChainTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -530,8 +533,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b6b429b6f272ff4dac62457e5020aa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 0}
+  BulletPrefab: {fileID: 1768389422192202, guid: 2158737d1dbc06a4ebd1ff90839a10b6, type: 3}
   BulletSpawnPoint: {fileID: 5910511680821594694}
+  RotatingBody: {fileID: 5910957313763709080}
   bulletSpeed: 0
   bulletDamage: 1
   attackRate: 0.5
@@ -539,3 +543,4 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+  homeY: 0
