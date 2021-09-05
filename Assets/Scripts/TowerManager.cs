@@ -36,7 +36,9 @@ public class TowerManager : MonoBehaviour
     public GameObject towerToSpawn;
     public GameObject temporarilyPlacedTower;
     public List<GameObject> towerSpawned = new List<GameObject>();
+    public TowerSpawnUI spawnUI;
     public TowerSelectedUI selectedUI;
+
 
     void Start()
     {
@@ -74,6 +76,9 @@ public class TowerManager : MonoBehaviour
             {
                 _inven.SetToggleInteractable(false);
                 temporarilyPlacedTower.transform.position = tilePosition;
+                if (!spawnUI.gameObject.activeSelf)
+                    spawnUI.SetUI(temporarilyPlacedTower, true);
+                spawnUI.SetUIPosition(temporarilyPlacedTower);
                 CheckTowerSpawnableInDelay();
             }
         }
