@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2317583088921270543}
   - component: {fileID: 2317583088921270528}
   m_Layer: 10
-  m_Name: UTowerBombArea
+  m_Name: VTowerBombAreaLV1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ Projector:
   m_AspectRatio: 1
   m_Orthographic: 0
   m_OrthographicSize: 1
-  m_Material: {fileID: 2100000, guid: 43536bb307ea0d34095697d7735e9aa7, type: 2}
+  m_Material: {fileID: 2100000, guid: 65a723284c382014488cbc0aede43651, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2
     m_Bits: 4096

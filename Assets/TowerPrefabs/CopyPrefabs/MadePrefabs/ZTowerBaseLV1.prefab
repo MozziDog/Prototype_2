@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8802347188970004754}
   - component: {fileID: 610236424705654076}
   - component: {fileID: 2408659907155769182}
-  - component: {fileID: 4740030705067745471}
+  - component: {fileID: 2971184134472270472}
   m_Layer: 11
-  m_Name: NormalChainTowerBase
+  m_Name: ZTowerBaseLV1
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!114 &4740030705067745471
+--- !u!114 &2971184134472270472
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,20 +123,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 2788895526102252045}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d304f31c7496bb141976c192e65ce54c, type: 3}
+  m_Script: {fileID: 11500000, guid: 601a20424d76ab646952ee2215c078e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _myposition: []
-  price: 30
-  bulletSpeed: 7
-  bulletDamage: 10
-  attackRate: 1
+  LV: 1
+  bulletSpeed: 10
+  bulletDamage: 15
+  attackRate: 2.5
   attackRange: 10
   bombRange: 0
-  stunTime: 0
+  bulletAmmoCount: 0
+  burstRate: 0
+  maxChainCount: 4
+  chainRadius: 3
+  poisonDamage: 0
+  poisonDuration: 0
+  poisonRate: 0
+  stunDuration: 0
+  mujeockTime: 0
   slowIntensity: 0
   slowRange: 0
-  numberOfBlocks: 1
+  numberOfBlocks: 0
   Towers:
   - {fileID: 5914123889490565138}
   isTemp: 1
@@ -495,9 +503,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5915994972758826094}
-  - component: {fileID: 5914123889490565139}
+  - component: {fileID: 7302900186674675327}
   m_Layer: 11
-  m_Name: NormalChainTower
+  m_Name: ZTowerLV1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -521,7 +529,7 @@ Transform:
   m_Father: {fileID: 4921860906730494454}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5914123889490565139
+--- !u!114 &7302900186674675327
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -530,17 +538,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5914123889490565138}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b6b429b6f272ff4dac62457e5020aa5, type: 3}
+  m_Script: {fileID: 11500000, guid: ed50310ed29afef49b857ddc4fea0c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 1768389422192202, guid: 2158737d1dbc06a4ebd1ff90839a10b6, type: 3}
+  BulletPrefab: {fileID: 1768389422192202, guid: 1cddec0a1adbc084a9f2b30bbac3d0ea, type: 3}
   BulletSpawnPoint: {fileID: 5910511680821594694}
   RotatingBody: {fileID: 5910957313763709080}
+  LV: 0
   bulletSpeed: 0
-  bulletDamage: 1
-  attackRate: 0.5
-  attackRange: 3.5
+  bulletDamage: 0
+  attackRate: 0
+  attackRange: 0
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
-  homeY: 0

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1351984311444498696}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Tower_Bug 2
   m_TagString: Castle
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1351682299104559924}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Zone1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1351712872719843624}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: scale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1352093921023331450}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: shootElement1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 1359247606337031242}
   - component: {fileID: 1183368407411248774}
   - component: {fileID: 1157571193438988374}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EL_splash_fx_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4951,7 +4951,7 @@ GameObject:
   - component: {fileID: 1344022914406353788}
   - component: {fileID: 1333073759956934774}
   - component: {fileID: 1357832641349786923}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FTowerLV1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5060,7 +5060,7 @@ GameObject:
   - component: {fileID: 6978493273885105920}
   - component: {fileID: 5314862254883394914}
   - component: {fileID: 5628177746615752752}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: FTowerBaseLV1
   m_TagString: Tower
   m_Icon: {fileID: 0}
