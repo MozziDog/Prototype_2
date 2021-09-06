@@ -95,7 +95,6 @@ public class TowerBase : MonoBehaviour
         towerinfo.mujeockTime = this.mujeockTime;
 
 
-        
         foreach (GameObject Tower in Towers)
         {
             TowerInterFace tower = Tower.GetComponent<TowerInterFace>();
@@ -103,7 +102,8 @@ public class TowerBase : MonoBehaviour
 
         }
 
-     }
+
+    }
     
 
     void Start()
