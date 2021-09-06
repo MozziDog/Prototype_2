@@ -40,10 +40,10 @@ public class MouseDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             Debug.Log(hit.transform.tag);
             if (hit.transform.tag != "Tower")
             {
-                for (int i = 0; i < _tower.GetComponent<TowerInfo>()._myposition.Length; i++)
+                for (int i = 0; i < _tower.GetComponent<TowerBase>()._myposition.Length; i++)
                 {
                     Collider[] hitColliders;
-                    hitColliders = Physics.OverlapSphere(_tower.GetComponent<TowerInfo>()._myposition[i], 0.4f);
+                    hitColliders = Physics.OverlapSphere(_tower.GetComponent<TowerBase>()._myposition[i], 0.4f);
                 }
 
                 tower = Instantiate(_tower, new Vector3(Mathf.Floor(hit.point.x) + 0.5f, 0.5f, Mathf.Floor(hit.point.z) + 0.5f), Quaternion.identity);

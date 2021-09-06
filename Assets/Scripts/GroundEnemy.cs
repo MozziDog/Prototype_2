@@ -3,26 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class GroundEnemy : MonoBehaviour
+public class GroundEnemy : MonoBehaviour, EnemyInterFace
 {
-    [SerializeField]
-    private float maxHP;
-    [SerializeField]
-    private float moveSpeed;
+    [Header("Enemy Info")]
+    public float maxHP;
+    public float currentHP;
+    public float moveSpeed;
+    public float hitDamage;
+    public Transform headPos;
+
+    [Header("Enemy State")]
+    public bool isDie = false;
+    public bool isHitting = false;
+    private bool isWalking = true;
+
+
+    [Header("Animator and EnemyManager")]
     public Animator anim;
     public GameObject enemyManager;
-    public float hitDamage;
-    public float currentHP;
-    public bool isDie = false;
-    public bool isHit = false;
-    private bool isWalking = true;
+
     GameObject target;
     GameObject Player;
     NavMeshAgent agent;
-    
 
 
+    public void SetUp() { }
 
+    public Transform GetHeadPos()
+    {
+        return headPos;
+    }
+    public bool CheckDead()
+    {
+        if (isDie)
+            return true;
+        else
+            return false;
+    }
 
     void Start()
     {
@@ -38,13 +55,25 @@ public class GroundEnemy : MonoBehaviour
 
 
     }
-
-
     private void Update()
     {
 
     }
-   
+
+    public float GetSpeed()
+    {
+        return moveSpeed;
+    }
+
+    public void SetSpeed(float ApplySpeed)
+    {
+        moveSpeed = ApplySpeed;
+        agent.speed = moveSpeed;
+    }
+
+
+
+
 
     public void GetDamage(float Damage) //k
     {
@@ -67,7 +96,7 @@ public class GroundEnemy : MonoBehaviour
         if (isDie)
             return;
 
-            if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             agent.speed = 0;
             isWalking = false;
@@ -80,9 +109,9 @@ public class GroundEnemy : MonoBehaviour
 
     IEnumerator HitPlayer()
     {
-        
-            yield return null;
-        isHit = true;
+
+        yield return null;
+        isHitting = true;
         anim.SetBool("ContactPlayer", true);
         yield return new WaitForSeconds(0.35f);
         Player.GetComponent<Player>().StartGetHit(hitDamage);
@@ -92,9 +121,10 @@ public class GroundEnemy : MonoBehaviour
 
     public void ReadyToDie()
     {
-        if (isHit)
+        if (isHitting)
             return;
         isDie = true;
+        this.gameObject.layer = LayerMask.NameToLayer("Dead");
         StartCoroutine(DieCoroutine());
     }
 
