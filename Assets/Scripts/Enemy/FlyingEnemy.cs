@@ -3,25 +3,59 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class FlyingEnemy : MonoBehaviour
+public class FlyingEnemy : MonoBehaviour, EnemyInterFace
 {
-    [SerializeField]
-    private float maxHP;
-    [SerializeField]
-    private float moveSpeed;
-    public Animator anim;
-    public GameObject enemyManager;
+
+    [Header("Enemy Info")]
+   
+    public float maxHP;
     public float currentHP;
+    public float moveSpeed;
+    public float hitDamage;
+    public Transform headPos;
+
+    [Header("Enemy State")]
     public bool isDie = false;
     public bool isHit = false;
     private bool isWalking = true;
-    public float hitDamage;
+
+
+    [Header("Animator and EnemyManager")]
+    public Animator anim;
+    public GameObject enemyManager;
+
+
+   
     GameObject target;
     GameObject Player;
     Vector3 targetPositionForAir;
     Vector3 tempPos;
 
+    public void SetUp()
+    {
 
+    }
+
+    public bool CheckDead()
+    {
+        return isDie;
+    }
+
+
+    public float GetSpeed()
+    {
+        return moveSpeed;
+    }
+
+    public void SetSpeed(float ApplySpeed)
+    {
+        moveSpeed = ApplySpeed;
+    }
+
+    public Transform GetHeadPos()
+    {
+        return headPos;
+    }
 
 
 
@@ -41,26 +75,14 @@ public class FlyingEnemy : MonoBehaviour
 
     private void Update()
     {
-        // AgentStuckAvoid();
+        
 
         if (isWalking)
             AirMove();
 
     }
 
-    /*
-    public void AgentStuckAvoid()
-    {
-        if (isWalking && !agent.hasPath && agent.pathStatus == NavMeshPathStatus.PathComplete && agent.speed < 0.3)
-        {
-            Debug.LogWarning("enemy Repathing!!");
-            agent.enabled = false;
-            agent.enabled = true;
-            agent.SetDestination(target.transform.position);
-            agent.speed = moveSpeed;
-        }
-    }
-    */
+  
     public void AirMove()
     {
         transform.LookAt(new Vector3(target.transform.position.x, this.transform.position.y, target.transform.position.z));
