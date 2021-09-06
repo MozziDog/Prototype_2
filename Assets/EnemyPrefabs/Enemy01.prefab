@@ -654,6 +654,7 @@ MonoBehaviour:
   currentHP: 0
   moveSpeed: 1
   hitDamage: 1
+  headPos: {fileID: 6462731293169654419}
   isDie: 0
   isHitting: 0
   anim: {fileID: 6462731293178951007}

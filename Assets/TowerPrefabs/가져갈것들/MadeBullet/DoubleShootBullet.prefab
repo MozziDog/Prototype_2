@@ -397,10 +397,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4460732646621794}
   - component: {fileID: 65887798794368820}
-  - component: {fileID: 114465373941375862}
+  - component: {fileID: -3482251305209462426}
+  - component: {fileID: 1926855647786746781}
   m_Layer: 0
-  m_Name: GB_bullet_FX_2
-  m_TagString: Untagged
+  m_Name: DoubleShootBullet
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -436,7 +437,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114465373941375862
+--- !u!54 &-3482251305209462426
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784375372296822}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1926855647786746781
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -445,14 +462,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1784375372296822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 807a988a1765edd439007be8fbee2c70, type: 3}
+  m_Script: {fileID: 11500000, guid: 31485e23d5d83ee43b0ace9aafbcdc10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 8
-  target: {fileID: 0}
-  impactParticle: {fileID: 1579532550858178, guid: bd0b61e7cac2d184aa52ea21a8aecde4, type: 3}
-  impactNormal: {x: 0, y: 0, z: 0}
-  twr: {fileID: 0}
+  LV: 0
+  bulletSpeed: 0
+  bulletDamage: 0
+  impactParticle: {fileID: 1411534853168070, guid: 9129dd778a3899b43834aaf7df2fb55a, type: 3}
+  aimPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1887027800719960
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class GroundEnemy : MonoBehaviour, EnemyInterFace
     public float currentHP;
     public float moveSpeed;
     public float hitDamage;
+    public Transform headPos;
   
     [Header("Enemy State")]
     public bool isDie = false;
@@ -28,6 +29,10 @@ public class GroundEnemy : MonoBehaviour, EnemyInterFace
 
     public void SetUp() { }
 
+    public Transform GetHeadPos()
+    {
+        return headPos;
+    }
     public bool CheckDead()
     {
         if (isDie)
