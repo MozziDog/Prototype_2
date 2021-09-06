@@ -6,9 +6,9 @@ using UnityEngine.AI;
 public class GroundEnemy : MonoBehaviour
 {
     [SerializeField]
-    public float maxHP;
+    private float maxHP;
     [SerializeField]
-    public float moveSpeed;
+    private float moveSpeed;
     public Animator anim;
     public GameObject enemyManager;
     public float hitDamage;
@@ -18,9 +18,7 @@ public class GroundEnemy : MonoBehaviour
     private bool isWalking = true;
     GameObject target;
     GameObject Player;
-    public NavMeshAgent agent;
-
-    public EnemyData enemyData;
+    NavMeshAgent agent;
     
 
 
@@ -28,11 +26,6 @@ public class GroundEnemy : MonoBehaviour
 
     void Start()
     {
-        maxHP = enemyData.MaxHP;
-        moveSpeed = enemyData.MoveSpeed;
-        hitDamage = enemyData.HitDamage;
-
-
         currentHP = maxHP;
         anim = this.GetComponent<Animator>();
         enemyManager = GameObject.Find("SpawnPointGroup");
@@ -43,6 +36,12 @@ public class GroundEnemy : MonoBehaviour
         agent.speed = moveSpeed;
 
 
+
+    }
+
+
+    private void Update()
+    {
 
     }
    

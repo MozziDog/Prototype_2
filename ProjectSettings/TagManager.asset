@@ -12,6 +12,11 @@ TagManager:
   - BombBullet
   - GroundEnemy
   - Grid
+  - GroundEnemy
+  - FlyingEnemy
+  - Castle
+  - Bullet
+  - BombBullet
   layers:
   - Default
   - TransparentFX
@@ -26,8 +31,8 @@ TagManager:
   - Floor
   - Tower_temp
   - Enemy
-  - 
-  - 
+  - Dead
+  - Bullet
   - 
   - 
   - 

@@ -2190,7 +2190,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 25
+  currentHP: 0
   moveSpeed: 2
+  hitDamage: 1
+  headPos: {fileID: 3898918170315065930}
+  isDie: 0
+  isHit: 0
   anim: {fileID: 3898918170305815962}
   enemyManager: {fileID: 0}
   currentHP: 0

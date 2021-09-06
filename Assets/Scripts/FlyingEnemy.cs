@@ -21,8 +21,6 @@ public class FlyingEnemy : MonoBehaviour
     Vector3 targetPositionForAir;
     Vector3 tempPos;
 
-    public EnemyData enemyData;
-
 
 
 
@@ -30,10 +28,6 @@ public class FlyingEnemy : MonoBehaviour
 
     void Start()
     {
-        maxHP = enemyData.MaxHP;
-        moveSpeed = enemyData.MoveSpeed;
-        hitDamage = enemyData.HitDamage;
-
         currentHP = maxHP;
         target = GameObject.Find("EndPoint");
         Player = GameObject.Find("Player1");

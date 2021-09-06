@@ -234,14 +234,14 @@ public class TowerManager : MonoBehaviour
             }
             else
             {
-                for (int i = 0; i < towerToSpawn.GetComponent<TowerInfo>()._myposition.Length; i++)
+                for (int i = 0; i < towerToSpawn.GetComponent<TowerBase>()._myposition.Length; i++)
                 {
-                    if (Physics.CheckSphere(towerToSpawn.GetComponent<TowerInfo>()._myposition[i], 0.4f))
+                    if (Physics.CheckSphere(towerToSpawn.GetComponent<TowerBase>()._myposition[i], 0.4f))
                     {
 
                     }
                 }
-                temporarilyPlacedTower.GetComponent<TowerInfo>().ConfirmTowerPosition();
+                temporarilyPlacedTower.GetComponent<TowerBase>().ConfirmTowerPosition();
                 enemyManager.BakeNav();
                 towerSpawned.Add(temporarilyPlacedTower);
                 temporarilyPlacedTower = null;
