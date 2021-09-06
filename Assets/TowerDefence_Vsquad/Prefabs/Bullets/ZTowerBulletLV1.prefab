@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4052323953042882}
   - component: {fileID: 198599840255083860}
   - component: {fileID: 199788255800371044}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: CIRCLES
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4827,7 +4827,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4997928560228356}
   - component: {fileID: 96119254066532362}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Trail_additive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4960,7 +4960,7 @@ GameObject:
   - component: {fileID: 135978164140665552}
   - component: {fileID: -6178064907534290374}
   - component: {fileID: 7582362967732393580}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: ZTowerBulletLV1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

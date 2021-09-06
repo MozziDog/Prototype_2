@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4723599956809368}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: SCALE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4052409135167076}
   - component: {fileID: 96433253619468528}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Trail (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4693904569570908}
   - component: {fileID: 96178632147299890}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4952594948633850}
   - component: {fileID: 96837895614204246}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Trail (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +432,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4119302602309138}
   - component: {fileID: 96579855132496564}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Trail (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -562,7 +562,7 @@ GameObject:
   - component: {fileID: 4474008284853486}
   - component: {fileID: 198432277613038828}
   - component: {fileID: 199075928806647574}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Triangles_tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5379,7 +5379,7 @@ GameObject:
   - component: {fileID: 4446782416332554}
   - component: {fileID: 65031951682635992}
   - component: {fileID: 114125214527622846}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: VTowerBulletLV3
   m_TagString: BombBullet
   m_Icon: {fileID: 0}

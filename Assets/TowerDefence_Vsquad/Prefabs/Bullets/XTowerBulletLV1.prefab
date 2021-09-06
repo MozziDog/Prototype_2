@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4701744777866916}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: scaled
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 4389827353712928}
   - component: {fileID: 198595498797517652}
   - component: {fileID: 199007402687199658}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Main_FX_bat_blended
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4862,7 +4862,7 @@ GameObject:
   - component: {fileID: 4009860692017706}
   - component: {fileID: 198454116405848938}
   - component: {fileID: 199546403220752800}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Main_FX_bat_additive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9678,7 +9678,7 @@ GameObject:
   - component: {fileID: 4909305079693446}
   - component: {fileID: 198336166329117086}
   - component: {fileID: 199933318120206062}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: CIRCLES
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14494,7 +14494,7 @@ GameObject:
   - component: {fileID: 4502034870642792}
   - component: {fileID: 198399970013231156}
   - component: {fileID: 199218328420543062}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19309,7 +19309,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4084238567652516}
   - component: {fileID: 96367070149435804}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Trail_additive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19439,7 +19439,7 @@ GameObject:
   - component: {fileID: 4584822743968394}
   - component: {fileID: 65273742937535544}
   - component: {fileID: -3325412767463606435}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: XTowerBulletLV1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

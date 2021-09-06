@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4083204563093834}
   - component: {fileID: 198713888923593224}
   - component: {fileID: 199108640551515332}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Smoke_trail1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4828,7 +4828,7 @@ GameObject:
   - component: {fileID: 4169813708027042}
   - component: {fileID: 33143134353225588}
   - component: {fileID: 23385226750089540}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: HM_cannon_bullet_mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4907,7 +4907,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4058898641668708}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Bullet_main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4941,7 +4941,7 @@ GameObject:
   - component: {fileID: 4725992500801624}
   - component: {fileID: 198545673818750420}
   - component: {fileID: 199694084038108760}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Fire_FX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9758,7 +9758,7 @@ GameObject:
   - component: {fileID: 4592977019630770}
   - component: {fileID: 114214184228652696}
   - component: {fileID: 65269437909383510}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: WTowerBulletLV3
   m_TagString: BombBullet
   m_Icon: {fileID: 0}

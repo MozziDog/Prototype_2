@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 65667485380959030}
   - component: {fileID: 5258783999833359235}
   - component: {fileID: 94322528153739738}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: TTowerBulletLV1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4814391654804366}
   - component: {fileID: 96728867680618748}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: scaled_visibility
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 4427045499599882}
   - component: {fileID: 198588997462438000}
   - component: {fileID: 199330659922592212}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5097,7 +5097,7 @@ GameObject:
   - component: {fileID: 4411880498810970}
   - component: {fileID: 33880324212827178}
   - component: {fileID: 23231980088400336}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: bullet_base
   m_TagString: Untagged
   m_Icon: {fileID: 0}

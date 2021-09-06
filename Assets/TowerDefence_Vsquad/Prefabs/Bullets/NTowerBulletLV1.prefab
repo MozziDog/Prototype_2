@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4941641878935702}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: SCALED
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4591273577282298}
   - component: {fileID: 198187950008409750}
   - component: {fileID: 199742129855438160}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: poison_base_blended
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4861,7 +4861,7 @@ GameObject:
   - component: {fileID: 65132288937725602}
   - component: {fileID: 8127805389583593907}
   - component: {fileID: 3179580794881505296}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: NTowerBulletLV1
   m_TagString: BombBullet
   m_Icon: {fileID: 0}
@@ -4950,7 +4950,7 @@ GameObject:
   - component: {fileID: 4281830667787544}
   - component: {fileID: 198914564872531366}
   - component: {fileID: 199855726451659020}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: posion_sparcles
   m_TagString: Untagged
   m_Icon: {fileID: 0}

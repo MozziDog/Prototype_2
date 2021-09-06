@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23329063231944286}
   - component: {fileID: 114350375750197316}
   - component: {fileID: 65738170612780494}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: UTowerBulletLV3
   m_TagString: BombBullet
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 4523176134799912}
   - component: {fileID: 198446473065832630}
   - component: {fileID: 199532985428365796}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4942,7 +4942,7 @@ GameObject:
   - component: {fileID: 4453533874089708}
   - component: {fileID: 198539682545616514}
   - component: {fileID: 199753513181722988}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: sparks_additive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9757,7 +9757,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4538692163122304}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Sparks_grp3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

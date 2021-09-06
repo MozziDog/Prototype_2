@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23782276032850704}
   - component: {fileID: 65165068309426780}
   - component: {fileID: 114886027341140806}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: GB_sandglass_bullet1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

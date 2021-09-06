@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4922349935822334}
   - component: {fileID: 198778134271369296}
   - component: {fileID: 199397616349794762}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: splash_sparcles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4827,7 +4827,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4708977046337014}
   - component: {fileID: 96367663386141058}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Trail_dark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4956,7 +4956,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4109548020045822}
   - component: {fileID: 96272339183665998}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5085,7 +5085,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4413917679696940}
   - component: {fileID: 96327100055050646}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Trail_additive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5215,7 +5215,7 @@ GameObject:
   - component: {fileID: 4348776226488322}
   - component: {fileID: 65426538896705008}
   - component: {fileID: 8241450975457939692}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: FTowerBulletLV1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 65923475919724998}
   - component: {fileID: -8692753019289080758}
   - component: {fileID: 175216786580645662}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: WTowerBulletLV1
   m_TagString: BombBullet
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 4718672092507590}
   - component: {fileID: 198675176984076890}
   - component: {fileID: 199649127611144004}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Smoke_trail1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4969,7 +4969,7 @@ GameObject:
   - component: {fileID: 4571428054930038}
   - component: {fileID: 198913002333648172}
   - component: {fileID: 199734427342937072}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Smoke_trail2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
