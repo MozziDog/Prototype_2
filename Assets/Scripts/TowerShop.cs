@@ -67,7 +67,8 @@ public class TowerShop : MonoBehaviour
         // 초기화
         Toggle toggleComponent = newButton.GetComponent<Toggle>();
         toggleComponent.group = _shopButtonsGrid.GetComponent<ToggleGroup>();
-
+        newButton.GetComponentInChildren<ShopToggle>().towerPrefab = _towerAll[towerCode];
+        Debug.Log(_towerAll[towerCode].name);
         // towerIndex가 주어지면 그에 따라 상점 버튼 꾸미기
         // 임시로 label만 바꿔두겠습니다.
         Text label = newButton.GetComponentInChildren<Text>();
