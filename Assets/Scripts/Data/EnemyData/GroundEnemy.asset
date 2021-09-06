@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: GroundEnemy
   m_EditorClassIdentifier: 
   maxHP: 50
-  moveSpeed: 10
+  moveSpeed: 1
   hitDamage: 3

@@ -34,6 +34,7 @@ public class WaveManager : MonoBehaviour
             obstacleManager.WayObstacleActiveSwitch();
             enemySpawner.StartWave(waves[currentWaveIndex]);
         }
+        Debug.Log(waves[currentWaveIndex].maxEnemyCount);
     }
 
     public  bool isWaveClear()

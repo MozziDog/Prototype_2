@@ -45,7 +45,8 @@ public class ParticleCollisionInstance : MonoBehaviour
     {      
         if(other.GetComponent<GroundEnemy>()) 
         {
-            other.GetComponent<GroundEnemy>().GetDamage(damage);
+            //Debug.Log("Attacked!");
+            other.GetComponent<GroundEnemy>().GetDamage(other.GetComponent<GroundEnemy>().maxHP * 0.20f);
         } 
         else if (other.GetComponent<FlyingEnemy>())
         {

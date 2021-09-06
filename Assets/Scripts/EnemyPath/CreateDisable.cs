@@ -76,6 +76,7 @@ public class CreateDisable : MonoBehaviour
         if(Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Grid")))
         {
             GameObject ground = hit.collider.gameObject;
+            Debug.Log(ground.transform.gameObject);
             return grid.NodePoint(ground.transform.position);
         }
         return null;

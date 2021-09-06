@@ -7,6 +7,11 @@ TagManager:
   - Tower
   - Floor
   - Enemy
+  - Castle
+  - FlyingEnemy
+  - BombBullet
+  - GroundEnemy
+  - Grid
   layers:
   - Default
   - TransparentFX
@@ -17,7 +22,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Grid
   - Floor
   - Tower_temp
   - Enemy

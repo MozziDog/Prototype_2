@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour
 {
-    public GameObject groundPrefab; //바닥을 이룰 게임오브젝트(정사각형의 Quad를 사용)
+    public GameObject groundPrefab;
     GameObject parentGrid;          //groundPrefab의 부모
 
     public Vector3 gridWorldSize;   //노드의 크기
@@ -28,7 +28,7 @@ public class Grid : MonoBehaviour
         {
             for (int z = 0; z < (int)gridWorldSize.z; z++)
             {
-                Vector3 worldPoint = worldBottomLeft + Vector3.right * (x + 0.5f) + Vector3.up * 0.2f + Vector3.forward * (z + 0.5f);
+                Vector3 worldPoint = worldBottomLeft + Vector3.right * (x + 0.5f) - Vector3.up * 0.5f + Vector3.forward * (z + 0.5f);
                 GameObject obj = Instantiate(groundPrefab, worldPoint, Quaternion.Euler(90, 0, 0));
                 obj.transform.parent = parentGrid.transform;
                 grid[x, z] = new Node(obj, true, x, z);

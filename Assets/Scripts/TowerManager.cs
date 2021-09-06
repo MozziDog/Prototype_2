@@ -145,6 +145,10 @@ public class TowerManager : MonoBehaviour
         {
             Ray ray = new Ray(item.position + new Vector3(0, 10f, 0), new Vector3(0, -1, 0));
             RaycastHit hit = new RaycastHit();
+            if(Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Grid")))
+            {
+                Debug.Log("Hello~?");
+            }
             if (Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Floor")))
             {
                 Debug.DrawRay(ray.origin, ray.direction * 10f, Color.red, 1f);

@@ -13,10 +13,18 @@ public class SkillSystem : MonoBehaviour
     [SerializeField]
     MoneyManager _moneyManager;
 
+    [SerializeField]
+    EnemyManager _enemyManager;
+
     private float _meteorCool;
     private float nextSkill_1;
     private float nextSkill_2;
     private float nextSkill_3;
+    private float nextSkill_4;
+
+    private float maxCharge = 3f;
+    private float leftCharge = 3f;
+    public bool isEarthQuake = false;
 
     private void Start()
     {
@@ -35,9 +43,26 @@ public class SkillSystem : MonoBehaviour
             Heal();
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && Time.time > nextSkill_3)
+        if (Input.GetKeyDown(KeyCode.E) && Time.time > nextSkill_3 && (_player.GetComponent<Player>().currentHP > 5))
         {
             Sacrifice();
+        }
+
+        if(Input.GetKey(KeyCode.R) && leftCharge > 0 && Time.time > nextSkill_4)
+        {
+            //Debug.Log(leftCharge);
+            EarthQuake();
+        }
+        else if(Input.GetKeyUp(KeyCode.R) && leftCharge != maxCharge)
+        {
+            isEarthQuake = false;
+            nextSkill_4 = Time.time + 10f * (1f - leftCharge / maxCharge);
+            Debug.Log(10f * (1f - leftCharge / maxCharge));
+            leftCharge = maxCharge;
+            for (int i = 0; i < _enemyManager.CurrentEnemyList.Count; i++)
+            {
+                _enemyManager.CurrentEnemyList[i].GetComponent<GroundEnemy>().agent.speed = 1f;
+            }
         }
     }
 
@@ -56,13 +81,24 @@ public class SkillSystem : MonoBehaviour
     void Heal()
     {
         nextSkill_2 = Time.time + 3f;
-        _player.GetComponent<Player>().getHealed();
+        _moneyManager.SpendMoney(100);
+        _player.GetComponent<Player>().getHealed(3);
     }
 
     void Sacrifice()
     {
-        nextSkill_3 = Time.time + 10f;
-        _player.GetComponent<Player>().StartGetHit(Mathf.Round(_player.GetComponent<Player>().currentHP / 2f));
-        _moneyManager.AddMoney(1000);
+        nextSkill_3 = Time.time + 2f;
+        _player.GetComponent<Player>().StartGetHit(5);
+        _moneyManager.AddMoney(50);
+    }
+
+    void EarthQuake()
+    {
+        isEarthQuake = true;
+        leftCharge = leftCharge - Time.deltaTime;
+        for(int i = 0; i <  _enemyManager.CurrentEnemyList.Count; i++)
+        {
+            _enemyManager.CurrentEnemyList[i].GetComponent<GroundEnemy>().agent.speed = 0f;
+        }
     }
 }

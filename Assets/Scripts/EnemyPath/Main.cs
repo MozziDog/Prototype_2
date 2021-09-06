@@ -136,11 +136,11 @@ public class Main : MonoBehaviour
             Vector3 directionNew = new Vector3(path[i - 1].gridX - path[i].gridX, 0, path[i - 1].gridZ - path[i].gridZ);
             if (directionNew != directionOld)
             {
-                waypoints.Add(path[i - 1].ground.transform.position + Vector3.up * 0.1f);
+                waypoints.Add(path[i - 1].ground.transform.position + Vector3.up * 1f);
             }
             directionOld = directionNew;
         }
-        waypoints.Add(start.ground.transform.position + Vector3.up * 0.1f);
+        waypoints.Add(start.ground.transform.position + Vector3.up * 1f);
         return waypoints.ToArray();
     }
 

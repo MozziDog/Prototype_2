@@ -1447,6 +1447,7 @@ MonoBehaviour:
   _MeteorRain: {fileID: 1495271260725604649, guid: 0b0eeaf14eb666b498dc9d7b45b05d20, type: 3}
   _player: {fileID: 1852389140}
   _moneyManager: {fileID: 1761398616}
+  _enemyManager: {fileID: 1021901921}
 --- !u!114 &625576667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2072,7 +2073,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &761735580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2129,7 +2130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6739d990b397a4b48ad272299240558b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundPrefab: {fileID: 7664517891764527303, guid: 5cadc897b85967348973948933ea4f93, type: 3}
+  groundPrefab: {fileID: 3646783327335867252, guid: 7ad0e5851a1f4cf4ea66f36a44e89830, type: 3}
   gridWorldSize: {x: 24, y: 0, z: 10}
 --- !u!4 &761735583
 Transform:

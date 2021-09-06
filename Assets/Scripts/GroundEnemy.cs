@@ -6,9 +6,9 @@ using UnityEngine.AI;
 public class GroundEnemy : MonoBehaviour
 {
     [SerializeField]
-    private float maxHP;
+    public float maxHP;
     [SerializeField]
-    private float moveSpeed;
+    public float moveSpeed;
     public Animator anim;
     public GameObject enemyManager;
     public float hitDamage;
@@ -18,7 +18,7 @@ public class GroundEnemy : MonoBehaviour
     private bool isWalking = true;
     GameObject target;
     GameObject Player;
-    NavMeshAgent agent;
+    public NavMeshAgent agent;
 
     public EnemyData enemyData;
     
