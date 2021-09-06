@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 23325505957966978}
   - component: {fileID: 4297331668875721101}
   - component: {fileID: 3084021330916122605}
-  - component: {fileID: 3032865905020152132}
+  - component: {fileID: -9093487611637552509}
   m_Layer: 14
   m_Name: UTowerBulletLV1
   m_TagString: BombBullet
@@ -161,9 +161,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 1
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &3084021330916122605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,8 +186,8 @@ MonoBehaviour:
   firingAngle: 45
   gravity: 9.8
   BombRadius: 0
---- !u!65 &3032865905020152132
-BoxCollider:
+--- !u!135 &-9093487611637552509
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -197,7 +197,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2, z: 0.2}
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1316882616888268
 GameObject:

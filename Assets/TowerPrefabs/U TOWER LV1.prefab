@@ -20657,7 +20657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myposition: []
   LV: 1
-  bulletSpeed: 0.5
+  bulletSpeed: 1
   bulletDamage: 25
   attackRate: 2
   attackRange: 10
