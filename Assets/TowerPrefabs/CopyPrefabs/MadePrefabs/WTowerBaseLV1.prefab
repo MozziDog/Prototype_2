@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 5848508920314609623}
   - component: {fileID: 2555182604452930553}
   - component: {fileID: 751939155218901403}
-  - component: {fileID: 7693787612581527162}
+  - component: {fileID: 3931663309220435742}
   m_Layer: 11
-  m_Name: StunTowerBase
+  m_Name: WTowerBaseLV1
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!114 &7693787612581527162
+--- !u!114 &3931663309220435742
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,24 +123,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 987993066415137992}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d304f31c7496bb141976c192e65ce54c, type: 3}
+  m_Script: {fileID: 11500000, guid: 601a20424d76ab646952ee2215c078e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _myposition: []
   LV: 1
-  bulletSpeed: 2
-  bulletDamage: 10
+  bulletSpeed: 1
+  bulletDamage: 25
   attackRate: 3
-  attackRange: 3.5
+  attackRange: 10
   bombRange: 3.5
+  bulletAmmoCount: 0
+  burstRate: 0
+  maxChainCount: 0
+  chainRadius: 0
   poisonDamage: 0
   poisonDuration: 0
   poisonRate: 0
-  stunDuration: 3
-  mujeockTime: 3
+  stunDuration: 2
+  mujeockTime: 5
   slowIntensity: 0
   slowRange: 0
-  numberOfBlocks: 1
+  numberOfBlocks: 0
   Towers:
   - {fileID: 9030885062558222157}
   isTemp: 1
@@ -234,9 +238,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9025725675290840877}
-  - component: {fileID: 9030885062558222156}
+  - component: {fileID: 1449748840}
   m_Layer: 0
-  m_Name: StunTower
+  m_Name: WTowerLV1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -258,7 +262,7 @@ Transform:
   m_Father: {fileID: 8020873188327327539}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9030885062558222156
+--- !u!114 &1449748840
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -267,13 +271,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 9030885062558222157}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58d1b1aa9686dd242bd4ae9d45b6c893, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a3dff4e0944010498eef949d9b6883c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 1240887441953726, guid: b95eb989819fe69469707dab1b4598d9, type: 3}
+  BulletPrefab: {fileID: 1240887441953726, guid: 8a976dcd328a4664c85144f33b9c46b0, type: 3}
   BulletSpawnPoint: {fileID: 9025658895422472955}
   RotatingBody: {fileID: 9033966051891340603}
-  LV: 1
+  LV: 0
   bulletSpeed: 0
   bulletDamage: 0
   attackRate: 0

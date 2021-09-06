@@ -14,7 +14,7 @@ public class SlowDebuffTower : MonoBehaviour , TowerInterFace
         this.LV = towerinfo.LV;
         this.slowIntensity = 1f-towerinfo.slowIntensity;
         this.slowRange = towerinfo.slowRange;
-        this.sphereCollider.radius = slowRange+0.8f;
+        this.sphereCollider.radius = slowRange+0.78f;
     }
     
     private void SlowAreaActivate()

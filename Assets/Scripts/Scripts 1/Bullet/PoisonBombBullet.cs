@@ -113,8 +113,11 @@ public class PoisonBombBullet : MonoBehaviour, BulletInterFace
                    
                     searchedObject.gameObject.GetComponent<PoisonDebuff>().RefreshDuration(poisonDuration, poisonDamage, poisonRate);
                 }
-                GameObject effect = Instantiate(PoisonFx, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
-                effect.transform.SetParent(this.gameObject.transform);
+
+                GameObject effect = Instantiate(PoisonFx, new Vector3(searchedObject.transform.position.x, searchedObject.transform.position.y + 0.5f,
+                    searchedObject.transform.position.z), Quaternion.identity);
+
+                effect.transform.SetParent(searchedObject.transform);
                 Destroy(effect, 1f);
                 searchedObject.GetComponent<EnemyInterFace>().GetDamage(bulletDamage);
 

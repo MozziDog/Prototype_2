@@ -47,6 +47,8 @@ public class ShootTower : MonoBehaviour,TowerInterFace
         bulletinfo.poisonDuration = towerinfo.poisonDuration;
         bulletinfo.poisonRate = towerinfo.poisonRate;
 
+        bulletinfo.mujeockTime = towerinfo.mujeockTime;
+        bulletinfo.stunDuration = towerinfo.stunDuration;
        
 
         
@@ -72,7 +74,7 @@ public class ShootTower : MonoBehaviour,TowerInterFace
             Vector3 dir = attackTarget.transform.position - RotatingBody.transform.position;
             dir.y = 0;
             Quaternion rot = Quaternion.LookRotation(dir);
-            RotatingBody.transform.rotation = Quaternion.Slerp(RotatingBody.transform.rotation, rot, 2f * Time.deltaTime);
+            RotatingBody.transform.rotation = Quaternion.Slerp(RotatingBody.transform.rotation, rot, 3f * Time.deltaTime);
 
         }
     }
