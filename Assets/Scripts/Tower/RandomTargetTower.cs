@@ -94,7 +94,12 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
 
 
             Collider temp = colliders[Random.Range(0, colliders.Length)];
-            if (temp.gameObject.layer == LayerMask.NameToLayer("Enemy") && temp.tag !="FlyingEnemy")
+            
+            if (temp.gameObject.layer != LayerMask.NameToLayer("Enemy"))
+                continue;
+            if (BulletPrefab.tag == "BombBullet" && temp.tag == "FlyingEnemy")
+                continue;
+
             attackTarget = temp.gameObject.transform;
 
 

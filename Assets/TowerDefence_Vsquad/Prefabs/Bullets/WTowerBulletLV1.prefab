@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 175216786580645662}
   m_Layer: 0
   m_Name: WTowerBulletLV1
-  m_TagString: Bullet
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

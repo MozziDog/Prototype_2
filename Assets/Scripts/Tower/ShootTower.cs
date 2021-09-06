@@ -95,7 +95,7 @@ public class ShootTower : MonoBehaviour,TowerInterFace
             {
                 if (enemyList[i] == null)
                     continue;
-                if (BulletPrefab.tag == "BulletBomb" && enemyList[i].tag == "FlyingEnemy")
+                if (BulletPrefab.tag == "BombBullet" && enemyList[i].tag == "FlyingEnemy")
                     continue;
 
                 float distance = Vector3.Distance(enemyList[i].transform.position, transform.position);

@@ -101,8 +101,7 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
             {
                 if (enemyList[i] == null)
                     continue;
-                if (BulletPrefab.tag == "BulletBomb" && enemyList[i].tag == "FlyingEnemy")
-                    continue;
+              
 
                 float distance = Vector3.Distance(enemyList[i].transform.position, transform.position);
                 if (distance <= attackRange && distance <= closestDistSqr)

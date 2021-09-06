@@ -19,7 +19,7 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
     private Transform myTransform;
 
 
-    public float firingAngle = 45.0f;
+    public float firingAngle = 60.0f;
     public float gravity = 9.8f;
     public float BombRadius;
    
@@ -80,6 +80,7 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
         if (other.gameObject.layer == LayerMask.NameToLayer("Floor")) //|| other.gameObject.layer == LayerMask.NameToLayer("Enemy")
             Explode();
     }
+
     void Explode()
     {
         

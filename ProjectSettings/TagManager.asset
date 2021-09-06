@@ -11,9 +11,7 @@ TagManager:
   - FlyingEnemy
   - Castle
   - Bullet
-  - NormalBullet
-  - NormalBombBullet
-  - PalabolaBombBullet
+  - BombBullet
   layers:
   - Default
   - TransparentFX
