@@ -96,7 +96,7 @@ public class PoisonBombBullet : MonoBehaviour, BulletInterFace
         foreach (Collider searchedObject in colliders)
         {
             
-            if (searchedObject != null && searchedObject.gameObject.layer == LayerMask.NameToLayer("Enemy")
+            if (searchedObject != null && searchedObject.gameObject.tag == "GroundEnemy"
                 && !searchedObject.GetComponent<EnemyInterFace>().CheckDead())
             {
                

@@ -38,7 +38,14 @@ public class FlyingEnemy : MonoBehaviour, EnemyInterFace
 
     public bool CheckDead()
     {
-        return isDie;
+        if (isDie)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 

@@ -19,7 +19,7 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
     private Transform myTransform;
 
 
-    public float firingAngle = 45.0f;
+    public float firingAngle = 55.0f;
     public float gravity = 9.8f;
     public float BombRadius;
    
@@ -94,7 +94,7 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
         foreach (Collider searchedObject in colliders)
         {
             Debug.Log("Bomb Area Searching");
-            if (searchedObject != null && searchedObject.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            if (searchedObject != null && searchedObject.gameObject.tag == "GroundEnemy")
             {
                 
                 searchedObject.gameObject.GetComponent<EnemyInterFace>().GetDamage(bulletDamage);
