@@ -9,20 +9,34 @@ public class TowerShop : MonoBehaviour
     public Inventory _inven;
     private readonly int MAX_SHOP_ITEMS = 5; // 진열될 수 있는 최대 갯수
     [SerializeField] MoneyManager _wallet;
+    // 상점 창
     [SerializeField] GameObject _shopUI;
     // Button Instantiate할 부모 오브젝트
     [SerializeField] GameObject _shopButtonsGrid;
-    // _towerOnList와 1대1 대응하는 토글 리스트
-    [SerializeField] List<GameObject> _shopButtons;
-    // 현재 상점에 올라와 있는 타워 리스트 (프리팹)
-    [SerializeField] List<GameObject> _towerOnList;
+    // 상점 아이템
+    public List<ShopItem> _shopItems;
+    [SerializeField] [ReadOnly] List<ShopItem> _shoppingCart;
     // 모든 타워 리스트
     [SerializeField] List<GameObject> _towerAll;
 
+    public class ShopItem
+    {
+        public GameObject _shopButton;
+        public GameObject _towerPrefab;
+        public bool isChecked = false;
+        public int GetPrice()
+        {
+            return _towerPrefab.GetComponent<TowerInfo>().GetPrice();
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        // 할당
+        _shopItems = new List<ShopItem>();
+        _shoppingCart = new List<ShopItem>();
+
         MakeShoppingList();
 
     }
@@ -30,7 +44,15 @@ public class TowerShop : MonoBehaviour
     public void ToggleUI()
     {
         _shopUI.SetActive(!_shopUI.activeSelf);
-        OffToggle();
+        OffToggles();
+    }
+
+    private void OffToggles()
+    {
+        for (int i = 0; i < _shopItems.Count; i++)
+        {
+            _shopItems[i]._shopButton.GetComponent<Toggle>().isOn = false;
+        }
     }
 
     public void MakeShoppingList()
@@ -45,29 +67,23 @@ public class TowerShop : MonoBehaviour
         }
     }
 
-    private void OffToggle()
-    {
-        for (int i = 0; i < _shopButtons.Count; i++)
-        {
-            _shopButtons[i].GetComponent<Toggle>().isOn = false;
-        }
-    }
-
     private void AddShoppingItem(int towerCode)
     {
-        _towerOnList.Add(_towerAll[towerCode]);
+        ShopItem newItem = new ShopItem();
+        newItem._towerPrefab = _towerAll[towerCode];
         GameObject newButton = Instantiate(_shopButtonPrefab);
+        newItem._shopButton = newButton;
         SetShoppingButton(newButton, towerCode);
         newButton.transform.SetParent(_shopButtonsGrid.transform, false);
-        _shopButtons.Add(newButton);
+        _shopItems.Add(newItem);
     }
 
     private void SetShoppingButton(GameObject newButton, int towerCode)
     {
         // 초기화
         Toggle toggleComponent = newButton.GetComponent<Toggle>();
-        toggleComponent.group = _shopButtonsGrid.GetComponent<ToggleGroup>();
-        newButton.GetComponentInChildren<ShopToggle>().towerPrefab = _towerAll[towerCode];
+        // toggleComponent.group = _shopButtonsGrid.GetComponent<ToggleGroup>();
+        newButton.GetComponentInChildren<TowerShopToggle>().towerPrefab = _towerAll[towerCode];
         Debug.Log(_towerAll[towerCode].name);
         // towerIndex가 주어지면 그에 따라 상점 버튼 꾸미기
         // 임시로 label만 바꿔두겠습니다.
@@ -78,18 +94,41 @@ public class TowerShop : MonoBehaviour
         }
     }
 
+    public void CheckShoppingCart()
+    {
+        _shoppingCart.Clear();
+        for (int i = 0; i < _shopItems.Count; i++)
+        {
+            if (_shopItems[i].isChecked)
+            {
+                _shoppingCart.Add(_shopItems[i]);
+            }
+        }
+    }
+
     private void ClearShoppingList()
     {
-        for (int i = 0; i < _shopButtons.Count; i++)
+        for (int i = 0; i < _shopItems.Count; i++)
         {
-            Destroy(_shopButtons[i]);
-            _shopButtons.Clear();
+            Destroy(_shopItems[i]._shopButton);
+            _shopItems.Clear();
         }
+    }
+
+    public int GetTotalPriceInCart()
+    {
+        int total = 0;
+        for (int i = 0; i < _shopItems.Count; i++)
+        {
+            if (_shopItems[i].isChecked)
+                total += _shopItems[i].GetPrice();
+        }
+        return total;
     }
 
     public void TryPurchase()
     {
-        if (GetSelectedItemIndex() != -1)
+        if (_shoppingCart.Count > 0)
         {
             // 충분한 가루 / 인벤토리 공간이 있는 지 확인
             if (CheckEnoughMoney() == false)
@@ -101,21 +140,25 @@ public class TowerShop : MonoBehaviour
             if (CheckEnoughInventory() == false)
             {
                 // TODO: 인벤토리가 가득 찼습니다 표시
-                Debug.LogWarning("인벤토리가 가득 찼습니다!");
+                Debug.LogWarning("인벤토리가 모자랍니다!");
                 return;
             }
             // 가능하다면 구매진행
-            _wallet.SpendMoney(_towerOnList[GetSelectedItemIndex()].GetComponent<TowerInfo>().GetPrice());
-            _inven.AddItem(_towerOnList[GetSelectedItemIndex()]);
-            DisableUsedButton();
+            _wallet.SpendMoney(GetTotalPriceInCart());
+            for (int i = 0; i < _shoppingCart.Count; i++)
+            {
+                _inven.AddItem(_shoppingCart[i]._towerPrefab);
+            }
+            DisableCheckedButton();
+            // 쇼핑카트 비우기
+            _shoppingCart.Clear();
             return;
         }
     }
 
     private bool CheckEnoughMoney()
     {
-        int price = _towerOnList[GetSelectedItemIndex()].GetComponent<TowerInfo>().GetPrice();
-        if (price < _wallet.GetLeftMoney())
+        if (GetTotalPriceInCart() < _wallet.GetLeftMoney())
         {
             return true;
         }
@@ -127,26 +170,21 @@ public class TowerShop : MonoBehaviour
 
     private bool CheckEnoughInventory()
     {
-        return !_inven.isFull();
+        return _inven.MAX_INVENTORY_CAPACITY >= _inven.GetItemCount() + _shoppingCart.Count;
     }
 
-    private void DisableUsedButton()
+    private void DisableCheckedButton()
     {
-        int selectedIndex = GetSelectedItemIndex();
-        Toggle toggle = _shopButtons[selectedIndex].GetComponent<Toggle>();
-        toggle.isOn = false;
-        toggle.interactable = false;
-    }
-
-    private int GetSelectedItemIndex()
-    {
-        for (int i = 0; i < _shopButtons.Count; i++)
+        for (int i = 0; i < _shopItems.Count; i++)
         {
-            if (_shopButtons[i].GetComponent<Toggle>().isOn)
-                return i;
+            if (_shopItems[i].isChecked == true)
+            {
+                _shopItems[i].isChecked = false;
+                Toggle toggle = _shopItems[i]._shopButton.GetComponent<Toggle>();
+                toggle.isOn = false;
+                toggle.interactable = false;
+            }
         }
-        return -1;
     }
-
 
 }

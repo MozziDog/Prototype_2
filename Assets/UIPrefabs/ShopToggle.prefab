@@ -422,7 +422,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7766615226275607282}
   - component: {fileID: 7766615226275607283}
-  - component: {fileID: 1228656685436626789}
+  - component: {fileID: 8983148525222151097}
   m_Layer: 5
   m_Name: ShopToggle
   m_TagString: Untagged
@@ -503,7 +503,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
---- !u!114 &1228656685436626789
+--- !u!114 &8983148525222151097
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -512,7 +512,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7766615226275607285}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3a65c53f00634140a55df4059f8a448, type: 3}
+  m_Script: {fileID: 11500000, guid: f627f37fd04893a4ab0c2464e166ce20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 0}

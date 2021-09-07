@@ -5378,8 +5378,6 @@ MonoBehaviour:
   _wallet: {fileID: 1761398616}
   _shopUI: {fileID: 1516585923}
   _shopButtonsGrid: {fileID: 1947040701}
-  _shopButtons: []
-  _towerOnList: []
   _towerAll:
   - {fileID: 7454545231653059525, guid: 82edf50bc8122c14487173c04c698cb8, type: 3}
   - {fileID: 7454545231653059525, guid: 00ab1cef0abf18048802c012e68566f8, type: 3}
@@ -5405,6 +5403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e5199de88873164b8cf714e312ebb4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MAX_INVENTORY_CAPACITY: 5
   _towerManager: {fileID: 625576663}
   _toggle: []
   _tower: []
@@ -6075,7 +6074,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1947040702}
   - component: {fileID: 1947040703}
-  - component: {fileID: 1947040704}
   m_Layer: 5
   m_Name: GridLayout
   m_TagString: Untagged
@@ -6126,19 +6124,6 @@ MonoBehaviour:
   m_Spacing: {x: 570, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 5
---- !u!114 &1947040704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1947040701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fafe2cfe61f6974895a912c3755e8f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AllowSwitchOff: 1
 --- !u!1 &1987817092
 GameObject:
   m_ObjectHideFlags: 0

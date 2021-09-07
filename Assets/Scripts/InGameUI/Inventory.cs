@@ -8,7 +8,7 @@ using UnityEngine.Events;
 
 public class Inventory : MonoBehaviour
 {
-    private int MAX_INVENTORY_CAPACITY = 5; // 임의로 5로 지정해두겠습니다.
+    public int MAX_INVENTORY_CAPACITY = 5; // 임의로 5로 지정해두겠습니다.
     public TowerManager _towerManager;
     public List<Toggle> _toggle;
     public List<GameObject> _tower;
@@ -105,5 +105,10 @@ public class Inventory : MonoBehaviour
     public bool isFull()
     {
         return _toggle.Count >= MAX_INVENTORY_CAPACITY;
+    }
+
+    public int GetItemCount()
+    {
+        return _toggle.Count;
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShopToggle : MonoBehaviour
+public class TowerShopToggle : MonoBehaviour
 {
     public GameObject towerPrefab;
     TowerShop shopManager;
@@ -11,6 +11,7 @@ public class ShopToggle : MonoBehaviour
     void Start()
     {
         shopManager = GameObject.Find("GameManager").GetComponentInChildren<TowerShop>();
+        gameObject.GetComponent<Toggle>().onValueChanged.AddListener((bool isOn) => OnToggleChanged(isOn));
     }
 
     // Update is called once per frame
@@ -37,10 +38,12 @@ public class ShopToggle : MonoBehaviour
         previewManager.CloseImage(towerPrefab);
     }
 
-    void OnToggleChanged(bool isOn)
+    public void OnToggleChanged(bool isOn)
     {
+        Debug.Log("OnToggleChanged");
         if (isOn)
         {
+            Debug.Log("HI");
             shopManager._shopItems[gameObject.transform.GetSiblingIndex()].isChecked = isOn;
             shopManager.CheckShoppingCart();
         }
