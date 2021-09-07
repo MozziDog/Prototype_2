@@ -239,6 +239,8 @@ public class TowerManager : MonoBehaviour
 
                 _inven.DeleteSelectedItem();
                 _inven.SetToggleInteractable(true);
+
+                spawnUI.SetUI(null, false);
                 return;
             }
         }
