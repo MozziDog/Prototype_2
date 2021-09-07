@@ -14,12 +14,10 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
     public float bulletDamage;
     
     public Transform target;
-    //public Vector3 aimPosition;
     public Transform Projectile;
-    private Transform myTransform;
+    public Vector3 aimPosition;
 
-
-    public float firingAngle = 55.0f;
+    public float firingAngle = 45.0f;
     public float gravity = 9.8f;
     public float BombRadius;
    
@@ -35,10 +33,10 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
         Projectile = this.transform;
     }
 
-
+    
     IEnumerator SimulateProjectile()
     {
-
+       
         ShootArea = Instantiate(BombAreaEffect, new Vector3(target.position.x, 0.1f, target.position.z), BombAreaEffect.transform.rotation);
         Projectile.position = this.transform.position + new Vector3(0, 0.0f, 0);
 
@@ -48,14 +46,15 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
         float projectile_Velocity = target_Distance / (Mathf.Sin(2 * firingAngle * Mathf.Deg2Rad) / gravity);
         float Vx = Mathf.Sqrt(projectile_Velocity) * Mathf.Cos(firingAngle * Mathf.Deg2Rad);
         float Vy = Mathf.Sqrt(projectile_Velocity) * Mathf.Sin(firingAngle * Mathf.Deg2Rad);
-        float flightDuration = target_Distance / Vx;
         Projectile.rotation = Quaternion.LookRotation(target.position - Projectile.position);
+        float flightDuration = target_Distance / Vx;
         float elapse_time = 0;
+        Destroy(ShootArea, flightDuration * bulletSpeed + 0.2f);
 
         while (elapse_time < flightDuration)
         {
-            Projectile.Translate(0, (Vy - (gravity * elapse_time)) * Time.deltaTime * bulletSpeed, Vx * Time.deltaTime*bulletSpeed);
-            Projectile.rotation = Quaternion.LookRotation(target.position - Projectile.position);
+
+            Projectile.Translate(0, (Vy - (gravity * elapse_time)) * Time.deltaTime * bulletSpeed, Vx * Time.deltaTime*bulletSpeed);      
             elapse_time += Time.deltaTime*bulletSpeed;
 
             yield return null;
@@ -64,16 +63,7 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
     }
     
 
-    /*
-     private void OnCollisionEnter(Collision collision)
-     {
-         if (collision.gameObject.layer == 10) { 
-             Debug.LogWarning("Bomb Exploding!!");
-         Explode(collision);
-             }
-
-     }
-    */
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -86,14 +76,13 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
         
         //hit particle spawn
        GameObject BoomEffects = Instantiate(impactParticle, Projectile.position, Quaternion.identity) as GameObject;
-       // BoomEffects.transform.parent = target.transform;
         Destroy(BoomEffects, 3);
         Collider[] colliders = Physics.OverlapSphere(transform.position, BombRadius);
 
 
         foreach (Collider searchedObject in colliders)
         {
-            Debug.Log("Bomb Area Searching");
+            
             if (searchedObject != null && searchedObject.gameObject.tag == "GroundEnemy")
             {
                 
@@ -110,30 +99,25 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
         Gizmos.DrawWireSphere(transform.position, BombRadius);
     }
 
-    /*
-    void AimTarget() //자동추격 기능 
-    {
-        aimPosition = new Vector3(target.position.x, target.position.y, target.position.z);
-        transform.LookAt(aimPosition);
-        Physics.Raycast(transform.position, aimPosition, out hit);
-        Debug.DrawLine(transform.position, aimPosition);
-    }
-  */
+   
+
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
+        
         if (target)
-            StartCoroutine(SimulateProjectile());
+           StartCoroutine(SimulateProjectile());
     }
 
-    
+  
 
     // Update is called once per frame
     void Update()
     {
-      
-
+       
+        
     }
 }
