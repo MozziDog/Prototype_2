@@ -56,7 +56,7 @@ public class ChainBullet : MonoBehaviour ,BulletInterFace
                 if (distance <= closestDistSqr)
                 {
                     closestDistSqr = distance;
-                    currentTarget = searchedObject.gameObject.transform;
+                    currentTarget = searchedObject.transform.parent.gameObject.transform;
                     
                 }
             }
@@ -133,6 +133,7 @@ public class ChainBullet : MonoBehaviour ,BulletInterFace
         aimPosition = new Vector3(currentTarget.position.x, currentTarget.position.y + 0.5f, currentTarget.position.z); 
         Physics.Raycast(transform.position, aimPosition, out hit);
         transform.LookAt(aimPosition);
+        
         this.transform.position = Vector3.MoveTowards(this.transform.position, aimPosition, bulletSpeed * Time.deltaTime);
     }
    
