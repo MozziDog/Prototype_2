@@ -255,12 +255,37 @@ public class TowerManager : MonoBehaviour
     {
         if (temporarilyPlacedTower != null)
         {
-            temporarilyPlacedTower.transform.localScale = new Vector3(temporarilyPlacedTower.transform.localScale.x * -1, 1, 1);
-            // BoxCollider 꼬임 방지를 위해 Children의 globalScale 값을 양수로 해줌.
-            for (int i = 0; i < temporarilyPlacedTower.transform.childCount; i++)
+            if ((temporarilyPlacedTower.transform.rotation.y % 90) == 0)
             {
-                Transform childTransform = temporarilyPlacedTower.transform.GetChild(i).transform;
-                childTransform.localScale = new Vector3(childTransform.localScale.x * -1, 1, 1);
+                temporarilyPlacedTower.transform.localScale = new Vector3(
+                    temporarilyPlacedTower.transform.localScale.x * -1,
+                    1,
+                    temporarilyPlacedTower.transform.localScale.z);
+                // BoxCollider 꼬임 방지를 위해 Children의 globalScale 값을 양수로 해줌.
+                for (int i = 0; i < temporarilyPlacedTower.transform.childCount; i++)
+                {
+                    Transform childTransform = temporarilyPlacedTower.transform.GetChild(i).transform;
+                    childTransform.localScale = new Vector3(
+                        childTransform.localScale.x * -1,
+                        1,
+                        childTransform.localScale.z);
+                }
+            }
+            else
+            {
+                temporarilyPlacedTower.transform.localScale = new Vector3(
+                    temporarilyPlacedTower.transform.localScale.x,
+                    1,
+                    temporarilyPlacedTower.transform.localScale.z * -1);
+                // BoxCollider 꼬임 방지를 위해 Children의 globalScale 값을 양수로 해줌.
+                for (int i = 0; i < temporarilyPlacedTower.transform.childCount; i++)
+                {
+                    Transform childTransform = temporarilyPlacedTower.transform.GetChild(i).transform;
+                    childTransform.localScale = new Vector3(
+                        childTransform.localScale.x,
+                        1,
+                        childTransform.localScale.z * -1);
+                }
             }
         }
         CheckTowerSpawnableInDelay();
