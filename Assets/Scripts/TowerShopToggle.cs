@@ -32,6 +32,11 @@ public class TowerShopToggle : MonoBehaviour
         previewImage.texture = previewManager.GetTowerImage(towerPrefab);
     }
 
+    public void OnInstantiated()
+    {
+        OnEnable();
+    }
+
     void OnDisable()
     {
         TowerPreviewImage previewManager = GameObject.Find("TowerPreviewManager").GetComponent<TowerPreviewImage>();
@@ -44,5 +49,5 @@ public class TowerShopToggle : MonoBehaviour
         shopManager.CheckShoppingCart();
         gameObject.GetComponentInChildren<Outline>().enabled = isOn;
     }
-    
+
 }

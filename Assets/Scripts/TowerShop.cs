@@ -18,6 +18,8 @@ public class TowerShop : MonoBehaviour
     [SerializeField] [ReadOnly] List<ShopItem> _shoppingCart;
     // 모든 타워 리스트
     [SerializeField] List<GameObject> _towerAll;
+    [SerializeField] Text _totalPriceText;
+    [SerializeField] int rerollPrice;
 
     public class ShopItem
     {
@@ -65,6 +67,7 @@ public class TowerShop : MonoBehaviour
             int selectedIndex = Random.Range(0, _towerAll.Count);
             AddShoppingItem(selectedIndex);
         }
+        OffToggles();
     }
 
     private void AddShoppingItem(int towerCode)
@@ -74,6 +77,8 @@ public class TowerShop : MonoBehaviour
         GameObject newButton = Instantiate(_shopButtonPrefab);
         newItem._shopButton = newButton;
         SetShoppingButton(newButton, towerCode);
+        TowerShopToggle itemToggle = newButton.GetComponentInChildren<TowerShopToggle>();
+        itemToggle.OnInstantiated(); // 타워 프리팹이 설정되어있지 않은 상태라 이미지 수동으로 설정해줘야함.
         newButton.transform.SetParent(_shopButtonsGrid.transform, false);
         _shopItems.Add(newItem);
     }
@@ -104,6 +109,7 @@ public class TowerShop : MonoBehaviour
                 _shoppingCart.Add(_shopItems[i]);
             }
         }
+        _totalPriceText.text = GetTotalPriceInCart().ToString();
     }
 
     private void ClearShoppingList()
@@ -111,8 +117,8 @@ public class TowerShop : MonoBehaviour
         for (int i = 0; i < _shopItems.Count; i++)
         {
             Destroy(_shopItems[i]._shopButton);
-            _shopItems.Clear();
         }
+        _shopItems.Clear();
     }
 
     public int GetTotalPriceInCart()
@@ -131,7 +137,7 @@ public class TowerShop : MonoBehaviour
         if (_shoppingCart.Count > 0)
         {
             // 충분한 가루 / 인벤토리 공간이 있는 지 확인
-            if (CheckEnoughMoney() == false)
+            if (CheckEnoughMoney(GetTotalPriceInCart()) == false)
             {
                 // TODO: 가루가 모자랍니다 표시
                 Debug.LogWarning("요술가루가 모자랍니다!");
@@ -156,9 +162,9 @@ public class TowerShop : MonoBehaviour
         }
     }
 
-    private bool CheckEnoughMoney()
+    private bool CheckEnoughMoney(int price)
     {
-        if (GetTotalPriceInCart() < _wallet.GetLeftMoney())
+        if (price < _wallet.GetLeftMoney())
         {
             return true;
         }
@@ -184,6 +190,20 @@ public class TowerShop : MonoBehaviour
                 toggle.isOn = false;
                 toggle.interactable = false;
             }
+        }
+    }
+
+    public void OnClickRerollButton()
+    {
+        if (CheckEnoughMoney(rerollPrice) == true)
+        {
+            _wallet.SpendMoney(rerollPrice);
+            MakeShoppingList();
+        }
+        else
+        {
+            // TODO : 돈이 부족합니다 띄우기
+            Debug.Log("돈이 부족합니다!");
         }
     }
 
