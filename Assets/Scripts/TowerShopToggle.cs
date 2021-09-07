@@ -40,12 +40,9 @@ public class TowerShopToggle : MonoBehaviour
 
     public void OnToggleChanged(bool isOn)
     {
-        Debug.Log("OnToggleChanged");
-        if (isOn)
-        {
-            Debug.Log("HI");
-            shopManager._shopItems[gameObject.transform.GetSiblingIndex()].isChecked = isOn;
-            shopManager.CheckShoppingCart();
-        }
+        shopManager._shopItems[gameObject.transform.GetSiblingIndex()].isChecked = isOn;
+        shopManager.CheckShoppingCart();
+        gameObject.GetComponentInChildren<Outline>().enabled = isOn;
     }
+    
 }
