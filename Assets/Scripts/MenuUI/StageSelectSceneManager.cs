@@ -86,7 +86,7 @@ public class StageSelectSceneManager : MonoBehaviour
     {
         int stageCode = GetSelectedStage();
         //SceneManager.LoadScene("Stage" + stageCode);
-        SceneManager.LoadScene("SampleScene");
+        SceneLoader.LoadScene("SampleScene_TH");
     }
 
     int GetSelectedStage()
