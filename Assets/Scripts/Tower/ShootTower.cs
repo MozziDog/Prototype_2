@@ -74,6 +74,14 @@ public class ShootTower : MonoBehaviour,TowerInterFace
     {
         if (attackTarget)
         {
+            float distance = Vector3.Distance(attackTarget.position, transform.position);
+            if (distance > attackRange)
+            {
+                lockOn = false;
+                attackTarget = null;
+                ChangeState(WeaponState.SearchTarget);
+                return;
+            }
 
             Vector3 dir = attackTarget.transform.position - RotatingBody.transform.position;
             dir.y = 0;
@@ -179,6 +187,7 @@ public class ShootTower : MonoBehaviour,TowerInterFace
             ChangeState(WeaponState.SearchTarget);
 
         }
+
     }
 
 
