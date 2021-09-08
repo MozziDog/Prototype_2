@@ -26,6 +26,10 @@ public class ShootTower : MonoBehaviour,TowerInterFace
     public List<GameObject> enemyList;
     private Transform homeY;
 
+
+    private bool lockOn = false;
+    
+
     public void SetUp(TowerInfo towerinfo)
     {
         
@@ -75,9 +79,16 @@ public class ShootTower : MonoBehaviour,TowerInterFace
             dir.y = 0;
             Quaternion rot = Quaternion.LookRotation(dir);
             RotatingBody.transform.rotation = Quaternion.Slerp(RotatingBody.transform.rotation, rot, 3f * Time.deltaTime);
-
+           
+            if (RotatingBody.transform.rotation == rot)
+            {
+                lockOn = true;
+                
+            }
         }
     }
+
+    /*
     private void RotateToHome()
     {
         Quaternion home = Quaternion.LookRotation(SpawnPoint.transform.position);
@@ -85,11 +96,13 @@ public class ShootTower : MonoBehaviour,TowerInterFace
         RotatingBody.transform.rotation = Quaternion.Slerp(RotatingBody.transform.rotation, home, 2f*Time.deltaTime);
     }
 
+    */
     private IEnumerator SearchTarget() //적 탐색
     {
         while (true)
         {
-           
+            
+
             float closestDistSqr = Mathf.Infinity;
             for (int i = 0; i < enemyList.Count; ++i)
             {
@@ -97,18 +110,24 @@ public class ShootTower : MonoBehaviour,TowerInterFace
                     continue;
                 if (BulletPrefab.tag == "BombBullet" && enemyList[i].tag == "FlyingEnemy")
                     continue;
+                if (enemyList[i].GetComponent<EnemyInterFace>().CheckDead())
+                    continue;
 
                 float distance = Vector3.Distance(enemyList[i].transform.position, transform.position);
-                if (distance <= attackRange && distance <= closestDistSqr)
+                if (distance <= attackRange && distance < closestDistSqr)
                 {
                     closestDistSqr = distance;
                     attackTarget = enemyList[i].transform;
                 }
             }
-            if (attackTarget != null)
-            {
+
+            if (attackTarget && !lockOn)
+                RotateToTarget();
+
+            else if (attackTarget&&lockOn)
                 ChangeState(WeaponState.AttackToTarget);
-            }
+            
+
             yield return null;
         }
     }
@@ -117,48 +136,49 @@ public class ShootTower : MonoBehaviour,TowerInterFace
     {
         while (true)
         {
-            if (attackTarget == null )
-            {
-                ChangeState(WeaponState.SearchTarget);
-                break;
-            }
 
-            //|| attackTarget.gameObject.layer == LayerMask.NameToLayer("Dead")
-
+            CheckTarget();
 
 
             float distance = Vector3.Distance(attackTarget.position, transform.position);
-
-
             if (distance > attackRange)
             {
+                lockOn = false;
                 attackTarget = null;
                 ChangeState(WeaponState.SearchTarget);
                 break;
             }
-            yield return new WaitForSeconds(attackRate);
 
-
+           
+            
             SpawnBullet();
+            yield return new WaitForSeconds(attackRate);
+            
+
+            
+
         }
     }
 
 
     private void SpawnBullet() //발사체 생성
     {
-        if (!attackTarget)
-        {
-            ChangeState(WeaponState.SearchTarget);
-            return;
-        }
-            
-
+      
         bulletinfo.attackTarget = this.attackTarget;
         GameObject clone = Instantiate(BulletPrefab, BulletSpawnPoint.position, Quaternion.identity);
         BulletInterFace bullet = clone.GetComponent<BulletInterFace>();
         bullet.SetUp(bulletinfo);
-            
-        
+    }
+
+    private void CheckTarget()
+    {
+        if (!attackTarget || (attackTarget && attackTarget.gameObject.GetComponent<EnemyInterFace>().CheckDead() == true))
+        {
+            lockOn = false;
+            attackTarget = null;
+            ChangeState(WeaponState.SearchTarget);
+
+        }
     }
 
 
@@ -175,23 +195,15 @@ public class ShootTower : MonoBehaviour,TowerInterFace
         ChangeState(WeaponState.SearchTarget);
     }
 
+
+
     // Update is called once per frame
+   
     void Update()
     {
         this.enemyList = SpawnPoint.GetComponent<EnemyManager>().CurrentEnemyList; //매 프레임마다 적 리스트 갱신
-       
-        
-        if (!attackTarget || attackTarget.gameObject.GetComponent<EnemyInterFace>().CheckDead() == true)
-        {
-           // RotateToHome();
-            ChangeState(WeaponState.SearchTarget);
 
-        }
-        
-        if (attackTarget)
-        {
-            RotateToTarget();
-        }
+
     }
 
 }

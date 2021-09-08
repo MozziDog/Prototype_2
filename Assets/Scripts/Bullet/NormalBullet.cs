@@ -23,14 +23,17 @@ public class NormalBullet : MonoBehaviour, BulletInterFace
 
     private void OnTriggerEnter(Collider other) //적과 충돌시 상호작용
     {
-        if (other.gameObject.layer != 12) return;
         if(other.transform != target) return;
-
+        if ( other.gameObject.layer != LayerMask.NameToLayer("Enemy")) return;
+        if (other.gameObject.GetComponent<EnemyInterFace>() == null) return;
+        Debug.Log("hitting!!");
+        other.GetComponent<EnemyInterFace>().GetDamage(bulletDamage);
+        /*
         if (other.CompareTag("GroundEnemy"))
             other.GetComponent<GroundEnemy>().GetDamage(bulletDamage);
         else if (other.CompareTag("FlyingEnemy"))
             other.GetComponent<FlyingEnemy>().GetDamage(bulletDamage);
-
+        */
 
         //hit particle spawn
         GameObject clone = Instantiate(impactParticle, target.transform.position + Vector3.up * 0.5f, Quaternion.identity) as GameObject;
