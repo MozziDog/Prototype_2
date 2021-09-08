@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -57,9 +56,8 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         // CheckTileUnderCursor();
-        _floor.GetComponent<Renderer>().material.SetFloat("_GridScaleFactor", _scaleFactor);
+        // _floor.GetComponent<Renderer>().material.SetFloat("_GridScaleFactor", _scaleFactor);
         CheckGameOver();
-        CheckStageClear();
     }
 
 
@@ -132,6 +130,7 @@ public class GameManager : MonoBehaviour
     public void OnEnemyDie(int rewardMoney)
     {
         wallet.AddMoney(rewardMoney);
+        CheckStageClear();
     }
 
 }

@@ -66,11 +66,13 @@ public class PoisonDebuff : MonoBehaviour
 
     public void RefreshDuration(float newPoisonDuration,float newPoisonDamage,float newPoisonRate)
     {
-        this.poisonDuration = newPoisonDuration;
+        this.currentPoisonDuration = newPoisonDuration;
         this.poisonDamage = newPoisonDamage;
         this.poisonRate = newPoisonRate;
+        /*
         StopCoroutine(PoisonCoroutine());
         StartCoroutine(PoisonCoroutine());
+        */
     }
 
     void OnEnable()

@@ -5932,7 +5932,7 @@ MonoBehaviour:
   _myposition: []
   LV: 1
   bulletSpeed: 1
-  bulletDamage: 10
+  bulletDamage: 0
   attackRate: 2
   attackRange: 10
   bombRange: 3.5
@@ -5940,7 +5940,7 @@ MonoBehaviour:
   burstRate: 0
   maxChainCount: 0
   chainRadius: 0
-  poisonDamage: 25
+  poisonDamage: 5
   poisonDuration: 5
   poisonRate: 1
   stunDuration: 0

@@ -30,8 +30,9 @@ public class PoisonBombBullet : MonoBehaviour, BulletInterFace
     public float firingAngle = 45.0f;
     public float gravity = 9.8f;
     public float BombRadius;
-   
-    
+
+
+    private bool isExplode=false;
 
     RaycastHit hit;
     public void SetUp(BulletInfo bulletinfo)
@@ -50,6 +51,7 @@ public class PoisonBombBullet : MonoBehaviour, BulletInterFace
 
     IEnumerator SimulateProjectile() //PALABORA MOVEMENT
     {
+       
 
         ShootArea = Instantiate(BombAreaEffect, new Vector3(target.position.x, 0.1f, target.position.z), BombAreaEffect.transform.rotation);
         Projectile.position = this.transform.position + new Vector3(0, 0.0f, 0);
@@ -60,16 +62,17 @@ public class PoisonBombBullet : MonoBehaviour, BulletInterFace
         float projectile_Velocity = target_Distance / (Mathf.Sin(2 * firingAngle * Mathf.Deg2Rad) / gravity);
         float Vx = Mathf.Sqrt(projectile_Velocity) * Mathf.Cos(firingAngle * Mathf.Deg2Rad);
         float Vy = Mathf.Sqrt(projectile_Velocity) * Mathf.Sin(firingAngle * Mathf.Deg2Rad);
-        float flightDuration = target_Distance / Vx;
         Projectile.rotation = Quaternion.LookRotation(target.position - Projectile.position);
+        float flightDuration = target_Distance / Vx;
         float elapse_time = 0;
-
+        Destroy(ShootArea,flightDuration*bulletSpeed+0.2f);
         while (elapse_time < flightDuration)
         {
             Projectile.Translate(0, (Vy - (gravity * elapse_time)) * Time.deltaTime * bulletSpeed, Vx * Time.deltaTime*bulletSpeed);
-
             elapse_time += Time.deltaTime*bulletSpeed;
 
+           
+               
             yield return null;
         }
      
@@ -79,8 +82,12 @@ public class PoisonBombBullet : MonoBehaviour, BulletInterFace
     private void OnTriggerEnter(Collider other)
     {
         
-        if (other.gameObject.layer == LayerMask.NameToLayer("Floor")) //|| other.gameObject.layer == LayerMask.NameToLayer("Enemy")
+        if (other.gameObject.layer == LayerMask.NameToLayer("Floor"))
+        {
+            isExplode = true;
             Explode();
+        }
+            
     }
 
     void Explode()
@@ -91,8 +98,6 @@ public class PoisonBombBullet : MonoBehaviour, BulletInterFace
        // BoomEffects.transform.parent = target.transform;
         Destroy(BoomEffects, 3);
         Collider[] colliders = Physics.OverlapSphere(transform.position, BombRadius);
-
-        
         foreach (Collider searchedObject in colliders)
         {
             
@@ -124,7 +129,7 @@ public class PoisonBombBullet : MonoBehaviour, BulletInterFace
             }
         }
        
-        Destroy(ShootArea,0.3f);
+       
         Destroy(gameObject);
     }
    
@@ -134,21 +139,19 @@ public class PoisonBombBullet : MonoBehaviour, BulletInterFace
         Gizmos.DrawWireSphere(transform.position, BombRadius);
     }
 
-   
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        if (target)
+        
             StartCoroutine(SimulateProjectile());
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if(target)
-       // AimTarget();
 
     }
 }

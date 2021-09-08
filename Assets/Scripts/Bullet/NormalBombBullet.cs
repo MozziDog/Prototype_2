@@ -19,7 +19,7 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
     private Transform myTransform;
 
 
-    public float firingAngle = 55.0f;
+    public float firingAngle = 45.0f;
     public float gravity = 9.8f;
     public float BombRadius;
    
@@ -51,13 +51,11 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
         float flightDuration = target_Distance / Vx;
         Projectile.rotation = Quaternion.LookRotation(target.position - Projectile.position);
         float elapse_time = 0;
-
+        Destroy(ShootArea, flightDuration * bulletSpeed + 0.2f);
         while (elapse_time < flightDuration)
         {
             Projectile.Translate(0, (Vy - (gravity * elapse_time)) * Time.deltaTime * bulletSpeed, Vx * Time.deltaTime*bulletSpeed);
-
             elapse_time += Time.deltaTime*bulletSpeed;
-
             yield return null;
         }
      
@@ -101,7 +99,6 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
             }
         }
        
-        Destroy(ShootArea,0.3f);
         Destroy(gameObject);
     }
 
@@ -128,11 +125,12 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
             StartCoroutine(SimulateProjectile());
     }
 
+    
+
     // Update is called once per frame
     void Update()
     {
-        //if(target)
-       // AimTarget();
+      
 
     }
 }
