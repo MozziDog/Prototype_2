@@ -26,10 +26,10 @@ public class TowerShopToggle : MonoBehaviour
         {
             return;
         }
-        TowerPreviewImage previewManager = GameObject.Find("TowerPreviewManager").GetComponent<TowerPreviewImage>();
-        RawImage previewImage = GetComponentInChildren<RawImage>();
-        Debug.Log(previewImage.gameObject.name);
-        previewImage.texture = previewManager.GetTowerImage(towerPrefab);
+        //TowerPreviewImage previewManager = GameObject.Find("TowerPreviewManager").GetComponent<TowerPreviewImage>();
+        //RawImage previewImage = GetComponentInChildren<RawImage>();
+        //Debug.Log(previewImage.gameObject.name);
+        //previewImage.texture = previewManager.GetTowerImage(towerPrefab);
     }
 
     public void OnInstantiated()
@@ -39,8 +39,8 @@ public class TowerShopToggle : MonoBehaviour
 
     void OnDisable()
     {
-        TowerPreviewImage previewManager = GameObject.Find("TowerPreviewManager").GetComponent<TowerPreviewImage>();
-        previewManager.CloseImage(towerPrefab);
+        //TowerPreviewImage previewManager = GameObject.Find("TowerPreviewManager").GetComponent<TowerPreviewImage>();
+        //previewManager.CloseImage(towerPrefab);
     }
 
     public void OnToggleChanged(bool isOn)

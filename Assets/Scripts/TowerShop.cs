@@ -195,8 +195,10 @@ public class TowerShop : MonoBehaviour
 
     public void OnClickRerollButton()
     {
+        Debug.Log("1");
         if (CheckEnoughMoney(rerollPrice) == true)
         {
+            Debug.Log("2");
             _wallet.SpendMoney(rerollPrice);
             MakeShoppingList();
         }
