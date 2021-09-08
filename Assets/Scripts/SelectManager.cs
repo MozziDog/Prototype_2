@@ -14,61 +14,52 @@ public class SelectManager : MonoBehaviour
 
     void Update()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
+        if (!EventSystem.current.IsPointerOverGameObject(0) && Input.touchCount == 1)
         {
-            if (Input.touchCount == 1)
+            var touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Began)
             {
-                OnTouch();
+                OnTouchStart();
             }
-            if (Input.GetMouseButtonUp(0))
+            if (touch.phase == TouchPhase.Moved)
             {
-                OnTouchUp();
+                OnTouchMove();
+            }
+            if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+            {
+                OnTouchEnd();
             }
         }
     }
 
-    void OnTouch()
+    void OnTouchStart()
     {
-        Debug.Log("OnTouch function called");
         lastTouchPosition = Input.mousePosition;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit = new RaycastHit();
         if (Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Floor")))
         {
-            if (Input.GetMouseButtonDown(0)) // 터치 시작될 때
+
+            if (hit.transform.CompareTag("Tower"))// 타워 터치된 경우
             {
-                if (hit.transform.CompareTag("Tower"))// 타워 터치된 경우
-                {
-                    GameObject tower = hit.collider.gameObject;
-                    tower = GetTowerFromTowerParts(tower);
-                    selectedTower = tower;
-                }
-                else    // 바닥 터치된 경우
-                {
-                    if (selectedTower != null)
-                    {
-                        SendMessage("OnTowerUnselected", selectedTower);
-                        selectedTower = null;
-                    }
-                    selectedTilePosition = new Vector3(Mathf.Floor(hit.point.x) + 0.5f, 0.5f, Mathf.Floor(hit.point.z) + 0.5f);
-                    if (lastSelectedTilePosition != selectedTilePosition)
-                    {
-                        SendMessage("OnSelectedTileChanged", selectedTilePosition);
-                        lastSelectedTilePosition = selectedTilePosition;
-                    }
-                }
+                GameObject tower = hit.collider.gameObject;
+                tower = GetTowerFromTowerParts(tower);
+                selectedTower = tower;
             }
-            else // 터치 유지되는 경우
+            else // 바닥 터치된 경우
             {
+                if (selectedTower != null)
+                {
+                    SendMessage("OnTowerUnselected", selectedTower);
+                    selectedTower = null;
+                }
                 selectedTilePosition = new Vector3(Mathf.Floor(hit.point.x) + 0.5f, 0.5f, Mathf.Floor(hit.point.z) + 0.5f);
                 if (lastSelectedTilePosition != selectedTilePosition)
                 {
                     SendMessage("OnSelectedTileChanged", selectedTilePosition);
-                    Debug.Log("SelectedTileChanged Message sent");
                     lastSelectedTilePosition = selectedTilePosition;
                 }
             }
-
         }
         else // 아무 빈 공간을 터치한 경우
         {
@@ -80,17 +71,35 @@ public class SelectManager : MonoBehaviour
         }
     }
 
-    void OnTouchUp()
+    void OnTouchMove()
     {
-        Ray ray = Camera.main.ScreenPointToRay(lastTouchPosition);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit = new RaycastHit();
         if (Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Floor")))
         {
-            GameObject tower = hit.transform.gameObject;
-            tower = GetTowerFromTowerParts(tower);
-            if (tower == selectedTower)
+            selectedTilePosition = new Vector3(Mathf.Floor(hit.point.x) + 0.5f, 0.5f, Mathf.Floor(hit.point.z) + 0.5f);
+            if (lastSelectedTilePosition != selectedTilePosition)
             {
-                SendMessage("OnTowerSelected", selectedTower);
+                SendMessage("OnSelectedTileChanged", selectedTilePosition);
+                lastSelectedTilePosition = selectedTilePosition;
+            }
+        }
+    }
+
+    void OnTouchEnd()
+    {
+        if (!EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(lastTouchPosition);
+            RaycastHit hit = new RaycastHit();
+            if (Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Floor")))
+            {
+                GameObject tower = hit.transform.gameObject;
+                tower = GetTowerFromTowerParts(tower);
+                if (tower == selectedTower)
+                {
+                    SendMessage("OnTowerSelected", selectedTower);
+                }
             }
         }
     }

@@ -56,3 +56,4 @@ Logs/AssetImportWorker0-prev.log
 Logs/AssetImportWorker1-prev.log
 *.log
 *.txt
+.vscode/launch.json

@@ -6,8 +6,8 @@ using UnityEngine.EventSystems;
 
 public class EnemyManager : MonoBehaviour
 {
-    
-    
+
+
     public NavMeshSurface surface;
     public UnityEngine.AI.NavMeshPath navMeshPath;
     public UnityEngine.AI.NavMeshAgent agent;
@@ -23,29 +23,31 @@ public class EnemyManager : MonoBehaviour
     public List<GameObject> CurrentEnemyList;
     public int enemySpawnCount = 0;
     public int SpawnedAirEnemyCount = 0;
-    public int enemyKilledCount =0;
+    public int enemyKilledCount = 0;
+    public WavePathDisplay wavePath_ground;
+    public WavePathDisplay wavePath_air;
 
     // Start is called before the first frame update
     void Start()
     {
-        CurrentEnemyList = new List<GameObject>(); //ÇöÀç »ý¼ºµÇ¾îÀÖ´Â Àû Á¤º¸ Âü°í¿ë ¸®½ºÆ®
+        CurrentEnemyList = new List<GameObject>(); //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
         navMeshPath = new UnityEngine.AI.NavMeshPath();
 
 
     }
     void Update()
     {
-        AirRouteDraw();
+
     }
 
 
     public void KillAllEnemy()
     {
-        
+
         for (int i = 0; i < CurrentEnemyList.Count; i++)
         {
-                if (CurrentEnemyList[i] == null)
-                    continue;
+            if (CurrentEnemyList[i] == null)
+                continue;
 
             switch (CurrentEnemyList[i].tag)
             {
@@ -56,41 +58,28 @@ public class EnemyManager : MonoBehaviour
                     CurrentEnemyList[i].GetComponent<FlyingEnemy>().ReadyToDie();
                     break;
             }
-              
+
         }
-        
-        
+
+
     }
 
-   
+
 
     public void AirRouteDraw()
     {
-        var lineForAir = GameObject.Find("GroundSpawnPoint").GetComponent<LineRenderer>();
-        switch (SpawnedAirEnemyCount > 0)
-        {
-            case true:
-                lineForAir.enabled = true;
-                lineForAir.SetPosition(0, _groundStartPoint.transform.position);
-                lineForAir.SetPosition(1, _endPoint.transform.position);
-                break;
-
-            case false:
-                lineForAir.enabled = false;
-                break;
-
-        }
-
+        Vector3[] lineForAir = { _airStartPoint.transform.position, _endPoint.transform.position };
+        wavePath_air.DisplayPath(lineForAir);
     }
 
-        public void StartWave(Wave wave)
+    public void StartWave(Wave wave)
     {
         currentWave = wave;
-        StartSpawn(); //currentWaveÀÇ ¿þÀÌºê Á¤º¸¿¡ ±â¹ÝÇØ¼­ ¿þÀÌºê ½ºÅ¸Æ®
+        StartSpawn(); //currentWaveï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½Å¸Æ®
     }
 
-  
-    
+
+
 
     public void BakeNav()
     {
@@ -101,14 +90,12 @@ public class EnemyManager : MonoBehaviour
     {
         agent.CalculatePath(_endPoint.transform.position, navMeshPath);
         NavMeshPath path = new NavMeshPath();
-        var line = this.GetComponent<LineRenderer>();
         NavMesh.CalculatePath(transform.position, _endPoint.transform.position, NavMesh.AllAreas, path);
-        line.positionCount = path.corners.Length;
-        for (int i = 0; i < path.corners.Length; i++)
-            line.SetPosition(i, path.corners[i]);
-        if (line.positionCount == 0) return false;
+        if (path.corners.Length == 0)
+            return false;
         print("New path calculated");
-        if (navMeshPath.status ==  NavMeshPathStatus.PathPartial) 
+        wavePath_ground.DisplayPath(path.corners);
+        if (navMeshPath.status == NavMeshPathStatus.PathPartial)
         {
             return false;
         }
@@ -120,7 +107,7 @@ public class EnemyManager : MonoBehaviour
 
     public void StartSpawn()
     {
-       // BakeNav();
+        // BakeNav();
         this.GetComponent<NavMeshAgent>().enabled = false;
         StartCoroutine(EnemySpawner());
     }
@@ -128,25 +115,23 @@ public class EnemyManager : MonoBehaviour
     IEnumerator EnemySpawner()
     {
 
-        switch (currentWave.enemyPrefabs[enemySpawnCount].tag )
+        switch (currentWave.enemyPrefabs[enemySpawnCount].tag)
         {
             case "FlyingEnemy":
                 clone = Instantiate(currentWave.enemyPrefabs[enemySpawnCount], _airStartPoint.transform);
                 SpawnedAirEnemyCount++;
+                AirRouteDraw();
                 break;
             case "GroundEnemy":
                 clone = Instantiate(currentWave.enemyPrefabs[enemySpawnCount], _groundStartPoint.transform);
                 break;
 
         }
-            
 
-
-            
-            CurrentSpawnenemy = clone;
-            enemySpawnCount++; //»ýÁ¸À¯¹«¿Í »ó°ü¾øÀÌ »ý¼ºµÈ Àû Ä«¿îÆ®
-            CurrentEnemyList.Add(CurrentSpawnenemy);
-            yield return new WaitForSeconds(currentWave.spawnTime); //»ý¼º ºóµµ 
+        CurrentSpawnenemy = clone;
+        enemySpawnCount++; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ä«ï¿½ï¿½Æ®
+        CurrentEnemyList.Add(CurrentSpawnenemy);
+        yield return new WaitForSeconds(currentWave.spawnTime); //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
         if (enemySpawnCount < currentWave.maxEnemyCount) StartCoroutine(EnemySpawner());
     }
 
