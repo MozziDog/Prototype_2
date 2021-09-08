@@ -80,6 +80,8 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
         if (attackTarget)
         {
 
+
+
             Vector3 dir = attackTarget.transform.position - RotatingBody.transform.position;
             dir.y = 0;
             Quaternion rot = Quaternion.LookRotation(dir);
@@ -165,6 +167,7 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
                     ChangeState(WeaponState.SearchTarget);
                     break;
                 }
+
 
                 SpawnBullet();
                 if (i == bulletAmmoCount - 1) break;
