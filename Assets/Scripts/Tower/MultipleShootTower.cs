@@ -89,11 +89,7 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
             Quaternion rot = Quaternion.LookRotation(dir);
             RotatingBody.transform.rotation = Quaternion.Slerp(RotatingBody.transform.rotation, rot, 3f * Time.deltaTime);
 
-            if (RotatingBody.transform.rotation == rot && lockOn == false)
-            {
-                lockOn = true;
-
-            }
+           
         }
     }
 
@@ -122,11 +118,10 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
                 }
             }
 
-            if (attackTarget && !lockOn)
-                RotateToTarget();
-
-            else if (attackTarget && lockOn)
+            if (attackTarget != null)
+            {
                 ChangeState(WeaponState.AttackToTarget);
+            }
 
 
             yield return null;
@@ -135,20 +130,16 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
 
     private IEnumerator AttackToTarget() //Àû °ø°Ý
     {
+        yield return new WaitForSeconds(1f);
         while (true)
         {
 
-            CheckTarget();
-
-
-            float distance = Vector3.Distance(attackTarget.position, transform.position);
-            if (distance > attackRange)
+            if (attackTarget == null)
             {
-                lockOn = false;
-                attackTarget = null;
                 ChangeState(WeaponState.SearchTarget);
                 break;
             }
+
 
 
 
