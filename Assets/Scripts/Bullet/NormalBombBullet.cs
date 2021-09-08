@@ -55,7 +55,6 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
         while (elapse_time < flightDuration)
         {
             Projectile.Translate(0, (Vy - (gravity * elapse_time)) * Time.deltaTime * bulletSpeed, Vx * Time.deltaTime*bulletSpeed);
-            Projectile.rotation = Quaternion.LookRotation(target.position - Projectile.position);
             elapse_time += Time.deltaTime*bulletSpeed;
 
             yield return null;
