@@ -97,6 +97,8 @@ public class ShootTower : MonoBehaviour,TowerInterFace
                     continue;
                 if (BulletPrefab.tag == "BombBullet" && enemyList[i].tag == "FlyingEnemy")
                     continue;
+                if (enemyList[i].GetComponent<EnemyInterFace>() == null)
+                    continue;
 
                 float distance = Vector3.Distance(enemyList[i].transform.position, transform.position);
                 if (distance <= attackRange && distance <= closestDistSqr)
@@ -117,7 +119,7 @@ public class ShootTower : MonoBehaviour,TowerInterFace
     {
         while (true)
         {
-            if (attackTarget == null )
+            if (attackTarget == null || attackTarget.gameObject.GetComponent<EnemyInterFace>().CheckDead() == true)
             {
                 ChangeState(WeaponState.SearchTarget);
                 break;
@@ -136,18 +138,20 @@ public class ShootTower : MonoBehaviour,TowerInterFace
                 ChangeState(WeaponState.SearchTarget);
                 break;
             }
-            yield return new WaitForSeconds(attackRate);
+            
 
 
             SpawnBullet();
+            yield return new WaitForSeconds(attackRate);
         }
     }
 
 
     private void SpawnBullet() //발사체 생성
     {
-        if (!attackTarget)
+        if (!attackTarget&&attackTarget.gameObject.GetComponent<EnemyInterFace>().CheckDead() == true)
         {
+            attackTarget = null;
             ChangeState(WeaponState.SearchTarget);
             return;
         }
