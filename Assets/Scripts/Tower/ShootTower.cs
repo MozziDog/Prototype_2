@@ -15,6 +15,7 @@ public class ShootTower : MonoBehaviour,TowerInterFace
     public Transform RotatingBody;
     [Header("tower info")]
     public float LV;
+    public string type;
     public float bulletSpeed;
     public float bulletDamage ;
     public float attackRate ;
