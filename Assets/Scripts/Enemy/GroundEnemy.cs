@@ -24,7 +24,7 @@ public class GroundEnemy : MonoBehaviour, EnemyInterFace
 
     GameObject target;
     GameObject Player;
-    NavMeshAgent agent;
+    public NavMeshAgent agent;
 
 
     public void SetUp() { }
