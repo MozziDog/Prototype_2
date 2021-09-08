@@ -29,6 +29,7 @@ public interface EnemyInterFace
 public struct TowerInfo
 {
     public float LV;
+    public string type;
     public float bulletSpeed;
     public float bulletDamage;
     public float attackRate;
@@ -64,6 +65,7 @@ public struct TowerInfo
 public struct BulletInfo
 {
     public float LV;
+    public string type;
     public float bulletSpeed;
     public float bulletDamage;
     public Transform attackTarget;
