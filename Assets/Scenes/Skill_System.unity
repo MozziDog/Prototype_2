@@ -215,7 +215,7 @@ Transform:
   m_GameObject: {fileID: 46099908}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.3906307, y: 1, z: 1.0023396}
+  m_LocalScale: {x: 2.4, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -463,7 +463,7 @@ RectTransform:
   - {fileID: 790489694}
   - {fileID: 444067121}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1445,9 +1445,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _MeteorRain: {fileID: 1495271260725604649, guid: 0b0eeaf14eb666b498dc9d7b45b05d20, type: 3}
+  _RageSkill: {fileID: 5160724971596512539, guid: 9e3c5951075452d49a471c1486fdb009, type: 3}
+  _Wall: {fileID: 8597890856101696705, guid: 90b200acd92b9d74db6753df9fd718b0, type: 3}
   _player: {fileID: 1852389140}
   _moneyManager: {fileID: 1761398616}
   _enemyManager: {fileID: 1021901921}
+  isEarthQuake: 0
 --- !u!114 &625576667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1485,7 +1488,7 @@ PrefabInstance:
       objectReference: {fileID: 472260057}
     - target: {fileID: 8883414049995495623, guid: acd5971cff513e74dbf12af3324cc7c4, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8883414049995495623, guid: acd5971cff513e74dbf12af3324cc7c4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1732,7 +1735,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &708201442
 GameObject:
@@ -2670,7 +2673,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 70.2
-  orthographic: 1
+  orthographic: 0
   orthographic size: 7
   m_Depth: -1
   m_CullingMask:
@@ -3862,7 +3865,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7118200475853415230, guid: c37343aa86f985d43adef8b7ca902642, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 7118200475853415230, guid: c37343aa86f985d43adef8b7ca902642, type: 3}
       propertyPath: m_LocalPosition.x

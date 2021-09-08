@@ -17,6 +17,8 @@ TagManager:
   - Castle
   - Bullet
   - BombBullet
+  - RageSkill
+  - TowerBase
   layers:
   - Default
   - TransparentFX

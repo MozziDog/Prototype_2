@@ -8,6 +8,12 @@ public class SkillSystem : MonoBehaviour
     GameObject _MeteorRain;
 
     [SerializeField]
+    GameObject _RageSkill;
+
+    [SerializeField]
+    GameObject _Wall;
+
+    [SerializeField]
     GameObject _player;
 
     [SerializeField]
@@ -21,6 +27,8 @@ public class SkillSystem : MonoBehaviour
     private float nextSkill_2;
     private float nextSkill_3;
     private float nextSkill_4;
+    private float nextSkill_5;
+    private float nextSkill_6;
 
     private float maxCharge = 3f;
     private float leftCharge = 3f;
@@ -53,7 +61,7 @@ public class SkillSystem : MonoBehaviour
             //Debug.Log(leftCharge);
             EarthQuake();
         }
-        else if(Input.GetKeyUp(KeyCode.R) && leftCharge != maxCharge)
+        else if (Input.GetKeyUp(KeyCode.R) && leftCharge != maxCharge)
         {
             isEarthQuake = false;
             nextSkill_4 = Time.time + 10f * (1f - leftCharge / maxCharge);
@@ -63,6 +71,17 @@ public class SkillSystem : MonoBehaviour
             {
                 _enemyManager.CurrentEnemyList[i].GetComponent<GroundEnemy>().agent.speed = 1f;
             }
+        }
+
+        if (Input.GetKeyUp(KeyCode.T) && Time.time > nextSkill_5)
+        {
+            TowerRage();
+        }
+        
+
+        if (Input.GetKeyUp(KeyCode.Y) && Time.time > nextSkill_6)
+        {
+            UpTerrain();
         }
     }
 
@@ -99,6 +118,32 @@ public class SkillSystem : MonoBehaviour
         for(int i = 0; i <  _enemyManager.CurrentEnemyList.Count; i++)
         {
             _enemyManager.CurrentEnemyList[i].GetComponent<GroundEnemy>().agent.speed = 0f;
+        }
+    }
+
+    void TowerRage()
+    {
+        nextSkill_5 = Time.time + 3f;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit = new RaycastHit();
+        if (Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Floor")))
+        {
+            Vector3 targetPosition = new Vector3(Mathf.Floor(hit.point.x) + 0.5f, 0.5f, Mathf.Floor(hit.point.z) + 0.5f);
+            Instantiate(_RageSkill, targetPosition, Quaternion.identity);
+        }
+    }
+
+    void UpTerrain()
+    {
+        nextSkill_6 = Time.time + 2f;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit = new RaycastHit();
+        if (Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Floor")))
+        {
+            GameObject Wall;
+            Vector3 targetPosition = new Vector3(Mathf.Floor(hit.point.x) + 0.5f, -0.5f, Mathf.Floor(hit.point.z) + 0.5f);
+            Wall = Instantiate(_Wall, targetPosition, Quaternion.identity);
+            _enemyManager.BakeNav();
         }
     }
 }
