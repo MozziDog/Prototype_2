@@ -14,7 +14,6 @@ public class TowerBase : MonoBehaviour
 
     [SerializeField]
     public float LV;
-    public string type;
     private int price = 30;
     public float bulletSpeed;
     public float bulletDamage;
@@ -71,8 +70,7 @@ public class TowerBase : MonoBehaviour
     public void SetUp()
     {
         towerinfo.LV = this.LV;
-        towerinfo.type = this.type;
-    towerinfo.bulletSpeed = this.bulletSpeed;
+        towerinfo.bulletSpeed = this.bulletSpeed;
         towerinfo.bulletDamage = this.bulletDamage;
         towerinfo.attackRate = this.attackRate;
         towerinfo.attackRange = this.attackRange;

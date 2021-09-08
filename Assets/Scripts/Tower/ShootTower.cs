@@ -15,7 +15,6 @@ public class ShootTower : MonoBehaviour,TowerInterFace
     public Transform RotatingBody;
     [Header("tower info")]
     public float LV;
-    public string type;
     public float bulletSpeed;
     public float bulletDamage ;
     public float attackRate ;
@@ -35,7 +34,6 @@ public class ShootTower : MonoBehaviour,TowerInterFace
     {
         
         this.LV= towerinfo.LV;
-        this.type = towerinfo.type;
         this.attackRate = towerinfo.attackRate;
         this.attackRange = towerinfo.attackRange;
         this.bulletSpeed = towerinfo.bulletSpeed;
@@ -76,15 +74,36 @@ public class ShootTower : MonoBehaviour,TowerInterFace
     {
         if (attackTarget)
         {
-
+            float distance = Vector3.Distance(attackTarget.position, transform.position);
+            if (distance > attackRange)
+            {
+                lockOn = false;
+                attackTarget = null;
+                ChangeState(WeaponState.SearchTarget);
+                return;
+            }
 
             Vector3 dir = new Vector3(attackTarget.transform.position.x,0, attackTarget.transform.position.z) - RotatingBody.transform.position;
             Quaternion rot = Quaternion.LookRotation(dir);
-            RotatingBody.transform.rotation = Quaternion.Slerp(RotatingBody.transform.rotation, rot, 3.5f * Time.deltaTime);
+            RotatingBody.transform.rotation = Quaternion.Slerp(RotatingBody.transform.rotation, rot, 3f * Time.deltaTime);
+           
+            if (RotatingBody.transform.rotation == rot&&lockOn==false)
+            {
+                lockOn = true;
+                
+            }
         }
     }
 
-    
+    /*
+    private void RotateToHome()
+    {
+        Quaternion home = Quaternion.LookRotation(SpawnPoint.transform.position);
+
+        RotatingBody.transform.rotation = Quaternion.Slerp(RotatingBody.transform.rotation, home, 2f*Time.deltaTime);
+    }
+
+    */
     private IEnumerator SearchTarget() //적 탐색
     {
         while (true)
@@ -109,10 +128,12 @@ public class ShootTower : MonoBehaviour,TowerInterFace
                 }
             }
 
-            if (attackTarget != null)
-            {
+            if (attackTarget && !lockOn)
+                RotateToTarget();
+
+            else if (attackTarget&&lockOn)
                 ChangeState(WeaponState.AttackToTarget);
-            }
+            
 
             yield return null;
         }
@@ -120,20 +141,16 @@ public class ShootTower : MonoBehaviour,TowerInterFace
 
     private IEnumerator AttackToTarget() //적 공격
     {
-        yield return new WaitForSeconds(1.2f);
         while (true)
         {
 
-            if (attackTarget == null)
-            {
-                ChangeState(WeaponState.SearchTarget);
-                break;
-            }
+            CheckTarget();
 
 
             float distance = Vector3.Distance(attackTarget.position, transform.position);
             if (distance > attackRange)
             {
+                lockOn = false;
                 attackTarget = null;
                 ChangeState(WeaponState.SearchTarget);
                 break;
@@ -153,20 +170,24 @@ public class ShootTower : MonoBehaviour,TowerInterFace
 
     private void SpawnBullet() //발사체 생성
     {
-
-        if (!attackTarget)
-        {
-            ChangeState(WeaponState.SearchTarget);
-            return;
-        }
+      
         bulletinfo.attackTarget = this.attackTarget;
         GameObject clone = Instantiate(BulletPrefab, BulletSpawnPoint.position, Quaternion.identity);
         BulletInterFace bullet = clone.GetComponent<BulletInterFace>();
         bullet.SetUp(bulletinfo);
     }
 
-   
-    
+    private void CheckTarget()
+    {
+        if (!attackTarget || (attackTarget && attackTarget.gameObject.GetComponent<EnemyInterFace>().CheckDead() == true))
+        {
+            lockOn = false;
+            attackTarget = null;
+            ChangeState(WeaponState.SearchTarget);
+
+        }
+
+    }
 
 
     void Start()

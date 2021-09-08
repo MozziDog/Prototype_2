@@ -56,7 +56,7 @@ public class ChainBullet : MonoBehaviour ,BulletInterFace
                 if (distance <= closestDistSqr)
                 {
                     closestDistSqr = distance;
-                    currentTarget = searchedObject.transform;
+                    currentTarget = searchedObject.transform.parent.gameObject.transform;
                     
                 }
             }

@@ -15,7 +15,6 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
     public Transform RotatingBody;
     [Header("tower info")]
     public float LV;
-    public string type;
     public float bulletSpeed;
     public float bulletDamage;
     public float attackRate;
@@ -38,7 +37,6 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
     {
 
         this.LV = towerinfo.LV;
-        this.type = towerinfo.type;
         this.attackRate = towerinfo.attackRate;
         this.attackRange = towerinfo.attackRange;
         this.bulletSpeed = towerinfo.bulletSpeed;
@@ -97,7 +95,15 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
         }
     }
 
+    /*
+    private void RotateToHome()
+    {
+        Quaternion home = Quaternion.LookRotation(SpawnPoint.transform.position);
 
+        RotatingBody.transform.rotation = Quaternion.Slerp(RotatingBody.transform.rotation, home, 2f*Time.deltaTime);
+    }
+
+    */
     private IEnumerator SearchTarget() //Àû Å½»ö
     {
         while (true)

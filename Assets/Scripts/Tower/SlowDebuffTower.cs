@@ -9,11 +9,9 @@ public class SlowDebuffTower : MonoBehaviour , TowerInterFace
     public float slowRange;
     public SphereCollider sphereCollider;
     public GameObject SlowFx;
-    public string type;
     public void SetUp(TowerInfo towerinfo)
     {
         this.LV = towerinfo.LV;
-        this.type = towerinfo.type;
         this.slowIntensity = 1f-towerinfo.slowIntensity;
         this.slowRange = towerinfo.slowRange;
         this.sphereCollider.radius = slowRange+0.78f;
