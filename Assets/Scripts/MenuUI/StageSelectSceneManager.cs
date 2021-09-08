@@ -8,12 +8,13 @@ public class StageSelectSceneManager : MonoBehaviour
 {
     public GameObject fader;
     public Text goldText;
-    public Text diamondText;
-    public Text keyText;
+    public Text RubyText;
+    public Text StaminaText;
 
     public int MAX_STAGE;
 
-    private int selectedStage = 0;
+    public int selectedChapter = 0;
+    public int selectedStage = 0;
 
 
     // Start is called before the first frame update
@@ -41,8 +42,8 @@ public class StageSelectSceneManager : MonoBehaviour
     void RefreshUserPropertyData()
     {
         goldText.text = Global.property_gold.ToString();
-        diamondText.text = Global.property_diamond.ToString();
-        keyText.text = Global.property_key.ToString();
+        RubyText.text = Global.property_diamond.ToString();
+        StaminaText.text = Global.property_key.ToString();
     }
 
     Coroutine fadeInCoroutine = null;
@@ -84,15 +85,22 @@ public class StageSelectSceneManager : MonoBehaviour
 
     public void StartStage()
     {
-        int stageCode = GetSelectedStage();
+        string SceneString = GetSelectedStage();
         //SceneManager.LoadScene("Stage" + stageCode);
-        SceneLoader.LoadScene("SampleScene_TH");
+        SceneLoader.LoadScene(SceneString);
     }
 
-    int GetSelectedStage()
+    string GetSelectedStage()
     {
+        SetStageData();
         // TODO: GetSelectedStage 구현
-        return selectedStage;
+        // return "MainScene_" + selectedChapter.toString();
+        return "SampleScene_TH";
+    }
+
+    void SetStageData()
+    {
+        // TODO : Global 클래스를 통해 인게임 씬에 스테이지 정보 전달 구현
     }
 
     public void ChangeSelectedStage_Next()
