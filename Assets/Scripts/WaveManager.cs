@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,12 +35,10 @@ public class WaveManager : MonoBehaviour
             obstacleManager.WayObstacleActiveSwitch();
             enemySpawner.StartWave(waves[currentWaveIndex]);
         }
-        Debug.Log(waves[currentWaveIndex].maxEnemyCount);
     }
 
     public  bool isWaveClear()
     {
-       
         if (enemySpawner.enemySpawnCount == waves[currentWaveIndex].maxEnemyCount
             && player.currentHP > 0
             && enemySpawner.enemyKilledCount >= waves[currentWaveIndex].maxEnemyCount
@@ -67,6 +66,7 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
+        Array.Resize(ref waves, waveData.Length);
         for(int i = 0; i < waves.Length; i++)
         {
             waves[i].spawnTime = waveData[i].SpawnTime;
@@ -86,7 +86,6 @@ public class WaveManager : MonoBehaviour
             {
                 case false:
                     MidTermReward();
-                    StartWave();
                     break;
                 case true:
                     FinalReward();
