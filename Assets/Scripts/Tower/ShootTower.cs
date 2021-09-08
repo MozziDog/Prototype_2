@@ -80,7 +80,7 @@ public class ShootTower : MonoBehaviour,TowerInterFace
             Quaternion rot = Quaternion.LookRotation(dir);
             RotatingBody.transform.rotation = Quaternion.Slerp(RotatingBody.transform.rotation, rot, 3f * Time.deltaTime);
            
-            if (RotatingBody.transform.rotation == rot)
+            if (RotatingBody.transform.rotation == rot&&lockOn==false)
             {
                 lockOn = true;
                 
@@ -202,7 +202,8 @@ public class ShootTower : MonoBehaviour,TowerInterFace
     void Update()
     {
         this.enemyList = SpawnPoint.GetComponent<EnemyManager>().CurrentEnemyList; //매 프레임마다 적 리스트 갱신
-
+        if (attackTarget)
+            RotateToTarget();
 
     }
 
