@@ -76,12 +76,11 @@ public class ShootTower : MonoBehaviour,TowerInterFace
     {
         if (attackTarget)
         {
-            Vector3 dir = attackTarget.transform.position - RotatingBody.transform.position;
-            dir.y = 0;
-            Quaternion rot = Quaternion.LookRotation(dir);
-            RotatingBody.transform.rotation = Quaternion.Slerp(RotatingBody.transform.rotation, rot, 3f * Time.deltaTime);
 
-          
+
+            Vector3 dir = new Vector3(attackTarget.transform.position.x,0, attackTarget.transform.position.z) - RotatingBody.transform.position;
+            Quaternion rot = Quaternion.LookRotation(dir);
+            RotatingBody.transform.rotation = Quaternion.Slerp(RotatingBody.transform.rotation, rot, 3.5f * Time.deltaTime);
         }
     }
 
@@ -121,7 +120,7 @@ public class ShootTower : MonoBehaviour,TowerInterFace
 
     private IEnumerator AttackToTarget() //Àû °ø°Ý
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.2f);
         while (true)
         {
 
