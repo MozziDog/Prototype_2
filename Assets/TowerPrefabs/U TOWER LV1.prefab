@@ -9711,10 +9711,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed50310ed29afef49b857ddc4fea0c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 1093651845529576, guid: fd738fb356ca7704faab1a8308cdefc5, type: 3}
+  BulletPrefab: {fileID: 7709513769357471286, guid: fbbadddbe31c15a46acd5a52dda39f42, type: 3}
   BulletSpawnPoint: {fileID: 234314238916451266}
   RotatingBody: {fileID: 242680393869624682}
   LV: 0
+  type: 
   bulletSpeed: 0
   bulletDamage: 0
   attackRate: 0
@@ -10219,6 +10220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myposition: []
   LV: 1
+  type: 
   bulletSpeed: 1
   bulletDamage: 25
   attackRate: 2
@@ -10591,10 +10593,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed50310ed29afef49b857ddc4fea0c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 1093651845529576, guid: fd738fb356ca7704faab1a8308cdefc5, type: 3}
+  BulletPrefab: {fileID: 7709513769357471286, guid: fbbadddbe31c15a46acd5a52dda39f42, type: 3}
   BulletSpawnPoint: {fileID: 4667702702344789494}
   RotatingBody: {fileID: 4672869338523829086}
   LV: 0
+  type: 
   bulletSpeed: 0
   bulletDamage: 0
   attackRate: 0
@@ -20570,6 +20573,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myposition: []
   LV: 1
+  type: 
   bulletSpeed: 1
   bulletDamage: 25
   attackRate: 2
@@ -20657,8 +20661,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myposition: []
   LV: 1
+  type: 
   bulletSpeed: 1
-  bulletDamage: 25
+  bulletDamage: 5
   attackRate: 2
   attackRange: 10
   bombRange: 3.5
@@ -20807,6 +20812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myposition: []
   LV: 1
+  type: 
   bulletSpeed: 1
   bulletDamage: 25
   attackRate: 2
@@ -21385,10 +21391,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed50310ed29afef49b857ddc4fea0c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 1093651845529576, guid: fd738fb356ca7704faab1a8308cdefc5, type: 3}
+  BulletPrefab: {fileID: 7709513769357471286, guid: fbbadddbe31c15a46acd5a52dda39f42, type: 3}
   BulletSpawnPoint: {fileID: 8664503659675915267}
   RotatingBody: {fileID: 8656163861074627243}
   LV: 0
+  type: 
   bulletSpeed: 0
   bulletDamage: 0
   attackRate: 0

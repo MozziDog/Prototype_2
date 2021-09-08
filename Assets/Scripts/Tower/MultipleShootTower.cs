@@ -20,9 +20,12 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
     public float bulletDamage;
     public float attackRate;
     public float attackRange;
+
     [Header("Multiple Shoot Info")]
     public float bulletAmmoCount;
     public float burstRate;
+
+
 
     [Header("variables for In-Game watch")]
     public Transform attackTarget = null;
@@ -45,6 +48,7 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
         this.bulletDamage = towerinfo.bulletDamage;
         this.bulletAmmoCount = towerinfo.bulletAmmoCount;
         this.burstRate = towerinfo.burstRate;
+
 
         bulletinfo.bulletSpeed = towerinfo.bulletSpeed;
         bulletinfo.bulletDamage = towerinfo.bulletDamage;
@@ -82,18 +86,10 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
         if (attackTarget)
         {
 
-
-
             Vector3 dir = attackTarget.transform.position - RotatingBody.transform.position;
             dir.y = 0;
             Quaternion rot = Quaternion.LookRotation(dir);
             RotatingBody.transform.rotation = Quaternion.Slerp(RotatingBody.transform.rotation, rot, 3f * Time.deltaTime);
-
-            if (RotatingBody.transform.rotation == rot && lockOn == false)
-            {
-                lockOn = true;
-
-            }
         }
     }
 
@@ -122,12 +118,11 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
                 }
             }
 
-            if (attackTarget && !lockOn)
-                RotateToTarget();
-
-            else if (attackTarget && lockOn)
+            if (attackTarget != null&& !attackTarget.GetComponent<EnemyInterFace>().CheckDead())
+            {
+                lockOn = true;
                 ChangeState(WeaponState.AttackToTarget);
-
+            }
 
             yield return null;
         }
@@ -135,22 +130,13 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
 
     private IEnumerator AttackToTarget() //적 공격
     {
+        yield return new WaitForSeconds(1.25f);
         while (true)
         {
 
-            CheckTarget();
-
+            
 
             float distance = Vector3.Distance(attackTarget.position, transform.position);
-            if (distance > attackRange)
-            {
-                lockOn = false;
-                attackTarget = null;
-                ChangeState(WeaponState.SearchTarget);
-                break;
-            }
-
-
 
             for (int i = 0; i < bulletAmmoCount; i++)
             {
@@ -161,14 +147,15 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
                     ChangeState(WeaponState.SearchTarget);
                     break;
                 }
-
+               
 
                 SpawnBullet();
                 if (i == bulletAmmoCount - 1) break;
                 yield return new WaitForSeconds(burstRate);
             }
+            
             yield return new WaitForSeconds(attackRate);
-
+          
 
 
 
@@ -178,23 +165,26 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
 
     private void SpawnBullet() //발사체 생성
     {
-
+       
         bulletinfo.attackTarget = this.attackTarget;
         GameObject clone = Instantiate(BulletPrefab, BulletSpawnPoint.position, Quaternion.identity);
         BulletInterFace bullet = clone.GetComponent<BulletInterFace>();
         bullet.SetUp(bulletinfo);
     }
 
-    private void CheckTarget()
+    void CheckTarget()
     {
-        if (!attackTarget || (attackTarget && attackTarget.gameObject.GetComponent<EnemyInterFace>().CheckDead() == true))
+
+        if (!attackTarget || attackTarget.GetComponent<EnemyInterFace>().CheckDead())
         {
             lockOn = false;
             attackTarget = null;
             ChangeState(WeaponState.SearchTarget);
-
+            return;
         }
+
     }
+
 
 
     void Start()
@@ -216,8 +206,9 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
 
     void Update()
     {
+        CheckTarget();
         this.enemyList = SpawnPoint.GetComponent<EnemyManager>().CurrentEnemyList; //매 프레임마다 적 리스트 갱신
-        if (attackTarget)
+        if (lockOn)
             RotateToTarget();
 
     }

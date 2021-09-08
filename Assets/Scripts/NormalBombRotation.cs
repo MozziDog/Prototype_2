@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class NormalBombRotation : MonoBehaviour
 {
-
+    [SerializeField]
     private Transform target;
+    [SerializeField]
     private float bulletSpeed;
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,7 @@ public class NormalBombRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(120 * Time.deltaTime * bulletSpeed, 0, 0);
+        transform.Rotate(120f * Time.deltaTime * bulletSpeed, 0, 0);
         
     }
 }
