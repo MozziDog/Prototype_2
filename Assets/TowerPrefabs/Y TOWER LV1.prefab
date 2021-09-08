@@ -877,7 +877,6 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
-  LockOn: 0
 --- !u!1 &5757974155196418790
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,7 +1016,6 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
-  LockOn: 0
 --- !u!1 &5758051476522856348
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,11 +1371,11 @@ MonoBehaviour:
   _myposition: []
   LV: 0
   bulletSpeed: 10
-  bulletDamage: 45
+  bulletDamage: 10
   attackRate: 1
   attackRange: 10
   bombRange: 0
-  bulletAmmoCount: 2
+  bulletAmmoCount: 3
   burstRate: 0.3
   maxChainCount: 2
   chainRadius: 5
@@ -1708,7 +1706,6 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
-  LockOn: 0
 --- !u!1 &8484315061916597008
 GameObject:
   m_ObjectHideFlags: 0

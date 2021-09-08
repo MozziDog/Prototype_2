@@ -72,11 +72,11 @@ public class TowerBase : MonoBehaviour
     {
         towerinfo.LV = this.LV;
         towerinfo.type = this.type;
-        towerinfo.bulletSpeed = this.bulletSpeed;
+    towerinfo.bulletSpeed = this.bulletSpeed;
         towerinfo.bulletDamage = this.bulletDamage;
         towerinfo.attackRate = this.attackRate;
         towerinfo.attackRange = this.attackRange;
-        
+
         towerinfo.bombRange = this.bombRange;
 
         towerinfo.bulletAmmoCount = this.bulletAmmoCount;
