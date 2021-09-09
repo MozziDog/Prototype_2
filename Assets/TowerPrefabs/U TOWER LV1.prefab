@@ -20663,8 +20663,8 @@ MonoBehaviour:
   LV: 1
   type: 
   bulletSpeed: 1
-  bulletDamage: 5
-  attackRate: 2
+  bulletDamage: 30
+  attackRate: 6
   attackRange: 5.5
   bombRange: 3.5
   bulletAmmoCount: 0
