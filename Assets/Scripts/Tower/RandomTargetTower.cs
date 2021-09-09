@@ -25,13 +25,14 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
     [Header("variables for In-Game watch")]
     public Transform attackTarget = null;
     public GameObject SpawnPoint;
+    public WaveManager wavemanager;
     public List<GameObject> enemyList;
     private Transform homeY;
     private bool isAiming;
     private bool isShooting;
 
     private bool lockOn = false;
-
+    GameObject temp;
     public void SetUp(TowerInfo towerinfo)
     {
 
@@ -86,8 +87,34 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
     {
         while (true)
         {
+            /*
+             if (enemyList.Count==0&&wavemanager.isWaveClear())
+            {
+                StopCoroutine(SearchTarget());
+            }
+            */
+               if (enemyList.Count > 0)
+            {
+                temp = enemyList[Random.Range(0, enemyList.Count)];
+
+                if (temp == null)
+                    continue;
+                if (BulletPrefab.tag == "BombBullet" && temp.tag == "FlyingEnemy")
+                    continue;
+                if (temp.GetComponent<EnemyInterFace>().CheckDead())
+                    continue;
+
+                float distance = Vector3.Distance(temp.transform.position, transform.position);
+                if (distance <= attackRange)
+                {
+                    attackTarget = temp.transform;
+                }
+            }
+           
+            
+            /*
             Collider[] colliders = Physics.OverlapSphere(transform.position, attackRange);
-            if (colliders.Length == 0) continue;
+            //if (colliders.Length == 0) continue;
 
 
             Collider temp = colliders[Random.Range(0, colliders.Length)];
@@ -105,7 +132,7 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
             {
                 attackTarget = temp.gameObject.transform;
             }
-
+            */
             if (attackTarget != null && !attackTarget.GetComponent<EnemyInterFace>().CheckDead())
             {
                 lockOn = true;
@@ -119,10 +146,8 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
     private IEnumerator AttackToTarget() //Àû °ø°Ý
     {
         yield return new WaitForSeconds(1.25f);
-        while (true)
-        {
-          
-
+        
+    
 
             float distance = Vector3.Distance(attackTarget.position, transform.position);
             if (distance > attackRange)
@@ -130,14 +155,14 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
                 lockOn = false;
                 attackTarget = null;
                 ChangeState(WeaponState.SearchTarget);
-                break;
+                
             }
-            
-
-
             SpawnBullet();
-            yield return new WaitForSeconds(attackRate);
-        }
+           // attackTarget = null;
+            lockOn = false;
+             yield return new WaitForSeconds(attackRate);
+            ChangeState(WeaponState.SearchTarget);
+       
     }
 
 
@@ -148,9 +173,7 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
         BulletInterFace bullet = clone.GetComponent<BulletInterFace>();
         bullet.SetUp(bulletinfo);
 
-        attackTarget = null;
-        lockOn = false;
-        ChangeState(WeaponState.SearchTarget);
+        
 
     }
 
@@ -172,6 +195,7 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
     {
 
         SpawnPoint = GameObject.Find("SpawnPointGroup");
+        wavemanager = GameObject.Find("GameManager").GetComponent<WaveManager>();
         this.enemyList = SpawnPoint.GetComponent<EnemyManager>().CurrentEnemyList;
         
     }

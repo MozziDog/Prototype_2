@@ -9806,9 +9806,9 @@ GameObject:
   - component: {fileID: 5908810788114949247}
   - component: {fileID: 417272961177676145}
   - component: {fileID: 8146701428552815115}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: UTowerTempBullet
-  m_TagString: Untagged
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9858,6 +9858,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BombAreaEffect: {fileID: 2317583088921270529, guid: db61e0a65edb07b449c1c0274ded1638, type: 3}
   impactParticle: {fileID: 1475406886948360, guid: 7b78e03091d73914f98938abe44d70ef, type: 3}
+  LV: 0
   BulletName: 
   bulletSpeed: 0
   bulletDamage: 0

@@ -29,19 +29,20 @@ public class WaveManager : MonoBehaviour
         if (enemySpawner.CurrentEnemyList.Count == 0 && currentWaveIndex < waves.Length - 1) //웨이브 진행
         {
             currentWaveIndex++;
-            obstacleManager.WayObstacleActiveSwitch();
+           // obstacleManager.WayObstacleActiveSwitch();
             enemySpawner.StartWave(waves[currentWaveIndex]);
         }
     }
 
     public  bool isWaveClear()
     {
-       
-        if (enemySpawner.enemySpawnCount == waves[currentWaveIndex].maxEnemyCount
-            && player.currentHP > 0
+        
+        if (enemySpawner.enemySpawnCount == waves[currentWaveIndex].maxEnemyCount&&
+            player.currentHP > 0
             && enemySpawner.enemyKilledCount >= waves[currentWaveIndex].maxEnemyCount
             && enemySpawner.CurrentEnemyList.Count==0)
         {
+            Debug.LogWarning("WaveDone!!");
             return true;
         }
 

@@ -26,7 +26,6 @@ public class NormalBullet : MonoBehaviour, BulletInterFace
         if(other.transform != target) return;
         if ( other.gameObject.layer != LayerMask.NameToLayer("Enemy")) return;
         if (other.gameObject.GetComponent<EnemyInterFace>() == null) return;
-        Debug.Log("hitting!!");
         other.GetComponent<EnemyInterFace>().GetDamage(bulletDamage);
         
 

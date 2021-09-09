@@ -104,6 +104,7 @@ public class GroundEnemy : MonoBehaviour, EnemyInterFace
         {
             agent.speed = 0;
             isWalking = false;
+            isDie = true;
             StartCoroutine(HitPlayer());
 
 

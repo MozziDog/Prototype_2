@@ -53,7 +53,7 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
         float flightDuration = target_Distance / Vx;
         Projectile.rotation = Quaternion.LookRotation(target.position - Projectile.position);
         float elapse_time = 0;
-        Destroy(ShootArea, flightDuration * bulletSpeed + 0.2f);
+        
         while (elapse_time < flightDuration)
         {
             Projectile.Translate(0, (Vy - (gravity * elapse_time)) * Time.deltaTime * bulletSpeed, Vx * Time.deltaTime*bulletSpeed);
@@ -67,6 +67,7 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
 
     private void OnTriggerEnter(Collider other)
     {
+        Destroy(ShootArea, 0.3f);
         if (other.gameObject.layer == LayerMask.NameToLayer("Floor")) //|| other.gameObject.layer == LayerMask.NameToLayer("Enemy")
             Explode();
     }
