@@ -5230,8 +5230,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1607217979833398}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: 0.161, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
+=======
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+>>>>>>> parent of f0a0743 (타워 완성)
   m_Children:
   - {fileID: 4793468073331882}
   m_Father: {fileID: 0}
@@ -5278,7 +5283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8cc98eaed854fd45b5b674738c13ba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BombAreaEffect: {fileID: 2317583088921270529, guid: 770febec599229b47aab05b990e7759d, type: 3}
+  BombAreaEffect: {fileID: 2317583088921270529, guid: c86674e5365eaa14e9d40d2f56d10927, type: 3}
   impactParticle: {fileID: 1336844341958346, guid: 0b12d45063fc96a4f9e428038ad4190e, type: 3}
   BulletName: 
   bulletSpeed: 0
