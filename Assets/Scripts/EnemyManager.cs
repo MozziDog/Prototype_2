@@ -109,6 +109,7 @@ public class EnemyManager : MonoBehaviour
     {
         // BakeNav();
         this.GetComponent<NavMeshAgent>().enabled = false;
+        enemySpawnCount = 0;
         StartCoroutine(EnemySpawner());
     }
 
