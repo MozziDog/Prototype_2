@@ -35,14 +35,7 @@ public class GroundEnemy : MonoBehaviour, EnemyInterFace
     }
     public bool CheckDead()
     {
-        if (isDie)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return isDie;
     }
 
     void Start()
