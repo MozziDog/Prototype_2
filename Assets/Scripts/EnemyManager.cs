@@ -132,7 +132,7 @@ public class EnemyManager : MonoBehaviour
         enemySpawnCount++; //���������� ������� ������ �� ī��Ʈ
         CurrentEnemyList.Add(CurrentSpawnenemy);
         yield return new WaitForSeconds(currentWave.spawnTime); //���� �� 
-        if (enemySpawnCount < currentWave.maxEnemyCount) StartCoroutine(EnemySpawner());
+        if (enemySpawnCount < currentWave.enemyPrefabs.Length) StartCoroutine(EnemySpawner());
     }
 
 
