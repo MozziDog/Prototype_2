@@ -20665,7 +20665,7 @@ MonoBehaviour:
   bulletSpeed: 1
   bulletDamage: 5
   attackRate: 2
-  attackRange: 10
+  attackRange: 5.5
   bombRange: 3.5
   bulletAmmoCount: 0
   burstRate: 0
