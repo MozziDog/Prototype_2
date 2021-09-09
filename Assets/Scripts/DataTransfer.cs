@@ -31,7 +31,7 @@ public class DataTransfer : MonoBehaviour
     void SetStageData()
     {
         string[] rawData = ReadStageData(chapter, stage);
-        Debug.Log(rawData);
+        Debug.Log("CSV 파일 읽어옴.");
         List<Wave> waves = new List<Wave>();
         for (int i = 0; i < rawData.Length; i++)
         {
@@ -39,24 +39,19 @@ public class DataTransfer : MonoBehaviour
             waves.Add(wave);
         }
         waveManager.setWaves(waves.ToArray());
+        Debug.Log("CSV 파일 적용 완료");
     }
 
     string[] ReadStageData(int chapter, int stage)
     {
         var stringAll = Resources.Load("waveDesign") as TextAsset;
         string[] lines = stringAll.text.Split('\n');
-        Debug.Log(lines.Length);
         List<string> stageDataStrings = new List<string>();
         for (int i = 1 /*범례 무시*/; i < lines.Length; i++)
         {
             if (lines[i].Length > 1) //빈줄 무시
             {
                 string[] commaSplited = lines[i].Split(',');
-                Debug.Log("다음 줄");
-                for (int j = 0; j < commaSplited.Length; j++)
-                {
-                    Debug.Log(commaSplited[j]);
-                }
                 if (int.Parse(commaSplited[chapterIndexInCSV]) == chapter
                         && int.Parse(commaSplited[stageIndexInCSV]) == stage)
                 {
@@ -74,19 +69,26 @@ public class DataTransfer : MonoBehaviour
         newWave.spawnTime = float.Parse(splitted[spawnTimeIndexInCSV]);
         //newWave.maxEnemyCount = splitted[maxEnemyCountIndex];
 
+        List<GameObject> enemyList = new List<GameObject>();
         // csv 데이터 형식이 달라졌으면 여기서 변경
         for (int i = enemyDataStartIndexInCSV; i < splitted.Length; i += 2)
         {
-            GameObject enemyPrefab = Resources.Load<GameObject>("EnemyPrefabs/" + splitted[i]);
-            int enemyCount = int.Parse(splitted[i + 1]);
-            newWave.enemyPrefabs = new GameObject[enemyCount];
-            // MaxEnemy 값이 없으면 정상작동 안해서 임의로 넣어줌
-            newWave.maxEnemyCount = 1000;
-            for (int j = 0; j < enemyCount; j++)
+            if (splitted[i].Length > 0) // 빈 항목 무시
             {
-                newWave.enemyPrefabs[j] = enemyPrefab;
+                GameObject enemyPrefab = Resources.Load<GameObject>("EnemyPrefabs/" + splitted[i]);
+                int enemyCount = int.Parse(splitted[i + 1]);
+                newWave.enemyPrefabs = new GameObject[enemyCount];
+                // MaxEnemy 값이 없으면 정상작동 안해서 임의로 넣어줌
+                newWave.maxEnemyCount = 1000;
+                for (int j = 0; j < enemyCount; j++)
+                {
+                    enemyList.Add(enemyPrefab);
+                }
             }
         }
+
+        newWave.enemyPrefabs = enemyList.ToArray();
+        newWave.maxEnemyCount = newWave.enemyPrefabs.Length;
 
         return newWave;
     }
