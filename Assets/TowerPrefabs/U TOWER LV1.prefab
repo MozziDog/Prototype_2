@@ -10105,7 +10105,6 @@ GameObject:
   - component: {fileID: 5376537601423249139}
   - component: {fileID: 4089983816272155357}
   - component: {fileID: 1285834024070453439}
-  - component: {fileID: 1585638581885081069}
   m_Layer: 11
   m_Name: UTowerBaseLV1 (2)
   m_TagString: Tower
@@ -10206,41 +10205,6 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!114 &1585638581885081069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1585638581885081068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 601a20424d76ab646952ee2215c078e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myposition: []
-  LV: 1
-  type: 
-  bulletSpeed: 1
-  bulletDamage: 25
-  attackRate: 2
-  attackRange: 10
-  bombRange: 3.5
-  bulletAmmoCount: 0
-  burstRate: 0
-  maxChainCount: 0
-  chainRadius: 0
-  poisonDamage: 0
-  poisonDuration: 0
-  poisonRate: 0
-  stunDuration: 0
-  mujeockTime: 0
-  slowIntensity: 0
-  slowRange: 0
-  numberOfBlocks: 0
-  Towers:
-  - {fileID: 240181602150389426}
-  isTemp: 1
 --- !u!1 &1635993474422202157
 GameObject:
   m_ObjectHideFlags: 0
@@ -20458,7 +20422,6 @@ GameObject:
   - component: {fileID: 655903877015996615}
   - component: {fileID: 8882782865380971753}
   - component: {fileID: 5935535766584073867}
-  - component: {fileID: 6162648926263448537}
   m_Layer: 11
   m_Name: UTowerBaseLV1 (1)
   m_TagString: Tower
@@ -20559,41 +20522,6 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!114 &6162648926263448537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6162648926263448536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 601a20424d76ab646952ee2215c078e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myposition: []
-  LV: 1
-  type: 
-  bulletSpeed: 1
-  bulletDamage: 25
-  attackRate: 2
-  attackRange: 10
-  bombRange: 3.5
-  bulletAmmoCount: 0
-  burstRate: 0
-  maxChainCount: 0
-  chainRadius: 0
-  poisonDamage: 0
-  poisonDuration: 0
-  poisonRate: 0
-  stunDuration: 0
-  mujeockTime: 0
-  slowIntensity: 0
-  slowRange: 0
-  numberOfBlocks: 0
-  Towers:
-  - {fileID: 4670860130194559110}
-  isTemp: 1
 --- !u!1 &7454545231653059525
 GameObject:
   m_ObjectHideFlags: 0
@@ -20697,7 +20625,6 @@ GameObject:
   - component: {fileID: 3594927850332700978}
   - component: {fileID: 4880909409525423388}
   - component: {fileID: 7685041574877910910}
-  - component: {fileID: 7890203470237162028}
   m_Layer: 11
   m_Name: UTowerBaseLV1
   m_TagString: Tower
@@ -20798,41 +20725,6 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!114 &7890203470237162028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7890203470237162029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 601a20424d76ab646952ee2215c078e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myposition: []
-  LV: 1
-  type: 
-  bulletSpeed: 1
-  bulletDamage: 25
-  attackRate: 2
-  attackRange: 10
-  bombRange: 3.5
-  bulletAmmoCount: 0
-  burstRate: 0
-  maxChainCount: 0
-  chainRadius: 0
-  poisonDamage: 0
-  poisonDuration: 0
-  poisonRate: 0
-  stunDuration: 0
-  mujeockTime: 0
-  slowIntensity: 0
-  slowRange: 0
-  numberOfBlocks: 0
-  Towers:
-  - {fileID: 8659217319666538867}
-  isTemp: 1
 --- !u!1 &8310692416242285440
 GameObject:
   m_ObjectHideFlags: 0
