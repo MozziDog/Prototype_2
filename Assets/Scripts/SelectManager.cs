@@ -16,6 +16,7 @@ public class SelectManager : MonoBehaviour
     {
         if (!EventSystem.current.IsPointerOverGameObject(0) && Input.touchCount == 1)
         {
+            Debug.Log("touching object");
             var touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began)
             {
@@ -29,6 +30,10 @@ public class SelectManager : MonoBehaviour
             {
                 OnTouchEnd();
             }
+        }
+        if (EventSystem.current.IsPointerOverGameObject(0) && Input.touchCount == 1)
+        {
+            Debug.Log("touching UI");
         }
     }
 

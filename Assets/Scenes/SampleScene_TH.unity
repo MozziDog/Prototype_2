@@ -2800,7 +2800,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 3072
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_IgnoreNavMeshAgent: 1
@@ -14375,10 +14375,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnUI
       objectReference: {fileID: 0}
-    - target: {fileID: 664026941020206970, guid: f20235cc3c7346d4c96250c7bb504ab4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 664026941188487161, guid: f20235cc3c7346d4c96250c7bb504ab4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -14634,10 +14630,6 @@ PrefabInstance:
     - target: {fileID: 8693507566751556384, guid: 3fd9e438688368b498d7abdd65a25801, type: 3}
       propertyPath: m_Name
       value: SelectUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 8693507566751556384, guid: 3fd9e438688368b498d7abdd65a25801, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8693507566751556385, guid: 3fd9e438688368b498d7abdd65a25801, type: 3}
       propertyPath: m_Pivot.x
