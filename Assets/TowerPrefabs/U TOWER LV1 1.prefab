@@ -20606,7 +20606,7 @@ GameObject:
   - component: {fileID: -2257781446758517098}
   - component: {fileID: 6621766133569329022}
   m_Layer: 11
-  m_Name: U TOWER LV1
+  m_Name: U TOWER LV1 1
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -20660,7 +20660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myposition: []
-  LV: 1
+  LV: 3
   type: U
   bulletSpeed: 1
   bulletDamage: 5

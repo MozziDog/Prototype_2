@@ -462,7 +462,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -386.88962, y: 23.915527}
+  m_AnchoredPosition: {x: -386.88965, y: 23.915527}
   m_SizeDelta: {x: -904.06323, y: 10.726715}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &81398818
@@ -1413,7 +1413,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 361556335}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1101040592}
+        m_TargetAssemblyTypeName: TowerAdvance, Assembly-CSharp
+        m_MethodName: DoAdvance
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &361556335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3489,7 +3501,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -386.88962, y: 23.915527}
+  m_AnchoredPosition: {x: -386.88965, y: 23.915527}
   m_SizeDelta: {x: -904.06323, y: 10.726715}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &739964954
@@ -5321,6 +5333,7 @@ GameObject:
   - component: {fileID: 1101040596}
   - component: {fileID: 1101040595}
   - component: {fileID: 1101040594}
+  - component: {fileID: 1101040592}
   m_Layer: 5
   m_Name: TowerSelectUICanvas
   m_TagString: Untagged
@@ -5328,6 +5341,83 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1101040592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101040591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac9e8c08ff4c74d478a305f87f90cbb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _selectUI: {fileID: 1570662352}
+  _inven: {fileID: 0}
+  _advanceButton: {fileID: 361556334}
+  _numberOfTypes: 12
+  _numberOfLevels: 3
+  _towerUpgradeLists:
+  - TYPE: F
+    UpgradeList:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - TYPE: I
+    UpgradeList:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - TYPE: L
+    UpgradeList:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - TYPE: N
+    UpgradeList:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - TYPE: P
+    UpgradeList:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - TYPE: T
+    UpgradeList:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - TYPE: U
+    UpgradeList:
+    - {fileID: 7454545231653059525, guid: 77894eff0295e734a97a373d6d3fa59d, type: 3}
+    - {fileID: 7454545231653059525, guid: 1fe005f94e80d3345a59f4ae4a6d2114, type: 3}
+  - TYPE: V
+    UpgradeList:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - TYPE: W
+    UpgradeList:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - TYPE: X
+    UpgradeList:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - TYPE: Y
+    UpgradeList:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - TYPE: Z
+    UpgradeList:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
 --- !u!114 &1101040594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7470,7 +7560,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03676c7d42302a648841bed25b03ef5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTower: {fileID: 0}
   towerInfoUI: {fileID: 1629214610}
+  towerAdvance: {fileID: 0}
   towerManager: {fileID: 625576663}
 --- !u!1 &1616620716
 GameObject:
