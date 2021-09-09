@@ -22,7 +22,7 @@ public class Inventory : MonoBehaviour
         OffToggle();
     }
 
-    private void OffToggle()
+    public void OffToggle()
     {
         for (int i = 0; i < _toggle.Count; i++)
         {

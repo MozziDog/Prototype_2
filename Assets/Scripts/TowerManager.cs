@@ -302,7 +302,8 @@ public class TowerManager : MonoBehaviour
 
             _inven.SetToggleInteractable(true);
         }
-        CheckTowerSpawnableInDelay();
+        spawnUI.SetUI(null, false);
+        _inven.OffToggle();
     }
 
     IEnumerator CannotBuildPopUp() //k
