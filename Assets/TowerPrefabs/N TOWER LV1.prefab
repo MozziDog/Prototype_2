@@ -81,6 +81,7 @@ MonoBehaviour:
   BulletSpawnPoint: {fileID: 148764584223421480}
   RotatingBody: {fileID: 148372539320106340}
   LV: 0
+  type: 
   bulletSpeed: 0
   bulletDamage: 0
   attackRate: 0
@@ -363,6 +364,7 @@ MonoBehaviour:
   BulletSpawnPoint: {fileID: 1198030810666195969}
   RotatingBody: {fileID: 1206936374606304589}
   LV: 0
+  type: 
   bulletSpeed: 0
   bulletDamage: 0
   attackRate: 0
@@ -868,6 +870,7 @@ MonoBehaviour:
   BulletSpawnPoint: {fileID: 1270593478804605845}
   RotatingBody: {fileID: 1278365444679451353}
   LV: 0
+  type: 
   bulletSpeed: 0
   bulletDamage: 0
   attackRate: 0
@@ -5931,16 +5934,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myposition: []
   LV: 1
+  type: 
   bulletSpeed: 1
   bulletDamage: 0
   attackRate: 2
-  attackRange: 10
+  attackRange: 5.5
   bombRange: 3.5
   bulletAmmoCount: 0
   burstRate: 0
   maxChainCount: 0
   chainRadius: 0
-  poisonDamage: 5
+  poisonDamage: 20
   poisonDuration: 5
   poisonRate: 1
   stunDuration: 0
