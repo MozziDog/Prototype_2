@@ -2542,7 +2542,7 @@ MonoBehaviour:
     - {fileID: 6462731293169419925, guid: f662bb43aceeb0a45b1123e44e3b7178, type: 3}
   enemySpawner: {fileID: 1021901921}
   obstacleManager: {fileID: 625576665}
-  player: {fileID: 0}
+  player: {fileID: 2112650839}
   allWaveClear: 0
 --- !u!114 &625576663
 MonoBehaviour:
@@ -14566,6 +14566,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108247175}
   m_CullTransparentMesh: 1
+--- !u!114 &2112650839 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7290195104510254359, guid: acd5971cff513e74dbf12af3324cc7c4, type: 3}
+  m_PrefabInstance: {fileID: 631541887}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de46d99aeaf959842b4dcf118959ba03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &3305201122017229632
 CanvasRenderer:
   m_ObjectHideFlags: 0
