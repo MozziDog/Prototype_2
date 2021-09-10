@@ -5,13 +5,13 @@ using UnityEngine;
 [System.Serializable]
 public struct Wave
 {
-    
+
     public float spawnTime;
     public int maxEnemyCount;
     public GameObject[] enemyPrefabs;
 }
 
-public class WaveManager : MonoBehaviour 
+public class WaveManager : MonoBehaviour
 {
     [SerializeField]
     private Wave[] waves;
@@ -26,23 +26,22 @@ public class WaveManager : MonoBehaviour
 
     public void StartWave()
     {
-        if (enemySpawner.CurrentEnemyList.Count == 0 && currentWaveIndex < waves.Length - 1) //¿þÀÌºê ÁøÇà
+        if (enemySpawner.CurrentEnemyList.Count == 0 && currentWaveIndex < waves.Length - 1) //ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½
         {
             currentWaveIndex++;
-           // obstacleManager.WayObstacleActiveSwitch();
+            obstacleManager.WayObstacleActiveSwitch();
             enemySpawner.StartWave(waves[currentWaveIndex]);
         }
     }
 
-    public  bool isWaveClear()
+    public bool isWaveClear()
     {
-        
-        if (enemySpawner.enemySpawnCount == waves[currentWaveIndex].maxEnemyCount&&
-            player.currentHP > 0
+
+        if (enemySpawner.enemySpawnCount == waves[currentWaveIndex].maxEnemyCount
+            && player.currentHP > 0
             && enemySpawner.enemyKilledCount >= waves[currentWaveIndex].maxEnemyCount
-            && enemySpawner.CurrentEnemyList.Count==0)
+            && enemySpawner.CurrentEnemyList.Count == 0)
         {
-            Debug.LogWarning("WaveDone!!");
             return true;
         }
 
@@ -55,12 +54,12 @@ public class WaveManager : MonoBehaviour
 
     public void MidTermReward()
     {
-        Debug.LogWarning("WaveDone");//ÇÑ ¿þÀÌºê ¿Ï¼ö ½Ã º¸»ó
+        Debug.LogWarning("WaveDone");//ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½Ï¼ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     public void FinalReward()
     {
-        allWaveClear = true; //ÀüÃ¼ ¿þÀÌºê ¿Ï¼ö ½Ã º¸»óÈ­¸é ÀÌµ¿ , allWaveDone Àº  GameManager ÀÌ »ç¿ëÇÒ °ÍÀÓ
+        allWaveClear = true; //ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½Ï¼ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ìµï¿½ , allWaveDone ï¿½ï¿½  GameManager ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
 
@@ -68,21 +67,26 @@ public class WaveManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S)) StartWave(); //¿þÀÌºê ½ºÅ¸Æ®
-        
-        if (currentWaveIndex != -1)
-        if (isWaveClear())
-            switch(currentWaveIndex == waves.Length -1)
-            {
-                case false:
-                    MidTermReward();
-                    StartWave();
-                    break;
-                case true:
-                    FinalReward();
-                    break;
-            }
+        if (Input.GetKeyDown(KeyCode.S)) StartWave(); //ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½Å¸Æ®
 
+        if (currentWaveIndex != -1)
+            if (isWaveClear())
+                switch (currentWaveIndex == waves.Length - 1)
+                {
+                    case false:
+                        MidTermReward();
+                        StartWave();
+                        break;
+                    case true:
+                        FinalReward();
+                        break;
+                }
+
+    }
+
+    public void setWaves(Wave[] waveData)
+    {
+        this.waves = waveData;
     }
 
 

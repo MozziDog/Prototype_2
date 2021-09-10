@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6894041041934698228}
   - component: {fileID: 3311072782138858202}
   - component: {fileID: 354080677327720632}
-  - component: {fileID: 5033678002427358939}
   m_Layer: 11
   m_Name: TTowerBaseLV1 (2)
   m_TagString: Tower
@@ -114,40 +113,6 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!114 &5033678002427358939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 229842292558290411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 601a20424d76ab646952ee2215c078e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myposition: []
-  LV: 1
-  bulletSpeed: 12
-  bulletDamage: 10
-  attackRate: 1
-  attackRange: 15
-  bombRange: 0
-  bulletAmmoCount: 0
-  burstRate: 0
-  maxChainCount: 0
-  chainRadius: 0
-  poisonDamage: 0
-  poisonDuration: 0
-  poisonRate: 0
-  stunDuration: 0
-  mujeockTime: 0
-  slowIntensity: 0
-  slowRange: 0
-  numberOfBlocks: 0
-  Towers:
-  - {fileID: 7815541653613393529}
-  isTemp: 1
 --- !u!1 &1635993474422202157
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,6 +582,7 @@ MonoBehaviour:
   BulletSpawnPoint: {fileID: 2853517826439083446}
   RotatingBody: {fileID: 2853558813239683492}
   LV: 0
+  type: 
   bulletSpeed: 0
   bulletDamage: 0
   attackRate: 0
@@ -865,6 +831,7 @@ MonoBehaviour:
   BulletSpawnPoint: {fileID: 3955893319497903655}
   RotatingBody: {fileID: 3955976611763860021}
   LV: 0
+  type: 
   bulletSpeed: 0
   bulletDamage: 0
   attackRate: 0
@@ -1223,7 +1190,6 @@ GameObject:
   - component: {fileID: 1465761534871560581}
   - component: {fileID: 7352311881602825643}
   - component: {fileID: 5697635259160131529}
-  - component: {fileID: 1018047634191501738}
   m_Layer: 11
   m_Name: TTowerBaseLV1
   m_TagString: Tower
@@ -1324,40 +1290,6 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!114 &1018047634191501738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5245413512528034458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 601a20424d76ab646952ee2215c078e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myposition: []
-  LV: 1
-  bulletSpeed: 12
-  bulletDamage: 10
-  attackRate: 1
-  attackRange: 15
-  bombRange: 0
-  bulletAmmoCount: 0
-  burstRate: 0
-  maxChainCount: 0
-  chainRadius: 0
-  poisonDamage: 0
-  poisonDuration: 0
-  poisonRate: 0
-  stunDuration: 0
-  mujeockTime: 0
-  slowIntensity: 0
-  slowRange: 0
-  numberOfBlocks: 0
-  Towers:
-  - {fileID: 2850077269096730888}
-  isTemp: 1
 --- !u!1 &6464038307035767051
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,7 +1303,6 @@ GameObject:
   - component: {fileID: 371825155906042388}
   - component: {fileID: 8608415081567872570}
   - component: {fileID: 6804237889096707160}
-  - component: {fileID: 2260604385162646075}
   m_Layer: 11
   m_Name: TTowerBaseLV1 (1)
   m_TagString: Tower
@@ -1472,40 +1403,6 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!114 &2260604385162646075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6464038307035767051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 601a20424d76ab646952ee2215c078e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myposition: []
-  LV: 1
-  bulletSpeed: 12
-  bulletDamage: 10
-  attackRate: 1
-  attackRange: 15
-  bombRange: 0
-  bulletAmmoCount: 0
-  burstRate: 0
-  maxChainCount: 0
-  chainRadius: 0
-  poisonDamage: 0
-  poisonDuration: 0
-  poisonRate: 0
-  stunDuration: 0
-  mujeockTime: 0
-  slowIntensity: 0
-  slowRange: 0
-  numberOfBlocks: 0
-  Towers:
-  - {fileID: 3959246225173842585}
-  isTemp: 1
 --- !u!1 &7454545231653059525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1573,10 +1470,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myposition: []
   LV: 1
-  bulletSpeed: 12
-  bulletDamage: 10
-  attackRate: 1
-  attackRange: 15
+  type: 
+  bulletSpeed: 15
+  bulletDamage: 5
+  attackRate: 0.5
+  attackRange: 3.5
   bombRange: 0
   bulletAmmoCount: 0
   burstRate: 0
@@ -2063,6 +1961,7 @@ MonoBehaviour:
   BulletSpawnPoint: {fileID: 7809902339244774087}
   RotatingBody: {fileID: 7809808051755421397}
   LV: 0
+  type: 
   bulletSpeed: 0
   bulletDamage: 0
   attackRate: 0

@@ -5290,6 +5290,7 @@ MonoBehaviour:
   slowRange: 0
   sphereCollider: {fileID: 1981182019128834764}
   SlowFx: {fileID: 7494069832483709041, guid: 3a7b43929ad3c9b42b16b007394f7e36, type: 3}
+  type: 
 --- !u!1 &1981299216416692293
 GameObject:
   m_ObjectHideFlags: 0
@@ -5847,6 +5848,7 @@ MonoBehaviour:
   slowRange: 0
   sphereCollider: {fileID: 3274801718905196340}
   SlowFx: {fileID: 7494069832483709041, guid: 3a7b43929ad3c9b42b16b007394f7e36, type: 3}
+  type: 
 --- !u!1 &3274823456109949651
 GameObject:
   m_ObjectHideFlags: 0
@@ -11135,6 +11137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myposition: []
   LV: 0
+  type: 
   bulletSpeed: 0
   bulletDamage: 0
   attackRate: 0
@@ -11149,7 +11152,7 @@ MonoBehaviour:
   poisonRate: 0
   stunDuration: 0
   mujeockTime: 0
-  slowIntensity: 0.6
+  slowIntensity: 0.3
   slowRange: 2.5
   numberOfBlocks: 3
   Towers:
@@ -11407,6 +11410,7 @@ MonoBehaviour:
   slowRange: 0
   sphereCollider: {fileID: 7605836805617367515}
   SlowFx: {fileID: 7494069832483709041, guid: 3a7b43929ad3c9b42b16b007394f7e36, type: 3}
+  type: 
 --- !u!1 &7605917972909137366
 GameObject:
   m_ObjectHideFlags: 0
