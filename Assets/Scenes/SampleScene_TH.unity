@@ -13703,7 +13703,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 361556335}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1570662353}
+        m_TargetAssemblyTypeName: TowerAdvance, Assembly-CSharp
+        m_MethodName: DoAdvance
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &361556335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47595,7 +47607,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 7, y: 357}
+  m_AnchoredPosition: {x: 7, y: 356.99997}
   m_SizeDelta: {x: -3000, y: -100}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1190245609
@@ -64669,6 +64681,7 @@ GameObject:
   - component: {fileID: 1570662351}
   - component: {fileID: 1570662352}
   - component: {fileID: 1570662350}
+  - component: {fileID: 1570662353}
   m_Layer: 5
   m_Name: SelectUI
   m_TagString: Untagged
@@ -64749,7 +64762,78 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerInfoUI: {fileID: 1629214610}
+  towerAdvance: {fileID: 1570662353}
   towerManager: {fileID: 625576663}
+--- !u!114 &1570662353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570662348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac9e8c08ff4c74d478a305f87f90cbb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _selectUI: {fileID: 1570662352}
+  _inven: {fileID: 1761398618}
+  _advanceButton: {fileID: 361556334}
+  _towerManager: {fileID: 625576663}
+  _selectManager: {fileID: 625576666}
+  _numberOfTypes: 12
+  _numberOfLevels: 3
+  _towerUpgradeLists:
+  - TYPE: F
+    UpgradeList:
+    - {fileID: 0}
+    - {fileID: 0}
+  - TYPE: I
+    UpgradeList:
+    - {fileID: 0}
+    - {fileID: 0}
+  - TYPE: L
+    UpgradeList:
+    - {fileID: 0}
+    - {fileID: 0}
+  - TYPE: N
+    UpgradeList:
+    - {fileID: 0}
+    - {fileID: 0}
+  - TYPE: P
+    UpgradeList:
+    - {fileID: 0}
+    - {fileID: 0}
+  - TYPE: T
+    UpgradeList:
+    - {fileID: 0}
+    - {fileID: 0}
+  - TYPE: U
+    UpgradeList:
+    - {fileID: 7454545231653059525, guid: 77894eff0295e734a97a373d6d3fa59d, type: 3}
+    - {fileID: 7454545231653059525, guid: 1fe005f94e80d3345a59f4ae4a6d2114, type: 3}
+  - TYPE: V
+    UpgradeList:
+    - {fileID: 0}
+    - {fileID: 0}
+  - TYPE: W
+    UpgradeList:
+    - {fileID: 0}
+    - {fileID: 0}
+  - TYPE: X
+    UpgradeList:
+    - {fileID: 0}
+    - {fileID: 0}
+  - TYPE: Y
+    UpgradeList:
+    - {fileID: 0}
+    - {fileID: 0}
+  - TYPE: Z
+    UpgradeList:
+    - {fileID: 0}
+    - {fileID: 0}
+  targetTowerAd: {fileID: 0}
+  AdvancedTower: {fileID: 0}
 --- !u!1001 &1571216637
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77760,7 +77844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _UIText: {fileID: 715360959}
-  _baseMoney: 200
+  _baseMoney: 500
 --- !u!114 &1761398617
 MonoBehaviour:
   m_ObjectHideFlags: 0

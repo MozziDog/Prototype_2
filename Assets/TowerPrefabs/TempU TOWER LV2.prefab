@@ -20606,7 +20606,7 @@ GameObject:
   - component: {fileID: -2257781446758517098}
   - component: {fileID: 6621766133569329022}
   m_Layer: 11
-  m_Name: U TOWER LV1 2
+  m_Name: TempU TOWER LV2
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -20660,7 +20660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myposition: []
-  LV: 3
+  LV: 2
   type: U
   bulletSpeed: 1
   bulletDamage: 5
@@ -20894,7 +20894,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d7adf89b5891ad243b28ff28cd586aea, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

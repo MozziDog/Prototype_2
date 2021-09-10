@@ -44,7 +44,7 @@ public class TowerAdvance : MonoBehaviour
             TowerUpgradeList container = new TowerUpgradeList();
             AlphabetTypes tempType = (AlphabetTypes)i;
             container.TYPE = tempType.ToString();
-            tempContainer = new GameObject[_numberOfLevels];
+            tempContainer = new GameObject[_numberOfLevels-1];
             container.UpgradeList = tempContainer;
             _towerUpgradeLists.Add(container);
 
@@ -104,7 +104,7 @@ public class TowerAdvance : MonoBehaviour
 
     private void OnEnable()
     {
-        SetUp();
+       // SetUp();
         Reset();
        _selectUI.CheckCanAdvance();
     }
