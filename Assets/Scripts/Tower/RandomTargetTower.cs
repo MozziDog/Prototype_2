@@ -80,12 +80,14 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
 
         }
     }
+    /*
     private void RotateToHome()
     {
         Quaternion home = Quaternion.LookRotation(SpawnPoint.transform.position);
 
         RotatingBody.transform.rotation = Quaternion.Slerp(RotatingBody.transform.rotation, home, 2f * Time.deltaTime);
     }
+    */
 
     private IEnumerator SearchTarget() //적 탐색
     {
@@ -109,10 +111,13 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
                   temp.Add(enemyList[i].transform);
                 }
             }
-            if(temp.Count>0)
-            attackTarget = temp[Random.Range(0,temp.Count)];
+            if (temp.Count > 0)
+            {
+                attackTarget = temp[Random.Range(0, temp.Count)];
+                temp.Clear();
+            }
 
-            if (attackTarget != null)
+            if (attackTarget != null && !attackTarget.GetComponent<EnemyInterFace>().CheckDead())
             {
 
                 ChangeState(WeaponState.AttackToTarget);
@@ -126,8 +131,7 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
     private IEnumerator AttackToTarget() //적 공격
     {
         yield return new WaitForSeconds(1.25f);
-        while (true)
-        {
+       
             
 
             //|| attackTarget.gameObject.layer == LayerMask.NameToLayer("Dead")
@@ -141,14 +145,14 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
             {
                 attackTarget = null;
                 ChangeState(WeaponState.SearchTarget);
-                break;
+                
             }
 
             SpawnBullet();
             yield return new WaitForSeconds(attackRate);
             attackTarget = null;
             ChangeState(WeaponState.SearchTarget);
-        }
+        
     }
 
 

@@ -76,7 +76,7 @@ public class TowerAdvance : MonoBehaviour
             ingredientindex.Add(i);
         }
 
-        _advanceButton.interactable = ingredientindex.Count > 1 ? true : false;
+        _advanceButton.interactable = ingredientindex.Count > 0 ? true : false;
 
 
     }
@@ -85,13 +85,14 @@ public class TowerAdvance : MonoBehaviour
     {
         _inven.DestoryToggle(ingredientindex[0]);
         _inven.DeleteSelectedTower(ingredientindex[0]);
-        _inven.DestoryToggle(ingredientindex[1]-1);
-        _inven.DeleteSelectedTower(ingredientindex[1]-1);
+       // _inven.DestoryToggle(ingredientindex[1]-1);
+        //_inven.DeleteSelectedTower(ingredientindex[1]-1);
         Vector3 replacePos = this.targetTowerAd.transform.position;
+        Quaternion replaceRot = this.targetTowerAd.transform.rotation;
         _towerManager.towerSpawned.Remove(this.targetTowerAd);
         Destroy(this.targetTowerAd);
         AlphabetTypes tempType = (AlphabetTypes)System.Enum.Parse(typeof(AlphabetTypes), compareType);
-        AdvancedTower = Instantiate(_towerUpgradeLists[(int)tempType].UpgradeList[(int)compareLV - 1], replacePos, Quaternion.identity);
+        AdvancedTower = Instantiate(_towerUpgradeLists[(int)tempType].UpgradeList[(int)compareLV - 1], replacePos, replaceRot);
         _towerManager.towerSpawned.Add(AdvancedTower);
         AdvancedTower.GetComponent<TowerBase>().ConfirmTowerPosition();
         _towerManager.OnTowerSelected( AdvancedTower);
