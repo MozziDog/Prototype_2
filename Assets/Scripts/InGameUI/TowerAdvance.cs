@@ -67,23 +67,31 @@ public class TowerAdvance : MonoBehaviour
     {
         
         compareLV = this.targetTowerAd.GetComponent<TowerBase>().LV;
-        if (compareLV == _numberOfLevels) return;
+        if (compareLV == _numberOfLevels)
+        {
+            _advanceButton.interactable = false;
+            return;
+        }
         compareType = this.targetTowerAd.GetComponent<TowerBase>().type;
         
         for (int i = 0; i < _inven._toggle.Count; i++)
         {
+            _inven._toggle[i].interactable = false;
             if (compareType != _inven._tower[i].GetComponent<TowerBase>().type)
             {
-                _inven._toggle[i].interactable = false;
                 continue;
             }
-                
+           
             ingredientindex.Add(i);
-            ColorBlock cb = _inven._toggle[i].colors;
-            cb.normalColor = Color.green;
-
         }
-        _advanceButton.interactable = ingredientindex.Count > 0 ? true : false;
+
+       
+
+        if(_advanceButton.interactable = ingredientindex.Count > 0 ? true : false)
+        {
+            _inven._toggle[ingredientindex[0]].interactable = true;
+            _inven._toggle[ingredientindex[0]].Select();
+        }
 
 
 
@@ -94,17 +102,16 @@ public class TowerAdvance : MonoBehaviour
 
         _inven.DestoryToggle(ingredientindex[0]);
         _inven.DeleteSelectedTower(ingredientindex[0]);
-       
-            /*
-            for (int i = 0; i < _inven._toggle.Count; i++)
-            {
-                ColorBlock cb = _inven._toggle[i].colors;
-                cb.normalColor = Color.white;
-            }
-            */
-            // _inven.DestoryToggle(ingredientindex[1]-1);
-            //_inven.DeleteSelectedTower(ingredientindex[1]-1);
-            Vector3 replacePos = this.targetTowerAd.transform.position;
+        /*
+        for (int i = 0; i < _inven._toggle.Count; i++)
+        {
+            ColorBlock cb = _inven._toggle[i].colors;
+            cb.normalColor = Color.white;
+        }
+        */
+        // _inven.DestoryToggle(ingredientindex[1]-1);
+        //_inven.DeleteSelectedTower(ingredientindex[1]-1);
+        Vector3 replacePos = this.targetTowerAd.transform.position;
         Quaternion replaceRot = this.targetTowerAd.transform.rotation;
         _towerManager.towerSpawned.Remove(this.targetTowerAd);
         Destroy(this.targetTowerAd);
@@ -131,8 +138,12 @@ public class TowerAdvance : MonoBehaviour
 
     private void OnDisable()
     {
-        for (int j = 0; j < _inven._toggle.Count; j++)
-            _inven._toggle[j].interactable = true;
+        for (int i = 0; i < _inven._toggle.Count; i++)
+        {
+            _inven._toggle[i].interactable = true;
+        }
+        
+       
     }
 
 
