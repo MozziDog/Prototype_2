@@ -20660,7 +20660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myposition: []
-  LV: 3
+  LV: 2
   type: U
   bulletSpeed: 1
   bulletDamage: 5

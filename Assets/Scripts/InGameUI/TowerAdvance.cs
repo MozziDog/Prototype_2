@@ -11,18 +11,20 @@ public struct TowerUpgradeList
 }
 public enum AlphabetTypes
 {
-    F,I,L,N,P,T,U,V,W,X,Y,Z
+    F, I, L, N, P, T, U, V, W, X, Y, Z
 }
 
-
+//[ExecuteInEditMode]
 public class TowerAdvance : MonoBehaviour
 {
     //for AdvanceList SetUp
     public TowerSelectedUI _selectUI;
     public Inventory _inven;
     public Button _advanceButton;
-    public float _numberOfTypes=12;
-    public int _numberOfLevels=3;
+    public TowerManager _towerManager;
+    public SelectManager _selectManager;
+    public float _numberOfTypes = 12;
+    public int _numberOfLevels = 3;
     public List<TowerUpgradeList> _towerUpgradeLists = new List<TowerUpgradeList>();
     private GameObject[] tempContainer;
 
@@ -32,8 +34,8 @@ public class TowerAdvance : MonoBehaviour
     private float compareLV;
     private bool canAdvance;
 
-    private GameObject targetTower;
-   
+    public GameObject targetTowerAd;
+    public GameObject AdvancedTower;
 
     private void SetUp()
     {
@@ -52,19 +54,24 @@ public class TowerAdvance : MonoBehaviour
     private void Reset()
     {
         ingredientindex.Clear();
-        
+
     }
 
-    public void CheckAdvance(GameObject targetTower)
+    public void SetAdvanceTarget(GameObject tower)
     {
-        compareLV = targetTower.GetComponent<TowerBase>().LV;
+        this.targetTowerAd = tower;
+    }
+
+    public void CheckAdvance()
+    {
+        compareLV = this.targetTowerAd.GetComponent<TowerBase>().LV;
         if (compareLV == _numberOfLevels) return;
-        compareType = targetTower.GetComponent<TowerBase>().type;
-        this.targetTower = targetTower;
-        for (int i=0;i<_inven._toggle.Count;i++) {
-            if (compareLV != _inven._toggle[i].GetComponent<TowerBase>().LV)
+        compareType = this.targetTowerAd.GetComponent<TowerBase>().type;
+        for (int i = 0; i < _inven._tower.Count; i++)
+        {
+            if (compareLV != _inven._tower[i].GetComponent<TowerBase>().LV)
                 continue;
-            if (compareType != _inven._toggle[i].GetComponent<TowerBase>().type)
+            if (compareType != _inven._tower[i].GetComponent<TowerBase>().type)
                 continue;
             ingredientindex.Add(i);
         }
@@ -78,35 +85,35 @@ public class TowerAdvance : MonoBehaviour
     {
         _inven.DestoryToggle(ingredientindex[0]);
         _inven.DeleteSelectedTower(ingredientindex[0]);
-        _inven.DestoryToggle(ingredientindex[1]);
-        _inven.DeleteSelectedTower(ingredientindex[1]);
-        Vector3 replacePos = targetTower.transform.position;
-        Destroy(targetTower);
+        _inven.DestoryToggle(ingredientindex[1]-1);
+        _inven.DeleteSelectedTower(ingredientindex[1]-1);
+        Vector3 replacePos = this.targetTowerAd.transform.position;
+        _towerManager.towerSpawned.Remove(this.targetTowerAd);
+        Destroy(this.targetTowerAd);
         AlphabetTypes tempType = (AlphabetTypes)System.Enum.Parse(typeof(AlphabetTypes), compareType);
-        GameObject AdvancedTower = Instantiate(_towerUpgradeLists[(int)tempType].UpgradeList[(int)compareLV-1],replacePos,Quaternion.identity);
-
-
+        AdvancedTower = Instantiate(_towerUpgradeLists[(int)tempType].UpgradeList[(int)compareLV - 1], replacePos, Quaternion.identity);
+        _towerManager.towerSpawned.Add(AdvancedTower);
         AdvancedTower.GetComponent<TowerBase>().ConfirmTowerPosition();
-        SendMessage("OnTowerSelected", AdvancedTower);
+        _towerManager.OnTowerSelected( AdvancedTower);
+        _selectManager.SetSelectedTower( AdvancedTower);
         Reset();
-        
+        CheckAdvance();
+
 
     }
 
-    private void Awake()
+    private void OnEnable()
     {
-      //  SetUp();
-
+        SetUp();
+        Reset();
+       _selectUI.CheckCanAdvance();
     }
-
     
+
+
     // Update is called once per frame
     void Update()
     {
-        if (_selectUI.gameObject.activeSelf)
-        {
-            Reset();
-            _selectUI.CheckCanAdvance();
-        }
+
     }
 }

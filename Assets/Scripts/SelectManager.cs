@@ -130,4 +130,9 @@ public class SelectManager : MonoBehaviour
     {
         return selectedTower;
     }
+
+    public void SetSelectedTower(GameObject tower)
+    {
+        selectedTower = tower;
+    }
 }
