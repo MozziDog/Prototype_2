@@ -23,6 +23,7 @@ public class TowerAdvance : MonoBehaviour
     public Button _advanceButton;
     public TowerManager _towerManager;
     public SelectManager _selectManager;
+    public Text UpgradeMessagePopUp;
     public float _numberOfTypes = 12;
     public int _numberOfLevels = 3;
     public List<TowerUpgradeList> _towerUpgradeLists = new List<TowerUpgradeList>();
@@ -50,6 +51,28 @@ public class TowerAdvance : MonoBehaviour
 
 
         }
+    }
+
+    public void OnClickNotInteractiveUpgrade()
+    {
+        if (!_advanceButton.interactable)
+        {
+            UpgradeMessagePopUp.text = "There's no Enough Ingredients to Upgrade!";
+            StartCoroutine(AdvanceMsgPopUp());
+            
+        }
+        if (_advanceButton.interactable)
+        {
+            UpgradeMessagePopUp.text = "You've Upgrade!";
+            StartCoroutine(AdvanceMsgPopUp());
+        }
+    }
+
+    IEnumerator AdvanceMsgPopUp()
+    {
+        UpgradeMessagePopUp.transform.parent.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1.4f);
+        UpgradeMessagePopUp.transform.parent.gameObject.SetActive(false);
     }
 
     private void Reset()
@@ -135,6 +158,7 @@ public class TowerAdvance : MonoBehaviour
 
   
     }
+   
 
     private void OnDisable()
     {
