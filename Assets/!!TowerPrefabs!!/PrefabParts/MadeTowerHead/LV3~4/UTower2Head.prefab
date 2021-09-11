@@ -5119,7 +5119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed50310ed29afef49b857ddc4fea0c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 1181794290910964, guid: 4392a4ac0803fc341b53fb6e1a668f55, type: 3}
+  BulletPrefab: {fileID: 4163368548568964926, guid: e17cfa29b24cdf44892afb5007770b82, type: 3}
   BulletSpawnPoint: {fileID: 412261747023978844}
   RotatingBody: {fileID: 407062633041337088}
   LV: 0
@@ -10219,8 +10219,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myposition: []
-  LV: 1
-  type: 
+  LV: 3
+  type: U
   bulletSpeed: 1
   bulletDamage: 25
   attackRate: 2

@@ -14811,8 +14811,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myposition: []
-  LV: 1
-  type: 
+  LV: 3
+  type: P
   bulletSpeed: 10
   bulletDamage: 10
   attackRate: 1

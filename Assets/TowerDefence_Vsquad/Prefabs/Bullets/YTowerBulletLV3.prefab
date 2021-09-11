@@ -5247,11 +5247,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4375386951119878}
-  - component: {fileID: 114960842555035970}
   - component: {fileID: 65607345564755948}
+  - component: {fileID: -6902503234263623905}
   m_Layer: 14
   m_Name: YTowerBulletLV3
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5271,23 +5271,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114960842555035970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1195888816764780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 807a988a1765edd439007be8fbee2c70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 10
-  target: {fileID: 0}
-  impactParticle: {fileID: 1727520155850532, guid: aa03a7193718cc44a8ca282a1b546303, type: 3}
-  impactNormal: {x: 0, y: 0, z: 0}
-  twr: {fileID: 0}
 --- !u!65 &65607345564755948
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5301,6 +5284,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-6902503234263623905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195888816764780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c048249abe378d64baa39fa3bc41a569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LV: 0
+  bulletSpeed: 0
+  bulletDamage: 0
+  impactParticle: {fileID: 1727520155850532, guid: aa03a7193718cc44a8ca282a1b546303, type: 3}
+  aimPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1263039714108652
 GameObject:
   m_ObjectHideFlags: 0
