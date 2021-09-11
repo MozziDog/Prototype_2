@@ -5039,6 +5039,7 @@ MonoBehaviour:
   BulletSpawnPoint: {fileID: 1352093921023331450}
   RotatingBody: {fileID: 1351978526777782846}
   LV: 0
+  type: 
   bulletSpeed: 0
   bulletDamage: 0
   attackRate: 0
@@ -5061,7 +5062,7 @@ GameObject:
   - component: {fileID: 5314862254883394914}
   - component: {fileID: 5628177746615752752}
   m_Layer: 11
-  m_Name: FTowerBaseLV1
+  m_Name: FTowerBaseLV1Head
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -5174,6 +5175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myposition: []
   LV: 1
+  type: 
   bulletSpeed: 10
   bulletDamage: 10
   attackRate: 2

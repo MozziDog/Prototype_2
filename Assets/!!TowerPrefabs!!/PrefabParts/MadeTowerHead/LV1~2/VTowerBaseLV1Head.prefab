@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 8268674423456359573}
   - component: {fileID: 8437873563142711749}
   m_Layer: 11
-  m_Name: VTowerBaseLV1
+  m_Name: VTowerBaseLV1Head
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
