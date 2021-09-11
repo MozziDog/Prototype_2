@@ -4957,11 +4957,11 @@ GameObject:
   - component: {fileID: 4336037023354228}
   - component: {fileID: 33484768285310146}
   - component: {fileID: 23692768495165900}
-  - component: {fileID: 114046049537102412}
   - component: {fileID: 135978164140665552}
+  - component: {fileID: -8359236578070535824}
   m_Layer: 14
   m_Name: ZTowerBulletLV2
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5031,23 +5031,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &114046049537102412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1768389422192202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 807a988a1765edd439007be8fbee2c70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 8
-  target: {fileID: 0}
-  impactParticle: {fileID: 1500757869135662, guid: 2edfb844677f09c47b443166df2bd855, type: 3}
-  impactNormal: {x: 0, y: 0, z: 0}
-  twr: {fileID: 0}
 --- !u!135 &135978164140665552
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5059,5 +5042,26 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.35
   m_Center: {x: 0, y: 0, z: -0.000000074505806}
+--- !u!114 &-8359236578070535824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768389422192202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 957bc0abf5f4094408e291a42a3203d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BulletName: 
+  bulletSpeed: 0
+  currentTarget: {fileID: 0}
+  impactParticle: {fileID: 1500757869135662, guid: 2edfb844677f09c47b443166df2bd855, type: 3}
+  aimPosition: {x: 0, y: 0, z: 0}
+  maxChainCount: 0
+  currentChainCount: 0
+  chainRadius: 1.5
+  weaponState: 1

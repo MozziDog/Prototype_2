@@ -9675,8 +9675,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4696476191963800}
-  - component: {fileID: 114233999842029988}
   - component: {fileID: 65375484733859816}
+  - component: {fileID: 5926348616776693306}
+  - component: {fileID: -1735916071367265236}
   m_Layer: 14
   m_Name: NTowerBulletLV2
   m_TagString: BombBullet
@@ -9693,29 +9694,12 @@ Transform:
   m_GameObject: {fileID: 1855989772293040}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children:
   - {fileID: 4352848370658966}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114233999842029988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1855989772293040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 807a988a1765edd439007be8fbee2c70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 5
-  target: {fileID: 0}
-  impactParticle: {fileID: 1951936954608838, guid: 4765b43f65450d84694ffeb8c265f20d, type: 3}
-  impactNormal: {x: 0, y: 0, z: 0}
-  twr: {fileID: 0}
 --- !u!65 &65375484733859816
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9729,3 +9713,46 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &5926348616776693306
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855989772293040}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &-1735916071367265236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855989772293040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 735280ed0166c7241b548054ce28f805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BombAreaEffect: {fileID: 2317583088921270529, guid: c86674e5365eaa14e9d40d2f56d10927, type: 3}
+  impactParticle: {fileID: 1951936954608838, guid: 4765b43f65450d84694ffeb8c265f20d, type: 3}
+  PoisonFx: {fileID: 1103574013324760, guid: c59b499f44ca68d43983e6decfafcfcb, type: 3}
+  LV: 0
+  BulletName: 
+  bulletSpeed: 0
+  bulletDamage: 0
+  poisonDamage: 0
+  poisonDuration: 0
+  poisonRate: 0
+  target: {fileID: 0}
+  Projectile: {fileID: 0}
+  firingAngle: 45
+  gravity: 9.8
+  BombRadius: 0

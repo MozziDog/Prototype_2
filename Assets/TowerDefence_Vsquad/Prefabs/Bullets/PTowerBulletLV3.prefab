@@ -19312,11 +19312,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4897047018014232}
-  - component: {fileID: 114241852728512322}
   - component: {fileID: 65888780528456918}
+  - component: {fileID: 611935182031932905}
   m_Layer: 14
   m_Name: PTowerBulletLV3
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19330,29 +19330,12 @@ Transform:
   m_GameObject: {fileID: 1860214602675424}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.20000008, y: 0.20000023, z: 0.20000014}
+  m_LocalScale: {x: 0.22, y: 0.22, z: 0.22}
   m_Children:
   - {fileID: 4003851600822412}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114241852728512322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1860214602675424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 807a988a1765edd439007be8fbee2c70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 8
-  target: {fileID: 0}
-  impactParticle: {fileID: 1626350604704776, guid: 463a8cfe23f945f49baa492e1522b534, type: 3}
-  impactNormal: {x: 0, y: 0, z: 0}
-  twr: {fileID: 0}
 --- !u!65 &65888780528456918
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19366,6 +19349,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &611935182031932905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860214602675424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c048249abe378d64baa39fa3bc41a569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LV: 0
+  bulletSpeed: 0
+  bulletDamage: 0
+  impactParticle: {fileID: 1626350604704776, guid: 463a8cfe23f945f49baa492e1522b534, type: 3}
+  aimPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1988450353775210
 GameObject:
   m_ObjectHideFlags: 0

@@ -24129,11 +24129,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4276534052570378}
-  - component: {fileID: 114998989245621084}
   - component: {fileID: 65274944565666152}
+  - component: {fileID: -364750840006971705}
   m_Layer: 14
   m_Name: PTowerBulletLV2
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24147,29 +24147,12 @@ Transform:
   m_GameObject: {fileID: 1954904005718050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.20000008, y: 0.20000023, z: 0.20000014}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 4693037295805618}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114998989245621084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1954904005718050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 807a988a1765edd439007be8fbee2c70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 8
-  target: {fileID: 0}
-  impactParticle: {fileID: 1297638738641346, guid: b608506f4a0b5684b81f2360d34de2ce, type: 3}
-  impactNormal: {x: 0, y: 0, z: 0}
-  twr: {fileID: 0}
 --- !u!65 &65274944565666152
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24183,3 +24166,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-364750840006971705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954904005718050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c048249abe378d64baa39fa3bc41a569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LV: 0
+  bulletSpeed: 0
+  bulletDamage: 0
+  impactParticle: {fileID: 1297638738641346, guid: b608506f4a0b5684b81f2360d34de2ce, type: 3}
+  aimPosition: {x: 0, y: 0, z: 0}
