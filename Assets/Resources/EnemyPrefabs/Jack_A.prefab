@@ -652,7 +652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 150
   currentHP: 0
-  moveSpeed: 1.4
+  moveSpeed: 2
   hitDamage: 15
   headPos: {fileID: 6462731293169654419}
   isDie: 0
