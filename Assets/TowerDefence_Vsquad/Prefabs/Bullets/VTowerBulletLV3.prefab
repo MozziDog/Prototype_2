@@ -5322,7 +5322,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6fcb48aed37dc7f43a8339f85fce6a36, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5378,7 +5377,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4446782416332554}
   - component: {fileID: 65031951682635992}
-  - component: {fileID: 114125214527622846}
+  - component: {fileID: -3786959669867274687}
+  - component: {fileID: -5285523614344934588}
   m_Layer: 14
   m_Name: VTowerBulletLV3
   m_TagString: BombBullet
@@ -5395,7 +5395,7 @@ Transform:
   m_GameObject: {fileID: 1733891647306646}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4723599956809368}
   m_Father: {fileID: 0}
@@ -5414,7 +5414,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114125214527622846
+--- !u!54 &-3786959669867274687
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733891647306646}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 2
+  m_Constraints: 0
+  m_CollisionDetection: 3
+--- !u!114 &-5285523614344934588
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5423,11 +5439,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1733891647306646}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 807a988a1765edd439007be8fbee2c70, type: 3}
+  m_Script: {fileID: 11500000, guid: b8cc98eaed854fd45b5b674738c13ba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 8
-  target: {fileID: 0}
+  BombAreaEffect: {fileID: 2317583088921270529, guid: 770febec599229b47aab05b990e7759d, type: 3}
   impactParticle: {fileID: 1378290195468296, guid: 881cd994566d59743b23655212049325, type: 3}
-  impactNormal: {x: 0, y: 0, z: 0}
-  twr: {fileID: 0}
+  LV: 0
+  BulletName: 
+  bulletSpeed: 0
+  bulletDamage: 0
+  target: {fileID: 0}
+  Projectile: {fileID: 0}
+  firingAngle: 45
+  gravity: 9.8
+  BombRadius: 0

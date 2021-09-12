@@ -15,8 +15,9 @@ public class TowerSelectedUI : MonoBehaviour
     {
         if (isOn)
         {
+            Debug.LogWarning("tower selected!");
             targetTower = tower;
-            towerAdvance.SetAdvanceTarget(tower);
+            towerAdvance.SetAdvanceTarget(targetTower);
             gameObject.SetActive(isOn);
             SetUIPosition(tower);
             UIOnAnimation();
@@ -83,6 +84,6 @@ public class TowerSelectedUI : MonoBehaviour
     }
     public void OnClickTowerAdvanceButton()
     {
-        towerAdvance.DoAdvance();
+        towerAdvance.TryAdvance();
     }
 }

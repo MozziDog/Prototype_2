@@ -17,7 +17,7 @@ public enum AlphabetTypes
 //[ExecuteInEditMode]
 public class TowerAdvance : MonoBehaviour
 {
-    //for AdvanceList SetUp
+    //for AdvanceList SetUp, that means list making in editor
     public TowerSelectedUI _selectUI;
     public Inventory _inven;
     public Button _advanceButton;
@@ -29,15 +29,16 @@ public class TowerAdvance : MonoBehaviour
     public List<TowerUpgradeList> _towerUpgradeLists = new List<TowerUpgradeList>();
     private GameObject[] tempContainer;
 
-    //for compare
+    //for comparing
     private List<int> ingredientindex = new List<int>();
     private string compareType;
     private float compareLV;
-    private bool canAdvance;
-
+    
+    //in-game debug properties
     public GameObject targetTowerAd;
     public GameObject AdvancedTower;
-
+    IEnumerator checkCoroutine;
+    Coroutine actingCoroutine;
     private void SetUp()
     {
         for (int i = 0; i < _numberOfTypes; i++)
@@ -55,23 +56,31 @@ public class TowerAdvance : MonoBehaviour
 
     public void OnClickNotInteractiveUpgrade()
     {
-        if (!_advanceButton.interactable)
+        StopCoroutine(AdvanceMsgPopUp());
+        if (!_advanceButton.interactable&& compareLV != _numberOfLevels)
         {
             UpgradeMessagePopUp.text = "There's no Enough Ingredients to Upgrade!";
             StartCoroutine(AdvanceMsgPopUp());
-            
+
         }
-        if (_advanceButton.interactable)
+        else if (!_advanceButton.interactable && compareLV == _numberOfLevels)
         {
-            UpgradeMessagePopUp.text = "You've Upgrade!";
+            UpgradeMessagePopUp.text = "This Tower is At Max Level!";
             StartCoroutine(AdvanceMsgPopUp());
         }
+        else if (_advanceButton.interactable )
+        {
+            UpgradeMessagePopUp.text = "You've Upgraded!";
+            StartCoroutine(AdvanceMsgPopUp());
+        }
+
     }
 
     IEnumerator AdvanceMsgPopUp()
     {
         UpgradeMessagePopUp.transform.parent.gameObject.SetActive(true);
         yield return new WaitForSeconds(1.4f);
+        CheckAdvance();
         UpgradeMessagePopUp.transform.parent.gameObject.SetActive(false);
     }
 
@@ -84,17 +93,19 @@ public class TowerAdvance : MonoBehaviour
     public void SetAdvanceTarget(GameObject tower)
     {
         this.targetTowerAd = tower;
+        _selectUI.CheckCanAdvance();
     }
 
     public void CheckAdvance()
     {
-        
+        Reset();
         compareLV = this.targetTowerAd.GetComponent<TowerBase>().LV;
         if (compareLV == _numberOfLevels)
         {
             _advanceButton.interactable = false;
             return;
         }
+
         compareType = this.targetTowerAd.GetComponent<TowerBase>().type;
         
         for (int i = 0; i < _inven._toggle.Count; i++)
@@ -120,20 +131,16 @@ public class TowerAdvance : MonoBehaviour
 
     }
 
-    public void DoAdvance()
+    public void TryAdvance()
+    {
+        StartCoroutine(DoAdvance());
+    }
+
+    IEnumerator DoAdvance()
     {
 
         _inven.DestoryToggle(ingredientindex[0]);
         _inven.DeleteSelectedTower(ingredientindex[0]);
-        /*
-        for (int i = 0; i < _inven._toggle.Count; i++)
-        {
-            ColorBlock cb = _inven._toggle[i].colors;
-            cb.normalColor = Color.white;
-        }
-        */
-        // _inven.DestoryToggle(ingredientindex[1]-1);
-        //_inven.DeleteSelectedTower(ingredientindex[1]-1);
         Vector3 replacePos = this.targetTowerAd.transform.position;
         Quaternion replaceRot = this.targetTowerAd.transform.rotation;
         _towerManager.towerSpawned.Remove(this.targetTowerAd);
@@ -142,12 +149,15 @@ public class TowerAdvance : MonoBehaviour
         AdvancedTower = Instantiate(_towerUpgradeLists[(int)tempType].UpgradeList[(int)compareLV - 1], replacePos, replaceRot);
         _towerManager.towerSpawned.Add(AdvancedTower);
         AdvancedTower.GetComponent<TowerBase>().ConfirmTowerPosition();
+        yield return new WaitForSeconds(0.3f);
         _towerManager.OnTowerSelected( AdvancedTower);
         _selectManager.SetSelectedTower( AdvancedTower);
-        Reset();
-        CheckAdvance();
+       
 
+    }
 
+    private void Start()
+    {
     }
 
     private void OnEnable()
@@ -155,8 +165,8 @@ public class TowerAdvance : MonoBehaviour
        // SetUp();
         Reset();
        _selectUI.CheckCanAdvance();
+        
 
-  
     }
    
 
@@ -166,8 +176,10 @@ public class TowerAdvance : MonoBehaviour
         {
             _inven._toggle[i].interactable = true;
         }
-        
-       
+        //StopCoroutine(AdvanceMsgPopUp());
+        UpgradeMessagePopUp.transform.parent.gameObject.SetActive(false);
+
+
     }
 
 

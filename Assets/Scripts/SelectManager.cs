@@ -98,6 +98,7 @@ public class SelectManager : MonoBehaviour
                 tower = GetTowerFromTowerParts(tower);
                 if (tower == selectedTower)
                 {
+                    Debug.Log("new tower touched!");
                     SendMessage("OnTowerSelected", selectedTower);
                 }
             }

@@ -5085,7 +5085,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4613837332304194}
   - component: {fileID: 65956960381578954}
-  - component: {fileID: 114418057307517542}
+  - component: {fileID: 5260446957005810215}
+  - component: {fileID: 692388592743157792}
   m_Layer: 14
   m_Name: VTowerBulletLV2
   m_TagString: BombBullet
@@ -5102,7 +5103,7 @@ Transform:
   m_GameObject: {fileID: 1399426437590312}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4082079393354058}
   m_Father: {fileID: 0}
@@ -5121,7 +5122,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114418057307517542
+--- !u!54 &5260446957005810215
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399426437590312}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 2
+  m_Constraints: 0
+  m_CollisionDetection: 3
+--- !u!114 &692388592743157792
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5130,14 +5147,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1399426437590312}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 807a988a1765edd439007be8fbee2c70, type: 3}
+  m_Script: {fileID: 11500000, guid: b8cc98eaed854fd45b5b674738c13ba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 8
-  target: {fileID: 0}
+  BombAreaEffect: {fileID: 2317583088921270529, guid: 770febec599229b47aab05b990e7759d, type: 3}
   impactParticle: {fileID: 1762504319579736, guid: 6910ef3df0a8a0649b2b76db86abeb3b, type: 3}
-  impactNormal: {x: 0, y: 0, z: 0}
-  twr: {fileID: 0}
+  LV: 0
+  BulletName: 
+  bulletSpeed: 0
+  bulletDamage: 0
+  target: {fileID: 0}
+  Projectile: {fileID: 0}
+  firingAngle: 45
+  gravity: 9.8
+  BombRadius: 0
 --- !u!1 &1699690960025626
 GameObject:
   m_ObjectHideFlags: 0
