@@ -14702,9 +14702,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1570662353}
-        m_TargetAssemblyTypeName: TowerAdvance, Assembly-CSharp
-        m_MethodName: DoAdvance
+      - m_Target: {fileID: 1570662352}
+        m_TargetAssemblyTypeName: TowerSelectedUI, Assembly-CSharp
+        m_MethodName: OnClickTowerAdvanceButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
