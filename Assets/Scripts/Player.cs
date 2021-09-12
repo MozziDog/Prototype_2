@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
     public void getHealed(float heal)
     {
         currentHP += heal;
+        if (currentHP > maxHP) currentHP = maxHP;
         UpdateHpText(currentHP);
     }
 

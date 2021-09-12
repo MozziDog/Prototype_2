@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class RageSkill : MonoBehaviour
 {
-
+    [SerializeField]
+    GameObject RageEffect;
     private void Start()
     {
+        Instantiate(RageEffect, transform);
+        Destroy(gameObject, 3.1f);
         var hits = Physics.SphereCastAll(transform.position, 2f, Vector3.up, 0f);
         for(int i = 0; i < hits.Length; i++)
         {
@@ -19,6 +23,14 @@ public class RageSkill : MonoBehaviour
                 hits[i].transform.gameObject.GetComponent<TowerBase>().attackRate *= 0.9f;
                 hits[i].transform.gameObject.GetComponent<TowerBase>().bulletDamage *= 1.1f;
                 hits[i].transform.gameObject.GetComponent<TowerBase>().SetUp();
+                for(int index = 0; index < hits[i].transform.childCount; index++)
+                {
+                    if (hits[i].transform.GetChild(index).GetComponent<NavMeshModifier>())
+                    {
+                        hits[i].transform.GetChild(index).GetComponent<MeshRenderer>().material.color = Color.red;
+                        StartCoroutine(ColorChange(hits[i].transform.GetChild(index)));
+                    }
+                }
                 StartCoroutine(BuffOff(hits[i].transform.gameObject, originAttackRate, originBulletDamage));
             }
         }
@@ -26,7 +38,7 @@ public class RageSkill : MonoBehaviour
 
     IEnumerator BuffOff(GameObject _tower, float AttackRate, float BulletDamage)
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3.1f);
         _tower.transform.gameObject.GetComponent<TowerBase>().isBuffed = false;
         _tower.transform.gameObject.GetComponent<TowerBase>().attackRate = AttackRate;
         _tower.transform.gameObject.GetComponent<TowerBase>().bulletDamage = BulletDamage;
@@ -34,9 +46,15 @@ public class RageSkill : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+    IEnumerator ColorChange(Transform _gameObject)
+    {
+        yield return new WaitForSeconds(3f);
+        _gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
+    }
+
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(transform.position, 2f);
+        Gizmos.DrawSphere(transform.position, 3f);
     }
 }

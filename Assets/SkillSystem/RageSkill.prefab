@@ -43,3 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cdcd33f923895d4dafeb7e171d72dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RageEffect: {fileID: 4427815848230656119, guid: 9bc48db2eda03b84496daadffa310785, type: 3}

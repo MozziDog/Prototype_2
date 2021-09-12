@@ -8,6 +8,12 @@ public class SkillSystem : MonoBehaviour
     GameObject _MeteorRain;
 
     [SerializeField]
+    GameObject HealEffect;
+
+    [SerializeField]
+    GameObject SacrificeEffect;
+
+    [SerializeField]
     GameObject _RageSkill;
 
     [SerializeField]
@@ -102,6 +108,7 @@ public class SkillSystem : MonoBehaviour
         nextSkill_2 = Time.time + 3f;
         _moneyManager.SpendMoney(100);
         _player.GetComponent<Player>().getHealed(3);
+        Instantiate(HealEffect, _player.transform);
     }
 
     void Sacrifice()
@@ -109,6 +116,7 @@ public class SkillSystem : MonoBehaviour
         nextSkill_3 = Time.time + 2f;
         _player.GetComponent<Player>().StartGetHit(5);
         _moneyManager.AddMoney(50);
+        Instantiate(SacrificeEffect, _player.transform);
     }
 
     void EarthQuake()
@@ -143,7 +151,7 @@ public class SkillSystem : MonoBehaviour
             GameObject Wall;
             Vector3 targetPosition = new Vector3(Mathf.Floor(hit.point.x) + 0.5f, -0.5f, Mathf.Floor(hit.point.z) + 0.5f);
             Wall = Instantiate(_Wall, targetPosition, Quaternion.identity);
-            _enemyManager.BakeNav();
+            //_enemyManager.BakeNav();
         }
     }
 }

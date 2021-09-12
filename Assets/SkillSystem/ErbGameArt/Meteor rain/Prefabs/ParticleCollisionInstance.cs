@@ -21,10 +21,11 @@ public class ParticleCollisionInstance : MonoBehaviour
     public float duration = 3f;
     public float radius = 0.5f;
     public float coolDown = 3f;
-    public float damage = 10f;
+    public float damage;
 
     void Start()
     {
+        StartCoroutine(Damaging());
         part = GetComponent<ParticleSystem>();
         SetParticle();
     }
@@ -43,15 +44,6 @@ public class ParticleCollisionInstance : MonoBehaviour
     }
     void OnParticleCollision(GameObject other)
     {      
-        if(other.GetComponent<GroundEnemy>()) 
-        {
-            //Debug.Log("Attacked!");
-            other.GetComponent<GroundEnemy>().GetDamage(other.GetComponent<GroundEnemy>().maxHP * 0.20f);
-        } 
-        else if (other.GetComponent<FlyingEnemy>())
-        {
-            other.GetComponent<FlyingEnemy>().GetDamage(damage);
-        }
         int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);     
         for (int i = 0; i < numCollisionEvents; i++)
         {
@@ -67,6 +59,22 @@ public class ParticleCollisionInstance : MonoBehaviour
         if (DestroyMainEffect == true)
         {
             Destroy(gameObject, DestroyTimeDelay + 0.5f);
+        }
+    }
+
+    IEnumerator Damaging()
+    {
+        while (true)
+        {
+            var hits = Physics.SphereCastAll(transform.position, 2f, Vector3.up, 0f);
+            for (int i = 0; i < hits.Length; i++)
+            {
+                if (hits[i].transform.tag == "GroundEnemy")
+                {
+                    hits[i].transform.GetComponent<GroundEnemy>().GetDamage(damage);
+                }
+            }
+            yield return new WaitForSeconds(0.5f);
         }
     }
 }
