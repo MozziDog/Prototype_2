@@ -15,6 +15,7 @@ public class TowerSelectedUI : MonoBehaviour
     {
         if (isOn)
         {
+            Debug.LogWarning("tower selected!");
             targetTower = tower;
             towerAdvance.SetAdvanceTarget(tower);
             gameObject.SetActive(isOn);

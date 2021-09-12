@@ -15432,7 +15432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myposition: []
-  LV: 1
+  LV: 2
   type: F
   bulletSpeed: 20
   bulletDamage: 2
