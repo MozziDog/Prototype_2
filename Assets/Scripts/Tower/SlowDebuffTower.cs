@@ -16,7 +16,7 @@ public class SlowDebuffTower : MonoBehaviour , TowerInterFace
         this.type = towerinfo.type;
         this.slowIntensity = 1f-towerinfo.slowIntensity;
         this.slowRange = towerinfo.slowRange;
-        this.sphereCollider.radius = slowRange+0.78f;
+        this.sphereCollider.radius = slowRange+0.772f; //+0.78F
     }
     
     private void SlowAreaActivate()
@@ -33,7 +33,7 @@ public class SlowDebuffTower : MonoBehaviour , TowerInterFace
             else if (other.gameObject.layer == LayerMask.NameToLayer("Enemy") && other.gameObject.GetComponent<SlowDebuff>()
                 && other.gameObject.GetComponent<SlowDebuff>().LV < LV)
             {
-                other.gameObject.GetComponent<SlowDebuff>().RefreshSlow(LV, slowIntensity);
+                other.gameObject.GetComponent<SlowDebuff>().RefreshSlow(LV, slowIntensity,SlowFx,this.gameObject); 
             }
 
         }
@@ -45,13 +45,18 @@ public class SlowDebuffTower : MonoBehaviour , TowerInterFace
     }
     private void OnTriggerExit(Collider other)
     {
+        Debug.Log("SLOW ERASED OFF!");
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemy") && other.gameObject.GetComponent<SlowDebuff>()
-            && other.gameObject.GetComponent<SlowDebuff>().WhoCastDebuff ==this.gameObject)
+            && other.gameObject.GetComponent<SlowDebuff>().LV == this.LV)
             other.gameObject.GetComponent<SlowDebuff>().EraseDebuff();
     }
 
+    void OnDrawGizmos() //ÆøÅº ¹üÀ§ sphere Ç¥½Ã
+    {
+        Gizmos.DrawWireSphere(transform.position, slowRange);
+    }
 
-    
+
     void Start()
     {
         

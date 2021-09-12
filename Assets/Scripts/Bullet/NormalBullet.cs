@@ -35,7 +35,7 @@ public class NormalBullet : MonoBehaviour, BulletInterFace
         Destroy(clone, 3);
 
         //destroy bullet prefab
-        Destroy(gameObject,1f);
+        Destroy(gameObject,0.1f);
          
         
     }

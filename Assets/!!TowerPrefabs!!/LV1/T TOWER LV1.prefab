@@ -1471,7 +1471,7 @@ MonoBehaviour:
   _myposition: []
   LV: 1
   type: T
-  bulletSpeed: 15
+  bulletSpeed: 17
   bulletDamage: 5
   attackRate: 0.5
   attackRange: 3.5
