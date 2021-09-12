@@ -11,6 +11,7 @@ public class TItleSceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SceneManager.LoadScene("ManagerScene", LoadSceneMode.Additive);
         touchToStartBaseAnimCoroutine = StartCoroutine(TouchToStartBaseAnim());
     }
 

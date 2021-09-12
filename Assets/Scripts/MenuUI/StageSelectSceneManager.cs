@@ -12,9 +12,15 @@ public class StageSelectSceneManager : MonoBehaviour
     public Text StaminaText;
 
     public int MAX_STAGE;
+    public int MIN_STAGE;
 
     public int selectedChapter = 0;
     public int selectedStage = 0;
+    public GameObject ChapterToggleGroup;
+    public float tweenTime;
+    public GameObject ShopUI;
+    public GameObject ShopUI_movingPart;
+    public GameObject OptionUI;
 
 
     // Start is called before the first frame update
@@ -22,6 +28,8 @@ public class StageSelectSceneManager : MonoBehaviour
     {
         LoadSaveData();
         FadeIn();
+        ShopUI_movingPart.transform.position += new Vector3(Screen.width, 0, 0);
+        Debug.Log(ShopUI_movingPart.transform.position);
     }
 
     // Update is called once per frame
@@ -33,17 +41,15 @@ public class StageSelectSceneManager : MonoBehaviour
     void LoadSaveData()
     {
         // TODO: Save & Load 구현
-        Global.property_gold = 1000;
-        Global.property_diamond = 0;
-        Global.property_key = 5;
+        GameObject.Find("SaveLoadManager").GetComponent<SaveLoadManager>().Load();
         RefreshUserPropertyData();
     }
 
     void RefreshUserPropertyData()
     {
-        goldText.text = Global.property_gold.ToString();
-        RubyText.text = Global.property_diamond.ToString();
-        StaminaText.text = Global.property_key.ToString();
+        goldText.text = Global.userProperty.gold.ToString();
+        RubyText.text = Global.userProperty.ruby.ToString();
+        StaminaText.text = Global.userProperty.stamina.ToString();
     }
 
     Coroutine fadeInCoroutine = null;
@@ -103,13 +109,13 @@ public class StageSelectSceneManager : MonoBehaviour
         // TODO : Global 클래스를 통해 인게임 씬에 스테이지 정보 전달 구현
     }
 
-    public void ChangeSelectedStage_Next()
+    public void OnClickNextChapter()
     {
         // TODO: ChangeSelectedStage_Next 구현
-        if (selectedStage < MAX_STAGE)
+        if (selectedChapter < MAX_STAGE)
         {
-            selectedStage++;
-            // 다음 스테이지 선택된 연출
+            selectedChapter++;
+            DoTween(ChapterToggleGroup.transform, ChapterToggleGroup.transform.position - new Vector3(Screen.width, 0, 0), tweenTime);
             Debug.Log("다음 스테이지 선택");
         }
         else
@@ -118,18 +124,67 @@ public class StageSelectSceneManager : MonoBehaviour
         }
     }
 
-    public void ChangeSelectedStage_Before()
+    public void OnClickBeforeChapter()
     {
         // TODO: ChangeSelectedStage_Before 구현
-        if (selectedStage > 0)
+        if (selectedChapter > MIN_STAGE)
         {
-            selectedStage--;
-            // 이전 스테이지 선택된 연출
+            selectedChapter--;
+            DoTween(ChapterToggleGroup.transform, ChapterToggleGroup.transform.position + new Vector3(Screen.width, 0, 0), tweenTime);
             Debug.Log("이전 스테이지 선택");
         }
         else
         {
             Debug.Log("첫 스테이지입니다!");
         }
+    }
+
+    void DoTween(Transform originTransform, Vector3 targetPosition, float tweenTime)
+    {
+        StartCoroutine(Tween(targetPosition, tweenTime));
+        IEnumerator Tween(Vector3 targetPosition, float time)
+        {
+            Vector3 originPosition = originTransform.position;
+            float startTime = Time.time;
+            float nowTime = startTime;
+            while (startTime + time > Time.time)
+            {
+                nowTime = Time.time;
+                originTransform.position = new Vector3(
+                    Mathf.Lerp(originPosition.x, targetPosition.x, (nowTime - startTime) / time),
+                    Mathf.Lerp(originPosition.y, targetPosition.y, (nowTime - startTime) / time),
+                    Mathf.Lerp(originPosition.z, targetPosition.z, (nowTime - startTime) / time));
+                yield return 0;
+            }
+        }
+
+    }
+
+    public void OpenShopUI()
+    {
+        ShopUI.SetActive(true);
+        DoTween(ShopUI_movingPart.transform, new Vector3(Screen.width / 2, ShopUI_movingPart.transform.position.y, 0), tweenTime);
+    }
+
+    public void CloseShopUI()
+    {
+        IEnumerator disableWithDelay()
+        {
+            yield return new WaitForSeconds(tweenTime);
+            ShopUI.SetActive(false);
+        }
+
+        DoTween(ShopUI_movingPart.transform, new Vector3(Screen.width * 3 / 2, ShopUI_movingPart.transform.position.y, 0), tweenTime);
+        StartCoroutine(disableWithDelay());
+    }
+
+    public void OpenOptionUI()
+    {
+        OptionUI.SetActive(true);
+    }
+
+    public void CloseOptionUI()
+    {
+        OptionUI.SetActive(false);
     }
 }

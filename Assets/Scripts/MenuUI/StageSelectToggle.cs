@@ -38,7 +38,6 @@ public class StageSelectToggle : MonoBehaviour
         }
         else
         {
-            Debug.Log("off");
             // TODO: 원래대로 되돌리기
             selectedFrameImage.CrossFadeColor(Color.clear, selectedTransitionFadeTime, false, true);
         }

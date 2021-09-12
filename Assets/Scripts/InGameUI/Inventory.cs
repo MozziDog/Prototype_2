@@ -111,4 +111,9 @@ public class Inventory : MonoBehaviour
     {
         return _toggle.Count;
     }
+
+    public void OnItemUnselected()
+    {
+        _towerManager.SendMessage("OnInventoryItemUnselected");
+    }
 }

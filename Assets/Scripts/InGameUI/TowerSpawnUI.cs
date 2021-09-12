@@ -8,19 +8,22 @@ public class TowerSpawnUI : MonoBehaviour
     GameObject targetTower = null;
     [SerializeField] TowerInfoUI towerInfoUI;
     public TowerManager towerManager;
+    bool isActive = false;
 
     public void SetUI(GameObject tower, bool isOn)
     {
-        if (isOn)
+        if (isOn && !isActive)
         {
             targetTower = tower;
             gameObject.SetActive(isOn);
             UIOnAnimation();
+            isActive = true;
         }
-        if (!isOn)
+        if (!isOn && isActive)
         {
             targetTower = null;
             UIOffAnimation();
+            isActive = false;
         }
     }
     void UIOnAnimation()

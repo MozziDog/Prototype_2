@@ -28,7 +28,6 @@ public class TowerManager : MonoBehaviour
 {
     [ReadOnly] [SerializeField] TowerManagerMode towerManagerStatus;
     [SerializeField] GameObject cannotBuildMessage;
-    public NavMeshSurface surface;
     public static readonly int MAX_TOWER_ENTITY = 20;
     public EnemyManager enemyManager;
     public SelectManager selectManager;
@@ -210,6 +209,13 @@ public class TowerManager : MonoBehaviour
         {
             Debug.LogError("Inventory에서 GetSelectedTower 오류!");
         }
+    }
+
+    void OnInventoryItemUnselected()
+    {
+        Debug.Log("인벤토리 아이템 선택 해제됨");
+        if (temporarilyPlacedTower != null)
+            destroyTempTower();
     }
 
     public void TrySpawnTower()
