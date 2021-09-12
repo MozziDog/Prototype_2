@@ -55,13 +55,14 @@ public class GroundEnemy : MonoBehaviour, EnemyInterFace
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(target.transform.position);
         agent.speed = moveSpeed;
+        //Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Enemy"), true);
 
 
 
     }
     private void Update()
     {
-
+       
     }
 
     public float GetSpeed()
@@ -84,6 +85,7 @@ public class GroundEnemy : MonoBehaviour, EnemyInterFace
         currentHP -= Damage;
         if (currentHP <= 0)
         {
+            this.gameObject.GetComponent<NavMeshAgent>().enabled = false;
             ReadyToDie();
         }
     }

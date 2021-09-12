@@ -32,10 +32,10 @@ public class NormalBullet : MonoBehaviour, BulletInterFace
         //hit particle spawn
         GameObject clone = Instantiate(impactParticle, target.transform.position + Vector3.up * 0.5f, Quaternion.identity) as GameObject;
         clone.transform.parent = target.transform;
-        Destroy(clone, 3);
+        Destroy(clone, 2f);
 
         //destroy bullet prefab
-        Destroy(gameObject,0.1f);
+        Destroy(gameObject,0.25f);
          
         
     }
