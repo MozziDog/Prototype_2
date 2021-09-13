@@ -14,7 +14,7 @@ public enum AlphabetTypes
     F, I, L, N, P, T, U, V, W, X, Y, Z
 }
 
-//[ExecuteInEditMode]
+
 public class TowerAdvance : MonoBehaviour
 {
     //for AdvanceList SetUp, that means list making in editor
@@ -25,7 +25,7 @@ public class TowerAdvance : MonoBehaviour
     public SelectManager _selectManager;
     public Text UpgradeMessagePopUp;
     public float _numberOfTypes = 12;
-    public int _numberOfLevels = 3;
+    public int _numberOfLevels = 5;
     public List<TowerUpgradeList> _towerUpgradeLists = new List<TowerUpgradeList>();
     private GameObject[] tempContainer;
 
@@ -162,7 +162,7 @@ public class TowerAdvance : MonoBehaviour
 
     private void OnEnable()
     {
-       // SetUp();
+        SetUp();
         Reset();
        _selectUI.CheckCanAdvance();
         
@@ -181,7 +181,7 @@ public class TowerAdvance : MonoBehaviour
 
 
     }
-
+   
 
     // Update is called once per frame
     void Update()
