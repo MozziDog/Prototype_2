@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +23,8 @@ public class WaveManager : MonoBehaviour
     public Player player;
     private int currentWaveIndex = -1;
     public bool allWaveClear = false;
+
+    public WaveData[] waveData;
     // Start is called before the first frame update
 
     public void StartWave()
@@ -62,7 +65,16 @@ public class WaveManager : MonoBehaviour
         allWaveClear = true; //��ü ���̺� �ϼ� �� ����ȭ�� �̵� , allWaveDone ��  GameManager �� ����� ����
     }
 
-
+    private void Start()
+    {
+        Array.Resize(ref waves, waveData.Length);
+        for(int i = 0; i < waves.Length; i++)
+        {
+            waves[i].spawnTime = waveData[i].SpawnTime;
+            waves[i].maxEnemyCount = waveData[i].MaxEnemyCount;
+            waves[i].enemyPrefabs = waveData[i].EnemyPrefabs;
+        }
+    }
 
     // Update is called once per frame
     void Update()

@@ -93,8 +93,11 @@ public class TowerManager : MonoBehaviour
 
             if (CheckTowerSpawnable() != TowerSpawnCheck.OK)
             {
+                ChangeMaterial(temporarilyPlacedTower, 1);
                 StartCoroutine(CannotBuildPopUp()); // 설치 불가능을 나타내는 효과
             }
+            else
+                ChangeMaterial(temporarilyPlacedTower, 2);
             SpawnCheckObejct = null;
         }
         if (SpawnCheckObejct != null)
@@ -139,6 +142,10 @@ public class TowerManager : MonoBehaviour
         {
             Ray ray = new Ray(item.position + new Vector3(0, 10f, 0), new Vector3(0, -1, 0));
             RaycastHit hit = new RaycastHit();
+            if(Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Grid")))
+            {
+                Debug.Log("Hello~?");
+            }
             if (Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Floor")))
             {
                 Debug.DrawRay(ray.origin, ray.direction * 10f, Color.red, 1f);
@@ -317,6 +324,35 @@ public class TowerManager : MonoBehaviour
         cannotBuildMessage.SetActive(true);
         yield return new WaitForSeconds(1.3f);
         cannotBuildMessage.SetActive(false);
+    }
+
+    void ChangeMaterial(GameObject _tower, int state)
+    {
+        int numOfChildren = _tower.transform.childCount;
+        switch (state)
+        {
+            case 1:
+                for(int i = 0; i < numOfChildren; i++)
+                {
+                    GameObject child = _tower.transform.GetChild(i).gameObject;
+                    if(child.GetComponent<MeshRenderer>() != null)
+                    {
+                        //child.GetComponent<MeshRenderer>().material.render
+                        child.GetComponent<MeshRenderer>().material.color = new Color(255, 0, 0, 100);
+                    }
+                }
+                break;
+            case 2:
+                for (int i = 0; i < numOfChildren; i++)
+                {
+                    GameObject child = _tower.transform.GetChild(i).gameObject;
+                    if (child.GetComponent<MeshRenderer>() != null)
+                    {
+                        child.GetComponent<MeshRenderer>().material.color = new Color(255, 255, 255, 255);
+                    }
+                }
+                break;
+        }
     }
 
 }

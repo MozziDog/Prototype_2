@@ -164,7 +164,7 @@ public class TowerShop : MonoBehaviour
 
     private bool CheckEnoughMoney(int price)
     {
-        if (price < _wallet.GetLeftMoney())
+        if (price <= _wallet.GetLeftMoney())
         {
             return true;
         }

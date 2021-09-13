@@ -60,6 +60,10 @@ public class TowerBase : MonoBehaviour
     public bool isTemp = true;
 
 
+    [Header("is Buff(Skill)")]
+    public bool isBuffed = false;
+
+    
     // Start is called before the first frame update
     public void ConfirmTowerPosition()
     {
@@ -114,12 +118,6 @@ public class TowerBase : MonoBehaviour
     {
         if (Towers.Length > 0) //���ݼ� Ÿ�� �����Ҷ� setup ����
             SetUp();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public int GetPrice()

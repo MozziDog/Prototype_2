@@ -659,6 +659,11 @@ MonoBehaviour:
   isHitting: 0
   anim: {fileID: 6462731293178951007}
   enemyManager: {fileID: 0}
+  hitDamage: 1
+  currentHP: 0
+  isDie: 0
+  isHit: 0
+  enemyData: {fileID: 11400000, guid: b62f9fb97c14e0d4db2b9300ce158858, type: 2}
 --- !u!1 &6462731293169419927
 GameObject:
   m_ObjectHideFlags: 0
