@@ -1028,6 +1028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerImage: {fileID: 21300000, guid: c7660671a8c58da4c99a16605760e282, type: 3}
+  pentominoImage: {fileID: 21300000, guid: c865433def3fd474bb03d603b8d63579, type: 3}
   towerDescription: "\uAE34 \uC0AC\uAC70\uB9AC\uB97C \uAC00\uC9C4 \uC2A4\uB098\uC774\uD37C
     \uD0C0\uC6CC\\n \uC2A4\uB098\uC774\uD37C\uC5D0 \uAC78\uB9DE\uAC8C \uC870\uC900\uD558\uB294\uB370
     \uC2DC\uAC04\uC740 \uAC78\uB9AC\uC9C0\uB9CC\\n \uADF8\uB9CC\uD07C \uD55C\uBC29

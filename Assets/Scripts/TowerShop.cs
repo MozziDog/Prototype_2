@@ -101,14 +101,16 @@ public class TowerShop : MonoBehaviour
         {
             label.text = towerData.type + " 타워";
         }
-        Image preview = newButton.transform.Find("Preview").GetComponent<Image>();
-        if (preview != null)
+        Image towerImage = newButton.transform.Find("Preview").GetComponent<Image>();
+        if (towerImage != null)
         {
-            Debug.Log("hi");
-            preview.sprite = towerData.towerImage;
+            towerImage.sprite = towerData.towerImage;
         }
-        else
-            Debug.Log("fuck");
+        Image pentominoImage = newButton.transform.Find("Pentomino").GetComponent<Image>();
+        if (towerImage != null)
+        {
+            pentominoImage.sprite = towerData.pentominoImage;
+        }
     }
 
     public void CheckShoppingCart()

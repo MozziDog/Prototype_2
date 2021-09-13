@@ -69,8 +69,10 @@ public class Inventory : MonoBehaviour
         TowerBase towerComponent = tower.GetComponent<TowerBase>();
         Text label = toggle.GetComponentInChildren<Text>();
         label.text = towerComponent.type + "타워";
-        Image image = toggle.transform.Find("Preview").GetComponent<Image>();
-        image.sprite = towerComponent.towerImage;
+        Image towerImage = toggle.transform.Find("Preview").GetComponent<Image>();
+        towerImage.sprite = towerComponent.towerImage;
+        Image pentominoImage = toggle.transform.Find("Pentomino").GetComponent<Image>();
+        pentominoImage.sprite = towerComponent.pentominoImage;
     }
 
     public void DeleteSelectedItem()

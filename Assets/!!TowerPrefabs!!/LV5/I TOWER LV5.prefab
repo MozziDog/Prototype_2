@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerImage: {fileID: 0}
+  pentominoImage: {fileID: 0}
   towerDescription: 
   _myposition: []
   LV: 5
@@ -5831,6 +5832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerImage: {fileID: 0}
+  pentominoImage: {fileID: 0}
   towerDescription: 
   _myposition: []
   LV: 5
@@ -16503,6 +16505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerImage: {fileID: 21300000, guid: 90f14b9e7f63e8947b1ba8bcb28b3d2a, type: 3}
+  pentominoImage: {fileID: 21300000, guid: 55887ed70e141ab4bbf653ba2f753f91, type: 3}
   towerDescription: "\uC7A5\uD310 \uC548\uC5D0 \uB4E4\uC5B4\uC628 \uC801\uC744 \uC5BC\uB824\uBC84\uB824\\n
     \uC801\uC758 \uC774\uB3D9\uC18D\uB3C4\uB97C \uB454\uD654\uC2DC\uD0A4\uB294 \uD0C0\uC6CC.\\n
     \uB2E4\uC218\uC758 \uC801\uC744 \uACF5\uACA9\uD558\uB294 \uD0C0\uC6CC\uC640 \uD568\uAED8
@@ -16659,6 +16662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerImage: {fileID: 0}
+  pentominoImage: {fileID: 0}
   towerDescription: 
   _myposition: []
   LV: 5
