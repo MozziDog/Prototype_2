@@ -529,6 +529,7 @@ MonoBehaviour:
   BulletSpawnPoint: {fileID: 1835918964595163594}
   RotatingBody: {fileID: 1829853579271382538}
   LV: 0
+  type: 
   bulletSpeed: 0
   bulletDamage: 0
   attackRate: 0
@@ -536,7 +537,6 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
-  preTargetList: []
 --- !u!1 &1973342285770508967
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,6 +1068,7 @@ MonoBehaviour:
   BulletSpawnPoint: {fileID: 5941312996962511584}
   RotatingBody: {fileID: 5939478257429056800}
   LV: 0
+  type: 
   bulletSpeed: 0
   bulletDamage: 0
   attackRate: 0
@@ -1075,7 +1076,6 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
-  preTargetList: []
 --- !u!1 &5937610391472347606
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,9 +1255,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myposition: []
   LV: 1
+  type: 
   bulletSpeed: 1
   bulletDamage: 10
-  attackRate: 3
+  attackRate: 5
   attackRange: 10
   bombRange: 3.5
   bulletAmmoCount: 0
@@ -1469,6 +1470,7 @@ MonoBehaviour:
   BulletSpawnPoint: {fileID: 7752140666609773716}
   RotatingBody: {fileID: 7749479369215118164}
   LV: 0
+  type: 
   bulletSpeed: 0
   bulletDamage: 0
   attackRate: 0
@@ -1476,7 +1478,6 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
-  preTargetList: []
 --- !u!1 &7746459563042610210
 GameObject:
   m_ObjectHideFlags: 0

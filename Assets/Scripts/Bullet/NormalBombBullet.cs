@@ -5,20 +5,21 @@ using UnityEngine;
 //k all
 public class NormalBombBullet : MonoBehaviour, BulletInterFace
 {
+    [Header("Gameobject to add")]
     public GameObject BombAreaEffect;
     public GameObject impactParticle;
     GameObject ShootArea;
 
+    [Header("BulletInfo")]
+    public float LV;
     public string BulletName;
     public float bulletSpeed;
     public float bulletDamage;
-    
+
+    [Header("Palabora inspection")]
     public Transform target;
-    //public Vector3 aimPosition;
     public Transform Projectile;
     private Transform myTransform;
-
-
     public float firingAngle = 45.0f;
     public float gravity = 9.8f;
     public float BombRadius;
@@ -28,6 +29,7 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
     RaycastHit hit;
     public void SetUp(BulletInfo bulletinfo)
     {
+        this.LV = bulletinfo.LV;
         this.bulletSpeed = bulletinfo.bulletSpeed;
         this.target = bulletinfo.attackTarget;
         this.bulletDamage = bulletinfo.bulletDamage;
@@ -51,7 +53,7 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
         float flightDuration = target_Distance / Vx;
         Projectile.rotation = Quaternion.LookRotation(target.position - Projectile.position);
         float elapse_time = 0;
-        Destroy(ShootArea, flightDuration * bulletSpeed + 0.2f);
+        
         while (elapse_time < flightDuration)
         {
             Projectile.Translate(0, (Vy - (gravity * elapse_time)) * Time.deltaTime * bulletSpeed, Vx * Time.deltaTime*bulletSpeed);
@@ -62,19 +64,10 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
     }
     
 
-    /*
-     private void OnCollisionEnter(Collision collision)
-     {
-         if (collision.gameObject.layer == 10) { 
-             Debug.LogWarning("Bomb Exploding!!");
-         Explode(collision);
-             }
-
-     }
-    */
 
     private void OnTriggerEnter(Collider other)
     {
+        Destroy(ShootArea, 0.3f);
         if (other.gameObject.layer == LayerMask.NameToLayer("Floor")) //|| other.gameObject.layer == LayerMask.NameToLayer("Enemy")
             Explode();
     }
@@ -91,7 +84,7 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
 
         foreach (Collider searchedObject in colliders)
         {
-            Debug.Log("Bomb Area Searching");
+           
             if (searchedObject != null && searchedObject.gameObject.tag == "GroundEnemy")
             {
                 
@@ -107,15 +100,6 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
         Gizmos.DrawWireSphere(transform.position, BombRadius);
     }
 
-    /*
-    void AimTarget() //자동추격 기능 
-    {
-        aimPosition = new Vector3(target.position.x, target.position.y, target.position.z);
-        transform.LookAt(aimPosition);
-        Physics.Raycast(transform.position, aimPosition, out hit);
-        Debug.DrawLine(transform.position, aimPosition);
-    }
-  */
 
 
     // Start is called before the first frame update

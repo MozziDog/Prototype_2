@@ -125,6 +125,7 @@ public class FlyingEnemy : MonoBehaviour, EnemyInterFace
         {
 
             isWalking = false;
+            isDie = true;
             StartCoroutine(HitPlayer());
         }
 
@@ -145,6 +146,7 @@ public class FlyingEnemy : MonoBehaviour, EnemyInterFace
     {
         if (isHit)
             return;
+        isDie = true;
         StartCoroutine(DieCoroutine());
     }
 

@@ -61,7 +61,7 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
         float flightDuration = target_Distance / Vx;
         Projectile.rotation = Quaternion.LookRotation(target.position - Projectile.position);
         float elapse_time = 0;
-
+        Destroy(ShootArea, flightDuration * bulletSpeed + 0.2f);
         while (elapse_time < flightDuration)
         {
             Projectile.Translate(0, (Vy - (gravity * elapse_time)) * Time.deltaTime * bulletSpeed, Vx * Time.deltaTime * bulletSpeed);
@@ -94,8 +94,7 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
         foreach (Collider searchedObject in colliders)
         {
 
-            if (searchedObject != null && searchedObject.gameObject.layer == LayerMask.NameToLayer("Enemy")
-                && !searchedObject.GetComponent<EnemyInterFace>().CheckDead())
+            if (searchedObject != null && searchedObject.gameObject.tag == "GroundEnemy")
             {
 
 
@@ -113,7 +112,7 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
             }
         }
 
-        Destroy(ShootArea, 0.3f);
+       
         Destroy(gameObject);
     }
 
@@ -136,8 +135,7 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
     // Update is called once per frame
     void Update()
     {
-        //if(target)
-        // AimTarget();
+       
 
     }
 }
