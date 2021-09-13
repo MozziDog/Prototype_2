@@ -12,7 +12,7 @@ public class NormalBullet : MonoBehaviour, BulletInterFace
     public GameObject impactParticle;
     public Vector3 aimPosition;
     
-    RaycastHit hit;
+    
     public void SetUp(BulletInfo bulletinfo)
     {
         this.LV = bulletinfo.LV;
@@ -30,21 +30,20 @@ public class NormalBullet : MonoBehaviour, BulletInterFace
         
 
         //hit particle spawn
-        GameObject clone = Instantiate(impactParticle, target.transform.position + Vector3.up * 0.5f, Quaternion.identity) as GameObject;
+        GameObject clone = Instantiate(impactParticle, target.gameObject.GetComponent<EnemyInterFace>().GetBodyPos().position, Quaternion.identity) as GameObject;
         clone.transform.parent = target.transform;
-        Destroy(clone, 2f);
+        Destroy(clone, 1.5f);
 
         //destroy bullet prefab
-        Destroy(gameObject,0.25f);
+        Destroy(gameObject,0.22f);
          
         
     }
 
     void Shoot()
     {
-        //조준방향으로 발사..추적기능 on 
-        aimPosition = new Vector3(target.position.x, target.position.y + 0.5f, target.position.z); 
-        Physics.Raycast(transform.position, aimPosition, out hit);
+        //aim and shoot
+        aimPosition = target.gameObject.GetComponent<EnemyInterFace>().GetBodyPos().position; //get the position to shoot.. it tracks enemy 
         transform.LookAt(aimPosition);
         this.transform.position = Vector3.MoveTowards(this.transform.position, aimPosition, bulletSpeed * Time.deltaTime);
     }
@@ -58,7 +57,7 @@ public class NormalBullet : MonoBehaviour, BulletInterFace
     // Update is called once per frame
     void Update()
     {
-        if (target != null)
+        if (target != null && !target.GetComponent<EnemyInterFace>().CheckDead() )
         {
             
             Shoot();
@@ -69,4 +68,6 @@ public class NormalBullet : MonoBehaviour, BulletInterFace
             Destroy(gameObject); //적 소멸시 자체 파괴
         }
     }
+
+
 }

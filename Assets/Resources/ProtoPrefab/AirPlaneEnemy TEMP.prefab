@@ -2194,6 +2194,7 @@ MonoBehaviour:
   moveSpeed: 1
   hitDamage: 1
   headPos: {fileID: 3898918170315065930}
+  bodyPos: {fileID: 3898918170315065880}
   isDie: 0
   isHit: 0
   anim: {fileID: 3898918170305815962}

@@ -11,6 +11,7 @@ public class GroundEnemy : MonoBehaviour, EnemyInterFace
     public float moveSpeed;
     public float hitDamage;
     public Transform headPos;
+    public Transform bodyPos;
 
     [Header("Enemy State")]
     public bool isDie = false;
@@ -33,6 +34,12 @@ public class GroundEnemy : MonoBehaviour, EnemyInterFace
     {
         return headPos;
     }
+
+    public Transform GetBodyPos()
+    {
+        return bodyPos;
+    }
+
     public bool CheckDead()
     {
         if (isDie)
@@ -44,6 +51,20 @@ public class GroundEnemy : MonoBehaviour, EnemyInterFace
             return false;
         }
     }
+
+    public float GetSpeed()
+    {
+        return moveSpeed;
+    }
+
+    public void SetSpeed(float ApplySpeed)
+    {
+        moveSpeed = ApplySpeed;
+        agent.speed = moveSpeed;
+    }
+
+
+
 
     void Start()
     {
@@ -65,16 +86,7 @@ public class GroundEnemy : MonoBehaviour, EnemyInterFace
        
     }
 
-    public float GetSpeed()
-    {
-        return moveSpeed;
-    }
-
-    public void SetSpeed(float ApplySpeed)
-    {
-        moveSpeed = ApplySpeed;
-        agent.speed = moveSpeed;
-    }
+   
 
 
 
@@ -120,9 +132,9 @@ public class GroundEnemy : MonoBehaviour, EnemyInterFace
         yield return null;
         isHitting = true;
         anim.SetBool("ContactPlayer", true);
-        yield return new WaitForSeconds(0.35f);
+        yield return new WaitForSeconds(0.5f);
         Player.GetComponent<Player>().StartGetHit(hitDamage);
-        yield return new WaitForSeconds(0.62f);
+        yield return new WaitForSeconds(0.8f);
         RemoveObject();
     }
 

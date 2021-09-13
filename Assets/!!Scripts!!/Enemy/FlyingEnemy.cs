@@ -7,17 +7,17 @@ public class FlyingEnemy : MonoBehaviour, EnemyInterFace
 {
 
     [Header("Enemy Info")]
-   
     public float maxHP;
     public float currentHP;
     public float moveSpeed;
     public float hitDamage;
     public Transform headPos;
+    public Transform bodyPos;
 
     [Header("Enemy State")]
-    public bool isDie = false;
-    public bool isHit = false;
-    private bool isWalking = true;
+    public bool isDie;
+    public bool isHit;
+    private bool isWalking;
 
 
     [Header("Animator and EnemyManager")]
@@ -29,12 +29,21 @@ public class FlyingEnemy : MonoBehaviour, EnemyInterFace
     GameObject target;
     GameObject Player;
     Vector3 targetPositionForAir;
-    Vector3 tempPos;
+  
 
-    public void SetUp()
+    public void SetUp() { }
+
+
+    public Transform GetHeadPos()
     {
-
+        return headPos;
     }
+
+    public Transform GetBodyPos()
+    {
+        return bodyPos;
+    }
+
 
     public bool CheckDead()
     {
@@ -59,16 +68,17 @@ public class FlyingEnemy : MonoBehaviour, EnemyInterFace
         moveSpeed = ApplySpeed;
     }
 
-    public Transform GetHeadPos()
-    {
-        return headPos;
-    }
+    
 
 
 
 
     void Start()
     {
+        isDie = false;
+        isHit = false;
+        isWalking = true;
+
         currentHP = maxHP;
         target = GameObject.Find("EndPoint");
         Player = GameObject.Find("Player1");
@@ -97,6 +107,18 @@ public class FlyingEnemy : MonoBehaviour, EnemyInterFace
 
     }
 
+
+
+    public void GetDamage(float Damage)
+    {
+        currentHP -= Damage;
+        if (currentHP <= 0)
+        {
+            ReadyToDie();
+        }
+
+    }
+
     public void RemoveObject()
     {
         isDie = true;
@@ -107,14 +129,7 @@ public class FlyingEnemy : MonoBehaviour, EnemyInterFace
 
     }
 
-    public void GetDamage(float Damage) //k
-    {
-        currentHP -= Damage;
-        if (currentHP <= 0)
-        {
-            ReadyToDie();
-        }
-    }
+    
 
     private void OnTriggerEnter(Collider other)
     {
