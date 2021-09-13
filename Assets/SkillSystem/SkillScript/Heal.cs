@@ -8,10 +8,11 @@ public class Heal : MonoBehaviour
     [SerializeField] Button _button;
     [SerializeField] Image _cool_Img;
     [SerializeField] GameObject _cool_txt;
+    [SerializeField] GameObject _Cool_Info_txt;
 
-    [SerializeField] float coolTime = 3f;
+    [SerializeField] float coolTime = 2f;
     public bool isClicked = false;
-    [SerializeField] float leftTime = 3f;
+    [SerializeField] float leftTime = 2f;
 
     [SerializeField] MoneyManager _moneyManager;
     [SerializeField] GameObject _healEffect;
@@ -39,6 +40,7 @@ public class Heal : MonoBehaviour
         else if (_upgraded == 20)
             _moneyAmount = 100;
         //_healAmount += (_upgraded - 1) * _healUpgradeAmount;
+        _Cool_Info_txt.GetComponent<Text>().text = string.Format("{0:0.#}", coolTime) + "√ ";
         _player = GameObject.Find("Player1");
         _moneyManager = GameObject.Find("InGameShopManager").GetComponent<MoneyManager>();
     }

@@ -9,6 +9,7 @@ public class Meteor : MonoBehaviour
     [SerializeField] Button _button;
     [SerializeField] Image _cool_Img;
     [SerializeField] GameObject _cool_txt;
+    [SerializeField] GameObject _Cool_Info_txt;
 
     [SerializeField] float coolTime;
     public bool isClicked = false;
@@ -29,6 +30,7 @@ public class Meteor : MonoBehaviour
     {
         coolTime = 20f - (_upgraded - 1) * 5f / 19f;
         damage = 2f + (_upgraded - 1) * 3f / 19f;
+        _Cool_Info_txt.GetComponent<Text>().text = string.Format("{0:0.#}", coolTime) + "√ ";
         _meteorRain.GetComponent<ParticleCollisionInstance>().damage = damage;
     }
 

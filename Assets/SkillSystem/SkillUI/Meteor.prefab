@@ -537,6 +537,7 @@ MonoBehaviour:
   _button: {fileID: 5087771776522142609}
   _cool_Img: {fileID: 8863341574828070598}
   _cool_txt: {fileID: 8863341575400355558}
+  _Cool_Info_txt: {fileID: 5087771776403575373}
   coolTime: 3
   isClicked: 0
   leftTime: 3
