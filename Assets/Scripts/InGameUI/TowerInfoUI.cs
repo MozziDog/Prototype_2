@@ -1,9 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TowerInfoUI : MonoBehaviour
 {
+    [SerializeField] Image towerImage;
+    [SerializeField] Text attackDamageText;
+    [SerializeField] Text attackRangeText;
+    [SerializeField] Text attackSpeedText;
+    [SerializeField] Text attackAreaText;
+    [SerializeField] Text specialEffectText;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +43,7 @@ public class TowerInfoUI : MonoBehaviour
 
     public void SetTowerInfoUIContents(GameObject tower)
     {
+        tower.GetComponent<TowerBase>();
         SetTowerInfoData();
         SetTowerInfoText();
         SetTowerPreview();

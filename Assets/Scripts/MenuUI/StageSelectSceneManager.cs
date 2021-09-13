@@ -28,8 +28,8 @@ public class StageSelectSceneManager : MonoBehaviour
     {
         LoadSaveData();
         FadeIn();
-        ShopUI_movingPart.transform.position += new Vector3(Screen.width, 0, 0);
-        Debug.Log(ShopUI_movingPart.transform.position);
+        ShopUI_movingPart.transform.position = new Vector3(Screen.width, ShopUI_movingPart.transform.position.y, ShopUI_movingPart.transform.position.z);
+        ShopUI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -45,7 +45,7 @@ public class StageSelectSceneManager : MonoBehaviour
         RefreshUserPropertyData();
     }
 
-    void RefreshUserPropertyData()
+    public void RefreshUserPropertyData()
     {
         goldText.text = Global.userProperty.gold.ToString();
         RubyText.text = Global.userProperty.ruby.ToString();
@@ -163,7 +163,7 @@ public class StageSelectSceneManager : MonoBehaviour
     public void OpenShopUI()
     {
         ShopUI.SetActive(true);
-        DoTween(ShopUI_movingPart.transform, new Vector3(Screen.width / 2, ShopUI_movingPart.transform.position.y, 0), tweenTime);
+        DoTween(ShopUI_movingPart.transform, new Vector3(Screen.width / 2, ShopUI_movingPart.transform.position.y, ShopUI_movingPart.transform.position.z), tweenTime);
     }
 
     public void CloseShopUI()
@@ -174,7 +174,7 @@ public class StageSelectSceneManager : MonoBehaviour
             ShopUI.SetActive(false);
         }
 
-        DoTween(ShopUI_movingPart.transform, new Vector3(Screen.width * 3 / 2, ShopUI_movingPart.transform.position.y, 0), tweenTime);
+        DoTween(ShopUI_movingPart.transform, new Vector3(Screen.width * 3 / 2, ShopUI_movingPart.transform.position.y, ShopUI_movingPart.transform.position.z), tweenTime);
         StartCoroutine(disableWithDelay());
     }
 

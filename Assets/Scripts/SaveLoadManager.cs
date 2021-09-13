@@ -40,7 +40,7 @@ public class SaveLoadManager : MonoBehaviour
 
         File.WriteAllText(path, jsonDataString);
 
-        Debug.Log(jsonDataString);
+        Debug.Log("Saved");
     }
     public void Load()
     {
@@ -54,6 +54,12 @@ public class SaveLoadManager : MonoBehaviour
             Global.userProperty.gold = data.gold;
             Global.userProperty.ruby = data.ruby;
             Global.userProperty.stamina = data.stamina;
+
+            GameObject selectStageManager = GameObject.Find("StageSelectManager");
+            if (selectStageManager != null)
+            {
+                selectStageManager.GetComponent<StageSelectSceneManager>().RefreshUserPropertyData();
+            }
         }
     }
 }
