@@ -21,6 +21,7 @@ public class WaveManager : MonoBehaviour
     private ObstacleManager obstacleManager;
     public Player player;
     private int currentWaveIndex = -1;
+    private static bool isWaveProceeding = false;
     public bool allWaveClear = false;
     // Start is called before the first frame update
 
@@ -31,6 +32,7 @@ public class WaveManager : MonoBehaviour
             currentWaveIndex++;
             obstacleManager.WayObstacleActiveSwitch();
             enemySpawner.StartWave(waves[currentWaveIndex]);
+            isWaveProceeding = true;
         }
     }
 
@@ -55,6 +57,7 @@ public class WaveManager : MonoBehaviour
     public void MidTermReward()
     {
         Debug.LogWarning("WaveDone");//�� ���̺� �ϼ� �� ����
+        isWaveProceeding = false;
     }
 
     public void FinalReward()
@@ -75,7 +78,8 @@ public class WaveManager : MonoBehaviour
                 {
                     case false:
                         MidTermReward();
-                        StartWave();
+                        // StartWave();
+                        // 바로 다음 웨이브 시작 x
                         break;
                     case true:
                         FinalReward();
@@ -89,6 +93,9 @@ public class WaveManager : MonoBehaviour
         this.waves = waveData;
     }
 
-
+    public static bool isWaveOn()
+    {
+        return isWaveProceeding;
+    }
 }
 

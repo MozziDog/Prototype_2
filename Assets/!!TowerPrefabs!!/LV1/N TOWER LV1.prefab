@@ -5932,6 +5932,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 601a20424d76ab646952ee2215c078e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerImage: {fileID: 21300000, guid: 97e354868e7d7344e860423fee3430c7, type: 3}
+  towerDescription: "\uBC94\uC704 \uB0B4 \uC801\uC5D0\uAC8C \uB9F9\uB3C5\uC744 \uD37C\uBD80\uC5B4
+    \uCD08\uB2F9 \uB370\uBBF8\uC9C0\uB97C \uC8FC\uB294 \uD0C0\uC6CC.\\n \uC5EC\uB7EC
+    \uD0C0\uC6CC\uC5D0\uAC8C \uB9DE\uB354\uB77C\uB3C4 \uC544\uC27D\uAC8C \uB3C5\uC740
+    \uC911\uCCA9\uB418\uC9C0 \uC54A\uB294\uB2E4.\\n \uACF5\uACA9\uC720\uD615 : \uAD70\uC911\uC81C\uC5B4"
   _myposition: []
   LV: 1
   type: N

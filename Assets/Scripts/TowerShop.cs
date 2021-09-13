@@ -8,6 +8,7 @@ public class TowerShop : MonoBehaviour
     public GameObject _shopButtonPrefab;
     public Inventory _inven;
     private readonly int MAX_SHOP_ITEMS = 5; // 진열될 수 있는 최대 갯수
+    [SerializeField] TowerManager _towerManager;
     [SerializeField] MoneyManager _wallet;
     // 상점 창
     [SerializeField] GameObject _shopUI;
@@ -32,6 +33,7 @@ public class TowerShop : MonoBehaviour
         }
     }
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +49,8 @@ public class TowerShop : MonoBehaviour
     {
         _shopUI.SetActive(!_shopUI.activeSelf);
         OffToggles();
+        _inven.OnItemUnselected();
+        _towerManager.OnTowerUnselected();
     }
 
     private void OffToggles()
@@ -91,12 +95,20 @@ public class TowerShop : MonoBehaviour
         newButton.GetComponentInChildren<TowerShopToggle>().towerPrefab = _towerAll[towerCode];
         Debug.Log(_towerAll[towerCode].name);
         // towerIndex가 주어지면 그에 따라 상점 버튼 꾸미기
-        // 임시로 label만 바꿔두겠습니다.
+        TowerBase towerData = _towerAll[towerCode].GetComponent<TowerBase>();
         Text label = newButton.GetComponentInChildren<Text>();
         if (label != null)
         {
-            label.text = _towerAll[towerCode].name;
+            label.text = towerData.type + " 타워";
         }
+        Image preview = newButton.transform.Find("Preview").GetComponent<Image>();
+        if (preview != null)
+        {
+            Debug.Log("hi");
+            preview.sprite = towerData.towerImage;
+        }
+        else
+            Debug.Log("fuck");
     }
 
     public void CheckShoppingCart()

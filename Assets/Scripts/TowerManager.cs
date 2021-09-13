@@ -54,9 +54,9 @@ public class TowerManager : MonoBehaviour
         selectedUI.SetUI(tower, true);
     }
 
-    void OnTowerUnselected(GameObject tower)
+    public void OnTowerUnselected()
     {
-        if (false /*GameManager.isEnemyWaveStarted*/)
+        if (WaveManager.isWaveOn() == true)
         {
             towerManagerStatus = TowerManagerMode.NotSpawnable;
         }
@@ -64,12 +64,12 @@ public class TowerManager : MonoBehaviour
         {
             towerManagerStatus = TowerManagerMode.TowerSpawnable;
         }
-        selectedUI.SetUI(tower, false);
+        selectedUI.SetUI(null, false);
     }
 
     void OnSelectedTileChanged(Vector3 tilePosition)
     {
-        if (towerManagerStatus == TowerManagerMode.TowerSpawnable)
+        if (WaveManager.isWaveOn() == false)
         {
             if (temporarilyPlacedTower != null)
             {

@@ -66,8 +66,11 @@ public class Inventory : MonoBehaviour
         };
         toggleComponent.onValueChanged.AddListener(sendMessage);
         // TODO: 인벤토리 버튼 내용 꾸미기
+        TowerBase towerComponent = tower.GetComponent<TowerBase>();
         Text label = toggle.GetComponentInChildren<Text>();
-        label.text = tower.name;
+        label.text = towerComponent.type + "타워";
+        Image image = toggle.transform.Find("Preview").GetComponent<Image>();
+        image.sprite = towerComponent.towerImage;
     }
 
     public void DeleteSelectedItem()
