@@ -19445,7 +19445,7 @@ GameObject:
   - component: {fileID: -8515342029208950978}
   m_Layer: 14
   m_Name: XTowerBulletLV3
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19459,7 +19459,7 @@ Transform:
   m_GameObject: {fileID: 1717815016859890}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.90000093, y: 0.9, z: 0.90000093}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4122106944523218}
   m_Father: {fileID: 0}
@@ -19493,5 +19493,5 @@ MonoBehaviour:
   LV: 0
   bulletSpeed: 0
   bulletDamage: 0
-  impactParticle: {fileID: 0}
+  impactParticle: {fileID: 1027899063015886, guid: 1d36932db5215db438c53a493d958dc8, type: 3}
   aimPosition: {x: 0, y: 0, z: 0}

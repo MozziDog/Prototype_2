@@ -5097,11 +5097,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4096669655976574}
-  - component: {fileID: 114174634084552804}
   - component: {fileID: 65448307980826126}
+  - component: {fileID: -7683367967790393360}
+  - component: {fileID: 3319422396717412784}
   m_Layer: 14
   m_Name: TTowerBulletLV2
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5121,23 +5122,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114174634084552804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1751001828988230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 807a988a1765edd439007be8fbee2c70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 7
-  target: {fileID: 0}
-  impactParticle: {fileID: 1137618275030110, guid: f8be7a997ccdaa94f8cf70f95701c673, type: 3}
-  impactNormal: {x: 0, y: 0, z: 0}
-  twr: {fileID: 0}
 --- !u!65 &65448307980826126
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5149,8 +5133,41 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Size: {x: 0.3, y: 0.3, z: 0.3}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &-7683367967790393360
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751001828988230}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &3319422396717412784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751001828988230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c048249abe378d64baa39fa3bc41a569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LV: 0
+  bulletSpeed: 0
+  bulletDamage: 0
+  impactParticle: {fileID: 1137618275030110, guid: f8be7a997ccdaa94f8cf70f95701c673, type: 3}
+  aimPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1785646513342316
 GameObject:
   m_ObjectHideFlags: 0

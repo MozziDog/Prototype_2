@@ -68,7 +68,6 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
     }
 
 
-
     private void RotateToTarget() //적을 바라봄
     {
         if (attackTarget)
@@ -81,62 +80,48 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
 
         }
     }
-   
+    /*
+    private void RotateToHome()
+    {
+        Quaternion home = Quaternion.LookRotation(SpawnPoint.transform.position);
+
+        RotatingBody.transform.rotation = Quaternion.Slerp(RotatingBody.transform.rotation, home, 2f * Time.deltaTime);
+    }
+    */
 
     private IEnumerator SearchTarget() //적 탐색
     {
+        List<Transform> temp = new List<Transform>();
         while (true)
         {
-            /*
-             if (enemyList.Count==0&&wavemanager.isWaveClear())
+            float closestDistSqr = Mathf.Infinity;
+            for (int i = 0; i < enemyList.Count; ++i)
             {
-                StopCoroutine(SearchTarget());
-            }
-            */
-               if (enemyList.Count > 0)
-            {
-                temp = enemyList[Random.Range(0, enemyList.Count)];
-
-                if (temp == null)
+                if (enemyList[i] == null)
                     continue;
-                if (BulletPrefab.tag == "BombBullet" && temp.tag == "FlyingEnemy")
+                if (BulletPrefab.tag == "BombBullet" && enemyList[i].tag == "FlyingEnemy")
                     continue;
-                if (temp.GetComponent<EnemyInterFace>().CheckDead())
+                if (enemyList[i].GetComponent<EnemyInterFace>().CheckDead())
                     continue;
 
-                float distance = Vector3.Distance(temp.transform.position, transform.position);
-                if (distance <= attackRange)
+                float distance = Vector3.Distance(enemyList[i].transform.position, transform.position);
+                if (distance <= attackRange )
                 {
-                    attackTarget = temp.transform;
+                    
+                  temp.Add(enemyList[i].transform);
                 }
             }
-           
-            
-            /*
-            Collider[] colliders = Physics.OverlapSphere(transform.position, attackRange);
-            //if (colliders.Length == 0) continue;
-
-
-            Collider temp = colliders[Random.Range(0, colliders.Length)];
-            
-            if (temp.gameObject.layer != LayerMask.NameToLayer("Enemy"))
-                continue;
-            if (BulletPrefab.tag == "BombBullet" && temp.tag == "FlyingEnemy")
-                continue;
-            if (temp.GetComponent<EnemyInterFace>().CheckDead())
-                continue;
-
-
-            float distance = Vector3.Distance(temp.transform.position, transform.position);
-            if (distance <= attackRange)
+            if (temp.Count > 0)
             {
-                attackTarget = temp.gameObject.transform;
+                attackTarget = temp[Random.Range(0, temp.Count)];
+                temp.Clear();
             }
-            */
+
             if (attackTarget != null && !attackTarget.GetComponent<EnemyInterFace>().CheckDead())
             {
-                lockOn = true;
+
                 ChangeState(WeaponState.AttackToTarget);
+                break;
             }
 
             yield return null;
@@ -146,28 +131,35 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
     private IEnumerator AttackToTarget() //적 공격
     {
         yield return new WaitForSeconds(1.25f);
-        
-    
+       
+            
+
+            //|| attackTarget.gameObject.layer == LayerMask.NameToLayer("Dead")
+
+
 
             float distance = Vector3.Distance(attackTarget.position, transform.position);
+
+
             if (distance > attackRange)
             {
-                lockOn = false;
                 attackTarget = null;
                 ChangeState(WeaponState.SearchTarget);
                 
             }
+
             SpawnBullet();
-           // attackTarget = null;
-            lockOn = false;
-             yield return new WaitForSeconds(attackRate);
+            yield return new WaitForSeconds(attackRate);
+            attackTarget = null;
             ChangeState(WeaponState.SearchTarget);
-       
+        
     }
 
 
     private void SpawnBullet() //발사체 생성
     {
+       
+
         bulletinfo.attackTarget = this.attackTarget;
         GameObject clone = Instantiate(BulletPrefab, BulletSpawnPoint.position, Quaternion.identity);
         BulletInterFace bullet = clone.GetComponent<BulletInterFace>();
@@ -176,13 +168,11 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
         
 
     }
-
     void CheckTarget()
     {
 
         if (!attackTarget || attackTarget.GetComponent<EnemyInterFace>().CheckDead())
         {
-            lockOn = false;
             attackTarget = null;
             ChangeState(WeaponState.SearchTarget);
             return;
@@ -191,13 +181,13 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
     }
 
 
+
     void Start()
     {
 
         SpawnPoint = GameObject.Find("SpawnPointGroup");
-        wavemanager = GameObject.Find("GameManager").GetComponent<WaveManager>();
         this.enemyList = SpawnPoint.GetComponent<EnemyManager>().CurrentEnemyList;
-        
+
     }
 
     private void OnEnable()
@@ -209,12 +199,15 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
     // Update is called once per frame
     void Update()
     {
-        CheckTarget();
         this.enemyList = SpawnPoint.GetComponent<EnemyManager>().CurrentEnemyList; //매 프레임마다 적 리스트 갱신
 
-        if (lockOn)
+
+        CheckTarget();
+
+        if (attackTarget)
+        {
             RotateToTarget();
-        
+        }
     }
 
 }

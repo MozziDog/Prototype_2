@@ -6,18 +6,22 @@ using UnityEngine.UI;
 public class TowerSelectedUI : MonoBehaviour
 {
     Coroutine UIAnimationCoroutine = null;
-    GameObject targetTower = null;
+    GameObject targetTower =null;
     [SerializeField] TowerInfoUI towerInfoUI;
+    [SerializeField]  TowerAdvance towerAdvance;
     public TowerManager towerManager;
 
     public void SetUI(GameObject tower, bool isOn)
     {
         if (isOn)
         {
+            Debug.LogWarning("tower selected!");
             targetTower = tower;
+            towerAdvance.SetAdvanceTarget(targetTower);
             gameObject.SetActive(isOn);
             SetUIPosition(tower);
             UIOnAnimation();
+            
         }
         if (!isOn)
         {
@@ -69,5 +73,17 @@ public class TowerSelectedUI : MonoBehaviour
     {
         towerInfoUI.SetTowerInfoUIContents(targetTower);
         towerInfoUI.OpenTowerInfoUI();
+    }
+    public void CheckCanAdvance()
+    {
+        if (gameObject.activeSelf)
+        {
+            
+            towerAdvance.CheckAdvance();
+        }
+    }
+    public void OnClickTowerAdvanceButton()
+    {
+        towerAdvance.TryAdvance();
     }
 }

@@ -9,7 +9,7 @@ public class SlowDebuff : MonoBehaviour
     public float originTimeScale;
     public float debuffedTimeScale;
     public float slowIntensity;
-    public GameObject WhoCastDebuff;
+    public GameObject WhoCastDebuff; //info about the tower which cast debuff to this enemy, this variable is remained for debug, but not used for now..
     public GameObject SlowFx;
     private SlowDebuff thisDebuff;
 
@@ -35,15 +35,19 @@ public class SlowDebuff : MonoBehaviour
 
     public void EraseDebuff()
     {
+        Debug.Log("slow debuff ERASED!");
         this.gameObject.GetComponent<EnemyInterFace>().SetSpeed(originTimeScale);
         Destroy(effect);
         Destroy(thisDebuff);
     }
 
-    public void RefreshSlow(float LV,float slowIntensity)
+    public void RefreshSlow(float LV,float slowIntensity,GameObject SlowFx,GameObject WhoCastDebuff)
     {
+        Debug.Log("slow debuff refreshed!");
         this.LV = LV;
         this.slowIntensity = slowIntensity;
+        this.SlowFx = SlowFx;
+        this.WhoCastDebuff = WhoCastDebuff;
         Destroy(effect);
         ExecuteDebuff();
 

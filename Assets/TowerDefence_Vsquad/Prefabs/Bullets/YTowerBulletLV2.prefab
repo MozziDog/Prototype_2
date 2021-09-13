@@ -397,10 +397,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4460732646621794}
   - component: {fileID: 65887798794368820}
-  - component: {fileID: 114465373941375862}
+  - component: {fileID: 8416522437980633145}
   m_Layer: 14
   m_Name: YTowerBulletLV2
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -436,7 +436,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114465373941375862
+--- !u!114 &8416522437980633145
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -445,14 +445,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1784375372296822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 807a988a1765edd439007be8fbee2c70, type: 3}
+  m_Script: {fileID: 11500000, guid: c048249abe378d64baa39fa3bc41a569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 8
-  target: {fileID: 0}
+  LV: 0
+  bulletSpeed: 0
+  bulletDamage: 0
   impactParticle: {fileID: 1579532550858178, guid: bd0b61e7cac2d184aa52ea21a8aecde4, type: 3}
-  impactNormal: {x: 0, y: 0, z: 0}
-  twr: {fileID: 0}
+  aimPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1887027800719960
 GameObject:
   m_ObjectHideFlags: 0

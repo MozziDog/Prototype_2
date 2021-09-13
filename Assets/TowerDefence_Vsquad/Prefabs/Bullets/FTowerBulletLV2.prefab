@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4792905500078730}
   - component: {fileID: 65786676906699080}
-  - component: {fileID: 114376494669738004}
+  - component: {fileID: -1100429986780565731}
   m_Layer: 14
   m_Name: FTowerBulletLV2
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,8 +48,8 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 0.1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114376494669738004
+  m_Center: {x: 0, y: 0, z: -0.22}
+--- !u!114 &-1100429986780565731
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,14 +58,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1375615554881252}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 807a988a1765edd439007be8fbee2c70, type: 3}
+  m_Script: {fileID: 11500000, guid: c048249abe378d64baa39fa3bc41a569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 8
-  target: {fileID: 0}
+  LV: 0
+  bulletSpeed: 0
+  bulletDamage: 0
   impactParticle: {fileID: 1600968621838636, guid: 746bccc7f161cb642b467ef737500468, type: 3}
-  impactNormal: {x: 0, y: 0, z: 0}
-  twr: {fileID: 0}
+  aimPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1398401794057690
 GameObject:
   m_ObjectHideFlags: 0

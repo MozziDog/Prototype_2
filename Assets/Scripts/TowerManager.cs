@@ -48,7 +48,7 @@ public class TowerManager : MonoBehaviour
 
     }
 
-    void OnTowerSelected(GameObject tower)
+    public void OnTowerSelected(GameObject tower)
     {
         towerManagerStatus = TowerManagerMode.TowerSelected;
         selectedUI.SetUI(tower, true);

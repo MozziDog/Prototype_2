@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4058025199840786}
   - component: {fileID: 33833157834804856}
   - component: {fileID: 23972824282041216}
-  - component: {fileID: 65923475919724998}
   - component: {fileID: -8692753019289080758}
+  - component: {fileID: 6412535113217919086}
   - component: {fileID: 175216786580645662}
   m_Layer: 14
   m_Name: WTowerBulletLV1
@@ -86,19 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &65923475919724998
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1240887441953726}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.3, z: 0.3}
-  m_Center: {x: -0.00000002980233, y: 0, z: 0.000000014901165}
 --- !u!54 &-8692753019289080758
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -115,6 +102,19 @@ Rigidbody:
   m_Interpolate: 2
   m_Constraints: 0
   m_CollisionDetection: 3
+--- !u!135 &6412535113217919086
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240887441953726}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &175216786580645662
 MonoBehaviour:
   m_ObjectHideFlags: 0
