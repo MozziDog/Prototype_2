@@ -7,12 +7,14 @@ public class Wall : MonoBehaviour
     [SerializeField]
     EnemyManager _enemyManager;
 
+    public float duration;
+
     private void Start()
     {
         StartCoroutine(SmoothMoveStart(new Vector3(transform.position.x, 0.5f, transform.position.z), 2f));
         //StartCoroutine(SmoothMoveEnd(new Vector3(transform.position.x, -0.5f, transform.position.z), 2f));
         //Invoke("_enemyManager.BakeNav", 4f);
-        Destroy(gameObject, 4f);
+        Destroy(gameObject, duration);
         
     }
 

@@ -32,6 +32,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] GameObject ClearUI;
     [SerializeField] TowerShop _towerShop;
     [SerializeField] GameObject _waveText;
+    [SerializeField] GameObject _Heal;
     // Start is called before the first frame update
 
     public void StartWave()
@@ -73,12 +74,15 @@ public class WaveManager : MonoBehaviour
 
     public void FinalReward()
     {
+        _Heal.GetComponent<Heal>()._usage = 1;
         ClearUI.SetActive(true);
         allWaveClear = true; //��ü ���̺� �ϼ� �� ����ȭ�� �̵� , allWaveDone ��  GameManager �� ����� ����
     }
 
     private void Start()
     {
+        if(GameObject.Find("Heal"))
+            _Heal = GameObject.Find("Heal");
         Array.Resize(ref waves, waveData.Length);
         for(int i = 0; i < waves.Length; i++)
         {

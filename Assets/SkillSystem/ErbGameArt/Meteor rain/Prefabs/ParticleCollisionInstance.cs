@@ -71,10 +71,10 @@ public class ParticleCollisionInstance : MonoBehaviour
             {
                 if (hits[i].transform.tag == "GroundEnemy")
                 {
-                    hits[i].transform.GetComponent<GroundEnemy>().GetDamage(damage);
+                    hits[i].transform.GetComponent<GroundEnemy>().GetDamage(hits[i].transform.GetComponent<GroundEnemy>().maxHP * damage / 100);
                 }
             }
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
         }
     }
 }

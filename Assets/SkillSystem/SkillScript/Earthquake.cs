@@ -12,21 +12,25 @@ public class Earthquake : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
     [SerializeField] Image _cool_Img;
     [SerializeField] GameObject _cool_txt;
 
-    [SerializeField] float coolTime = 30f;
-    [SerializeField] float coolMaxTime = 30f;
+    [SerializeField] float coolTime;
+    [SerializeField] float coolMaxTime;
     public bool isClicked = false;
     [SerializeField] float leftTime = 0f;
 
-    [SerializeField] private float holdTime = 10f;
+    [SerializeField] private float holdTime;
     [SerializeField] private float _holdTime = 0f;
 
     [SerializeField] float _coolTime;
 
+
     [SerializeField] EnemyManager _enemyManager;
 
+    [SerializeField] int _upgraded = 1;
 
     private void Start()
     {
+        holdTime = 1f + (_upgraded - 1) * 2f / 19f;
+        coolMaxTime = 35f - (_upgraded - 1) * 10f / 19f;
         _enemyManager = GameObject.Find("SpawnPointGroup").GetComponent<EnemyManager>();
     }
     private void Update()
