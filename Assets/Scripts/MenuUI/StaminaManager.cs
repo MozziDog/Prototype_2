@@ -8,12 +8,12 @@ public class StaminaManager : MonoBehaviour
 {
     #region Stamina
     // 화면에 표시하기 위한 UI변수. NGUI가 있다면 사용가능
-    // public UILabel appQuitTimeLabel = null;
+    // public UILabel LastModifiedTimeLabel = null;
     public Text StaminaRechargeTimer = null;
     public Text StaminaAmountLabel = null;
 
     private int m_StaminaAmount = 0; //보유 하트 개수
-    private DateTime m_AppQuitTime = new DateTime(1970, 1, 1).ToLocalTime();
+    private DateTime m_LastModifiedTime = new DateTime(1970, 1, 1).ToLocalTime();
     private const int MAX_STAMINA = 10; //하트 최대값
     public int StaminaRechargeInterval = 600;// 하트 충전 간격(단위:초)
     private Coroutine m_RechargeTimerCoroutine = null;
@@ -22,8 +22,8 @@ public class StaminaManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
         Init();
+        DontDestroyOnLoad(gameObject);
     }
 
     void Start()
@@ -38,13 +38,13 @@ public class StaminaManager : MonoBehaviour
         if (value)
         {
             LoadStaminaInfo();
-            LoadAppQuitTime();
+            LoadLastModifiedTime();
             SetRechargeScheduler();
         }
         else
         {
             SaveStaminaInfo();
-            SaveAppQuitTime();
+            SaveLastModifiedTime();
         }
     }
     //게임 종료 시 실행되는 함수
@@ -52,20 +52,27 @@ public class StaminaManager : MonoBehaviour
     {
         Debug.Log("GoodsRechargeTester: OnApplicationQuit()");
         SaveStaminaInfo();
-        SaveAppQuitTime();
+        SaveLastModifiedTime();
     }
+    /*
     //버튼 이벤트에 이 함수를 연동한다.
     public void OnClickUseStamina()
     {
         Debug.Log("OnClickUseStamina");
         UseStamina();
     }
+    */
+
+    void SetLastModifiedTime()
+    {
+        m_LastModifiedTime = DateTime.Now.ToLocalTime();
+    }
 
     public void Init()
     {
         m_StaminaAmount = 0;
         m_RechargeRemainTime = 0;
-        m_AppQuitTime = new DateTime(1970, 1, 1).ToLocalTime();
+        m_LastModifiedTime = new DateTime(1970, 1, 1).ToLocalTime();
         Debug.Log("StaminaRechargeTimer : " + m_RechargeRemainTime + "s");
         SetStaminaRechargeTimer();
     }
@@ -82,11 +89,13 @@ public class StaminaManager : MonoBehaviour
                 if (m_StaminaAmount < 0)
                 {
                     m_StaminaAmount = 0;
+                    SetLastModifiedTime();
                 }
             }
             else
             {
                 m_StaminaAmount = MAX_STAMINA;
+                SetLastModifiedTime();
             }
             SetStaminaAmountLabel();
             Debug.Log("Loaded StaminaAmount : " + m_StaminaAmount);
@@ -115,44 +124,44 @@ public class StaminaManager : MonoBehaviour
         }
         return result;
     }
-    public bool LoadAppQuitTime()
+    public bool LoadLastModifiedTime()
     {
-        Debug.Log("LoadAppQuitTime");
+        Debug.Log("LoadLastModifiedTime");
         bool result = false;
         try
         {
-            if (PlayerPrefs.HasKey("AppQuitTime"))
+            if (PlayerPrefs.HasKey("LastModifiedTime"))
             {
-                Debug.Log("PlayerPrefs has key : AppQuitTime");
-                var appQuitTime = string.Empty;
-                appQuitTime = PlayerPrefs.GetString("AppQuitTime");
-                m_AppQuitTime = DateTime.FromBinary(Convert.ToInt64(appQuitTime));
+                Debug.Log("PlayerPrefs has key : LastModifiedTime");
+                var LastModifiedTime = string.Empty;
+                LastModifiedTime = PlayerPrefs.GetString("LastModifiedTime");
+                m_LastModifiedTime = DateTime.FromBinary(Convert.ToInt64(LastModifiedTime));
             }
-            Debug.Log(string.Format("Loaded AppQuitTime : {0}", m_AppQuitTime.ToString()));
-            //appQuitTimeLabel.text = string.Format("AppQuitTime : {0}", m_AppQuitTime.ToString());
+            Debug.Log(string.Format("Loaded LastModifiedTime : {0}", m_LastModifiedTime.ToString()));
+            //LastModifiedTimeLabel.text = string.Format("LastModifiedTime : {0}", m_LastModifiedTime.ToString());
             result = true;
         }
         catch (System.Exception e)
         {
-            Debug.LogError("LoadAppQuitTime Failed (" + e.Message + ")");
+            Debug.LogError("LoadLastModifiedTime Failed (" + e.Message + ")");
         }
         return result;
     }
-    public bool SaveAppQuitTime()
+    public bool SaveLastModifiedTime()
     {
-        Debug.Log("SaveAppQuitTime");
+        Debug.Log("SaveLastModifiedTime");
         bool result = false;
         try
         {
-            var appQuitTime = DateTime.Now.ToLocalTime().ToBinary().ToString();
-            PlayerPrefs.SetString("AppQuitTime", appQuitTime);
+            var LastModifiedTime = m_LastModifiedTime.ToLocalTime().ToBinary().ToString();
+            PlayerPrefs.SetString("LastModifiedTime", LastModifiedTime);
             PlayerPrefs.Save();
-            Debug.Log("Saved AppQuitTime : " + DateTime.Now.ToLocalTime().ToString());
+            Debug.Log("Saved LastModifiedTime : " + m_LastModifiedTime.ToLocalTime().ToString());
             result = true;
         }
         catch (System.Exception e)
         {
-            Debug.LogError("SaveAppQuitTime Failed (" + e.Message + ")");
+            Debug.LogError("SaveLastModifiedTime Failed (" + e.Message + ")");
         }
         return result;
     }
@@ -162,34 +171,37 @@ public class StaminaManager : MonoBehaviour
         {
             StopCoroutine(m_RechargeTimerCoroutine);
         }
-        var timeDifferenceInSec = (int)((DateTime.Now.ToLocalTime() - m_AppQuitTime).TotalSeconds);
+        var timeDifferenceInSec = (int)((DateTime.Now.ToLocalTime() - m_LastModifiedTime).TotalSeconds);
         Debug.Log("TimeDifference In Sec :" + timeDifferenceInSec + "s");
         var StaminaToAdd = timeDifferenceInSec / StaminaRechargeInterval;
         Debug.Log("Stamina to add : " + StaminaToAdd);
         var remainTime = timeDifferenceInSec % StaminaRechargeInterval;
         Debug.Log("RemainTime : " + remainTime);
         m_StaminaAmount += StaminaToAdd;
+        SetLastModifiedTime();
         if (m_StaminaAmount >= MAX_STAMINA)
         {
             m_StaminaAmount = MAX_STAMINA;
+            SetLastModifiedTime();
             SetStaminaRechargeTimer();
         }
         else
         {
-            m_RechargeTimerCoroutine = StartCoroutine(DoRechargeTimer(remainTime, onFinish));
+            m_RechargeTimerCoroutine = StartCoroutine(DoRechargeTimer(StaminaRechargeInterval - remainTime, onFinish));
         }
         SetStaminaAmountLabel();
         Debug.Log("StaminaAmount : " + m_StaminaAmount);
     }
-    public void UseStamina(Action onFinish = null)
+    public void UseStamina(int usedStamina, Action onFinish = null)
     {
-        if (m_StaminaAmount <= 0)
+        if (m_StaminaAmount < usedStamina)
         {
             return;
         }
 
-        m_StaminaAmount--;
+        m_StaminaAmount -= usedStamina;
         SetStaminaAmountLabel();
+        SaveStaminaInfo();
         if (m_RechargeTimerCoroutine == null)
         {
             m_RechargeTimerCoroutine = StartCoroutine(DoRechargeTimer(StaminaRechargeInterval));
@@ -221,9 +233,11 @@ public class StaminaManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
         m_StaminaAmount++;
+        SetLastModifiedTime();
         if (m_StaminaAmount >= MAX_STAMINA)
         {
             m_StaminaAmount = MAX_STAMINA;
+            SetLastModifiedTime();
             m_RechargeRemainTime = 0;
             SetStaminaRechargeTimer();
             Debug.Log("StaminaAmount reached max amount");
@@ -266,4 +280,15 @@ public class StaminaManager : MonoBehaviour
     {
         return m_StaminaAmount;
     }
+
+    public void AddStamina(int value)
+    {
+        m_StaminaAmount += value;
+        SetStaminaRechargeTimer();
+        PlayerPrefs.SetInt("StaminaAmount", m_StaminaAmount);
+        PlayerPrefs.Save();
+    }
 }
+
+// 코드 출처 : https://tenlie10.tistory.com/177
+// (코드는 일부 수정됨)

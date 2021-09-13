@@ -93,6 +93,7 @@ public class StageSelectSceneManager : MonoBehaviour
     {
         if (staminaManager.GetStaminaAmount() > STAMINA_PER_STAGE)
         {
+            staminaManager.UseStamina(STAMINA_PER_STAGE);
             StartStage();
         }
         else

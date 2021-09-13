@@ -65,6 +65,7 @@ public class SaveLoadManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("gold", Global.userProperty.gold);
         PlayerPrefs.SetInt("ruby", Global.userProperty.ruby);
+        PlayerPrefs.Save();
         Debug.Log("Saved");
     }
 
