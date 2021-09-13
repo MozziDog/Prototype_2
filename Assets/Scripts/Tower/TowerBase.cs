@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class TowerBase : MonoBehaviour
 {
-    TowerInfo towerinfo = new TowerInfo();
+    public TowerInfo towerinfo = new TowerInfo();
     public Vector3[] _myposition;
 
     [Header("Info about this Tower")]
@@ -56,6 +56,9 @@ public class TowerBase : MonoBehaviour
 
     [Header("is this Tower Built-Temporary Mode ?")]
     public bool isTemp = true;
+
+    [Header("is Buff(Skill)")]
+    public bool isBuffed = false;
 
     
     // Start is called before the first frame update
@@ -112,12 +115,6 @@ public class TowerBase : MonoBehaviour
     {
         if (Towers.Length > 0) //���ݼ� Ÿ�� �����Ҷ� setup ����
             SetUp();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public int GetPrice()
