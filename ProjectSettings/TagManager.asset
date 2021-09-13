@@ -12,6 +12,8 @@ TagManager:
   - Castle
   - Bullet
   - BombBullet
+  - enemyBug
+  - Boss
   layers:
   - Default
   - TransparentFX
