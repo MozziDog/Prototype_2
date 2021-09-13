@@ -55,7 +55,7 @@ public class GroundEnemy : MonoBehaviour, EnemyInterFace
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(target.transform.position);
         agent.speed = moveSpeed;
-        //Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Enemy"), true);
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Enemy"), true);
 
 
 
