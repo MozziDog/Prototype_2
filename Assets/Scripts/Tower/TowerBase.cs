@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class TowerBase : MonoBehaviour
 {
+    public Sprite towerImage;
+    public string towerDescription;
     TowerInfo towerinfo = new TowerInfo();
     public Vector3[] _myposition;
 
@@ -46,7 +48,7 @@ public class TowerBase : MonoBehaviour
     public float slowIntensity;
     public float slowRange;
 
-   
+
 
     [Header("Inspections that should be managed per Tower 유형")]
     [SerializeField]
@@ -57,7 +59,7 @@ public class TowerBase : MonoBehaviour
     [Header("is this Tower Built-Temporary Mode ?")]
     public bool isTemp = true;
 
-    
+
     // Start is called before the first frame update
     public void ConfirmTowerPosition()
     {
@@ -72,7 +74,7 @@ public class TowerBase : MonoBehaviour
     {
         towerinfo.LV = this.LV;
         towerinfo.type = this.type;
-    towerinfo.bulletSpeed = this.bulletSpeed;
+        towerinfo.bulletSpeed = this.bulletSpeed;
         towerinfo.bulletDamage = this.bulletDamage;
         towerinfo.attackRate = this.attackRate;
         towerinfo.attackRange = this.attackRange;
@@ -88,7 +90,7 @@ public class TowerBase : MonoBehaviour
         towerinfo.slowIntensity = this.slowIntensity;
         towerinfo.slowRange = this.slowRange;
 
-        towerinfo.poisonDamage= this.poisonDamage; 
+        towerinfo.poisonDamage = this.poisonDamage;
         towerinfo.poisonDuration = this.poisonDuration;
         towerinfo.poisonRate = this.poisonRate;
 
@@ -106,7 +108,7 @@ public class TowerBase : MonoBehaviour
 
 
     }
-    
+
 
     void Start()
     {
@@ -123,5 +125,44 @@ public class TowerBase : MonoBehaviour
     public int GetPrice()
     {
         return price;
+    }
+
+    public string GetAttackDamage()
+    {
+        return bulletDamage.ToString();
+    }
+
+    public string GetAttackRange()
+    {
+        return attackRange != 0 ? attackRange.ToString() : slowRange.ToString();
+    }
+
+    public string GetAttackRate()
+    {
+        return attackRate != 0 ? attackRange.ToString() : "-";
+    }
+
+    public string GetAttackArea()
+    {
+        if (bombRange != 0)
+            return bombRange.ToString();
+        else if (maxChainCount != 0)
+            return maxChainCount.ToString() + "개";
+        else if (bulletDamage != 0)
+            return "단일";
+        else
+            return "-";
+    }
+
+    public string GetSpecialValue()
+    {
+        if (slowIntensity != 0)
+            return (slowIntensity * 100).ToString() + "%";
+        else if (stunDuration != 0)
+            return stunDuration.ToString() + "초";
+        else if (poisonDamage != 0)
+            return "틱 당" + poisonDamage.ToString();
+        else
+            return "-";
     }
 }

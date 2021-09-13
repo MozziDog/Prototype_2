@@ -11,6 +11,7 @@ public class TowerInfoUI : MonoBehaviour
     [SerializeField] Text attackSpeedText;
     [SerializeField] Text attackAreaText;
     [SerializeField] Text specialEffectText;
+    [SerializeField] Text towerDescription;
 
 
 
@@ -43,24 +44,28 @@ public class TowerInfoUI : MonoBehaviour
 
     public void SetTowerInfoUIContents(GameObject tower)
     {
-        tower.GetComponent<TowerBase>();
-        SetTowerInfoData();
-        SetTowerInfoText();
-        SetTowerPreview();
+        TowerBase towerComponent = tower.GetComponent<TowerBase>();
+        SetTowerInfoData(towerComponent);
+        SetTowerInfoText(towerComponent);
+        SetTowerPreview(towerComponent);
     }
 
-    void SetTowerInfoData()
+    void SetTowerInfoData(TowerBase tower)
     {
-
+        attackDamageText.text = tower.GetAttackDamage();
+        attackRangeText.text = tower.GetAttackRange();
+        attackSpeedText.text = tower.GetAttackRate();
+        attackAreaText.text = tower.GetAttackArea();
+        specialEffectText.text = tower.GetSpecialValue();
     }
 
-    void SetTowerInfoText()
+    void SetTowerInfoText(TowerBase tower)
     {
-
+        towerDescription.text = tower.towerDescription;
     }
 
-    void SetTowerPreview()
+    void SetTowerPreview(TowerBase tower)
     {
-
+        towerImage.sprite = tower.towerImage;
     }
 }
