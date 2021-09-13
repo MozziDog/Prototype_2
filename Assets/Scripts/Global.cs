@@ -17,10 +17,12 @@ public struct UserProperty
     public int gold;
     public int ruby;
     public int stamina;
+    public long nextStaminaRegenTime;
     public UserProperty(int gold, int ruby, int stamina)
     {
         this.gold = gold;
         this.ruby = ruby;
         this.stamina = stamina;
+        this.nextStaminaRegenTime = 0;
     }
 }
