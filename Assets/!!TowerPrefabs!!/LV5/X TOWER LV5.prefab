@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 36405c709e27f7948817065d9ef625d3, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -486,7 +486,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 36405c709e27f7948817065d9ef625d3, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -911,7 +911,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 36405c709e27f7948817065d9ef625d3, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1336,7 +1336,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 36405c709e27f7948817065d9ef625d3, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1398,9 +1398,10 @@ GameObject:
   - component: {fileID: 399147712765663294}
   - component: {fileID: -2257781446758517098}
   - component: {fileID: 4268101474844473147}
+  - component: {fileID: -2279135662073100324}
   m_Layer: 11
   m_Name: X TOWER LV5
-  m_TagString: Tower
+  m_TagString: TowerBase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
@@ -1462,10 +1463,10 @@ MonoBehaviour:
   _myposition: []
   LV: 5
   type: X
-  bulletSpeed: 30
-  bulletDamage: 40
-  attackRate: 3
-  attackRange: 5.5
+  bulletSpeed: 10
+  bulletDamage: 10
+  attackRate: 1
+  attackRange: 10
   bombRange: 0
   bulletAmmoCount: 0
   burstRate: 0
@@ -1485,6 +1486,19 @@ MonoBehaviour:
   - {fileID: 5915686750660822535}
   isTemp: 1
   isBuffed: 0
+--- !u!65 &-2279135662073100324
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7454545231653059525}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8310692416242285440
 GameObject:
   m_ObjectHideFlags: 0
@@ -1546,7 +1560,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 36405c709e27f7948817065d9ef625d3, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

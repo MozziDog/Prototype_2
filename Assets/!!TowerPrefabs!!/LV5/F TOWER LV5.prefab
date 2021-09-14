@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0415261eed3776c459487661d84c3b7e, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -174,7 +174,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0415261eed3776c459487661d84c3b7e, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -287,7 +287,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0415261eed3776c459487661d84c3b7e, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -400,7 +400,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0415261eed3776c459487661d84c3b7e, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10494,9 +10494,10 @@ GameObject:
   - component: {fileID: 399147712765663294}
   - component: {fileID: -2257781446758517098}
   - component: {fileID: 5172283340660321069}
+  - component: {fileID: -830429978735499729}
   m_Layer: 11
   m_Name: F TOWER LV5
-  m_TagString: Tower
+  m_TagString: TowerBase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
@@ -10558,8 +10559,8 @@ MonoBehaviour:
   LV: 5
   type: F
   bulletSpeed: 10
-  bulletDamage: 3
-  attackRate: 0.2
+  bulletDamage: 10
+  attackRate: 2
   attackRange: 10
   bombRange: 0
   bulletAmmoCount: 0
@@ -10580,6 +10581,19 @@ MonoBehaviour:
   - {fileID: 6090805136425242211}
   isTemp: 1
   isBuffed: 0
+--- !u!65 &-830429978735499729
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7454545231653059525}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7770027903308430891
 GameObject:
   m_ObjectHideFlags: 0
@@ -15657,7 +15671,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0415261eed3776c459487661d84c3b7e, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
