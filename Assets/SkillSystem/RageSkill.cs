@@ -7,10 +7,13 @@ public class RageSkill : MonoBehaviour
 {
     [SerializeField]
     GameObject RageEffect;
+
+    public float rageAmount;
+
     private void Start()
     {
         Instantiate(RageEffect, transform);
-        Destroy(gameObject, 3.1f);
+        Destroy(gameObject, 4.1f);
         var hits = Physics.SphereCastAll(transform.position, 2f, Vector3.up, 0f);
         for(int i = 0; i < hits.Length; i++)
         {
@@ -20,8 +23,7 @@ public class RageSkill : MonoBehaviour
                 float originAttackRate = hits[i].transform.gameObject.GetComponent<TowerBase>().attackRate;
                 float originBulletDamage = hits[i].transform.gameObject.GetComponent<TowerBase>().bulletDamage;
                 hits[i].transform.gameObject.GetComponent<TowerBase>().isBuffed = true;
-                hits[i].transform.gameObject.GetComponent<TowerBase>().attackRate *= 0.9f;
-                hits[i].transform.gameObject.GetComponent<TowerBase>().bulletDamage *= 1.1f;
+                hits[i].transform.gameObject.GetComponent<TowerBase>().bulletDamage *= (100 + rageAmount) / 100;
                 hits[i].transform.gameObject.GetComponent<TowerBase>().SetUp();
                 for(int index = 0; index < hits[i].transform.childCount; index++)
                 {
@@ -38,7 +40,7 @@ public class RageSkill : MonoBehaviour
 
     IEnumerator BuffOff(GameObject _tower, float AttackRate, float BulletDamage)
     {
-        yield return new WaitForSeconds(3.1f);
+        yield return new WaitForSeconds(4.1f);
         _tower.transform.gameObject.GetComponent<TowerBase>().isBuffed = false;
         _tower.transform.gameObject.GetComponent<TowerBase>().attackRate = AttackRate;
         _tower.transform.gameObject.GetComponent<TowerBase>().bulletDamage = BulletDamage;
@@ -48,13 +50,13 @@ public class RageSkill : MonoBehaviour
 
     IEnumerator ColorChange(Transform _gameObject)
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         _gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
     }
 
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(transform.position, 3f);
+        Gizmos.DrawSphere(transform.position, 4f);
     }
 }

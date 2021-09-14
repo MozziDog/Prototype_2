@@ -9,15 +9,18 @@ public class PowerUp : MonoBehaviour
     [SerializeField] Button _button;
     [SerializeField] Image _cool_Img;
     [SerializeField] GameObject _cool_txt;
+    [SerializeField] GameObject _Cool_Info_txt;
 
-    [SerializeField] float coolTime = 3f;
+    [SerializeField] float coolTime;
     public bool isClicked = false;
-    [SerializeField] float leftTime = 3f;
+    [SerializeField] float leftTime;
 
     public bool isSpellMode = false;
 
     [SerializeField] GameObject _rageSkill;
     [SerializeField] GameObject _skillIndicator;
+
+    [SerializeField] int _upgraded = 1;
 
     AudioSource _audio;
 
@@ -25,6 +28,9 @@ public class PowerUp : MonoBehaviour
 
     private void Start()
     {
+        coolTime = 15f - (+_upgraded - 1) * 2f / 19f;
+        _rageSkill.GetComponent<RageSkill>().rageAmount = 1f + (_upgraded - 1) * 3f / 19f;
+        _Cool_Info_txt.GetComponent<Text>().text = string.Format("{0:0.#}", coolTime) + "√ ";
         _audio = GetComponent<AudioSource>();
     }
 

@@ -8,10 +8,11 @@ public class Sacrifice : MonoBehaviour
     [SerializeField] Button _button;
     [SerializeField] Image _cool_Img;
     [SerializeField] GameObject _cool_txt;
+    [SerializeField] GameObject _Cool_Info_txt;
 
-    [SerializeField] float coolTime = 3f;
+    [SerializeField] float coolTime;
     public bool isClicked = false;
-    [SerializeField] float leftTime = 3f;
+    [SerializeField] float leftTime;
 
     [SerializeField] MoneyManager _moneyManager;
     [SerializeField] GameObject _sacrificeEffect;
@@ -29,8 +30,15 @@ public class Sacrifice : MonoBehaviour
     private void Start()
     {
         _audio = GetComponent<AudioSource>();
-        _moneyAmount += (_upgraded - 1) * _moneyUpgradeAmount;
-        _hpAmount += (_upgraded - 1) * _hpUpgradeAmount;
+        _moneyAmount = 10 + (_upgraded - 1) * 5;
+        if (_upgraded >= 1 && _upgraded < 6)
+            _hpAmount = 5;
+        else if (_upgraded < 13)
+            _hpAmount = 6;
+        else if (_upgraded <= 20)
+            _hpAmount = 7;
+
+        _Cool_Info_txt.GetComponent<Text>().text = string.Format("{0:0.#}", coolTime) + "√ ";
         _player = GameObject.Find("Player1");
         _moneyManager = GameObject.Find("InGameShopManager").GetComponent<MoneyManager>();
     }
