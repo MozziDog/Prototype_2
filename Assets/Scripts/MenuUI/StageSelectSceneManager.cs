@@ -19,6 +19,7 @@ public class StageSelectSceneManager : MonoBehaviour
     public float tweenTime;
     public GameObject ShopUI;
     public GameObject ShopUI_movingPart;
+    public GameObject InvenUI;
     public GameObject OptionUI;
     [SerializeField] StaminaManager staminaManager;
     readonly int STAMINA_PER_STAGE = 5;
@@ -224,5 +225,15 @@ public class StageSelectSceneManager : MonoBehaviour
     public void CloseOptionUI()
     {
         OptionUI.SetActive(false);
+    }
+
+    public void OpenInventoryUI()
+    {
+        InvenUI.SetActive(true);
+    }
+
+    public void CloseInventoryUI()
+    {
+        InvenUI.SetActive(false);
     }
 }

@@ -19,6 +19,7 @@ public class SkillManager : MonoBehaviour
 
     public void equipSkill(GameObject skill)
     {
+        Debug.LogWarning("HI");
         equipped_skill.Add(skill);
     }
 
@@ -34,15 +35,15 @@ public class SkillManager : MonoBehaviour
         my_skill.Add(skill);
         initInven();
     }
-    
+
     public void initInven()
     {
-        for(int i = 0; i < SelectGrid.transform.childCount; i++)
+        for (int i = 0; i < SelectGrid.transform.childCount; i++)
         {
             Destroy(SelectGrid.transform.GetChild(i).gameObject);
         }
 
-        for(int index = 0; index < my_skill.Count; index++)
+        for (int index = 0; index < my_skill.Count; index++)
         {
             GameObject skill = Instantiate(my_skill[index]);
             skill.transform.SetParent(SelectGrid.transform, false);

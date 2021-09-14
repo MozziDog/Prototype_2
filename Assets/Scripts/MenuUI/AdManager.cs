@@ -16,7 +16,7 @@ public class AdManager : MonoBehaviour
     {
         TryShowAd(() =>
         {
-            Global.userProperty.ruby += 10;
+            Global.userProperty.ruby += 50;
             GameObject.Find("StageSelectManager").GetComponent<StageSelectSceneManager>().RefreshUserPropertyData();
             GameObject.Find("SaveLoadManager").GetComponent<SaveLoadManager>().Save();
         });
@@ -26,7 +26,7 @@ public class AdManager : MonoBehaviour
     {
         TryShowAd(() =>
         {
-            Global.userProperty.gold += 1000;
+            Global.userProperty.gold += 2000;
             GameObject.Find("StageSelectManager").GetComponent<StageSelectSceneManager>().RefreshUserPropertyData();
             GameObject.Find("SaveLoadManager").GetComponent<SaveLoadManager>().Save();
         });

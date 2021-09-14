@@ -23,12 +23,12 @@ public class ShopManager : MonoBehaviour
     };
 
     private Dictionary<int, int> goldPrice = new Dictionary<int, int>{
-        {100, 50},
-        {500, 250},
-        {1000, 500},
-        {3000, 1000},
-        {5000, 3000},
-        {10000, 5000}
+        {3000, 100},
+        {7500, 250},
+        {15000, 500},
+        {30000, 1000},
+        {90000, 3000},
+        {150000, 5000}
     };
 
     public void NotPrepared()
