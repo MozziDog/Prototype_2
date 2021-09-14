@@ -481,6 +481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e5199de88873164b8cf714e312ebb4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MAX_INVENTORY_CAPACITY: 5
   _towerManager: {fileID: 625576663}
   _toggle: []
   _tower: []
@@ -1129,6 +1130,7 @@ MonoBehaviour:
   obstacleManager: {fileID: 625576665}
   player: {fileID: 1356458650}
   allWaveClear: 0
+  waveData: []
 --- !u!114 &625576663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1143,13 +1145,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerManagerStatus: 0
   cannotBuildMessage: {fileID: 428518564}
-  surface: {fileID: 664370446}
   enemyManager: {fileID: 1021901921}
   selectManager: {fileID: 0}
   _inven: {fileID: 222947787}
   towerToSpawn: {fileID: 0}
   temporarilyPlacedTower: {fileID: 0}
   towerSpawned: []
+  spawnUI: {fileID: 0}
+  selectedUI: {fileID: 0}
 --- !u!114 &625576664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1197,22 +1200,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3258875691275653630, guid: acd5971cff513e74dbf12af3324cc7c4, type: 3}
-      propertyPath: m_Size.y
-      value: 4.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 7290195104510254359, guid: acd5971cff513e74dbf12af3324cc7c4, type: 3}
-      propertyPath: maxHP
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 7290195104510254359, guid: acd5971cff513e74dbf12af3324cc7c4, type: 3}
       propertyPath: hpText
       value: 
       objectReference: {fileID: 1735452297}
-    - target: {fileID: 7290195104510254359, guid: acd5971cff513e74dbf12af3324cc7c4, type: 3}
-      propertyPath: GameOverPanel
-      value: 
-      objectReference: {fileID: 472260057}
     - target: {fileID: 8883414049995495623, guid: acd5971cff513e74dbf12af3324cc7c4, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1260,10 +1251,6 @@ PrefabInstance:
     - target: {fileID: 8883414049995719975, guid: acd5971cff513e74dbf12af3324cc7c4, type: 3}
       propertyPath: m_Name
       value: Player1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9168502179105692773, guid: acd5971cff513e74dbf12af3324cc7c4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acd5971cff513e74dbf12af3324cc7c4, type: 3}
@@ -3287,11 +3274,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shopButtonPrefab: {fileID: 7766615226275607285, guid: 24c9137f97e79ff4dac7bda748f50373, type: 3}
   _inven: {fileID: 222947787}
+  _towerManager: {fileID: 0}
   _wallet: {fileID: 1761398616}
   _shopUI: {fileID: 1516585923}
   _shopButtonsGrid: {fileID: 1947040701}
-  _shopButtons: []
-  _towerOnList: []
   _towerAll:
   - {fileID: 7454545231653059525, guid: 82edf50bc8122c14487173c04c698cb8, type: 3}
   - {fileID: 7454545231653059525, guid: 00ab1cef0abf18048802c012e68566f8, type: 3}
@@ -3305,6 +3291,8 @@ MonoBehaviour:
   - {fileID: 7454545231653059525, guid: 318f808664fb3754da22c6746e75208f, type: 3}
   - {fileID: 7454545231653059525, guid: 40180ee1a2601aa429ebe4bf965881f9, type: 3}
   - {fileID: 7454545231653059525, guid: aaf271a0929204d43bcef20e6fe1283c, type: 3}
+  _totalPriceText: {fileID: 0}
+  rerollPrice: 0
 --- !u!1 &1779022178
 GameObject:
   m_ObjectHideFlags: 0
