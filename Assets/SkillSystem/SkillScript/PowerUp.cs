@@ -80,6 +80,10 @@ public class PowerUp : MonoBehaviour
                     StartCoolTime();
                 }
             }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                Destroy(_indicator);
+            }
         }
     }
 

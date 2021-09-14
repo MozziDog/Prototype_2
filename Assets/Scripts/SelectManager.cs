@@ -110,7 +110,7 @@ public class SelectManager : MonoBehaviour
         GameObject tower = towerPart;
         while (tower.transform.parent != null)
         {
-            if (tower.transform.parent.CompareTag("Tower") == true)
+            if (tower.transform.parent.CompareTag("TowerBase") == true || tower.transform.parent.CompareTag("Tower") == true)
             {
                 tower = tower.transform.parent.gameObject;
             }

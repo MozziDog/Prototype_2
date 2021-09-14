@@ -81,6 +81,10 @@ public class LandSmash : MonoBehaviour
                     StartCoolTime();
                 }
             }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                Destroy(_indicator);
+            }
         }
     }
 

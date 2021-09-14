@@ -39,7 +39,7 @@ public class TowerManager : MonoBehaviour
     public TowerSelectedUI selectedUI;
     GameObject selectedTower;
     [SerializeField] MoneyManager wallet;
-
+    
 
     void Start()
     {
@@ -249,6 +249,7 @@ public class TowerManager : MonoBehaviour
 
                     }
                 }
+
                 temporarilyPlacedTower.GetComponent<TowerBase>().ConfirmTowerPosition();
                 enemyManager.BakeNav();
                 towerSpawned.Add(temporarilyPlacedTower);
@@ -266,8 +267,12 @@ public class TowerManager : MonoBehaviour
     public void RotateTempTower()
     {
         if (temporarilyPlacedTower != null)
+        {
             temporarilyPlacedTower.transform.Rotate(new Vector3(0, 90, 0));
-        CheckTowerSpawnableInDelay();
+            TowerBase towerBase = temporarilyPlacedTower.GetComponentInChildren<TowerBase>();
+            towerBase.towerTransform.rotation = (towerBase.towerTransform.rotation + 1) % 4;
+            CheckTowerSpawnableInDelay();
+        }
     }
 
     public void invertTempTower()
@@ -276,6 +281,8 @@ public class TowerManager : MonoBehaviour
         {
             if ((temporarilyPlacedTower.transform.rotation.y % 90) == 0)
             {
+                TowerBase towerBase = temporarilyPlacedTower.GetComponent<TowerBase>();
+                towerBase.towerTransform.reverted = !towerBase.towerTransform.reverted;
                 temporarilyPlacedTower.transform.localScale = new Vector3(
                     temporarilyPlacedTower.transform.localScale.x * -1,
                     1,
