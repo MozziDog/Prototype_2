@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public struct Wave
@@ -26,12 +27,20 @@ public class WaveManager : MonoBehaviour
     public bool allWaveClear = false;
 
     public WaveData[] waveData;
+    public bool isInGame = false;
+
+    [SerializeField] GameObject ShopUI;
+    [SerializeField] GameObject ClearUI;
+    [SerializeField] TowerShop _towerShop;
+    [SerializeField] GameObject _waveText;
+    [SerializeField] GameObject _Heal;
     // Start is called before the first frame update
 
     public void StartWave()
     {
         if (enemySpawner.CurrentEnemyList.Count == 0 && currentWaveIndex < waves.Length - 1) //���̺� ����
         {
+            isInGame = true;
             currentWaveIndex++;
             obstacleManager.WayObstacleActiveSwitch();
             enemySpawner.StartWave(waves[currentWaveIndex]);
@@ -47,6 +56,7 @@ public class WaveManager : MonoBehaviour
             && enemySpawner.enemyKilledCount >= waves[currentWaveIndex].maxEnemyCount
             && enemySpawner.CurrentEnemyList.Count == 0)
         {
+            isInGame = false;
             return true;
         }
 
@@ -61,17 +71,24 @@ public class WaveManager : MonoBehaviour
     {
         Debug.LogWarning("WaveDone");//�� ���̺� �ϼ� �� ����
         isWaveProceeding = false;
+        _towerShop.MakeShoppingList();
+        if (!ShopUI.activeInHierarchy)
+            ShopUI.SetActive(true);
     }
 
     public void FinalReward()
     {
+        _Heal.GetComponent<Heal>()._usage = 1;
+        ClearUI.SetActive(true);
         allWaveClear = true; //��ü ���̺� �ϼ� �� ����ȭ�� �̵� , allWaveDone ��  GameManager �� ����� ����
     }
 
     private void Start()
     {
+        if (GameObject.Find("Heal"))
+            _Heal = GameObject.Find("Heal");
         Array.Resize(ref waves, waveData.Length);
-        for(int i = 0; i < waves.Length; i++)
+        for (int i = 0; i < waves.Length; i++)
         {
             waves[i].spawnTime = waveData[i].SpawnTime;
             waves[i].maxEnemyCount = waveData[i].MaxEnemyCount;
@@ -82,10 +99,11 @@ public class WaveManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _waveText.GetComponent<Text>().text = (currentWaveIndex + 1).ToString() + "/" + waves.Length;
         if (Input.GetKeyDown(KeyCode.S)) StartWave(); //���̺� ��ŸƮ
 
         if (currentWaveIndex != -1)
-            if (isWaveClear())
+            if (isInGame && isWaveClear())
                 switch (currentWaveIndex == waves.Length - 1)
                 {
                     case false:

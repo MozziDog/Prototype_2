@@ -8,10 +8,11 @@ public class Heal : MonoBehaviour
     [SerializeField] Button _button;
     [SerializeField] Image _cool_Img;
     [SerializeField] GameObject _cool_txt;
+    [SerializeField] GameObject _Cool_Info_txt;
 
-    [SerializeField] float coolTime = 3f;
+    [SerializeField] float coolTime = 2f;
     public bool isClicked = false;
-    [SerializeField] float leftTime = 3f;
+    [SerializeField] float leftTime = 2f;
 
     [SerializeField] MoneyManager _moneyManager;
     [SerializeField] GameObject _healEffect;
@@ -21,15 +22,25 @@ public class Heal : MonoBehaviour
 
     [SerializeField] int _moneyAmount;
     [SerializeField] int _moneyUpgradeAmount;
-    [SerializeField] float _healAmount;
     //[SerializeField] float _healUpgradeAmount;
     [SerializeField] int _upgraded = 1;
+    public int _usage = 1;
 
     private void Start()
     {
         _audio = GetComponent<AudioSource>();
-        _moneyAmount -= (_upgraded - 1) * _moneyUpgradeAmount;
+        if (_upgraded >= 1 && _upgraded < 6)
+            _moneyAmount = 150;
+        else if (_upgraded < 11)
+            _moneyAmount = 130;
+        else if (_upgraded < 16)
+            _moneyAmount = 120;
+        else if(_upgraded < 20)
+            _moneyAmount = 110;
+        else if (_upgraded == 20)
+            _moneyAmount = 100;
         //_healAmount += (_upgraded - 1) * _healUpgradeAmount;
+        _Cool_Info_txt.GetComponent<Text>().text = string.Format("{0:0.#}", coolTime) + "√ ";
         _player = GameObject.Find("Player1");
         _moneyManager = GameObject.Find("InGameShopManager").GetComponent<MoneyManager>();
     }
@@ -70,11 +81,12 @@ public class Heal : MonoBehaviour
 
     public void HealSkill()
     {
-        if (_moneyManager.GetLeftMoney() < _moneyAmount || _player.GetComponent<Player>().currentHP >= _player.GetComponent<Player>().maxHP)
+        if (_moneyManager.GetLeftMoney() < _moneyAmount || _player.GetComponent<Player>().currentHP >= _player.GetComponent<Player>().maxHP || _usage <= 0)
             return;
+        _usage = 0;
         StartCoolTime();
         _moneyManager.SpendMoney(_moneyAmount);
-        _player.GetComponent<Player>().getHealed(_healAmount);
+        _player.GetComponent<Player>().getHealed(_player.GetComponent<Player>().maxHP);
         Instantiate(_healEffect, _player.transform);
     }
 }

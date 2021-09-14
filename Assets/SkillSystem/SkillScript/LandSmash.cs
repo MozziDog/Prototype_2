@@ -9,15 +9,18 @@ public class LandSmash : MonoBehaviour
     [SerializeField] Button _button;
     [SerializeField] Image _cool_Img;
     [SerializeField] GameObject _cool_txt;
+    [SerializeField] GameObject _Cool_Info_txt;
 
-    [SerializeField] float coolTime = 3f;
+    [SerializeField] float coolTime;
     public bool isClicked = false;
-    [SerializeField] float leftTime = 3f;
+    [SerializeField] float leftTime;
+    [SerializeField] float wallTime;
 
     public bool isSpellMode = false;
 
     [SerializeField] GameObject _wall;
     [SerializeField] GameObject _skillIndicator;
+    [SerializeField] int _upgraded = 1;
 
     AudioSource _audio;
 
@@ -25,6 +28,10 @@ public class LandSmash : MonoBehaviour
 
     private void Start()
     {
+        coolTime = 30f - (_upgraded - 1) * 5f / 19f;
+        wallTime = 2f + (_upgraded - 1) * 2f / 19f;
+        _Cool_Info_txt.GetComponent<Text>().text = string.Format("{0:0.#}", coolTime) + "√ ";
+        _wall.GetComponent<Wall>().duration = wallTime;
         _audio = GetComponent<AudioSource>();
     }
 
