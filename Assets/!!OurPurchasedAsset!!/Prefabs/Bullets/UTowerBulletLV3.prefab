@@ -9838,7 +9838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8cc98eaed854fd45b5b674738c13ba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BombAreaEffect: {fileID: 2317583088921270529, guid: db61e0a65edb07b449c1c0274ded1638, type: 3}
+  BombAreaEffect: {fileID: 6809944706259094419, guid: 0bb7b675af4bf4e4db6dfc4ee6fa3d21, type: 3}
   impactParticle: {fileID: 1416590035121302, guid: 8b0a999db1e67bf48bfd419a67f1e5ca, type: 3}
   LV: 0
   BulletName: 

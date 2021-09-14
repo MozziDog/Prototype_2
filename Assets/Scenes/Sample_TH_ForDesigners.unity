@@ -25934,6 +25934,7 @@ MonoBehaviour:
   obstacleManager: {fileID: 625576665}
   player: {fileID: 7290195105087262056}
   allWaveClear: 0
+  waveData: []
 --- !u!114 &625576663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72956,6 +72957,7 @@ MonoBehaviour:
   attackSpeedText: {fileID: 0}
   attackAreaText: {fileID: 0}
   specialEffectText: {fileID: 0}
+  towerDescription: {fileID: 0}
 --- !u!114 &1629214611
 MonoBehaviour:
   m_ObjectHideFlags: 0

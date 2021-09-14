@@ -9761,7 +9761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6facc45f5f5f844896f3659027667a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BombAreaEffect: {fileID: 2317583088921270529, guid: 0f103817b2fbbac45a87bcb4dfefa601, type: 3}
+  BombAreaEffect: {fileID: 6809944706259094419, guid: 037187ee0b205234f80397dd81e564d9, type: 3}
   impactParticle: {fileID: 1191811519933358, guid: 274f043ea1351e74887b9465be612e2b, type: 3}
   StunFx: {fileID: 6702027334493932133, guid: a7b3cc5cfdc13b74596308805c12f761, type: 3}
   LV: 0

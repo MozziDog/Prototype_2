@@ -49,7 +49,7 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
     IEnumerator SimulateProjectile() //PALABORA MOVEMENT
     {
 
-        ShootArea = Instantiate(BombAreaEffect, new Vector3(target.position.x, 0.1f, target.position.z), BombAreaEffect.transform.rotation);
+        ShootArea = Instantiate(BombAreaEffect, new Vector3(target.position.x, 0f, target.position.z), BombAreaEffect.transform.rotation);
         Projectile.position = this.transform.position + new Vector3(0, 0.0f, 0);
 
         // Calculate distance to target
@@ -61,7 +61,7 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
         float flightDuration = target_Distance / Vx;
         Projectile.rotation = Quaternion.LookRotation(target.position - Projectile.position);
         float elapse_time = 0;
-        Destroy(ShootArea, flightDuration * bulletSpeed + 0.2f);
+        Destroy(ShootArea, flightDuration * bulletSpeed + 0.3f);
         while (elapse_time < flightDuration)
         {
             Projectile.Translate(0, (Vy - (gravity * elapse_time)) * Time.deltaTime * bulletSpeed, Vx * Time.deltaTime * bulletSpeed);
