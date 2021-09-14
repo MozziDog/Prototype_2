@@ -97,6 +97,7 @@ public class GroundEnemy : MonoBehaviour, EnemyInterFace
         currentHP -= Damage;
         if (currentHP <= 0)
         {
+      
             this.gameObject.GetComponent<NavMeshAgent>().enabled = false;
             ReadyToDie();
         }

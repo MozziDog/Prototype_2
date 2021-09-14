@@ -32,12 +32,19 @@ public class NormalBullet : MonoBehaviour, BulletInterFace
         //hit particle spawn
         GameObject clone = Instantiate(impactParticle, target.gameObject.GetComponent<EnemyInterFace>().GetBodyPos().position, Quaternion.identity) as GameObject;
         clone.transform.parent = target.transform;
-        Destroy(clone, 1.5f);
+        Destroy(clone, 1f);
 
         //destroy bullet prefab
         Destroy(gameObject,0.22f);
-         
-        
+      
+    }
+
+    IEnumerator DestroyIfNoTarget()
+    {
+        yield return new WaitForSeconds(0.5f);
+        GameObject clone = Instantiate(impactParticle, this.gameObject.transform.position, Quaternion.identity) as GameObject;
+        Destroy(gameObject);
+        Destroy(clone, 1f);
     }
 
     void Shoot()
@@ -57,15 +64,16 @@ public class NormalBullet : MonoBehaviour, BulletInterFace
     // Update is called once per frame
     void Update()
     {
-        if (target != null && !target.GetComponent<EnemyInterFace>().CheckDead() )
+        Shoot();
+        if (target!= null && target.gameObject.GetComponent<EnemyInterFace>().CheckDead())
         {
-            
-            Shoot();
-            
-        } 
-        else
+          
+            StartCoroutine(DestroyIfNoTarget());
+        }
+     
+        else if (target == null)
         {
-            Destroy(gameObject); //Àû ¼Ò¸ê½Ã ÀÚÃ¼ ÆÄ±«
+            StartCoroutine(DestroyIfNoTarget());
         }
     }
 
