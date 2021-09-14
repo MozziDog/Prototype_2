@@ -24,6 +24,8 @@ public class StageSelectSceneManager : MonoBehaviour
     [SerializeField] StaminaManager staminaManager;
     readonly int STAMINA_PER_STAGE = 5;
     public GameObject noStaminaWindow;
+    bool tweenAnimationFinished = true;
+    int screenWidth;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +34,7 @@ public class StageSelectSceneManager : MonoBehaviour
         FadeIn();
         ShopUI_movingPart.transform.position = new Vector3(Screen.width, ShopUI_movingPart.transform.position.y, ShopUI_movingPart.transform.position.z);
         ShopUI.SetActive(false);
+        screenWidth = Screen.width;
     }
 
     // Update is called once per frame
@@ -138,33 +141,43 @@ public class StageSelectSceneManager : MonoBehaviour
 
     public void OnClickNextChapter()
     {
-        // TODO: ChangeSelectedStage_Next 구현
-        if (selectedChapter < MAX_STAGE)
+        if (tweenAnimationFinished)
         {
-            selectedChapter++;
-            resetToggleGroups();
-            DoTween(ChapterToggleGroup.transform, ChapterToggleGroup.transform.position - new Vector3(Screen.width, 0, 0), tweenTime);
-            Debug.Log("다음 스테이지 선택");
-        }
-        else
-        {
-            Debug.Log("마지막 스테이지입니다!");
+            // TODO: ChangeSelectedStage_Next 구현
+            if (selectedChapter < MAX_STAGE)
+            {
+                selectedChapter++;
+                resetToggleGroups();
+                tweenAnimationFinished = false;
+                DoTween(ChapterToggleGroup.transform, ChapterToggleGroup.transform.position, ChapterToggleGroup.transform.position - new Vector3(screenWidth, 0, 0), tweenTime);
+                Debug.Log("다음 스테이지 선택");
+            }
+            else
+            {
+                //ChapterToggleGroup.transform.position = new Vector3(Screen.width, 0, 0);
+                Debug.Log("마지막 스테이지입니다!");
+            }
         }
     }
 
     public void OnClickBeforeChapter()
     {
-        // TODO: ChangeSelectedStage_Before 구현
-        if (selectedChapter > MIN_STAGE)
+        if (tweenAnimationFinished)
         {
-            selectedChapter--;
-            resetToggleGroups();
-            DoTween(ChapterToggleGroup.transform, ChapterToggleGroup.transform.position + new Vector3(Screen.width, 0, 0), tweenTime);
-            Debug.Log("이전 스테이지 선택");
-        }
-        else
-        {
-            Debug.Log("첫 스테이지입니다!");
+            // TODO: ChangeSelectedStage_Before 구현
+            if (selectedChapter > MIN_STAGE)
+            {
+                selectedChapter--;
+                resetToggleGroups();
+                tweenAnimationFinished = false;
+                DoTween(ChapterToggleGroup.transform, ChapterToggleGroup.transform.position, ChapterToggleGroup.transform.position + new Vector3(screenWidth, 0, 0), tweenTime);
+                Debug.Log("이전 스테이지 선택");
+            }
+            else
+            {
+                Debug.Log("첫 스테이지입니다!");
+                //ChapterToggleGroup.transform.position = new Vector3(0, 0, 0);
+            }
         }
     }
 
@@ -178,23 +191,24 @@ public class StageSelectSceneManager : MonoBehaviour
         }
     }
 
-    void DoTween(Transform originTransform, Vector3 targetPosition, float tweenTime)
+    void DoTween(Transform transform, Vector3 originPosition, Vector3 targetPosition, float tweenTime)
     {
         StartCoroutine(Tween(targetPosition, tweenTime));
         IEnumerator Tween(Vector3 targetPosition, float time)
         {
-            Vector3 originPosition = originTransform.position;
             float startTime = Time.time;
             float nowTime = startTime;
             while (startTime + time > Time.time)
             {
                 nowTime = Time.time;
-                originTransform.position = new Vector3(
+                transform.position = new Vector3(
                     Mathf.Lerp(originPosition.x, targetPosition.x, (nowTime - startTime) / time),
                     Mathf.Lerp(originPosition.y, targetPosition.y, (nowTime - startTime) / time),
                     Mathf.Lerp(originPosition.z, targetPosition.z, (nowTime - startTime) / time));
                 yield return 0;
             }
+            transform.position = targetPosition;
+            tweenAnimationFinished = true;
         }
 
     }
@@ -202,7 +216,7 @@ public class StageSelectSceneManager : MonoBehaviour
     public void OpenShopUI()
     {
         ShopUI.SetActive(true);
-        DoTween(ShopUI_movingPart.transform, new Vector3(Screen.width / 2, ShopUI_movingPart.transform.position.y, ShopUI_movingPart.transform.position.z), tweenTime);
+        DoTween(ShopUI_movingPart.transform, ShopUI_movingPart.transform.position, new Vector3(screenWidth / 2, ShopUI_movingPart.transform.position.y, ShopUI_movingPart.transform.position.z), tweenTime);
     }
 
     public void CloseShopUI()
@@ -213,7 +227,7 @@ public class StageSelectSceneManager : MonoBehaviour
             ShopUI.SetActive(false);
         }
 
-        DoTween(ShopUI_movingPart.transform, new Vector3(Screen.width * 3 / 2, ShopUI_movingPart.transform.position.y, ShopUI_movingPart.transform.position.z), tweenTime);
+        DoTween(ShopUI_movingPart.transform, ShopUI_movingPart.transform.position, new Vector3(screenWidth * 3 / 2, ShopUI_movingPart.transform.position.y, ShopUI_movingPart.transform.position.z), tweenTime);
         StartCoroutine(disableWithDelay());
     }
 

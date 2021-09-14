@@ -48,14 +48,14 @@ public class TItleSceneManager : MonoBehaviour
         float blinkTime = 0.1f;
         for (int i = 0; i < 4; i++)
         {
-            textComponent.color = new Color(0, 0, 0, 1);
+            textComponent.color = new Color(1, 1, 1, 1);
             yield return new WaitForSeconds(blinkTime);
-            textComponent.color = new Color(0, 0, 0, 0);
+            textComponent.color = new Color(1, 1, 1, 0);
             yield return new WaitForSeconds(blinkTime);
         }
         for (int i = 0; i < 6; i++)
         {
-            fader.GetComponent<Image>().color = new Color(1, 1, 1, i / 5f);
+            fader.GetComponent<Image>().color = new Color(0, 0, 0, i / 5f);
             yield return new WaitForSeconds(0.05f);
         }
         SceneManager.LoadScene("StageSelectScene");
