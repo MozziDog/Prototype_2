@@ -13,7 +13,8 @@ public class TowerSelectedUI : MonoBehaviour
 
     public void SetUI(GameObject tower, bool isOn)
     {
-        if (isOn)
+        Debug.Log("setui");
+        if (isOn == true)
         {
             Debug.LogWarning("tower selected!");
             targetTower = tower;
@@ -23,7 +24,7 @@ public class TowerSelectedUI : MonoBehaviour
             UIOnAnimation();
 
         }
-        if (!isOn)
+        else
         {
             targetTower = null;
             UIOffAnimation();
@@ -45,10 +46,12 @@ public class TowerSelectedUI : MonoBehaviour
 
     public void UIOffAnimation()
     {
+        Debug.Log("uioffanim");
+        //gameObject.SetActive(false);
         IEnumerator UIAnimation()
         {
             // TODO: UI 시각효과 구현
-            yield return 0;
+            yield return new WaitForSeconds(0.1f);
             gameObject.SetActive(false);
         }
         if (UIAnimationCoroutine != null)
