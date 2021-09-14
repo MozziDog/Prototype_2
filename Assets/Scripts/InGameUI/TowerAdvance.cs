@@ -33,7 +33,7 @@ public class TowerAdvance : MonoBehaviour
     private List<int> ingredientindex = new List<int>();
     private string compareType;
     private float compareLV;
-    
+
     //in-game debug properties
     public GameObject targetTowerAd;
     public GameObject AdvancedTower;
@@ -46,7 +46,7 @@ public class TowerAdvance : MonoBehaviour
             TowerUpgradeList container = new TowerUpgradeList();
             AlphabetTypes tempType = (AlphabetTypes)i;
             container.TYPE = tempType.ToString();
-            tempContainer = new GameObject[_numberOfLevels-1];
+            tempContainer = new GameObject[_numberOfLevels - 1];
             container.UpgradeList = tempContainer;
             _towerUpgradeLists.Add(container);
 
@@ -57,7 +57,7 @@ public class TowerAdvance : MonoBehaviour
     public void OnClickNotInteractiveUpgrade()
     {
         StopCoroutine(AdvanceMsgPopUp());
-        if (!_advanceButton.interactable&& compareLV != _numberOfLevels)
+        if (!_advanceButton.interactable && compareLV != _numberOfLevels)
         {
             UpgradeMessagePopUp.text = "There's no Enough Ingredients to Upgrade!";
             StartCoroutine(AdvanceMsgPopUp());
@@ -68,7 +68,7 @@ public class TowerAdvance : MonoBehaviour
             UpgradeMessagePopUp.text = "This Tower is At Max Level!";
             StartCoroutine(AdvanceMsgPopUp());
         }
-        else if (_advanceButton.interactable )
+        else if (_advanceButton.interactable)
         {
             UpgradeMessagePopUp.text = "You've Upgraded!";
             StartCoroutine(AdvanceMsgPopUp());
@@ -107,7 +107,7 @@ public class TowerAdvance : MonoBehaviour
         }
 
         compareType = this.targetTowerAd.GetComponent<TowerBase>().type;
-        
+
         for (int i = 0; i < _inven._toggle.Count; i++)
         {
             _inven._toggle[i].interactable = false;
@@ -115,13 +115,13 @@ public class TowerAdvance : MonoBehaviour
             {
                 continue;
             }
-           
+
             ingredientindex.Add(i);
         }
 
-       
 
-        if(_advanceButton.interactable = ingredientindex.Count > 0 ? true : false)
+
+        if (_advanceButton.interactable = ingredientindex.Count > 0 ? true : false)
         {
             _inven._toggle[ingredientindex[0]].interactable = true;
             _inven._toggle[ingredientindex[0]].Select();
@@ -150,9 +150,9 @@ public class TowerAdvance : MonoBehaviour
         _towerManager.towerSpawned.Add(AdvancedTower);
         AdvancedTower.GetComponent<TowerBase>().ConfirmTowerPosition();
         yield return new WaitForSeconds(0.3f);
-        _towerManager.OnTowerSelected( AdvancedTower);
-        _selectManager.SetSelectedTower( AdvancedTower);
-       
+        _towerManager.OnTowerSelected(AdvancedTower);
+        _selectManager.SetSelectedTower(AdvancedTower);
+
 
     }
 
@@ -164,11 +164,11 @@ public class TowerAdvance : MonoBehaviour
     {
         SetUp();
         Reset();
-       _selectUI.CheckCanAdvance();
-        
+        _selectUI.CheckCanAdvance();
+
 
     }
-   
+
 
     private void OnDisable()
     {
@@ -181,7 +181,7 @@ public class TowerAdvance : MonoBehaviour
 
 
     }
-   
+
 
     // Update is called once per frame
     void Update()

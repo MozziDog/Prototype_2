@@ -37,6 +37,8 @@ public class TowerManager : MonoBehaviour
     public List<GameObject> towerSpawned = new List<GameObject>();
     public TowerSpawnUI spawnUI;
     public TowerSelectedUI selectedUI;
+    GameObject selectedTower;
+    [SerializeField] MoneyManager wallet;
 
 
     void Start()
@@ -50,12 +52,14 @@ public class TowerManager : MonoBehaviour
 
     public void OnTowerSelected(GameObject tower)
     {
+        selectedTower = tower;
         towerManagerStatus = TowerManagerMode.TowerSelected;
         selectedUI.SetUI(tower, true);
     }
 
     public void OnTowerUnselected()
     {
+        selectedTower = null;
         if (WaveManager.isWaveOn() == true)
         {
             towerManagerStatus = TowerManagerMode.NotSpawnable;
@@ -142,7 +146,7 @@ public class TowerManager : MonoBehaviour
         {
             Ray ray = new Ray(item.position + new Vector3(0, 10f, 0), new Vector3(0, -1, 0));
             RaycastHit hit = new RaycastHit();
-            if(Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Grid")))
+            if (Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Grid")))
             {
                 Debug.Log("Hello~?");
             }
@@ -332,10 +336,10 @@ public class TowerManager : MonoBehaviour
         switch (state)
         {
             case 1:
-                for(int i = 0; i < numOfChildren; i++)
+                for (int i = 0; i < numOfChildren; i++)
                 {
                     GameObject child = _tower.transform.GetChild(i).gameObject;
-                    if(child.GetComponent<MeshRenderer>() != null)
+                    if (child.GetComponent<MeshRenderer>() != null)
                     {
                         //child.GetComponent<MeshRenderer>().material.render
                         child.GetComponent<MeshRenderer>().material.color = new Color(255, 0, 0, 100);
@@ -352,6 +356,16 @@ public class TowerManager : MonoBehaviour
                     }
                 }
                 break;
+        }
+    }
+
+    public void SellTower()
+    {
+        if (selectedTower != null)
+        {
+            wallet.AddMoney(selectedTower.GetComponent<TowerBase>().GetPrice());
+            Destroy(selectedTower);
+            selectedUI.SetUI(null, false);
         }
     }
 
