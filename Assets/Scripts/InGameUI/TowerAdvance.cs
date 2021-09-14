@@ -151,6 +151,12 @@ public class TowerAdvance : MonoBehaviour
         GameObject checkInvert = _towerUpgradeLists[(int)tempType].UpgradeList[(int)compareLV - 1];
         AdvancedTower = Instantiate(checkInvert, replacePos, replaceRot);
         AdvancedTower.transform.localScale = local.localScale;
+        for (int i = 0; i < AdvancedTower.transform.childCount; i++)
+        {
+            Transform childTransform = AdvancedTower.transform.GetChild(i).transform;
+            childTransform.localScale = targetTowerAd.transform.GetChild(i).transform.localScale; 
+        }
+
         _towerManager.towerSpawned.Add(AdvancedTower);
         AdvancedTower.GetComponent<TowerBase>().ConfirmTowerPosition();
         yield return new WaitForSeconds(0.5f);
