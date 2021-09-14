@@ -120,6 +120,8 @@ public class GroundEnemy : MonoBehaviour, EnemyInterFace
             agent.speed = 0;
             isWalking = false;
             isDie = true;
+            Vector3 lookPos = new Vector3(other.transform.position.x, this.transform.position.y, other.transform.position.z);
+            transform.LookAt(lookPos);
             StartCoroutine(HitPlayer());
 
 
@@ -152,7 +154,7 @@ public class GroundEnemy : MonoBehaviour, EnemyInterFace
     {
         anim.SetBool("isDead", true);
         agent.speed = 0;
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(1.35f);
         RemoveObject();
     }
 

@@ -10,7 +10,8 @@ public class StunDebuff : MonoBehaviour
 
 
     public float EnemyoriginSpeed;
-    public Transform headPos;
+    private Transform headPos;
+    private Transform bodyPos;
     private StunDebuff thisDebuff;
 
     public GameObject StunFx;
@@ -41,7 +42,7 @@ public class StunDebuff : MonoBehaviour
 
             EnemyoriginSpeed= this.gameObject.GetComponent<EnemyInterFace>().GetSpeed();
             this.gameObject.GetComponent<EnemyInterFace>().SetSpeed(0);
-            effect = Instantiate(StunFx, new Vector3(transform.position.x, headPos.position.y + 0.5f, transform.position.z), Quaternion.identity);
+            effect = Instantiate(StunFx, bodyPos.position, Quaternion.identity);
             effect.transform.SetParent(this.gameObject.transform);
             Destroy(effect, stunDuration);
             yield return new WaitForSeconds(stunDuration);
@@ -56,7 +57,7 @@ public class StunDebuff : MonoBehaviour
 
     public void EraseDebuff()
     {
-
+        Destroy(effect);
         Destroy(thisDebuff);
     }
 
@@ -67,6 +68,7 @@ public class StunDebuff : MonoBehaviour
         thisEnemy = this.gameObject;
         thisDebuff = this.gameObject.GetComponent<StunDebuff>();
         headPos = thisEnemy.GetComponent<EnemyInterFace>().GetHeadPos();
+        bodyPos = thisEnemy.GetComponent<EnemyInterFace>().GetBodyPos();
         //SetUp(poisonDamage, poisonDuration, poisonRate, PoisonFx);
     }
 

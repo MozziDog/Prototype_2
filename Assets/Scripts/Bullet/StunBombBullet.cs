@@ -61,7 +61,7 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
         float flightDuration = target_Distance / Vx;
         Projectile.rotation = Quaternion.LookRotation(target.position - Projectile.position);
         float elapse_time = 0;
-        Destroy(ShootArea, flightDuration * bulletSpeed + 0.3f);
+        Destroy(ShootArea, flightDuration/bulletSpeed + 0.3f);
         while (elapse_time < flightDuration)
         {
             Projectile.Translate(0, (Vy - (gravity * elapse_time)) * Time.deltaTime * bulletSpeed, Vx * Time.deltaTime * bulletSpeed);
@@ -86,8 +86,7 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
 
         //hit particle spawn
         GameObject BoomEffects = Instantiate(impactParticle, Projectile.position, Quaternion.identity) as GameObject;
-        // BoomEffects.transform.parent = target.transform;
-        Destroy(BoomEffects, 3);
+        Destroy(BoomEffects, 2f);
         Collider[] colliders = Physics.OverlapSphere(transform.position, BombRadius);
 
 

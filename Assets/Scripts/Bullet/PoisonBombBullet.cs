@@ -65,7 +65,7 @@ public class PoisonBombBullet : MonoBehaviour, BulletInterFace
         Projectile.rotation = Quaternion.LookRotation(target.position - Projectile.position);
         float flightDuration = target_Distance / Vx;
         float elapse_time = 0;
-        Destroy(ShootArea,flightDuration*bulletSpeed+0.3f);
+        Destroy(ShootArea,flightDuration/bulletSpeed+0.3f);
         while (elapse_time < flightDuration)
         {
             Projectile.Translate(0, (Vy - (gravity * elapse_time)) * Time.deltaTime * bulletSpeed, Vx * Time.deltaTime*bulletSpeed);
@@ -95,8 +95,7 @@ public class PoisonBombBullet : MonoBehaviour, BulletInterFace
         
         //hit particle spawn
         GameObject BoomEffects = Instantiate(impactParticle, Projectile.position, Quaternion.identity) as GameObject;
-       // BoomEffects.transform.parent = target.transform;
-        Destroy(BoomEffects, 3);
+        Destroy(BoomEffects, 2f);
         Collider[] colliders = Physics.OverlapSphere(transform.position, BombRadius);
         foreach (Collider searchedObject in colliders)
         {
@@ -119,9 +118,7 @@ public class PoisonBombBullet : MonoBehaviour, BulletInterFace
                     searchedObject.gameObject.GetComponent<PoisonDebuff>().RefreshDuration(poisonDuration, poisonDamage, poisonRate);
                 }
 
-                GameObject effect = Instantiate(PoisonFx, new Vector3(searchedObject.transform.position.x, searchedObject.transform.position.y + 0.5f,
-                    searchedObject.transform.position.z), Quaternion.identity);
-
+                GameObject effect = Instantiate(PoisonFx, searchedObject.GetComponent<EnemyInterFace>().GetBodyPos().position, Quaternion.identity);
                 effect.transform.SetParent(searchedObject.transform);
                 Destroy(effect, 1f);
                 searchedObject.GetComponent<EnemyInterFace>().GetDamage(bulletDamage);

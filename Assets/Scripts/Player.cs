@@ -5,18 +5,25 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]
-    private Animator anim;
+    
     public float maxHP;
     public float currentHP;
+    [SerializeField]
+    private Transform bodyPos;
+    [SerializeField]
+    private Animator anim;
     public GameManager gameManager;
     public Text hpText;
+    [SerializeField]
+    private GameObject getHitFx;
+
+
     
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        currentHP = maxHP;
         this.anim = transform.GetComponent<Animator>();
+        currentHP = maxHP; 
         UpdateHpText(currentHP);
 
 
@@ -38,6 +45,9 @@ public class Player : MonoBehaviour
 
     public void StartGetHit(float hitDamage)
     {
+        GameObject effect = Instantiate(getHitFx, bodyPos.position, Quaternion.identity);
+        effect.transform.SetParent(this.transform);
+        Destroy(effect, 1f);
         StartCoroutine(GetHitCoroutine(hitDamage));
     }
 
