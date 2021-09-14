@@ -70,7 +70,8 @@ public class TowerAdvance : MonoBehaviour
         }
         else if (_advanceButton.interactable)
         {
-            UpgradeMessagePopUp.text = string.Format("You've Upgraded it to Lv.{0}!", (int)(compareLV+1));
+            UpgradeMessagePopUp.text = "You've Upgraded Successfully !";
+                //string.Format("You've Upgraded it to Lv.{0}!", (int)(compareLV+1));
             StartCoroutine(AdvanceMsgPopUp());
         }
 
