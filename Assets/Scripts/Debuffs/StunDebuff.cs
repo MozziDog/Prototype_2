@@ -42,7 +42,7 @@ public class StunDebuff : MonoBehaviour
 
             EnemyoriginSpeed= this.gameObject.GetComponent<EnemyInterFace>().GetSpeed();
             this.gameObject.GetComponent<EnemyInterFace>().SetSpeed(0);
-            effect = Instantiate(StunFx, bodyPos.position, Quaternion.identity);
+            effect = Instantiate(StunFx, new Vector3(headPos.position.x, headPos.position.y+0.5f, headPos.position.z), Quaternion.identity);
             effect.transform.SetParent(this.gameObject.transform);
             Destroy(effect, stunDuration);
             yield return new WaitForSeconds(stunDuration);

@@ -79,7 +79,7 @@ public class TowerAdvance : MonoBehaviour
     IEnumerator AdvanceMsgPopUp()
     {
         UpgradeMessagePopUp.transform.parent.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1.4f);
+        yield return new WaitForSeconds(1.5f);
         CheckAdvance();
         UpgradeMessagePopUp.transform.parent.gameObject.SetActive(false);
     }
@@ -149,7 +149,7 @@ public class TowerAdvance : MonoBehaviour
         AdvancedTower = Instantiate(_towerUpgradeLists[(int)tempType].UpgradeList[(int)compareLV - 1], replacePos, replaceRot);
         _towerManager.towerSpawned.Add(AdvancedTower);
         AdvancedTower.GetComponent<TowerBase>().ConfirmTowerPosition();
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
         _towerManager.OnTowerSelected(AdvancedTower);
         _selectManager.SetSelectedTower(AdvancedTower);
 
