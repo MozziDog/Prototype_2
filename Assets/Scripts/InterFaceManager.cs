@@ -24,6 +24,8 @@ public interface EnemyInterFace
     public void SetSpeed(float ApplySpeed);
 
     public Transform GetHeadPos();
+
+    public Transform GetBodyPos();
 }
 
 public struct TowerInfo

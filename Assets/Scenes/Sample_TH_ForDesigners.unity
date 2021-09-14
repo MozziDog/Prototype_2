@@ -3087,7 +3087,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -386.88962, y: 23.915527}
+  m_AnchoredPosition: {x: -386.88965, y: 23.915527}
   m_SizeDelta: {x: -904.06323, y: 10.726715}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &81398818
@@ -25948,7 +25948,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerManagerStatus: 0
   cannotBuildMessage: {fileID: 428518564}
-  surface: {fileID: 664370446}
   enemyManager: {fileID: 7118200473976820453}
   selectManager: {fileID: 0}
   _inven: {fileID: 1761398618}
@@ -31854,7 +31853,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -386.88962, y: 23.915527}
+  m_AnchoredPosition: {x: -386.88965, y: 23.915527}
   m_SizeDelta: {x: -904.06323, y: 10.726715}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &739964954
@@ -72951,6 +72950,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 665aed3c5547e87418688b4851f2b745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerImage: {fileID: 0}
+  attackDamageText: {fileID: 0}
+  attackRangeText: {fileID: 0}
+  attackSpeedText: {fileID: 0}
+  attackAreaText: {fileID: 0}
+  specialEffectText: {fileID: 0}
 --- !u!114 &1629214611
 MonoBehaviour:
   m_ObjectHideFlags: 0
