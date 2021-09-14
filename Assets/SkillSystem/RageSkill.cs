@@ -40,7 +40,7 @@ public class RageSkill : MonoBehaviour
 
     IEnumerator BuffOff(GameObject _tower, float AttackRate, float BulletDamage)
     {
-        yield return new WaitForSeconds(4.1f);
+        yield return new WaitForSeconds(3.9f);
         _tower.transform.gameObject.GetComponent<TowerBase>().isBuffed = false;
         _tower.transform.gameObject.GetComponent<TowerBase>().attackRate = AttackRate;
         _tower.transform.gameObject.GetComponent<TowerBase>().bulletDamage = BulletDamage;
@@ -50,7 +50,7 @@ public class RageSkill : MonoBehaviour
 
     IEnumerator ColorChange(Transform _gameObject)
     {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(3.9f);
         _gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
     }
 

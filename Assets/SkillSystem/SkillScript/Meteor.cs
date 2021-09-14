@@ -79,11 +79,6 @@ public class Meteor : MonoBehaviour
                     StartCoolTime();
                 }
             }
-            else if(Input.GetMouseButtonUp(0) && !Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Floor")) && !EventSystem.current.IsPointerOverGameObject())
-            {
-                isSpellMode = false;
-                Destroy(_indicator);
-            }
         }
     }
 

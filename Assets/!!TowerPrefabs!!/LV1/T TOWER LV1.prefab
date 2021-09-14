@@ -1414,9 +1414,10 @@ GameObject:
   - component: {fileID: 399147712765663294}
   - component: {fileID: -2257781446758517098}
   - component: {fileID: 6811317674153834244}
+  - component: {fileID: 4763018853051690916}
   m_Layer: 11
   m_Name: T TOWER LV1
-  m_TagString: Tower
+  m_TagString: TowerBase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
@@ -1499,6 +1500,20 @@ MonoBehaviour:
   - {fileID: 3959246225173842585}
   - {fileID: 7815541653613393529}
   isTemp: 1
+  isBuffed: 0
+--- !u!65 &4763018853051690916
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7454545231653059525}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7814170592901252339
 GameObject:
   m_ObjectHideFlags: 0

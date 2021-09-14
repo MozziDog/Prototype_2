@@ -202,6 +202,7 @@ MonoBehaviour:
   Towers:
   - {fileID: 1753085419196476990}
   isTemp: 1
+  isBuffed: 0
 --- !u!1 &1635993474422202157
 GameObject:
   m_ObjectHideFlags: 0
@@ -5857,6 +5858,7 @@ MonoBehaviour:
   Towers:
   - {fileID: 6522149162543640507}
   isTemp: 1
+  isBuffed: 0
 --- !u!1 &6521289412524894901
 GameObject:
   m_ObjectHideFlags: 0
@@ -16450,9 +16452,10 @@ GameObject:
   - component: {fileID: 399147712765663294}
   - component: {fileID: -2257781446758517098}
   - component: {fileID: 7848835925646861346}
+  - component: {fileID: 3174891924567541910}
   m_Layer: 11
   m_Name: I TOWER LV5
-  m_TagString: Tower
+  m_TagString: TowerBase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
@@ -16535,6 +16538,20 @@ MonoBehaviour:
   - {fileID: 6522149162543640507}
   - {fileID: 7019764512544446454}
   isTemp: 1
+  isBuffed: 0
+--- !u!65 &3174891924567541910
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7454545231653059525}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7907740110601309032
 GameObject:
   m_ObjectHideFlags: 0
@@ -16687,6 +16704,7 @@ MonoBehaviour:
   Towers:
   - {fileID: 7019764512544446454}
   isTemp: 1
+  isBuffed: 0
 --- !u!1 &8310692416242285440
 GameObject:
   m_ObjectHideFlags: 0
