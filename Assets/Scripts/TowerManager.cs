@@ -39,7 +39,7 @@ public class TowerManager : MonoBehaviour
     public TowerSelectedUI selectedUI;
     GameObject selectedTower;
     [SerializeField] MoneyManager wallet;
-
+    
 
     void Start()
     {
