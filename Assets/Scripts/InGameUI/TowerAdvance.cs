@@ -39,6 +39,8 @@ public class TowerAdvance : MonoBehaviour
     public GameObject AdvancedTower;
     IEnumerator checkCoroutine;
     Coroutine actingCoroutine;
+    TowerTransform towerTransform;
+
     private void SetUp()
     {
         for (int i = 0; i < _numberOfTypes; i++)
@@ -71,7 +73,7 @@ public class TowerAdvance : MonoBehaviour
         else if (_advanceButton.interactable)
         {
             UpgradeMessagePopUp.text = "You've Upgraded Successfully !";
-                //string.Format("You've Upgraded it to Lv.{0}!", (int)(compareLV+1));
+            //string.Format("You've Upgraded it to Lv.{0}!", (int)(compareLV+1));
             StartCoroutine(AdvanceMsgPopUp());
         }
 
@@ -145,15 +147,30 @@ public class TowerAdvance : MonoBehaviour
         Vector3 replacePos = this.targetTowerAd.transform.position;
         Quaternion replaceRot = this.targetTowerAd.transform.rotation;
         _towerManager.towerSpawned.Remove(this.targetTowerAd);
+        towerTransform = targetTowerAd.GetComponent<TowerBase>().towerTransform;
         Destroy(this.targetTowerAd);
         AlphabetTypes tempType = (AlphabetTypes)System.Enum.Parse(typeof(AlphabetTypes), compareType);
         AdvancedTower = Instantiate(_towerUpgradeLists[(int)tempType].UpgradeList[(int)compareLV - 1], replacePos, replaceRot);
+        ApplyTowerTransform(AdvancedTower);
         _towerManager.towerSpawned.Add(AdvancedTower);
         AdvancedTower.GetComponent<TowerBase>().ConfirmTowerPosition();
         yield return new WaitForSeconds(0.5f);
         _towerManager.OnTowerSelected(AdvancedTower);
         _selectManager.SetSelectedTower(AdvancedTower);
 
+
+    }
+
+    void ApplyTowerTransform(GameObject tower)
+    {
+        if (towerTransform.reverted)
+        {
+            invertTempTower(tower);
+        }
+        for (int i = 0; i < towerTransform.rotation; i++)
+        {
+            RotateTempTower(tower);
+        }
 
     }
 
@@ -188,5 +205,57 @@ public class TowerAdvance : MonoBehaviour
     void Update()
     {
 
+    }
+
+
+    public void RotateTempTower(GameObject temporarilyPlacedTower)
+    {
+        if (temporarilyPlacedTower != null)
+        {
+            temporarilyPlacedTower.transform.Rotate(new Vector3(0, 90, 0));
+            TowerBase towerBase = temporarilyPlacedTower.GetComponent<TowerBase>();
+            towerBase.towerTransform.rotation = (towerBase.towerTransform.rotation + 1) % 4;
+        }
+    }
+
+    public void invertTempTower(GameObject temporarilyPlacedTower)
+    {
+        if (temporarilyPlacedTower != null)
+        {
+            if ((temporarilyPlacedTower.transform.rotation.y % 90) == 0)
+            {
+                TowerBase towerBase = temporarilyPlacedTower.GetComponent<TowerBase>();
+                towerBase.towerTransform.reverted = !towerBase.towerTransform.reverted;
+                temporarilyPlacedTower.transform.localScale = new Vector3(
+                    temporarilyPlacedTower.transform.localScale.x * -1,
+                    1,
+                    temporarilyPlacedTower.transform.localScale.z);
+                // BoxCollider 꼬임 방지를 위해 Children의 globalScale 값을 양수로 해줌.
+                for (int i = 0; i < temporarilyPlacedTower.transform.childCount; i++)
+                {
+                    Transform childTransform = temporarilyPlacedTower.transform.GetChild(i).transform;
+                    childTransform.localScale = new Vector3(
+                        childTransform.localScale.x * -1,
+                        1,
+                        childTransform.localScale.z);
+                }
+            }
+            else
+            {
+                temporarilyPlacedTower.transform.localScale = new Vector3(
+                    temporarilyPlacedTower.transform.localScale.x,
+                    1,
+                    temporarilyPlacedTower.transform.localScale.z * -1);
+                // BoxCollider 꼬임 방지를 위해 Children의 globalScale 값을 양수로 해줌.
+                for (int i = 0; i < temporarilyPlacedTower.transform.childCount; i++)
+                {
+                    Transform childTransform = temporarilyPlacedTower.transform.GetChild(i).transform;
+                    childTransform.localScale = new Vector3(
+                        childTransform.localScale.x,
+                        1,
+                        childTransform.localScale.z * -1);
+                }
+            }
+        }
     }
 }

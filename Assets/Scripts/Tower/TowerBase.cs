@@ -64,7 +64,9 @@ public class TowerBase : MonoBehaviour
     [Header("is Buff(Skill)")]
     public bool isBuffed = false;
 
-    
+    public TowerTransform towerTransform;
+
+
     // Start is called before the first frame update
     public void ConfirmTowerPosition()
     {
@@ -164,4 +166,10 @@ public class TowerBase : MonoBehaviour
         else
             return "-";
     }
+}
+
+public class TowerTransform
+{
+    public bool reverted = false;
+    public int rotation = 0; // 시계방향으로 회전한 횟수
 }
