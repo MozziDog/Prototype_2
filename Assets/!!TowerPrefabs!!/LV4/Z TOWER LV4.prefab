@@ -1462,14 +1462,14 @@ MonoBehaviour:
   _myposition: []
   LV: 4
   type: Z
-  bulletSpeed: 10
-  bulletDamage: 15
-  attackRate: 2.5
-  attackRange: 10
+  bulletSpeed: 20
+  bulletDamage: 5
+  attackRate: 1
+  attackRange: 3.5
   bombRange: 0
   bulletAmmoCount: 0
   burstRate: 0
-  maxChainCount: 4
+  maxChainCount: 3
   chainRadius: 3
   poisonDamage: 0
   poisonDuration: 0
@@ -1484,6 +1484,7 @@ MonoBehaviour:
   - {fileID: 5351477908273380466}
   - {fileID: 5276076984227805014}
   isTemp: 1
+  isBuffed: 0
 --- !u!1 &8310692416242285440
 GameObject:
   m_ObjectHideFlags: 0

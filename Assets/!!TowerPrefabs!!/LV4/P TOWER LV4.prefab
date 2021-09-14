@@ -44578,8 +44578,8 @@ MonoBehaviour:
   LV: 4
   type: P
   bulletSpeed: 10
-  bulletDamage: 10
-  attackRate: 1
+  bulletDamage: 30
+  attackRate: 3
   attackRange: 10
   bombRange: 0
   bulletAmmoCount: 0
@@ -44599,6 +44599,7 @@ MonoBehaviour:
   - {fileID: 1835326347479250106}
   - {fileID: 5144106177053515679}
   isTemp: 1
+  isBuffed: 0
 --- !u!1 &8310692416242285440
 GameObject:
   m_ObjectHideFlags: 0

@@ -1953,10 +1953,10 @@ MonoBehaviour:
   _myposition: []
   LV: 5
   type: T
-  bulletSpeed: 20
-  bulletDamage: 10
-  attackRate: 1
-  attackRange: 15
+  bulletSpeed: 15
+  bulletDamage: 7
+  attackRate: 0.5
+  attackRange: 3.5
   bombRange: 0
   bulletAmmoCount: 0
   burstRate: 0
@@ -1975,6 +1975,7 @@ MonoBehaviour:
   - {fileID: 4336733091762042178}
   - {fileID: 4203718773389906692}
   isTemp: 1
+  isBuffed: 0
 --- !u!1 &8310692416242285440
 GameObject:
   m_ObjectHideFlags: 0

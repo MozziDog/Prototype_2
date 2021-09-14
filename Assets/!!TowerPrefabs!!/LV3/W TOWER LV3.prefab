@@ -1380,8 +1380,8 @@ MonoBehaviour:
   type: W
   bulletSpeed: 1
   bulletDamage: 0
-  attackRate: 3
-  attackRange: 10
+  attackRate: 7
+  attackRange: 5.5
   bombRange: 3.5
   bulletAmmoCount: 0
   burstRate: 0
