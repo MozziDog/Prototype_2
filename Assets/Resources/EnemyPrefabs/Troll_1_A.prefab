@@ -975,8 +975,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1532b18a1bb20fa4180eee64278fa334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 10
-  currentHP: 10
+  maxHP: 100
+  currentHP: 100
   moveSpeed: 1
   hitDamage: 1
   headPos: {fileID: 3396826767718023496}
@@ -985,6 +985,7 @@ MonoBehaviour:
   isHitting: 0
   anim: {fileID: 0}
   enemyManager: {fileID: 0}
+  agent: {fileID: 0}
 --- !u!1 &3402261106838463196
 GameObject:
   m_ObjectHideFlags: 0

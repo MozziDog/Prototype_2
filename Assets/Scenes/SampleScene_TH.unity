@@ -9466,6 +9466,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpgradeMessagePopUp
       objectReference: {fileID: 0}
+    - target: {fileID: 223345298822760352, guid: d3ea51c0f9fded94dae0d3944beedef4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 223345298822760353, guid: d3ea51c0f9fded94dae0d3944beedef4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -9496,11 +9500,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 223345298822760353, guid: d3ea51c0f9fded94dae0d3944beedef4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 503.6
+      value: 534.57
       objectReference: {fileID: 0}
     - target: {fileID: 223345298822760353, guid: d3ea51c0f9fded94dae0d3944beedef4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 195
+      value: 121.8
       objectReference: {fileID: 0}
     - target: {fileID: 223345298822760353, guid: d3ea51c0f9fded94dae0d3944beedef4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9532,11 +9536,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 223345298822760353, guid: d3ea51c0f9fded94dae0d3944beedef4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 396.09998
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 223345298822760353, guid: d3ea51c0f9fded94dae0d3944beedef4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -253.32
+      value: -110
       objectReference: {fileID: 0}
     - target: {fileID: 223345298822760353, guid: d3ea51c0f9fded94dae0d3944beedef4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

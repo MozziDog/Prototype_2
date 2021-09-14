@@ -1462,7 +1462,7 @@ MonoBehaviour:
   LV: 5
   type: N
   bulletSpeed: 1
-  bulletDamage: 10
+  bulletDamage: 0
   attackRate: 2
   attackRange: 10
   bombRange: 3.5
@@ -1483,6 +1483,7 @@ MonoBehaviour:
   - {fileID: 6840643088721935006}
   - {fileID: 1179614271130100248}
   isTemp: 1
+  isBuffed: 0
 --- !u!1 &8310692416242285440
 GameObject:
   m_ObjectHideFlags: 0
