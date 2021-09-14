@@ -30580,6 +30580,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 601a20424d76ab646952ee2215c078e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerImage: {fileID: 21300000, guid: 719bf83db9519014aa94035de3e7afbd, type: 3}
+  pentominoImage: {fileID: 21300000, guid: 46085033a086715498260975e72d4fb9, type: 3}
+  towerDescription: "\uAE34 \uC0AC\uAC70\uB9AC\uC640 \uB113\uC740 \uBC94\uC704 \uC548\uC5D0
+    \uC801\uC5D0\uAC8C \uB192\uC740  \uD53C\uD574\uB97C \uC904 \uC218 \uC788\uB2E4.\\n
+    \uACF5\uACA9\uC18D\uB3C4\uAC00 \uB290\uB9B0 \uAC83\uC740 \uD568\uC815.\\n Dynnnnnanana,
+    life is dynamite~\\n \uACF5\uACA9\uC720\uD615 : \uBC94\uC704"
   _myposition: []
   LV: 5
   type: U

@@ -6,6 +6,7 @@ public class ShopManager : MonoBehaviour
 {
     public GameObject notPreparedWindow;
     public GameObject confirmWindow;
+    public StaminaManager staminaManager;
 
     int gemToBuy = 0;
     int goldToBuy = 0;

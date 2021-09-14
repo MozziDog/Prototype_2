@@ -7,6 +7,7 @@ using UnityEngine;
 public class TowerBase : MonoBehaviour
 {
     public Sprite towerImage;
+    public Sprite pentominoImage;
     public string towerDescription;
     TowerInfo towerinfo = new TowerInfo();
     public Vector3[] _myposition;

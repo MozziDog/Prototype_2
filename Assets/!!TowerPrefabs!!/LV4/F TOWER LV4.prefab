@@ -15564,6 +15564,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 601a20424d76ab646952ee2215c078e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerImage: {fileID: 21300000, guid: dbc5b99fec037f8488c59bd1df3f9e25, type: 3}
+  pentominoImage: {fileID: 21300000, guid: 5d3591a84335b8f449cac3559c4ed04c, type: 3}
+  towerDescription: "\uAE30\uBCF8\uC774 \uB418\uB294 \uD0C0\uC6CC.\\n \uACF5\uACA9\uC18D\uB3C4\uAC00
+    \uBE60\uB974\uC9C0\uB9CC \uADF8\uB9CC\uD07C \uACF5\uACA9\uB825\uC774 \uB192\uC9C4
+    \uC54A\uB2E4.\\n \uC5C5\uADF8\uB808\uC774\uB4DC\uB97C \uD55C\uB2E4\uBA74 \uC4F8\uB9CC\uD574\uC9C8\uC9C0\uB3C4..?
+    \\n\uBFC5\uBFC5\uBFC5!\\n \uACF5\uACA9\uC720\uD615 : \uB2E8\uC77C"
   _myposition: []
   LV: 4
   type: F

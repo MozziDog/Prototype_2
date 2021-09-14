@@ -61,7 +61,8 @@ public class TowerInfoUI : MonoBehaviour
 
     void SetTowerInfoText(TowerBase tower)
     {
-        towerDescription.text = tower.towerDescription;
+        string newText = tower.towerDescription.Replace("\\n", "\n");
+        towerDescription.text = newText;
     }
 
     void SetTowerPreview(TowerBase tower)

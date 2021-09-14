@@ -9,7 +9,6 @@ public class StageSelectSceneManager : MonoBehaviour
     public GameObject fader;
     public Text goldText;
     public Text RubyText;
-    public Text StaminaText;
 
     public int MAX_STAGE;
     public int MIN_STAGE;
@@ -21,7 +20,9 @@ public class StageSelectSceneManager : MonoBehaviour
     public GameObject ShopUI;
     public GameObject ShopUI_movingPart;
     public GameObject OptionUI;
-
+    [SerializeField] StaminaManager staminaManager;
+    readonly int STAMINA_PER_STAGE = 5;
+    public GameObject noStaminaWindow;
 
     // Start is called before the first frame update
     void Start()
@@ -49,7 +50,6 @@ public class StageSelectSceneManager : MonoBehaviour
     {
         goldText.text = Global.userProperty.gold.ToString();
         RubyText.text = Global.userProperty.ruby.ToString();
-        StaminaText.text = Global.userProperty.stamina.ToString();
     }
 
     Coroutine fadeInCoroutine = null;
@@ -89,7 +89,26 @@ public class StageSelectSceneManager : MonoBehaviour
         fadeOutCoroutine = StartCoroutine(_Fade());
     }
 
-    public void StartStage()
+    public void TryStartStage()
+    {
+        if (staminaManager.GetStaminaAmount() > STAMINA_PER_STAGE)
+        {
+            staminaManager.UseStamina(STAMINA_PER_STAGE);
+            StartStage();
+        }
+        else
+        {
+            noStaminaWindow.SetActive(true);
+            IEnumerator closeWindow()
+            {
+                yield return new WaitForSeconds(1f);
+                noStaminaWindow.SetActive(false);
+            }
+            StartCoroutine(closeWindow());
+        }
+    }
+
+    void StartStage()
     {
         string SceneString = GetSelectedStage();
         //SceneManager.LoadScene("Stage" + stageCode);
