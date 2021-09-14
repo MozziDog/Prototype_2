@@ -36,6 +36,7 @@ public class pauseMenu : MonoBehaviour
 
     public void OnClickQuitButton()
     {
+        Time.timeScale = 1;
         SceneLoader.LoadScene("StageSelectScene");
     }
 }

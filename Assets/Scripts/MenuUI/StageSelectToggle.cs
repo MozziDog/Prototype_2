@@ -32,6 +32,8 @@ public class StageSelectToggle : MonoBehaviour
                 = GameObject.Find("StageSelectManager").GetComponent<StageSelectSceneManager>();
             stageSelectManager.selectedChapter = chapter;
             stageSelectManager.selectedStage = stage;
+            ToggleGroup toggleGroup = gameObject.GetComponentInParent<ToggleGroup>();
+            toggleGroup.allowSwitchOff = false;
             Debug.Log("chapter:" + chapter + ", stage:" + stage);
             // TODO: 선택된 것 표시
             selectedFrameImage.CrossFadeColor(Color.white, selectedTransitionFadeTime, false, true);

@@ -23,7 +23,7 @@ public class StaminaManager : MonoBehaviour
     private void Awake()
     {
         Init();
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     void Start()

@@ -91,6 +91,12 @@ public class StageSelectSceneManager : MonoBehaviour
 
     public void TryStartStage()
     {
+        Debug.LogWarning("TryStart...");
+        if (selectedStage == 0)
+        {
+            Debug.Log("Stage not selected");
+            return;
+        }
         if (staminaManager.GetStaminaAmount() > STAMINA_PER_STAGE)
         {
             staminaManager.UseStamina(STAMINA_PER_STAGE);
@@ -98,6 +104,7 @@ public class StageSelectSceneManager : MonoBehaviour
         }
         else
         {
+            Debug.LogWarning("Stamina not enough");
             noStaminaWindow.SetActive(true);
             IEnumerator closeWindow()
             {
@@ -134,6 +141,7 @@ public class StageSelectSceneManager : MonoBehaviour
         if (selectedChapter < MAX_STAGE)
         {
             selectedChapter++;
+            resetToggleGroups();
             DoTween(ChapterToggleGroup.transform, ChapterToggleGroup.transform.position - new Vector3(Screen.width, 0, 0), tweenTime);
             Debug.Log("다음 스테이지 선택");
         }
@@ -149,12 +157,23 @@ public class StageSelectSceneManager : MonoBehaviour
         if (selectedChapter > MIN_STAGE)
         {
             selectedChapter--;
+            resetToggleGroups();
             DoTween(ChapterToggleGroup.transform, ChapterToggleGroup.transform.position + new Vector3(Screen.width, 0, 0), tweenTime);
             Debug.Log("이전 스테이지 선택");
         }
         else
         {
             Debug.Log("첫 스테이지입니다!");
+        }
+    }
+
+    void resetToggleGroups()
+    {
+        ToggleGroup[] toggleGroups = ChapterToggleGroup.GetComponentsInChildren<ToggleGroup>();
+        foreach (var group in toggleGroups)
+        {
+            group.allowSwitchOff = true;
+            group.SetAllTogglesOff();
         }
     }
 

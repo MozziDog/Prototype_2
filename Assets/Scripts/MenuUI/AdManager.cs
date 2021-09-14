@@ -75,7 +75,7 @@ public class AdManager : MonoBehaviour
     //게임 초기화, 중간 이탈, 중간 복귀 시 실행되는 함수
     public void OnApplicationFocus(bool value)
     {
-        Debug.LogWarning("OnApplicationFocus() : " + value);
+        //Debug.LogWarning("OnApplicationFocus() : " + value);
         if (value)
         {
             LoadAdInfo();
@@ -91,14 +91,14 @@ public class AdManager : MonoBehaviour
     //게임 종료 시 실행되는 함수
     public void OnApplicationQuit()
     {
-        Debug.LogWarning("GoodsRechargeTester: OnApplicationQuit()");
+        //Debug.LogWarning("GoodsRechargeTester: OnApplicationQuit()");
         SaveAdInfo();
         SaveLastModifiedTime();
     }
     //버튼 이벤트에 이 함수를 연동한다.
     public void OnClickViewAd()
     {
-        Debug.LogWarning("OnClickViewAd");
+        //Debug.LogWarning("OnClickViewAd");
         TryShowAd();
     }
 
@@ -117,7 +117,7 @@ public class AdManager : MonoBehaviour
         {
             if (PlayerPrefs.HasKey("AdReady" + AdContentID))
             {
-                Debug.LogWarning("PlayerPrefs has key : AdReady" + AdContentID);
+                //Debug.LogWarning("PlayerPrefs has key : AdReady" + AdContentID);
                 isReady = PlayerPrefs.GetInt("AdReady" + AdContentID);
                 if (isReady < 0)
                 {
@@ -155,18 +155,18 @@ public class AdManager : MonoBehaviour
     }
     public bool LoadLastModifiedTime()
     {
-        Debug.LogWarning("LoadLastModifiedTime");
+        //Debug.LogWarning("LoadLastModifiedTime");
         bool result = false;
         try
         {
             if (PlayerPrefs.HasKey("LastAdUpdate" + AdContentID))
             {
-                Debug.LogWarning("PlayerPrefs has key : LastAdUpdate" + AdContentID);
+                //Debug.LogWarning("PlayerPrefs has key : LastAdUpdate" + AdContentID);
 
                 var lastUpdateTime = PlayerPrefs.GetString("LastAdUpdate" + AdContentID);
                 m_LastUpdateTime = DateTime.FromBinary(Convert.ToInt64(lastUpdateTime));
             }
-            Debug.LogWarning(string.Format("Loaded LastUpdate : {0}", m_LastUpdateTime.ToString()));
+            Debug.Log(string.Format("Loaded LastUpdate : {0}", m_LastUpdateTime.ToString()));
             //appQuitTimeLabel.text = string.Format("AppQuitTime : {0}", m_AppQuitTime.ToString());
             result = true;
         }
@@ -178,14 +178,14 @@ public class AdManager : MonoBehaviour
     }
     public bool SaveLastModifiedTime()
     {
-        Debug.LogWarning("SaveLastModifiedTime");
+        //Debug.LogWarning("SaveLastModifiedTime");
         bool result = false;
         try
         {
             var lastUpdateTime = m_LastUpdateTime.ToBinary().ToString();
             PlayerPrefs.SetString("LastAdUpdate" + AdContentID, lastUpdateTime);
             PlayerPrefs.Save();
-            Debug.LogWarning("Saved LastAdUpdate : " + m_LastUpdateTime.ToLocalTime().ToString());
+            Debug.Log("Saved LastAdUpdate : " + m_LastUpdateTime.ToLocalTime().ToString());
 
             result = true;
         }
@@ -199,21 +199,21 @@ public class AdManager : MonoBehaviour
     DateTime nowTime;
     public void SetRechargeScheduler(Action onFinish = null)
     {
-        Debug.LogWarning("SetRechargeScheduler");
+        //Debug.LogWarning("SetRechargeScheduler");
         if (m_RechargeTimerCoroutine != null)
         {
             StopCoroutine(m_RechargeTimerCoroutine);
         }
         nowTime = DateTime.Now.ToLocalTime();
-        Debug.LogWarning("nowTime Sec :" + nowTime.Second + "s");
-        Debug.LogWarning("lastAdUpdate Sec :" + m_LastUpdateTime.Second + "s");
+        //Debug.LogWarning("nowTime Sec :" + nowTime.Second + "s");
+        //Debug.LogWarning("lastAdUpdate Sec :" + m_LastUpdateTime.Second + "s");
         var timeDifferenceInSec = (int)((DateTime.Now.ToLocalTime() - m_LastUpdateTime).TotalSeconds);
-        Debug.LogWarning("TimeDifference In Sec :" + timeDifferenceInSec + "s");
+        //Debug.LogWarning("TimeDifference In Sec :" + timeDifferenceInSec + "s");
         // var StaminaToAdd = timeDifferenceInSec / rechargeInterval;
         // var remainTime = timeDifferenceInSec % rechargeInterval;
         isReady = timeDifferenceInSec > rechargeInterval ? 1 : 0;
         var remainTime = timeDifferenceInSec > rechargeInterval ? 0 : timeDifferenceInSec;
-        Debug.LogWarning("RemainTime : " + remainTime);
+        //Debug.LogWarning("RemainTime : " + remainTime);
         if (isReady >= 1)
         {
             isReady = 1;
@@ -226,7 +226,7 @@ public class AdManager : MonoBehaviour
             m_RechargeTimerCoroutine = StartCoroutine(DoRechargeTimer(rechargeInterval - remainTime, onFinish));
         }
         SetAdReadyImage();
-        Debug.LogWarning("StaminaAmount : " + isReady);
+        //Debug.LogWarning("StaminaAmount : " + isReady);
     }
     public void TryShowAd(Action onFinish = null)
     {
@@ -252,7 +252,7 @@ public class AdManager : MonoBehaviour
     }
     private IEnumerator DoRechargeTimer(int remainTime, Action onFinish = null)
     {
-        Debug.LogWarning("DoRechargeTimer");
+        //Debug.LogWarning("DoRechargeTimer");
         if (remainTime <= 0)
         {
             m_RechargeRemainTime = rechargeInterval;
@@ -268,7 +268,7 @@ public class AdManager : MonoBehaviour
             SetRechargeTimer();
             m_RechargeRemainTime -= 1;
             yield return new WaitForSeconds(1f);
-            Debug.LogWarning("recharge tick");
+            //Debug.LogWarning("recharge tick");
         }
         isReady = 1;
         SaveAdInfo();
@@ -290,7 +290,7 @@ public class AdManager : MonoBehaviour
 
     void SetRechargeTimer()
     {
-        Debug.LogWarning("SetRechargeTimer : " + m_RechargeRemainTime);
+        //Debug.LogWarning("SetRechargeTimer : " + m_RechargeRemainTime);
         if (rechargeTimer != null)
         {
             if (isReady >= 1)

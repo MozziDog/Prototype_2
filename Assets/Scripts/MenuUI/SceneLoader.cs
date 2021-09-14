@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public static string nextScene;
+    static string nextScene;
     public static float minTime = 2.0f;
     [SerializeField] Slider progressBar;
 
@@ -41,8 +41,8 @@ public class SceneLoader : MonoBehaviour
             }
             else
             {
-                progressBar.value = Mathf.Lerp(progressBar.value, 1f, timer / 3);
-                if (progressBar.value == 1.0f && timer > minTime) // 로딩 씬에 최소 시간 부여
+                progressBar.value = Mathf.Lerp(progressBar.value, 1f, timer / 2);
+                if (progressBar.value == 1.0f) // 로딩 씬에 최소 시간 부여
                 {
                     op.allowSceneActivation = true;
                     yield break;
