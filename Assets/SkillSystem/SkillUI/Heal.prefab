@@ -197,7 +197,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &5371198186923655021
 CanvasRenderer:
@@ -309,9 +309,9 @@ MonoBehaviour:
   _cool_Img: {fileID: 8579879565588310584}
   _cool_txt: {fileID: 8579879565086837272}
   _Cool_Info_txt: {fileID: 5371198186806914739}
-  coolTime: 5
+  coolTime: 2
   isClicked: 0
-  leftTime: 3
+  leftTime: 2
   _moneyManager: {fileID: 0}
   _healEffect: {fileID: 113910389477235835, guid: 216e975ffc19bc646b3346acfa0b9c89, type: 3}
   _player: {fileID: 0}
