@@ -1380,14 +1380,14 @@ MonoBehaviour:
   LV: 1
   type: Y
   bulletSpeed: 20
-  bulletDamage: 10
+  bulletDamage: 8
   attackRate: 1
   attackRange: 2.5
   bombRange: 0
   bulletAmmoCount: 2
   burstRate: 0.2
-  maxChainCount: 2
-  chainRadius: 5
+  maxChainCount: 0
+  chainRadius: 0
   poisonDamage: 0
   poisonDuration: 0
   poisonRate: 0
@@ -1401,6 +1401,7 @@ MonoBehaviour:
   - {fileID: 5575417260544153801}
   - {fileID: 8484293327229394602}
   isTemp: 1
+  isBuffed: 0
 --- !u!1 &8310692416242285440
 GameObject:
   m_ObjectHideFlags: 0

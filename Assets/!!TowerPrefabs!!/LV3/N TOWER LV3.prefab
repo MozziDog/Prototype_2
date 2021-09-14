@@ -1357,7 +1357,7 @@ MonoBehaviour:
   burstRate: 0
   maxChainCount: 0
   chainRadius: 0
-  poisonDamage: 20
+  poisonDamage: 15
   poisonDuration: 5
   poisonRate: 1
   stunDuration: 0
@@ -1370,6 +1370,7 @@ MonoBehaviour:
   - {fileID: 2630482523333333352}
   - {fileID: 2237872342592259789}
   isTemp: 1
+  isBuffed: 0
 --- !u!1 &7508930352561070673
 GameObject:
   m_ObjectHideFlags: 0

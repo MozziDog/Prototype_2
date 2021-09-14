@@ -1380,8 +1380,8 @@ MonoBehaviour:
   type: W
   bulletSpeed: 1
   bulletDamage: 0
-  attackRate: 3
-  attackRange: 10
+  attackRate: 7
+  attackRange: 5.5
   bombRange: 3.5
   bulletAmmoCount: 0
   burstRate: 0
@@ -1390,7 +1390,7 @@ MonoBehaviour:
   poisonDamage: 0
   poisonDuration: 0
   poisonRate: 0
-  stunDuration: 2
+  stunDuration: 2.5
   mujeockTime: 5
   slowIntensity: 0
   slowRange: 0

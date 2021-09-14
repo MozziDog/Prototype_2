@@ -11279,6 +11279,7 @@ MonoBehaviour:
   - {fileID: 3505734761892248848}
   - {fileID: 8268629843967147750}
   isTemp: 1
+  isBuffed: 0
 --- !u!1 &8268629843967147750
 GameObject:
   m_ObjectHideFlags: 0

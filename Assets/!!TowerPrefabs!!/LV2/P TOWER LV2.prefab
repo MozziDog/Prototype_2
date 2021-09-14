@@ -44577,8 +44577,8 @@ MonoBehaviour:
   _myposition: []
   LV: 2
   type: P
-  bulletSpeed: 5
-  bulletDamage: 35
+  bulletSpeed: 20
+  bulletDamage: 18
   attackRate: 3
   attackRange: 10
   bombRange: 0
@@ -44599,6 +44599,7 @@ MonoBehaviour:
   - {fileID: 5290732398118245335}
   - {fileID: 822032354905010380}
   isTemp: 1
+  isBuffed: 0
 --- !u!1 &8310692416242285440
 GameObject:
   m_ObjectHideFlags: 0

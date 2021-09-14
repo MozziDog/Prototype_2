@@ -1629,9 +1629,9 @@ MonoBehaviour:
   LV: 1
   type: Z
   bulletSpeed: 20
-  bulletDamage: 5
+  bulletDamage: 4
   attackRate: 1
-  attackRange: 3
+  attackRange: 3.5
   bombRange: 0
   bulletAmmoCount: 0
   burstRate: 0
@@ -1650,6 +1650,7 @@ MonoBehaviour:
   - {fileID: 4995465648991413350}
   - {fileID: 6394923823707404568}
   isTemp: 1
+  isBuffed: 0
 --- !u!1 &8310692416242285440
 GameObject:
   m_ObjectHideFlags: 0
