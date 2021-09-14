@@ -13026,15 +13026,15 @@ MonoBehaviour:
   RubyText: {fileID: 1351187360}
   MAX_STAGE: 2
   MIN_STAGE: 1
-  selectedChapter: 1
-  selectedStage: 1
+  selectedChapter: 0
+  selectedStage: 0
   ChapterToggleGroup: {fileID: 1130326279}
   tweenTime: 0.2
   ShopUI: {fileID: 792318412}
   ShopUI_movingPart: {fileID: 1414750719}
   OptionUI: {fileID: 2129851421}
   staminaManager: {fileID: 1092936363}
-  noStaminaWindow: {fileID: 1092936361}
+  noStaminaWindow: {fileID: 1834456731}
 --- !u!4 &1845384436
 Transform:
   m_ObjectHideFlags: 0
