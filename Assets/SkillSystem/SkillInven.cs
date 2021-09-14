@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 
 public class SkillInven : MonoBehaviour, IPointerClickHandler
 {
+    [SerializeField] string skillName;
     [SerializeField] int tap;
     [SerializeField] float interval = 1f;
     [SerializeField] bool readyForDoubleTap;
@@ -33,6 +34,7 @@ public class SkillInven : MonoBehaviour, IPointerClickHandler
         {
             isEquipped = false;
             gameObject.transform.SetParent(_SelectGrid.transform);
+            UpdateEquip();
             tap = 0;
             readyForDoubleTap = false;
         } 
@@ -40,6 +42,7 @@ public class SkillInven : MonoBehaviour, IPointerClickHandler
         {
             isEquipped = true;
             gameObject.transform.SetParent(_EquipGrid.transform);
+            UpdateEquip();
             tap = 0;
             readyForDoubleTap = false;
         }
@@ -60,5 +63,13 @@ public class SkillInven : MonoBehaviour, IPointerClickHandler
     {
         _upgraded += 1;
         Debug.Log(_upgraded);
+    }
+
+    public void UpdateEquip()
+    {
+        for(int i = 0; i < _EquipGrid.transform.childCount; i++)
+        {
+            PlayerPrefs.SetString("selectedSkill" + (i + 1).ToString(), _EquipGrid.transform.GetChild(i).GetComponent<SkillInven>().skillName);
+        }
     }
 }
