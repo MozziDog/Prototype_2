@@ -19,7 +19,6 @@ public class SkillManager : MonoBehaviour
 
     public void equipSkill(GameObject skill)
     {
-        Debug.LogWarning("HI");
         equipped_skill.Add(skill);
     }
 

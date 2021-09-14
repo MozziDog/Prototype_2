@@ -7,7 +7,7 @@ public class MoneyManager : MonoBehaviour
 {
     public Text _UIText;
     public int _baseMoney;
-    private int _LeftMoney;
+    public int _LeftMoney;
     // Start is called before the first frame update
 
     private void Start()
