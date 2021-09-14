@@ -149,11 +149,8 @@ public class TowerAdvance : MonoBehaviour
         Destroy(this.targetTowerAd);
         AlphabetTypes tempType = (AlphabetTypes)System.Enum.Parse(typeof(AlphabetTypes), compareType);
         GameObject checkInvert = _towerUpgradeLists[(int)tempType].UpgradeList[(int)compareLV - 1];
-        checkInvert.transform.rotation = replaceRot;
-        checkInvert.transform.localScale = local.localScale;
-        //if (_towerManager.isTowerinverted)
-        //  invertAdvanceTower(checkInvert);
         AdvancedTower = Instantiate(checkInvert, replacePos, replaceRot);
+        AdvancedTower.transform.localScale = local.localScale;
         _towerManager.towerSpawned.Add(AdvancedTower);
         AdvancedTower.GetComponent<TowerBase>().ConfirmTowerPosition();
         yield return new WaitForSeconds(0.5f);
@@ -164,45 +161,7 @@ public class TowerAdvance : MonoBehaviour
     }
 
 
-    private void invertAdvanceTower(GameObject AdvancedTower)
-    {
-        if (AdvancedTower != null)
-        {
-            if ((AdvancedTower.transform.rotation.y % 90) == 0)
-            {
-                AdvancedTower.transform.localScale = new Vector3(
-                    AdvancedTower.transform.localScale.x * -1,
-                    1,
-                    AdvancedTower.transform.localScale.z);
-                // BoxCollider 꼬임 방지를 위해 Children의 globalScale 값을 양수로 해줌.
-                for (int i = 0; i < AdvancedTower.transform.childCount; i++)
-                {
-                    Transform childTransform = AdvancedTower.transform.GetChild(i).transform;
-                    childTransform.localScale = new Vector3(
-                        childTransform.localScale.x * -1,
-                        1,
-                        childTransform.localScale.z);
-                }
-            }
-            else
-            {
-                AdvancedTower.transform.localScale = new Vector3(
-                   AdvancedTower.transform.localScale.x,
-                    1,
-                    AdvancedTower.transform.localScale.z * -1);
-                // BoxCollider 꼬임 방지를 위해 Children의 globalScale 값을 양수로 해줌.
-                for (int i = 0; i < AdvancedTower.transform.childCount; i++)
-                {
-                    Transform childTransform = AdvancedTower.transform.GetChild(i).transform;
-                    childTransform.localScale = new Vector3(
-                        childTransform.localScale.x,
-                        1,
-                        childTransform.localScale.z * -1);
-                }
-            }
-        }
-    
-    }
+   
 
     private void Start()
     {

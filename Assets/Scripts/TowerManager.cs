@@ -39,8 +39,7 @@ public class TowerManager : MonoBehaviour
     public TowerSelectedUI selectedUI;
     GameObject selectedTower;
     [SerializeField] MoneyManager wallet;
-
-    public bool isTowerinverted; 
+    
 
     void Start()
     {
@@ -216,7 +215,6 @@ public class TowerManager : MonoBehaviour
         if (towerToSpawn != null)
         {
             temporarilyPlacedTower = Instantiate(towerToSpawn, towerSpawnPosition, Quaternion.identity);
-            isTowerinverted = false;
         }
         else
         {
@@ -276,7 +274,6 @@ public class TowerManager : MonoBehaviour
     {
         if (temporarilyPlacedTower != null)
         {
-            isTowerinverted = !isTowerinverted;
             if ((temporarilyPlacedTower.transform.rotation.y % 90) == 0)
             {
                 temporarilyPlacedTower.transform.localScale = new Vector3(
