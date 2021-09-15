@@ -50,6 +50,7 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
     {
 
         ShootArea = Instantiate(BombAreaEffect, new Vector3(target.position.x, 0f, target.position.z), BombAreaEffect.transform.rotation);
+        ChangeAreaScale(ShootArea);
         Projectile.position = this.transform.position + new Vector3(0, 0.0f, 0);
 
         // Calculate distance to target
@@ -71,6 +72,30 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
             yield return null;
         }
         Destroy(gameObject);
+
+    }
+
+    private void ChangeAreaScale(GameObject ShootArea)
+    {
+        switch (BombRadius)
+        {
+            case 1.5f:
+                ShootArea.transform.localScale = new Vector3(0.371638f, 0.371638f, 0.371638f);
+                break;
+            case 2.5f:
+                ShootArea.transform.localScale = new Vector3(0.6041434f, 0.6041434f, 0.6041434f);
+                break;
+            case 3.5f:
+                ShootArea.transform.localScale = new Vector3(0.84248f, 0.84248f, 0.84248f);
+                break;
+            case 2f:
+                ShootArea.transform.localScale = new Vector3(0.4783712f, 0.4783712f, 0.4783712f);
+                break;
+            case 3f:
+                ShootArea.transform.localScale = new Vector3(0.728966f, 0.728966f, 0.728966f);
+                break;
+        }
+
 
     }
 
