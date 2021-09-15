@@ -6442,12 +6442,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 4
+  - eventID: 3
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8693507566174192879}
-          m_TargetAssemblyTypeName: TowerAdvance, Assembly-CSharp
+        - m_Target: {fileID: 1101040592}
+          m_TargetAssemblyTypeName: UpgradeButtonEvent, Assembly-CSharp
           m_MethodName: OnClickNotInteractiveUpgrade
           m_Mode: 1
           m_Arguments:
@@ -6919,6 +6919,7 @@ GameObject:
   - component: {fileID: 1101040596}
   - component: {fileID: 1101040595}
   - component: {fileID: 1101040594}
+  - component: {fileID: 1101040592}
   m_Layer: 5
   m_Name: TowerSpawn/SelectUI
   m_TagString: Untagged
@@ -6926,6 +6927,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1101040592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101040591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d954c52e3dd69d4f87567f9f6285cf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _advanceButton: {fileID: 8693507566174192878}
+  UpgradeMessagePopUp: {fileID: 1546220884}
+  _towerAdvance: {fileID: 8693507566174192879}
 --- !u!114 &1101040594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18678,5 +18694,7 @@ MonoBehaviour:
     - {fileID: 7454545231653059525, guid: a58d886bf079480499d31cec3aca9af7, type: 3}
     - {fileID: 7454545231653059525, guid: eeab6f2a9bfd86f4eafff7e9abeff91b, type: 3}
     - {fileID: 7454545231653059525, guid: bdb32a930925c5440ab2f9bacca8f580, type: 3}
+  compareType: 
+  compareLV: 0
   targetTowerAd: {fileID: 0}
   AdvancedTower: {fileID: 0}
