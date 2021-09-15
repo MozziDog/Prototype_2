@@ -65,23 +65,33 @@ public class SaveLoadManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("gold", Global.userProperty.gold);
         PlayerPrefs.SetInt("ruby", Global.userProperty.ruby);
+        PlayerPrefs.SetInt("TutorialFinishFlag", Global.userProperty.TutorialFinishFlag ? 1 : 0);
+        PlayerPrefs.SetInt("lastReachedChapter", Global.userProperty.LastReachedChapter);
+        PlayerPrefs.SetInt("lastReachedStage", Global.userProperty.LastReachedStage);
         PlayerPrefs.Save();
         Debug.Log("Saved");
     }
 
     public void Load()
     {
-        if (PlayerPrefs.HasKey("gold"))
+        if (PlayerPrefs.HasKey("gold")) // 세이브 되어있는지 확인
         {
             Global.userProperty.gold = PlayerPrefs.GetInt("gold");
             Global.userProperty.ruby = PlayerPrefs.GetInt("ruby");
-            Debug.Log("Loaded");
+            Global.userProperty.TutorialFinishFlag = PlayerPrefs.GetInt("TutorialFinishFlag") == 1 ? true : false;
+            Global.userProperty.LastReachedChapter = PlayerPrefs.GetInt("lastReachedChapter");
+            Global.userProperty.LastReachedStage = PlayerPrefs.GetInt("lastReachedStage");
+
+            Debug.Log("LastReached:" + Global.userProperty.LastReachedChapter + "-" + Global.userProperty.LastReachedStage);
         }
         else
         {
             // 초기 소지값
             Global.userProperty.gold = 1000;
             Global.userProperty.ruby = 0;
+            Global.userProperty.TutorialFinishFlag = false;
+            Global.userProperty.LastReachedChapter = 1;
+            Global.userProperty.LastReachedStage = 0;
         }
     }
 }

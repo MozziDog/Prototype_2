@@ -8,11 +8,6 @@ public static class Global
     public static UserProperty userProperty = new UserProperty(1000, 0, 10);
     public static int _chapter = 1;
     public static int _stage = 1;
-    public static long nextStaminaRegenTime;
-    public static string selectedSkill1;
-    public static string selectedSkill2;
-    public static string selectedSkill3;
-    public static string selectedSkill4;
 }
 
 
@@ -22,19 +17,27 @@ public struct UserProperty
     public int ruby;
     public int stamina;
     public long nextStaminaRegenTime;
-    public string selectedSkill1;
-    public string selectedSkill2;
-    public string selectedSkill3;
-    public string selectedSkill4;
+    public bool TutorialFinishFlag;
+    public int LastReachedChapter;
+    public int LastReachedStage;
+    public int skill_1_level;
+    public int skill_2_level;
+    public int skill_3_level;
+    public int skill_4_level;
+    public int skill_5_level;
     public UserProperty(int gold, int ruby, int stamina)
     {
         this.gold = gold;
         this.ruby = ruby;
         this.stamina = stamina;
         this.nextStaminaRegenTime = 0;
-        selectedSkill1 = "";
-        selectedSkill2 = "";
-        selectedSkill3 = "";
-        selectedSkill4 = "";
+        this.TutorialFinishFlag = false;
+        this.LastReachedChapter = 1;
+        this.LastReachedStage = 0;
+        this.skill_1_level = 1;
+        this.skill_2_level = 1;
+        this.skill_3_level = 1;
+        this.skill_4_level = 1;
+        this.skill_5_level = 1;
     }
 }
