@@ -60,6 +60,7 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
             elapse_time += Time.deltaTime*bulletSpeed;
             yield return null;
         }
+        Destroy(gameObject);
      
     }
     

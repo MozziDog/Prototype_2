@@ -75,6 +75,7 @@ public class PoisonBombBullet : MonoBehaviour, BulletInterFace
                
             yield return null;
         }
+        Destroy(gameObject);
      
     }
     

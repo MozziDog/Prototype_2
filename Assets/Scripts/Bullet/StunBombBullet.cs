@@ -70,6 +70,7 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
 
             yield return null;
         }
+        Destroy(gameObject);
 
     }
 

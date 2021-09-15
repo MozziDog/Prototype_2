@@ -39,7 +39,7 @@ public class TowerManager : MonoBehaviour
     public TowerSelectedUI selectedUI;
     GameObject selectedTower;
     [SerializeField] MoneyManager wallet;
-    
+    private Color originTowerColor; 
 
     void Start()
     {
@@ -215,6 +215,8 @@ public class TowerManager : MonoBehaviour
         if (towerToSpawn != null)
         {
             temporarilyPlacedTower = Instantiate(towerToSpawn, towerSpawnPosition, Quaternion.identity);
+            originTowerColor = temporarilyPlacedTower.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material.color;
+            ChangeMaterial(temporarilyPlacedTower,2);
         }
         else
         {
@@ -249,7 +251,7 @@ public class TowerManager : MonoBehaviour
 
                     }
                 }
-
+                ChangeMaterial(temporarilyPlacedTower, 3);
                 temporarilyPlacedTower.GetComponent<TowerBase>().ConfirmTowerPosition();
                 enemyManager.BakeNav();
                 towerSpawned.Add(temporarilyPlacedTower);
@@ -349,7 +351,7 @@ public class TowerManager : MonoBehaviour
                     if (child.GetComponent<MeshRenderer>() != null)
                     {
                         //child.GetComponent<MeshRenderer>().material.render
-                        child.GetComponent<MeshRenderer>().material.color = new Color(255, 0, 0, 100);
+                        child.GetComponent<MeshRenderer>().material.color = new Color(255, 0, 0, 100); //red
                     }
                 }
                 break;
@@ -359,10 +361,22 @@ public class TowerManager : MonoBehaviour
                     GameObject child = _tower.transform.GetChild(i).gameObject;
                     if (child.GetComponent<MeshRenderer>() != null)
                     {
-                        child.GetComponent<MeshRenderer>().material.color = new Color(255, 255, 255, 255);
+                        child.GetComponent<MeshRenderer>().material.color = new Color(255, 255, 255, 255); //white
                     }
                 }
                 break;
+            case 3:
+                for (int i = 0; i < numOfChildren; i++)
+                {
+                    GameObject child = _tower.transform.GetChild(i).gameObject;
+                    if (child.GetComponent<MeshRenderer>() != null)
+                    {
+                        child.GetComponent<MeshRenderer>().material.color = originTowerColor; //origin color
+                    }
+                }
+                break;
+
+
         }
     }
 
