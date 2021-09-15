@@ -65,16 +65,18 @@ public class SaveLoadManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("gold", Global.userProperty.gold);
         PlayerPrefs.SetInt("ruby", Global.userProperty.ruby);
+        PlayerPrefs.SetInt("TutorialFinishFlag", Global.userProperty.TutorialFinishFlag ? 1 : 0);
         PlayerPrefs.Save();
         Debug.Log("Saved");
     }
 
     public void Load()
     {
-        if (PlayerPrefs.HasKey("gold"))
+        if (PlayerPrefs.HasKey("gold")) // 세이브 되어있는지 확인
         {
             Global.userProperty.gold = PlayerPrefs.GetInt("gold");
             Global.userProperty.ruby = PlayerPrefs.GetInt("ruby");
+            Global.userProperty.TutorialFinishFlag = PlayerPrefs.GetInt("TutorialFinishFlag") == 1 ? true : false;
             Debug.Log("Loaded");
         }
         else
