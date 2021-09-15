@@ -35,6 +35,8 @@ public class WaveManager : MonoBehaviour
     [SerializeField] MoneyManager moneyManager;
     [SerializeField] GameObject _waveText;
     [SerializeField] GameObject _Heal;
+
+    public int rewardPerWave = 100;
     // Start is called before the first frame update
 
     public void StartWave()
@@ -73,7 +75,7 @@ public class WaveManager : MonoBehaviour
         Debug.LogWarning("WaveDone");//�� ���̺� �ϼ� �� ����
         isWaveProceeding = false;
         _towerShop.MakeShoppingList();
-        moneyManager.AddMoney(100);
+        moneyManager.AddMoney(rewardPerWave);
         if (!ShopUI.activeInHierarchy)
             ShopUI.SetActive(true);
     }
