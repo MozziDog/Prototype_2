@@ -88,6 +88,6 @@ public class TowerSelectedUI : MonoBehaviour
     public void OnClickTowerAdvanceButton()
     {
         towerAdvance.TryAdvance();
-        towerManager.OnTowerUnselected();
+        
     }
 }
