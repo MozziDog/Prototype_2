@@ -25,7 +25,7 @@ public class TowerBase : MonoBehaviour
     public float attackRange;
 
 
-    [Header("for ShootTower that has Bomb-Type bullet, set BombRange")]
+    [Header("for ShootTower that has Bomb-Type bullet, SHOULD ALSO manipulate BombRange")]
     public float bombRange;
 
     [Header("for MultipleShootTower , SHOULD ALSO manipulate  property below")]
@@ -45,11 +45,11 @@ public class TowerBase : MonoBehaviour
     public float stunDuration;
     public float mujeockTime;
 
-    [Header("for DebuffAreaTower, manipulate  property intensity(0~1) and range only")]
+    [Header("for SlowAreaTower, manipulate  property intensity(0~1) and range ONLY")]
     public float slowIntensity;
     public float slowRange;
 
-
+    [Header("-------BELOW ARE INSPECTIONS THAT ARE RELATED IN-GAME MODE-------")]
 
     [Header("Inspections that should be managed per Tower 유형")]
     [SerializeField]
@@ -166,7 +166,7 @@ public class TowerBase : MonoBehaviour
         else
             return "-";
     }
-}
+} 
 
 public class TowerTransform
 {

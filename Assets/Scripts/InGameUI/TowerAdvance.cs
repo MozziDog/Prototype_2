@@ -56,10 +56,7 @@ public class TowerAdvance : MonoBehaviour
 
     public void OnClickNotInteractiveUpgrade()
     {
-        if(actingCoroutine != null)
-        {
-
-        }
+     
         //StopCoroutine(AdvanceMsgPopUp());
         if (!_advanceButton.interactable && compareLV != _numberOfLevels)
         {
@@ -72,12 +69,7 @@ public class TowerAdvance : MonoBehaviour
             UpgradeMessagePopUp.text = "This Tower is At Max Level!";
             actingCoroutine= StartCoroutine(AdvanceMsgPopUp());
         }
-        else if (_advanceButton.interactable)
-        {
-            UpgradeMessagePopUp.text = string.Format("You've Upgraded it to Lv.{0}!", (int)(compareLV + 1));
-
-            actingCoroutine= StartCoroutine(AdvanceMsgPopUp());
-        }
+       
 
     }
 
@@ -168,6 +160,9 @@ public class TowerAdvance : MonoBehaviour
         _selectManager.SetSelectedTower(AdvancedTower);
 
 
+        UpgradeMessagePopUp.text = string.Format("You've Upgraded it to Lv.{0}!", (int)(compareLV + 1));
+        actingCoroutine = StartCoroutine(AdvanceMsgPopUp());
+
     }
 
 
@@ -194,7 +189,7 @@ public class TowerAdvance : MonoBehaviour
             _inven._toggle[i].interactable = true;
         }
         //StopCoroutine(AdvanceMsgPopUp());
-        UpgradeMessagePopUp.transform.parent.gameObject.SetActive(false);
+       // UpgradeMessagePopUp.transform.parent.gameObject.SetActive(false);
 
 
     }
