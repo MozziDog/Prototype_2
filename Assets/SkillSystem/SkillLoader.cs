@@ -11,7 +11,7 @@ public class SkillLoader : MonoBehaviour
     {
         for(int i = 0; i < 4; i++)
         {
-         if(PlayerPrefs.GetString("selectedSkill" + (i + 1).ToString()) != "")
+            if(PlayerPrefs.GetString("selectedSkill" + (i + 1).ToString()) != "")
             {
                 for(int index = 0; index < all_skills.Length; index++)
                 {
@@ -27,8 +27,12 @@ public class SkillLoader : MonoBehaviour
 
         for(int j = 0; j < equipped_skills.Length; j++)
         {
-            GameObject skill = Instantiate(equipped_skills[j]);
-            skill.transform.SetParent(Spell_grid.transform);
+            if(equipped_skills[j] != null)
+            {
+                GameObject skill = Instantiate(equipped_skills[j]);
+                skill.transform.SetParent(Spell_grid.transform);
+            }
+            
         }
     }
 

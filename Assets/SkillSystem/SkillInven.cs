@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public class SkillInven : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] string skillName;
+    [SerializeField] public string skillName;
     [SerializeField] int tap;
     [SerializeField] float interval = 1f;
     [SerializeField] bool readyForDoubleTap;
@@ -32,19 +32,11 @@ public class SkillInven : MonoBehaviour, IPointerClickHandler
         }
         else if(tap > 1 && readyForDoubleTap && isEquipped)
         {
-            isEquipped = false;
-            gameObject.transform.SetParent(_SelectGrid.transform);
-            UpdateEquip();
-            tap = 0;
-            readyForDoubleTap = false;
+            UnEquip();
         } 
         else if (!isEquipped && CheckEquip())
         {
-            isEquipped = true;
-            gameObject.transform.SetParent(_EquipGrid.transform);
-            UpdateEquip();
-            tap = 0;
-            readyForDoubleTap = false;
+            Equip();
         }
     }
     IEnumerator DoubleTapInterval()
@@ -71,5 +63,36 @@ public class SkillInven : MonoBehaviour, IPointerClickHandler
         {
             PlayerPrefs.SetString("selectedSkill" + (i + 1).ToString(), _EquipGrid.transform.GetChild(i).GetComponent<SkillInven>().skillName);
         }
+        for(int j = _EquipGrid.transform.childCount; j < 4; j++)
+        {
+            PlayerPrefs.SetString("selectedSkill" + (j + 1).ToString(), "");
+        }
     }
+
+    public void UnEquip()
+    {
+        isEquipped = false;
+        gameObject.transform.SetParent(_SelectGrid.transform);
+        UpdateEquip();
+        tap = 0;
+        readyForDoubleTap = false;
+    }
+
+    public void Equip()
+    {
+        isEquipped = true;
+        gameObject.transform.SetParent(_EquipGrid.transform);
+        UpdateEquip();
+        tap = 0;
+        readyForDoubleTap = false;
+    }
+
+    public void Setup()
+    {
+        isEquipped = true;
+        gameObject.transform.SetParent(_EquipGrid.transform);
+        tap = 0;
+        readyForDoubleTap = false;
+    }
+
 }

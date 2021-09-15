@@ -17,16 +17,6 @@ public class SkillManager : MonoBehaviour
 
     [SerializeField] GameObject[] skills;
 
-    public void equipSkill(GameObject skill)
-    {
-        equipped_skill.Add(skill);
-    }
-
-    public void unequipSkill(GameObject skill)
-    {
-        equipped_skill.Remove(skill);
-    }
-
     public void AddSkill(GameObject skill)
     {
         if (my_skill.Contains(skill))
@@ -46,6 +36,31 @@ public class SkillManager : MonoBehaviour
         {
             GameObject skill = Instantiate(my_skill[index]);
             skill.transform.SetParent(SelectGrid.transform, false);
+        }
+    }
+
+    /*private void OnEnable()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            Debug.Log(PlayerPrefs.GetString("selectedSkill" + (i + 1).ToString()));
+        }
+    }*/
+
+    private void Start()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (PlayerPrefs.GetString("selectedSkill" + (i + 1).ToString()) != "")
+            {
+                for (int index = 0; index < my_skill.Count; index++)
+                {
+                    if (my_skill[index].GetComponent<SkillInven>().skillName == PlayerPrefs.GetString("selectedSkill" + (i + 1).ToString()))
+                    {
+                        my_skill[index].GetComponent<SkillInven>().Setup();
+                    }
+                }
+            }
         }
     }
 
