@@ -32,7 +32,10 @@ public class PoisonBombBullet : MonoBehaviour, BulletInterFace
     public float BombRadius;
 
 
-    private bool isExplode=false;
+    private AudioSource musicPlayer;
+    public AudioClip shootSound;
+
+    
 
     RaycastHit hit;
     public void SetUp(BulletInfo bulletinfo)
@@ -112,7 +115,7 @@ public class PoisonBombBullet : MonoBehaviour, BulletInterFace
         
         if (other.gameObject.layer == LayerMask.NameToLayer("Floor"))
         {
-            isExplode = true;
+           
             Explode();
         }
             
@@ -164,14 +167,25 @@ public class PoisonBombBullet : MonoBehaviour, BulletInterFace
         Gizmos.DrawWireSphere(transform.position, BombRadius);
     }
 
+    void MusicPlay()
+    {
 
+        musicPlayer.clip = shootSound;
+        musicPlayer.time = 0;
+        musicPlayer.Play();
+    }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (target)
+        {
+            musicPlayer = GetComponent<AudioSource>();
             StartCoroutine(SimulateProjectile());
+            MusicPlay(); //shoot effect
+        }
+        Destroy(gameObject, 4f);
     }
 
     // Update is called once per frame

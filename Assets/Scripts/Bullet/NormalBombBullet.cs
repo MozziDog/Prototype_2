@@ -23,7 +23,12 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
     public float firingAngle = 45.0f;
     public float gravity = 9.8f;
     public float BombRadius;
-   
+
+
+    
+    private AudioSource musicPlayer;
+    public AudioClip shootSound;
+
     
 
     RaycastHit hit;
@@ -40,7 +45,7 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
 
     IEnumerator SimulateProjectile()
     {
-
+        
         ShootArea = Instantiate(BombAreaEffect, new Vector3(target.position.x, 0f, target.position.z), BombAreaEffect.transform.rotation);
         ChangeAreaScale(ShootArea);
         Projectile.position = this.transform.position + new Vector3(0, 0.0f, 0);
@@ -102,7 +107,7 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
         
         //hit particle spawn
         GameObject BoomEffects = Instantiate(impactParticle, Projectile.position, Quaternion.identity) as GameObject;
-        Destroy(BoomEffects, 2f);
+        Destroy(BoomEffects, 2.2f);
         Collider[] colliders = Physics.OverlapSphere(transform.position, BombRadius);
 
 
@@ -124,13 +129,25 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
         Gizmos.DrawWireSphere(transform.position, BombRadius);
     }
 
+    void MusicPlay()
+    {
+                musicPlayer.clip = shootSound;
+                musicPlayer.time = 0;
+                musicPlayer.Play();   
+    }
+
 
 
     // Start is called before the first frame update
     void Start()
     {
         if (target)
+        {
+            musicPlayer = GetComponent<AudioSource>();
             StartCoroutine(SimulateProjectile());
+            MusicPlay(); //shoot effect
+        }
+        Destroy(gameObject, 4f);
     }
 
     
@@ -138,7 +155,5 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
     // Update is called once per frame
     void Update()
     {
-      
-
     }
 }

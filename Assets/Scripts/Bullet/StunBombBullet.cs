@@ -30,7 +30,10 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
     public float gravity = 9.8f;
     public float BombRadius;
 
+    
+    private AudioSource musicPlayer;
 
+    public AudioClip shootSound;
 
     RaycastHit hit;
     public void SetUp(BulletInfo bulletinfo)
@@ -109,10 +112,10 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
 
     void Explode()
     {
-
+        
         //hit particle spawn
         GameObject BoomEffects = Instantiate(impactParticle, Projectile.position, Quaternion.identity) as GameObject;
-        Destroy(BoomEffects, 2f);
+        Destroy(BoomEffects, 2.2f);
         Collider[] colliders = Physics.OverlapSphere(transform.position, BombRadius);
 
 
@@ -147,6 +150,12 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
         Gizmos.DrawWireSphere(transform.position, BombRadius);
     }
 
+    void MusicPlay()
+    {
+        musicPlayer.clip = shootSound;
+        musicPlayer.time = 0;
+        musicPlayer.Play();
+    }
 
 
 
@@ -154,7 +163,12 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
     void Start()
     {
         if (target)
+        {
+            musicPlayer = GetComponent<AudioSource>();
             StartCoroutine(SimulateProjectile());
+            MusicPlay(); //shoot effect
+        }
+        Destroy(gameObject, 4f);
     }
 
     // Update is called once per frame

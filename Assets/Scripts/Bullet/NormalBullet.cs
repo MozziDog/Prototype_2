@@ -11,7 +11,8 @@ public class NormalBullet : MonoBehaviour, BulletInterFace
     private Transform target;
     public GameObject impactParticle;
     public Vector3 aimPosition;
-    
+    private AudioSource musicPlayer;
+    public AudioClip shootSound;
     
     public void SetUp(BulletInfo bulletinfo)
     {
@@ -58,7 +59,10 @@ public class NormalBullet : MonoBehaviour, BulletInterFace
     // Start is called before the first frame update
     void Start()
     {
-        
+        musicPlayer = GetComponent<AudioSource>();
+        musicPlayer.clip = shootSound;
+        musicPlayer.time = 0;
+        musicPlayer.Play();
     }
 
     // Update is called once per frame

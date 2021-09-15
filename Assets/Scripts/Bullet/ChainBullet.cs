@@ -17,6 +17,8 @@ public class ChainBullet : MonoBehaviour ,BulletInterFace
     public WeaponState weaponState = WeaponState.AttackToTarget;
     private List<GameObject> hitTargets;
     RaycastHit hit;
+    private AudioSource musicPlayer;
+    public AudioClip shootSound;
 
     public void SetUp(BulletInfo bulletinfo)
     {
@@ -144,7 +146,12 @@ public class ChainBullet : MonoBehaviour ,BulletInterFace
         hitTargets = new List<GameObject>();
         hitTargets.Add(currentTarget.gameObject);
         StartCoroutine(AttackToTarget());
-        
+
+
+        musicPlayer = GetComponent<AudioSource>();
+        musicPlayer.clip = shootSound;
+        musicPlayer.time = 0;
+        musicPlayer.Play();
     }
     
     // Update is called once per frame
