@@ -13,12 +13,12 @@ public static class Global
     public static string selectedSkill2;
     public static string selectedSkill3;
     public static string selectedSkill4;
-    public static int grade_meteor = 1;
-    public static int grade_landsmash = 1;
-    public static int grade_powerup = 1;
-    public static int grade_earthquake = 1;
-    public static int grade_heal = 1;
-    public static int grade_sacrifice = 1;
+    public static int grade_Meteor = 1;
+    public static int grade_LandSmash = 1;
+    public static int grade_PowerUp = 1;
+    public static int grade_Earthquake = 1;
+    public static int grade_Heal = 1;
+    public static int grade_Sacrifice = 1;
 }
 
 
@@ -32,12 +32,12 @@ public struct UserProperty
     public string selectedSkill2;
     public string selectedSkill3;
     public string selectedSkill4;
-    public int grade_meteor;
-    public int grade_landsmash;
-    public int grade_powerup;
-    public int grade_earthquake;
-    public int grade_heal;
-    public int grade_sacrifice;
+    public int grade_Meteor;
+    public int grade_LandSmash;
+    public int grade_PowerUp;
+    public int grade_Earthquake;
+    public int grade_Heal;
+    public int grade_Sacrifice;
     public UserProperty(int gold, int ruby, int stamina)
     {
         this.gold = gold;
@@ -48,11 +48,11 @@ public struct UserProperty
         selectedSkill2 = "";
         selectedSkill3 = "";
         selectedSkill4 = "";
-        grade_meteor = 1;
-        grade_landsmash = 1;
-        grade_powerup = 1;
-        grade_earthquake = 1;
-        grade_heal = 1;
-        grade_sacrifice = 1;
+        grade_Meteor = 1;
+        grade_LandSmash = 1;
+        grade_PowerUp = 1;
+        grade_Earthquake = 1;
+        grade_Heal = 1;
+        grade_Sacrifice = 1;
     }
 }

@@ -28,11 +28,13 @@ public class LandSmash : MonoBehaviour
 
     private void Start()
     {
+        _upgraded = PlayerPrefs.GetInt("grade_LandSmash");
         coolTime = 30f - (_upgraded - 1) * 5f / 19f;
         wallTime = 2f + (_upgraded - 1) * 2f / 19f;
         _Cool_Info_txt.GetComponent<Text>().text = string.Format("{0:0.#}", coolTime) + "√ ";
         _wall.GetComponent<Wall>().duration = wallTime;
         _audio = GetComponent<AudioSource>();
+        
     }
 
     private void Update()

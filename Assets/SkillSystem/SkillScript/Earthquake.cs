@@ -30,10 +30,12 @@ public class Earthquake : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
 
     private void Start()
     {
+        _upgraded = PlayerPrefs.GetInt("grade_Earthquake");
         holdTime = 1f + (_upgraded - 1) * 2f / 19f;
         coolMaxTime = 35f - (_upgraded - 1) * 10f / 19f;
         _Cool_Info_txt.GetComponent<Text>().text = string.Format("{0:0.#}", coolMaxTime) + "√ ";
         _enemyManager = GameObject.Find("SpawnPointGroup").GetComponent<EnemyManager>();
+        
     }
     private void Update()
     {

@@ -28,10 +28,12 @@ public class PowerUp : MonoBehaviour
 
     private void Start()
     {
+        _upgraded = PlayerPrefs.GetInt("grade_PowerUp");
         coolTime = 15f - (+_upgraded - 1) * 2f / 19f;
         _rageSkill.GetComponent<RageSkill>().rageAmount = 1f + (_upgraded - 1) * 3f / 19f;
         _Cool_Info_txt.GetComponent<Text>().text = string.Format("{0:0.#}", coolTime) + "√ ";
         _audio = GetComponent<AudioSource>();
+        
     }
 
     private void Update()
