@@ -18,6 +18,8 @@ public struct UserProperty
     public int stamina;
     public long nextStaminaRegenTime;
     public bool TutorialFinishFlag;
+    public int LastReachedChapter;
+    public int LastReachedStage;
     public UserProperty(int gold, int ruby, int stamina)
     {
         this.gold = gold;
@@ -25,5 +27,7 @@ public struct UserProperty
         this.stamina = stamina;
         this.nextStaminaRegenTime = 0;
         this.TutorialFinishFlag = false;
+        this.LastReachedChapter = 0;
+        this.LastReachedStage = 0;
     }
 }
