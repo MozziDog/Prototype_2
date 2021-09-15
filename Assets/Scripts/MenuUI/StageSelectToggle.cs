@@ -16,6 +16,13 @@ public class StageSelectToggle : MonoBehaviour
         toggleComponent.onValueChanged.AddListener(
             (bool isOn) => { OnToggleSelected(isOn); });
         toggleComponent.isOn = false;
+
+        if (Global.userProperty.LastReachedChapter < this.chapter
+            || Global.userProperty.LastReachedStage < (this.stage - 1))
+        {
+            Toggle toggle = gameObject.GetComponent<Toggle>();
+            toggle.interactable = false;
+        }
     }
 
     // Update is called once per frame
@@ -30,8 +37,9 @@ public class StageSelectToggle : MonoBehaviour
         {
             StageSelectSceneManager stageSelectManager
                 = GameObject.Find("StageSelectManager").GetComponent<StageSelectSceneManager>();
-            stageSelectManager.selectedChapter = chapter;
-            stageSelectManager.selectedStage = stage;
+            stageSelectManager.selectedStage = this.stage;
+            Global._chapter = this.chapter;
+            Global._stage = this.stage;
             ToggleGroup toggleGroup = gameObject.GetComponentInParent<ToggleGroup>();
             toggleGroup.allowSwitchOff = false;
             Debug.Log("chapter:" + chapter + ", stage:" + stage);
