@@ -23,6 +23,7 @@ public class TowerAdvance : MonoBehaviour
     public Button _advanceButton;
     public TowerManager _towerManager;
     public SelectManager _selectManager;
+    public TowerInfoUI _towerInfoUI;
     public Text UpgradeMessagePopUp;
     public float _numberOfTypes = 12;
     public int _numberOfLevels = 5;
@@ -131,6 +132,7 @@ public class TowerAdvance : MonoBehaviour
         AdvancedTower.GetComponent<TowerBase>().ConfirmTowerPosition();
         _towerManager.OnTowerSelected(AdvancedTower);
         _selectManager.SetSelectedTower(AdvancedTower);
+       
         yield return new WaitForSeconds(1f);
         CheckAdvance();
         yield return null;

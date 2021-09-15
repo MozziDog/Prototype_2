@@ -65,7 +65,7 @@ public class TowerInfoUI : MonoBehaviour
         towerDescription.text = newText;
     }
 
-    void SetTowerPreview(TowerBase tower)
+   public void SetTowerPreview(TowerBase tower)
     {
         towerImage.sprite = tower.towerImage;
     }
