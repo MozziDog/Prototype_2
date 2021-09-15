@@ -137,5 +137,10 @@ public class EnemyManager : MonoBehaviour
         if (enemySpawnCount < currentWave.enemyPrefabs.Length) StartCoroutine(EnemySpawner());
     }
 
+    public void isWaveEnd()
+    {
+        this.GetComponent<NavMeshAgent>().enabled = true;
+    }
+
 
 }

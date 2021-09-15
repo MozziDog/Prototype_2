@@ -59,6 +59,7 @@ public class WaveManager : MonoBehaviour
             && enemySpawner.enemyKilledCount >= waves[currentWaveIndex].maxEnemyCount
             && enemySpawner.CurrentEnemyList.Count == 0)
         {
+            enemySpawner.isWaveEnd();
             isInGame = false;
             return true;
         }
