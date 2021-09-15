@@ -78,8 +78,6 @@ public class DataTransfer : MonoBehaviour
                 GameObject enemyPrefab = Resources.Load<GameObject>("EnemyPrefabs/" + splitted[i]);
                 int enemyCount = int.Parse(splitted[i + 1]);
                 newWave.enemyPrefabs = new GameObject[enemyCount];
-                // MaxEnemy 값이 없으면 정상작동 안해서 임의로 넣어줌
-                newWave.maxEnemyCount = 1000;
                 for (int j = 0; j < enemyCount; j++)
                 {
                     enemyList.Add(enemyPrefab);

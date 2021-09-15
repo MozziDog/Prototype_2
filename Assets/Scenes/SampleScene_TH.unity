@@ -972,7 +972,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1629214610}
+      - m_Target: {fileID: 1885295921}
         m_TargetAssemblyTypeName: TowerInfoUI, Assembly-CSharp
         m_MethodName: CloseTowerInfoUI
         m_Mode: 1
@@ -10001,7 +10001,6 @@ GameObject:
   - component: {fileID: 1629214613}
   - component: {fileID: 1629214612}
   - component: {fileID: 1629214611}
-  - component: {fileID: 1629214610}
   m_Layer: 5
   m_Name: TowerInfoUI
   m_TagString: Untagged
@@ -10009,25 +10008,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &1629214610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1629214609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 665aed3c5547e87418688b4851f2b745, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerImage: {fileID: 1300597406}
-  attackDamageText: {fileID: 1266983492}
-  attackRangeText: {fileID: 31456395}
-  attackSpeedText: {fileID: 863158487}
-  attackAreaText: {fileID: 863158487}
-  specialEffectText: {fileID: 48161587}
-  towerDescription: {fileID: 1906111186}
 --- !u!114 &1629214611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10096,13 +10076,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629214609}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 455282931}
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 1885295920}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -16819,6 +16799,58 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c37343aa86f985d43adef8b7ca902642, type: 3}
+--- !u!1 &1885295919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1885295920}
+  - component: {fileID: 1885295921}
+  m_Layer: 0
+  m_Name: TowerInfoWindow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1885295920
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885295919}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1629214614}
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1885295921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885295919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 665aed3c5547e87418688b4851f2b745, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UI: {fileID: 1629214609}
+  towerImage: {fileID: 1300597406}
+  attackDamageText: {fileID: 1266983492}
+  attackRangeText: {fileID: 31456395}
+  attackSpeedText: {fileID: 863158487}
+  attackAreaText: {fileID: 863158487}
+  specialEffectText: {fileID: 48161587}
+  towerDescription: {fileID: 1906111186}
 --- !u!1 &1898352780
 GameObject:
   m_ObjectHideFlags: 0
@@ -18115,7 +18147,7 @@ PrefabInstance:
     - target: {fileID: 664026941020206919, guid: f20235cc3c7346d4c96250c7bb504ab4, type: 3}
       propertyPath: towerInfoUI
       value: 
-      objectReference: {fileID: 1629214610}
+      objectReference: {fileID: 0}
     - target: {fileID: 664026941020206919, guid: f20235cc3c7346d4c96250c7bb504ab4, type: 3}
       propertyPath: towerManager
       value: 
@@ -18619,7 +18651,7 @@ PrefabInstance:
     - target: {fileID: 8693507566751556412, guid: 3fd9e438688368b498d7abdd65a25801, type: 3}
       propertyPath: towerInfoUI
       value: 
-      objectReference: {fileID: 1629214610}
+      objectReference: {fileID: 1885295921}
     - target: {fileID: 8693507566751556412, guid: 3fd9e438688368b498d7abdd65a25801, type: 3}
       propertyPath: towerAdvance
       value: 

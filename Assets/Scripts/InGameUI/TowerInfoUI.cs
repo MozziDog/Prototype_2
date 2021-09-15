@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TowerInfoUI : MonoBehaviour
 {
+    [SerializeField] GameObject UI;
     [SerializeField] Image towerImage;
     [SerializeField] Text attackDamageText;
     [SerializeField] Text attackRangeText;
@@ -39,7 +40,7 @@ public class TowerInfoUI : MonoBehaviour
 
     void SetWindow(bool isOn)
     {
-        gameObject.SetActive(isOn);
+        UI.SetActive(isOn);
     }
 
     public void SetTowerInfoUIContents(GameObject tower)
@@ -65,7 +66,7 @@ public class TowerInfoUI : MonoBehaviour
         towerDescription.text = newText;
     }
 
-   public void SetTowerPreview(TowerBase tower)
+    public void SetTowerPreview(TowerBase tower)
     {
         towerImage.sprite = tower.towerImage;
     }

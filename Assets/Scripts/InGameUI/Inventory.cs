@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 using System;
 using UnityEngine.Events;
 
+
+// TODO : InvenToggle 클래스 활용하여 리팩토링
 public class Inventory : MonoBehaviour
 {
     public int MAX_INVENTORY_CAPACITY = 5; // 임의로 5로 지정해두겠습니다.
@@ -65,7 +67,10 @@ public class Inventory : MonoBehaviour
                 _towerManager.SendMessage("OnInventoryItemSelected");
         };
         toggleComponent.onValueChanged.AddListener(sendMessage);
-        // TODO: 인벤토리 버튼 내용 꾸미기
+        // inventory 내 TowerInfo window 구현
+        InvenToggle invenToggle = toggle.GetComponent<InvenToggle>();
+        invenToggle.towerPrefab = tower;
+
         TowerBase towerComponent = tower.GetComponent<TowerBase>();
         Text label = toggle.GetComponentInChildren<Text>();
         label.text = towerComponent.type + "타워";
