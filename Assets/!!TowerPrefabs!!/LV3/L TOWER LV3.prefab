@@ -15793,8 +15793,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 601a20424d76ab646952ee2215c078e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerImage: {fileID: 0}
-  pentominoImage: {fileID: 21300000, guid: b3591bf0b20c4ff489b4094764ca496f, type: 3}
+  towerImage: {fileID: 21300000, guid: 4059e191aed69494c902e4484e9a6a63, type: 3}
+  pentominoImage: {fileID: 21300000, guid: 70caae5ae23b07e4fa0bde0e269557de, type: 3}
   towerDescription: 
   _myposition: []
   LV: 3
