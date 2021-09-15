@@ -63,6 +63,7 @@ public class NormalBullet : MonoBehaviour, BulletInterFace
         musicPlayer.clip = shootSound;
         musicPlayer.time = 0;
         musicPlayer.Play();
+        Destroy(gameObject,2.3f);
     }
 
     // Update is called once per frame

@@ -1176,7 +1176,7 @@ ParticleSystem:
     rateOverDistance:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 6
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -5029,7 +5029,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6fcb48aed37dc7f43a8339f85fce6a36, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5162,7 +5161,6 @@ MonoBehaviour:
   firingAngle: 45
   gravity: 9.8
   BombRadius: 0
-  musicPlayer: {fileID: -5873280101807088930}
   shootSound: {fileID: 8300000, guid: 8c8ead0e2239ae8418fa0700611da715, type: 3}
 --- !u!82 &-5873280101807088930
 AudioSource:
