@@ -30,8 +30,9 @@ public class StageSelectToggle : MonoBehaviour
         {
             StageSelectSceneManager stageSelectManager
                 = GameObject.Find("StageSelectManager").GetComponent<StageSelectSceneManager>();
-            stageSelectManager.selectedChapter = chapter;
-            stageSelectManager.selectedStage = stage;
+            stageSelectManager.selectedStage = this.stage;
+            Global._chapter = this.chapter;
+            Global._stage = this.stage;
             ToggleGroup toggleGroup = gameObject.GetComponentInParent<ToggleGroup>();
             toggleGroup.allowSwitchOff = false;
             Debug.Log("chapter:" + chapter + ", stage:" + stage);
