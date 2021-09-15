@@ -17483,6 +17483,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GroundWavePathDisplayer (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3385828965513078799, guid: 88ad465ad648274488d4400b4c044772, type: 3}
+      propertyPath: animationDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3385828965513078799, guid: 88ad465ad648274488d4400b4c044772, type: 3}
+      propertyPath: timeBetweenHeadAndTail
+      value: 0.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88ad465ad648274488d4400b4c044772, type: 3}
 --- !u!114 &2012177313 stripped

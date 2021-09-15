@@ -96,7 +96,7 @@ public class EnemyManager : MonoBehaviour
             return false;
         print("New path calculated");
         wavePath_ground.DisplayPath(path.corners);
-        if (navMeshPath.status == NavMeshPathStatus.PathPartial)
+        if (navMeshPath.status != NavMeshPathStatus.PathComplete)
         {
             return false;
         }

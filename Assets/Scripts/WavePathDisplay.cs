@@ -49,7 +49,11 @@ public class WavePathDisplay : MonoBehaviour
 
         if (animateLineCoroutine != null)
             StopCoroutine(animateLineCoroutine);
-        StartCoroutine(AnimateLine());
+        if (animateHeadCoroutine != null)
+            StopCoroutine(animateHeadCoroutine);
+        if (animateTailCoroutine != null)
+            StopCoroutine(animateTailCoroutine);
+        animateLineCoroutine = StartCoroutine(AnimateLine());
     }
 
     private void CopyPathData(Vector3[] pathPoints)

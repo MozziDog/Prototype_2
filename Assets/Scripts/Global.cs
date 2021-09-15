@@ -20,6 +20,11 @@ public struct UserProperty
     public bool TutorialFinishFlag;
     public int LastReachedChapter;
     public int LastReachedStage;
+    public int skill_1_level;
+    public int skill_2_level;
+    public int skill_3_level;
+    public int skill_4_level;
+    public int skill_5_level;
     public UserProperty(int gold, int ruby, int stamina)
     {
         this.gold = gold;
@@ -27,7 +32,12 @@ public struct UserProperty
         this.stamina = stamina;
         this.nextStaminaRegenTime = 0;
         this.TutorialFinishFlag = false;
-        this.LastReachedChapter = 0;
+        this.LastReachedChapter = 1;
         this.LastReachedStage = 0;
+        this.skill_1_level = 1;
+        this.skill_2_level = 1;
+        this.skill_3_level = 1;
+        this.skill_4_level = 1;
+        this.skill_5_level = 1;
     }
 }
