@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 23985980816881600}
   - component: {fileID: 114503436600977418}
   m_Layer: 0
-  m_Name: EL_draco_3
+  m_Name: L3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
