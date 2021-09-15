@@ -29,6 +29,7 @@ public class Sacrifice : MonoBehaviour
 
     private void Start()
     {
+        _upgraded = PlayerPrefs.GetInt("grade_Sacrifice");
         _audio = GetComponent<AudioSource>();
         _moneyAmount = 10 + (_upgraded - 1) * 5;
         if (_upgraded >= 1 && _upgraded < 6)
@@ -41,6 +42,7 @@ public class Sacrifice : MonoBehaviour
         _Cool_Info_txt.GetComponent<Text>().text = string.Format("{0:0.#}", coolTime) + "√ ";
         _player = GameObject.Find("Player1");
         _moneyManager = GameObject.Find("InGameShopManager").GetComponent<MoneyManager>();
+        
     }
 
     private void Update()
