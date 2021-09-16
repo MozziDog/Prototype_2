@@ -9,7 +9,9 @@ public class TowerSelectedUI : MonoBehaviour
     GameObject targetTower = null;
     [SerializeField] TowerInfoUI towerInfoUI;
     [SerializeField] TowerAdvance towerAdvance;
+    [SerializeField] Text sellPriceText;
     public TowerManager towerManager;
+
 
     public void SetUI(GameObject tower, bool isOn)
     {
@@ -19,10 +21,10 @@ public class TowerSelectedUI : MonoBehaviour
             Debug.LogWarning("tower selected!");
             targetTower = tower;
             towerAdvance.SetAdvanceTarget(targetTower);
+            sellPriceText.text = targetTower.GetComponent<TowerBase>()?.GetPrice().ToString();
             gameObject.SetActive(isOn);
             SetUIPosition(tower);
             UIOnAnimation();
-
         }
         else
         {
