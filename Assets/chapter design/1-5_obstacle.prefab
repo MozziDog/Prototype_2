@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &5456189158979569554
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113045246837972836}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4190311, y: 1.8514822, z: 2.0859637}
+  m_Center: {x: 0, y: 0.9257411, z: 0.023103893}
 --- !u!114 &2039857023351785458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16,19 +29,6 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!65 &5456189158979569554
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113045246837972836}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.4190311, y: 1.8514822, z: 2.0859637}
-  m_Center: {x: 0, y: 0.9257411, z: 0.023103893}
 --- !u!1 &6028552771709538376
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,6 +61,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8335454653150944387
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9044391007336339741}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8381268, y: 0.51793015, z: 0.84674793}
+  m_Center: {x: 0.000000029802322, y: 0.24019858, z: 0}
 --- !u!114 &7433931622981978409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,19 +90,6 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!65 &8335454653150944387
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9044391007336339741}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.8381268, y: 0.51793015, z: 0.84674793}
-  m_Center: {x: 0.000000029802322, y: 0.24019858, z: 0}
 --- !u!1001 &113948184685214634
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -107,7 +107,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1492349664666830, guid: 4a9c2701483938240b3d6f5c1473bfce, type: 3}
       propertyPath: m_TagString
-      value: Floor
+      value: Tower
       objectReference: {fileID: 0}
     - target: {fileID: 4433575866065818, guid: 4a9c2701483938240b3d6f5c1473bfce, type: 3}
       propertyPath: m_RootOrder
@@ -202,7 +202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1185192345492324, guid: e91fb43cf2d704e45b31b277daaada16, type: 3}
       propertyPath: m_TagString
-      value: Floor
+      value: Tower
       objectReference: {fileID: 0}
     - target: {fileID: 1245889445470180, guid: e91fb43cf2d704e45b31b277daaada16, type: 3}
       propertyPath: m_Layer
