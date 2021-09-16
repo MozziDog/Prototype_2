@@ -44579,7 +44579,7 @@ MonoBehaviour:
   LV: 1
   type: P
   bulletSpeed: 20
-  bulletDamage: 24
+  bulletDamage: 26
   attackRate: 3
   attackRange: 5.5
   bombRange: 0

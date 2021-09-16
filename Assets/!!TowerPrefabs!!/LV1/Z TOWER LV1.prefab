@@ -1630,7 +1630,7 @@ MonoBehaviour:
   LV: 1
   type: Z
   bulletSpeed: 20
-  bulletDamage: 5
+  bulletDamage: 10
   attackRate: 1
   attackRange: 3
   bombRange: 0

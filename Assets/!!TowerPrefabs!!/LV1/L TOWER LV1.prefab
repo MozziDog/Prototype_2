@@ -10443,7 +10443,7 @@ MonoBehaviour:
   LV: 1
   type: L
   bulletSpeed: 1
-  bulletDamage: 1
+  bulletDamage: 1.2
   attackRate: 0.5
   attackRange: 3
   bombRange: 2.5
