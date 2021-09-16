@@ -9,6 +9,7 @@ public class ChainBullet : MonoBehaviour ,BulletInterFace
     public float bulletSpeed;
     private float bulletDamage;
     public Transform currentTarget;
+    private Transform currentBodyPos;
     public GameObject impactParticle;
     public Vector3 aimPosition;
     public int maxChainCount=0;
@@ -24,6 +25,7 @@ public class ChainBullet : MonoBehaviour ,BulletInterFace
     {
         this.bulletSpeed = bulletinfo.bulletSpeed;
         this.currentTarget = bulletinfo.attackTarget;
+        this.currentBodyPos = currentTarget.GetComponent<EnemyInterFace>().GetBodyPos();
         this.bulletDamage = bulletinfo.bulletDamage;
         this.maxChainCount = bulletinfo.maxChainCount;
         this.chainRadius = bulletinfo.chainRadius;
@@ -67,6 +69,7 @@ public class ChainBullet : MonoBehaviour ,BulletInterFace
 
             if (currentTarget) //if found new target
             {
+                currentBodyPos = currentTarget.GetComponent<EnemyInterFace>().GetBodyPos();
                 hitTargets.Add(currentTarget.gameObject);
                 ChangeState(WeaponState.AttackToTarget);
             }
@@ -116,10 +119,10 @@ public class ChainBullet : MonoBehaviour ,BulletInterFace
             other.GetComponent<FlyingEnemy>().GetDamage(bulletDamage);
 
         //hit particle spawn
-        GameObject clone = Instantiate(impactParticle, currentTarget.transform.position + Vector3.up * 0.5f,
+        GameObject clone = Instantiate(impactParticle, currentBodyPos.position,
             Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
         clone.transform.parent = currentTarget.transform;
-        Destroy(clone, 3);
+        Destroy(clone, 2f);
 
 
         currentChainCount++; //count the chain successed
@@ -132,7 +135,7 @@ public class ChainBullet : MonoBehaviour ,BulletInterFace
     void Shoot()
     {
         //조준방향으로 발사..추적기능 on 
-        aimPosition = new Vector3(currentTarget.position.x, currentTarget.position.y + 0.5f, currentTarget.position.z); 
+        aimPosition = currentBodyPos.position;//new Vector3(currentTarget.position.x, currentTarget.position.y + 0.5f, currentTarget.position.z); 
         Physics.Raycast(transform.position, aimPosition, out hit);
         transform.LookAt(aimPosition);
         
@@ -157,7 +160,7 @@ public class ChainBullet : MonoBehaviour ,BulletInterFace
     // Update is called once per frame
     void Update()
     {
-        Destroy(gameObject, 4);
+        Destroy(gameObject, 2.5f);
         if (currentChainCount == maxChainCount)
             Destroy(gameObject);
         

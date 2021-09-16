@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 96880836843003852}
   m_Layer: 14
   m_Name: Trail (2)
-  m_TagString: Untagged
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 96596025965803668}
   m_Layer: 14
   m_Name: Trail
-  m_TagString: Untagged
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 199856698784261458}
   m_Layer: 14
   m_Name: Triangles_tail
-  m_TagString: Untagged
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5270,7 +5270,7 @@ GameObject:
   - component: {fileID: 96055308078592564}
   m_Layer: 14
   m_Name: Trail (1)
-  m_TagString: Untagged
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5398,7 +5398,7 @@ GameObject:
   - component: {fileID: 4082079393354058}
   m_Layer: 14
   m_Name: SCALE
-  m_TagString: Untagged
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

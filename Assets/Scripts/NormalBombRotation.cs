@@ -21,7 +21,7 @@ public class NormalBombRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(120f * Time.deltaTime * bulletSpeed, 0, 0);
+        transform.Rotate(150f * Time.deltaTime * bulletSpeed, 0, 0);
         
     }
 }

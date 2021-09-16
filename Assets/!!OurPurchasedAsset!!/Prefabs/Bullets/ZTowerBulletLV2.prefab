@@ -4962,7 +4962,7 @@ GameObject:
   - component: {fileID: 3048174094323453423}
   m_Layer: 14
   m_Name: ZTowerBulletLV2
-  m_TagString: Bullet
+  m_TagString: ChainBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
