@@ -1,5 +1,5 @@
-﻿chapter,stage,spawnTime,enemy,entity,enemy,entity,enemy,entity,enemy,entity,enemy,entity,enemy,entity,,
-1,1,0.9,Goblin_2_A,4,Jack_A,4,Goblin_2_A,4,Jack_A,7,Goblin_2_A,4,,,,
+chapter,stage,spawnTime,enemy,entity,enemy,entity,enemy,entity,enemy,entity,enemy,entity,enemy,entity,,
+1,1,0.9,DragonSoulEater,4,Jack_A,4,Goblin_2_A,4,Jack_A,7,Goblin_2_A,4,,,,
 1,1,0.9,Goblin_2_C,9,Jack_A,6,Goblin_2_C,7,Jack_A,8,,,,,,
 1,1,0.9,Goblin_2_A,6,Jack_A,6,Goblin_2_A,6,Jack_A,6,,,,,,
 1,1,0.9,Goblin_2_A,3,Jack_B,5,Goblin_2_A,10,Jack_B,7,,,,,,

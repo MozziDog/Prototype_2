@@ -98,6 +98,8 @@ public class ShootTower : MonoBehaviour,TowerInterFace
                     continue;
                 if (BulletPrefab.tag == "BombBullet" && enemyList[i].tag == "FlyingEnemy")
                     continue;
+                if (BulletPrefab.tag == "ChainBullet" && enemyList[i].tag == "FlyingEnemy")
+                    continue;
                 if (enemyList[i].GetComponent<EnemyInterFace>().CheckDead())
                     continue;
 
