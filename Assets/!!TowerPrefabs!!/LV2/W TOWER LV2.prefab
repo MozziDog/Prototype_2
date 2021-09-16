@@ -1266,9 +1266,9 @@ MonoBehaviour:
   _myposition: []
   LV: 2
   type: W
-  bulletSpeed: 0.8
+  bulletSpeed: 1
   bulletDamage: 0
-  attackRate: 8
+  attackRate: 7
   attackRange: 5.5
   bombRange: 3.5
   bulletAmmoCount: 0
@@ -1279,7 +1279,7 @@ MonoBehaviour:
   poisonDuration: 0
   poisonRate: 0
   stunDuration: 2
-  mujeockTime: 5
+  mujeockTime: 15
   slowIntensity: 0
   slowRange: 0
   numberOfBlocks: 3

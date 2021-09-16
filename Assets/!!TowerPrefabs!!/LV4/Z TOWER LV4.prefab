@@ -1463,14 +1463,14 @@ MonoBehaviour:
   _myposition: []
   LV: 4
   type: Z
-  bulletSpeed: 10
-  bulletDamage: 15
-  attackRate: 2.5
-  attackRange: 10
+  bulletSpeed: 20
+  bulletDamage: 10
+  attackRate: 1
+  attackRange: 3
   bombRange: 0
   bulletAmmoCount: 0
   burstRate: 0
-  maxChainCount: 4
+  maxChainCount: 3
   chainRadius: 3
   poisonDamage: 0
   poisonDuration: 0

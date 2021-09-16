@@ -44579,9 +44579,9 @@ MonoBehaviour:
   LV: 1
   type: P
   bulletSpeed: 20
-  bulletDamage: 30
+  bulletDamage: 24
   attackRate: 3
-  attackRange: 10
+  attackRange: 5.5
   bombRange: 0
   bulletAmmoCount: 0
   burstRate: 0

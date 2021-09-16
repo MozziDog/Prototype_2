@@ -1462,10 +1462,10 @@ MonoBehaviour:
   _myposition: []
   LV: 5
   type: N
-  bulletSpeed: 1
+  bulletSpeed: 2
   bulletDamage: 0
   attackRate: 2
-  attackRange: 10
+  attackRange: 5.5
   bombRange: 3.5
   bulletAmmoCount: 0
   burstRate: 0

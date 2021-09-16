@@ -1266,11 +1266,11 @@ MonoBehaviour:
   _myposition: []
   LV: 1
   type: W
-  bulletSpeed: 0.8
+  bulletSpeed: 1
   bulletDamage: 0
   attackRate: 8
   attackRange: 3.5
-  bombRange: 3.5
+  bombRange: 2
   bulletAmmoCount: 0
   burstRate: 0
   maxChainCount: 0

@@ -654,7 +654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 360
   currentHP: 100
-  moveSpeed: 1.8
+  moveSpeed: 2.3
   hitDamage: 1
   headPos: {fileID: 5503261678844139419}
   bodyPos: {fileID: 7985951685821906534}

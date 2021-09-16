@@ -1391,8 +1391,8 @@ MonoBehaviour:
   poisonDamage: 0
   poisonDuration: 0
   poisonRate: 0
-  stunDuration: 2
-  mujeockTime: 5
+  stunDuration: 2.5
+  mujeockTime: 15
   slowIntensity: 0
   slowRange: 0
   numberOfBlocks: 0

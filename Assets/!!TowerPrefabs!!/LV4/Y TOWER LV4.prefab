@@ -1807,10 +1807,10 @@ MonoBehaviour:
   _myposition: []
   LV: 4
   type: Y
-  bulletSpeed: 10
-  bulletDamage: 45
+  bulletSpeed: 20
+  bulletDamage: 12
   attackRate: 1
-  attackRange: 10
+  attackRange: 2.5
   bombRange: 0
   bulletAmmoCount: 2
   burstRate: 0.3

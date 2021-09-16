@@ -30591,9 +30591,9 @@ MonoBehaviour:
   LV: 5
   type: U
   bulletSpeed: 1
-  bulletDamage: 25
-  attackRate: 2
-  attackRange: 10
+  bulletDamage: 72
+  attackRate: 6
+  attackRange: 5.5
   bombRange: 3.5
   bulletAmmoCount: 0
   burstRate: 0
