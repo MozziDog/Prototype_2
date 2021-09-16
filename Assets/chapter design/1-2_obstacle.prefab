@@ -77,7 +77,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1265706886838328, guid: bf86316927b5b43479cb0604c2f5302f, type: 3}
       propertyPath: m_TagString
-      value: Floor
+      value: Tower
       objectReference: {fileID: 0}
     - target: {fileID: 4857912911456882, guid: bf86316927b5b43479cb0604c2f5302f, type: 3}
       propertyPath: m_RootOrder
