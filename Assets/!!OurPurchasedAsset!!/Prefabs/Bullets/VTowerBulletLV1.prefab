@@ -1176,7 +1176,7 @@ ParticleSystem:
     rateOverDistance:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 10
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -5290,7 +5290,6 @@ MonoBehaviour:
   firingAngle: 45
   gravity: 9.8
   BombRadius: 0
-  musicPlayer: {fileID: 6892789377135616732}
   shootSound: {fileID: 8300000, guid: 8c8ead0e2239ae8418fa0700611da715, type: 3}
 --- !u!82 &6892789377135616732
 AudioSource:
