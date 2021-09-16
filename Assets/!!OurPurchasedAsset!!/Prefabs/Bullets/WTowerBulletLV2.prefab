@@ -9761,7 +9761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BombAreaEffect: {fileID: 6809944706259094419, guid: 037187ee0b205234f80397dd81e564d9, type: 3}
-  impactParticle: {fileID: 1191811519933358, guid: 274f043ea1351e74887b9465be612e2b, type: 3}
+  impactParticle: {fileID: 1338360299038112, guid: ea4dce2707d1d8248966b113f93210fa, type: 3}
   StunFx: {fileID: 6702027334493932133, guid: a7b3cc5cfdc13b74596308805c12f761, type: 3}
   LV: 0
   BulletName: 
