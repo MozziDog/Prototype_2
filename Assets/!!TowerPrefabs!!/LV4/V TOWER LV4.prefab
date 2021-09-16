@@ -1010,6 +1010,7 @@ MonoBehaviour:
   _myposition: []
   LV: 4
   type: V
+  price: 120
   bulletSpeed: 1.5
   bulletDamage: 7
   attackRate: 0.5

@@ -13,7 +13,7 @@ public class TowerSelectedUI : MonoBehaviour
 
     public void SetUI(GameObject tower, bool isOn)
     {
-        Debug.Log("setui");
+        Debug.Log("setui : " + isOn);
         if (isOn == true)
         {
             Debug.LogWarning("tower selected!");
@@ -58,7 +58,8 @@ public class TowerSelectedUI : MonoBehaviour
         {
             StopCoroutine(UIAnimationCoroutine);
         }
-        UIAnimationCoroutine = StartCoroutine(UIAnimation());
+        //UIAnimationCoroutine = StartCoroutine(UIAnimation());
+        gameObject.SetActive(false);
     }
 
     public void SetUIPosition(Vector2 position)
@@ -88,6 +89,6 @@ public class TowerSelectedUI : MonoBehaviour
     public void OnClickTowerAdvanceButton()
     {
         towerAdvance.TryAdvance();
-        
+
     }
 }

@@ -44578,6 +44578,7 @@ MonoBehaviour:
   _myposition: []
   LV: 3
   type: P
+  price: 90
   bulletSpeed: 20
   bulletDamage: 48
   attackRate: 3
