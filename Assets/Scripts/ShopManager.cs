@@ -6,6 +6,7 @@ public class ShopManager : MonoBehaviour
 {
     public GameObject notPreparedWindow;
     public GameObject confirmWindow;
+    public GameObject notEnoughMoneyWindow;
     public StaminaManager staminaManager;
 
     int gemToBuy = 0;
@@ -52,10 +53,15 @@ public class ShopManager : MonoBehaviour
 
     public void OnClickButton_PurchaseGold(int value)
     {
+        price_gem = goldPrice[value];
+        if (price_gem > Global.userProperty.ruby)
+        {
+            notEnoughMoneyWindow.SetActive(true);
+            return;
+        }
         gemToBuy = 0;
         goldToBuy = value;
         price_RealMoney = 0;
-        price_gem = goldPrice[value];
         confirmWindow.SetActive(true);
     }
 
@@ -93,5 +99,12 @@ public class ShopManager : MonoBehaviour
         gemToBuy = 0;
         goldToBuy = 0;
         confirmWindow.SetActive(false);
+    }
+
+
+    public void OnClickButton_notEnoughMoney()
+    {
+        CancelPurchase();
+        notEnoughMoneyWindow.SetActive(false);
     }
 }
