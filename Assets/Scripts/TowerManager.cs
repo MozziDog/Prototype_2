@@ -361,7 +361,7 @@ public class TowerManager : MonoBehaviour
                     GameObject child = _tower.transform.GetChild(i).gameObject;
                     if (child.GetComponent<MeshRenderer>() != null)
                     {
-                        child.GetComponent<MeshRenderer>().material.color = new Color(255, 255, 255, 255); //white
+                        child.GetComponent<MeshRenderer>().material.color = new Color(0, 1, 0, 1); //white
                     }
                 }
                 break;
