@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
         // CheckTileUnderCursor();
         // _floor.GetComponent<Renderer>().material.SetFloat("_GridScaleFactor", _scaleFactor);
         CheckGameOver();
+        CheckStageClear();
     }
 
 

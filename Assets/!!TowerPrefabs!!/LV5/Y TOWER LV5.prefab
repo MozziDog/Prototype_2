@@ -1335,10 +1335,11 @@ MonoBehaviour:
   _myposition: []
   LV: 5
   type: Y
-  bulletSpeed: 10
+  price: 150
+  bulletSpeed: 20
   bulletDamage: 45
-  attackRate: 1
-  attackRange: 10
+  attackRate: 15
+  attackRange: 2.5
   bombRange: 0
   bulletAmmoCount: 2
   burstRate: 0.3

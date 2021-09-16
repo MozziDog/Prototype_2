@@ -151,9 +151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1532b18a1bb20fa4180eee64278fa334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 200
+  maxHP: 480
   currentHP: 100
-  moveSpeed: 1
+  moveSpeed: 1.6
   hitDamage: 1
   headPos: {fileID: 5099071101702618126}
   bodyPos: {fileID: 7907178481560018361}

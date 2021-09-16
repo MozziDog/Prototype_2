@@ -39,7 +39,7 @@ public class TowerManager : MonoBehaviour
     public TowerSelectedUI selectedUI;
     GameObject selectedTower;
     [SerializeField] MoneyManager wallet;
-    private Color originTowerColor; 
+    private Color originTowerColor;
 
     void Start()
     {
@@ -216,7 +216,7 @@ public class TowerManager : MonoBehaviour
         {
             temporarilyPlacedTower = Instantiate(towerToSpawn, towerSpawnPosition, Quaternion.identity);
             originTowerColor = temporarilyPlacedTower.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material.color;
-            ChangeMaterial(temporarilyPlacedTower,2);
+            ChangeMaterial(temporarilyPlacedTower, 2);
         }
         else
         {
@@ -361,7 +361,7 @@ public class TowerManager : MonoBehaviour
                     GameObject child = _tower.transform.GetChild(i).gameObject;
                     if (child.GetComponent<MeshRenderer>() != null)
                     {
-                        child.GetComponent<MeshRenderer>().material.color = new Color(255, 255, 255, 255); //white
+                        child.GetComponent<MeshRenderer>().material.color = new Color(0, 1, 0, 1); //white
                     }
                 }
                 break;
@@ -384,7 +384,8 @@ public class TowerManager : MonoBehaviour
     {
         if (selectedTower != null)
         {
-            wallet.AddMoney(selectedTower.GetComponent<TowerBase>().GetPrice());
+            wallet.AddMoney(selectedTower.GetComponent<TowerBase>().GetPrice() / 2);
+            selectedTower.tag = "default";
             Destroy(selectedTower);
             selectedUI.SetUI(null, false);
         }

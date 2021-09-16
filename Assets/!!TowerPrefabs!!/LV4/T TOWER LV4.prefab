@@ -132,6 +132,7 @@ MonoBehaviour:
   _myposition: []
   LV: 3
   type: T
+  price: 30
   bulletSpeed: 12
   bulletDamage: 10
   attackRate: 1
@@ -1349,6 +1350,7 @@ MonoBehaviour:
   _myposition: []
   LV: 3
   type: T
+  price: 30
   bulletSpeed: 12
   bulletDamage: 10
   attackRate: 1
@@ -1502,6 +1504,7 @@ MonoBehaviour:
   _myposition: []
   LV: 3
   type: T
+  price: 30
   bulletSpeed: 12
   bulletDamage: 10
   attackRate: 1
@@ -1598,10 +1601,11 @@ MonoBehaviour:
   _myposition: []
   LV: 4
   type: T
-  bulletSpeed: 12
+  price: 120
+  bulletSpeed: 20
   bulletDamage: 10
-  attackRate: 1
-  attackRange: 15
+  attackRate: 0.5
+  attackRange: 3.5
   bombRange: 0
   bulletAmmoCount: 0
   burstRate: 0

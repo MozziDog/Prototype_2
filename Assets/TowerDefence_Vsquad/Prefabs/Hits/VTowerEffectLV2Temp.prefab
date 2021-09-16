@@ -19434,7 +19434,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4360125954435334}
   m_Layer: 0
-  m_Name: VTowerEffectLV2
+  m_Name: VTowerEffectLV2Temp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

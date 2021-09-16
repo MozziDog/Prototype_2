@@ -18,7 +18,7 @@ public class TowerBase : MonoBehaviour
     [SerializeField]
     public float LV;
     public string type;
-    private int price = 30;
+    public int price = 30;
     public float bulletSpeed;
     public float bulletDamage;
     public float attackRate;
@@ -166,7 +166,7 @@ public class TowerBase : MonoBehaviour
         else
             return "-";
     }
-} 
+}
 
 public class TowerTransform
 {

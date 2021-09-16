@@ -15442,7 +15442,7 @@ MonoBehaviour:
   LV: 1
   type: F
   bulletSpeed: 20
-  bulletDamage: 2
+  bulletDamage: 1.8
   attackRate: 0.2
   attackRange: 3.5
   bombRange: 0

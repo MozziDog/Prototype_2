@@ -1011,8 +1011,8 @@ MonoBehaviour:
   LV: 1
   type: V
   bulletSpeed: 1.5
-  bulletDamage: 1.5
-  attackRate: 0.7
+  bulletDamage: 3
+  attackRate: 0.5
   attackRange: 5.5
   bombRange: 2
   bulletAmmoCount: 0

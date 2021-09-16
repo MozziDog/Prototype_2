@@ -1038,10 +1038,11 @@ MonoBehaviour:
   _myposition: []
   LV: 3
   type: X
-  bulletSpeed: 10
-  bulletDamage: 10
-  attackRate: 1
-  attackRange: 10
+  price: 90
+  bulletSpeed: 30
+  bulletDamage: 48
+  attackRate: 3
+  attackRange: 5.5
   bombRange: 0
   bulletAmmoCount: 0
   burstRate: 0
