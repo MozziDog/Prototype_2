@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class GameManager : MonoBehaviour
     public GameObject StageClearPanel;
     public float _scaleFactor = 1f;
     public bool isGameOver = false;
+    [SerializeField] GameObject clearUI;
+    [SerializeField] StageClaerReward[] claerRewards;
+    [SerializeField] Text clearRewardText;
 
     private void Awake()
     {
@@ -139,4 +143,20 @@ public class GameManager : MonoBehaviour
         CheckStageClear();
     }
 
+    public void GiveStageClearReward()
+    {
+        int reward = claerRewards[Global._chapter - 1].rewards[Global._stage - 1];
+        clearRewardText.text = reward.ToString();
+        Global.userProperty.gold += reward;
+        GameObject saveManager = GameObject.Find("SaveLoadManager");
+        saveManager?.GetComponent<SaveLoadManager>().Save();
+        clearUI.SetActive(true);
+    }
+
+}
+
+[System.Serializable]
+public class StageClaerReward
+{
+    public int[] rewards;
 }
