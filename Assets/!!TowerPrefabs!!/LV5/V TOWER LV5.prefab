@@ -813,7 +813,7 @@ MonoBehaviour:
   type: V
   bulletSpeed: 1.5
   bulletDamage: 8.4
-  attackRate: 0.7
+  attackRate: 0.5
   attackRange: 5.5
   bombRange: 3
   bulletAmmoCount: 0
