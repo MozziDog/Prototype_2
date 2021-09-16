@@ -96,7 +96,12 @@ public class GameManager : MonoBehaviour
 
     public void GameRetry()
     {
-        SceneManager.LoadScene(0);
+        SceneLoader.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void GameExit()
+    {
+        SceneLoader.LoadScene("StageSelectScene");
     }
 
     /*
