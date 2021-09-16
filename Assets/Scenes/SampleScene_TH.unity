@@ -2974,7 +2974,7 @@ MonoBehaviour:
   - {fileID: 1859883239}
   _rangeGizmo: {fileID: 794885303}
   GameOverPanel: {fileID: 472260057}
-  StageClearPanel: {fileID: 0}
+  StageClearPanel: {fileID: 2108247175}
   _scaleFactor: 1
   isGameOver: 0
 --- !u!114 &625576662
