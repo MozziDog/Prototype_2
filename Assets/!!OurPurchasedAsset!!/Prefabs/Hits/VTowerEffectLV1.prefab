@@ -11219,7 +11219,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.6698113, g: 0.18390827, b: 0.0979441, a: 1}
-        key1: {r: 0.9716981, g: 0.122447215, b: 0.087086126, a: 0.39607844}
+        key1: {r: 0.9716981, g: 0.122447215, b: 0.087086126, a: 0.49803922}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -11237,7 +11237,7 @@ ParticleSystem:
         atime0: 0
         atime1: 49537
         atime2: 65535
-        atime3: 0
+        atime3: 65535
         atime4: 0
         atime5: 0
         atime6: 0
