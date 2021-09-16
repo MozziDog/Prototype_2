@@ -59,6 +59,7 @@ public class WaveManager : MonoBehaviour
             && enemySpawner.enemyKilledCount >= waves[currentWaveIndex].maxEnemyCount
             && enemySpawner.CurrentEnemyList.Count == 0)
         {
+            enemySpawner.isWaveEnd();
             isInGame = false;
             return true;
         }
@@ -85,7 +86,7 @@ public class WaveManager : MonoBehaviour
         if (_Heal != null)
             _Heal.GetComponent<Heal>()._usage = 1;
         ClearUI.SetActive(true);
-        allWaveClear = true; //��ü ���̺� �ϼ� �� ����ȭ�� �̵� , allWaveDone ��  GameManager �� ����� ����
+        allWaveClear = true; //��ü ���̺� �ϼ� �� ����ȭ�� �̵� , allWaveclear ��  GameManager �� ����� ����
     }
 
     private void Start()

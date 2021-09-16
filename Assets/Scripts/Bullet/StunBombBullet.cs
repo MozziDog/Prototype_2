@@ -168,7 +168,7 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
             StartCoroutine(SimulateProjectile());
             MusicPlay(); //shoot effect
         }
-        Destroy(gameObject, 4f);
+        Destroy(gameObject, 3f);
     }
 
     // Update is called once per frame

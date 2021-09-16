@@ -14463,7 +14463,7 @@ GameObject:
   - component: {fileID: -6346382785627300898}
   m_Layer: 14
   m_Name: LTowerBulletLV2
-  m_TagString: Untagged
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14519,7 +14519,6 @@ MonoBehaviour:
   firingAngle: 45
   gravity: 9.8
   BombRadius: 0
-  musicPlayer: {fileID: -6346382785627300898}
   shootSound: {fileID: 8300000, guid: ccacba851a8f2fe419f6c421bdf3efee, type: 3}
 --- !u!54 &8818878597704378533
 Rigidbody:

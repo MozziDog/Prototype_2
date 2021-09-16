@@ -112,6 +112,10 @@ public class GroundEnemy : MonoBehaviour, EnemyInterFace
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag == "BombBullet")
+        {
+            Physics.IgnoreCollision(other, this.gameObject.GetComponent<Collider>());
+        }
         if (isDie)
             return;
 

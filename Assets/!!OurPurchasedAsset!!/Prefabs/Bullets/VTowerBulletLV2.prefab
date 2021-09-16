@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 96880836843003852}
   m_Layer: 14
   m_Name: Trail (2)
-  m_TagString: Untagged
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 96596025965803668}
   m_Layer: 14
   m_Name: Trail
-  m_TagString: Untagged
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 199856698784261458}
   m_Layer: 14
   m_Name: Triangles_tail
-  m_TagString: Untagged
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -858,7 +858,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 750
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -1176,7 +1176,7 @@ ParticleSystem:
     rateOverDistance:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 8
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -5029,7 +5029,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6fcb48aed37dc7f43a8339f85fce6a36, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5162,7 +5161,6 @@ MonoBehaviour:
   firingAngle: 45
   gravity: 9.8
   BombRadius: 0
-  musicPlayer: {fileID: -5873280101807088930}
   shootSound: {fileID: 8300000, guid: 8c8ead0e2239ae8418fa0700611da715, type: 3}
 --- !u!82 &-5873280101807088930
 AudioSource:
@@ -5176,7 +5174,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.823
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5272,7 +5270,7 @@ GameObject:
   - component: {fileID: 96055308078592564}
   m_Layer: 14
   m_Name: Trail (1)
-  m_TagString: Untagged
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5400,7 +5398,7 @@ GameObject:
   - component: {fileID: 4082079393354058}
   m_Layer: 14
   m_Name: SCALE
-  m_TagString: Untagged
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 96485629675219962}
   m_Layer: 14
   m_Name: Trail
-  m_TagString: Untagged
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 96246456367940246}
   m_Layer: 14
   m_Name: Trail (1)
-  m_TagString: Untagged
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 199226175418562480}
   m_Layer: 14
   m_Name: Triangles_tail
-  m_TagString: Untagged
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -858,7 +858,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 750
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -1176,7 +1176,7 @@ ParticleSystem:
     rateOverDistance:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 8
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -5086,7 +5086,7 @@ GameObject:
   - component: {fileID: 96959624441233596}
   m_Layer: 14
   m_Name: Trail (2)
-  m_TagString: Untagged
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5290,7 +5290,6 @@ MonoBehaviour:
   firingAngle: 45
   gravity: 9.8
   BombRadius: 0
-  musicPlayer: {fileID: 6892789377135616732}
   shootSound: {fileID: 8300000, guid: 8c8ead0e2239ae8418fa0700611da715, type: 3}
 --- !u!82 &6892789377135616732
 AudioSource:
@@ -5304,7 +5303,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.823
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5399,7 +5398,7 @@ GameObject:
   - component: {fileID: 4793468073331882}
   m_Layer: 14
   m_Name: SCALE
-  m_TagString: Untagged
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

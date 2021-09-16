@@ -11,9 +11,11 @@ public class FlyingEnemy : MonoBehaviour, EnemyInterFace
     public float currentHP;
     public float moveSpeed;
     public float hitDamage;
+
     public Transform headPos;
     public Transform bodyPos;
-
+    public Transform shootPos;
+    public GameObject fireball;
     [Header("Enemy State")]
     public bool isDie;
     public bool isHit;
@@ -141,21 +143,31 @@ public class FlyingEnemy : MonoBehaviour, EnemyInterFace
 
             isWalking = false;
             isDie = true;
-            StartCoroutine(HitPlayer());
+            StartCoroutine(HitPlayer(other));
         }
 
     }
 
-    IEnumerator HitPlayer()
+    IEnumerator HitPlayer(Collider other)
     {
         
 
         anim.SetBool("ContactPlayer", true);
-        yield return new WaitForSeconds(0.35f);
+        yield return new WaitForSeconds(0.45f);
+        GameObject shootElement = Instantiate(fireball, shootPos.position, Quaternion.identity);
+        Vector3 targetPos = new Vector3(other.transform.position.x, other.transform.position.y + 0.5f, other.transform.position.z);
+        shootElement.GetComponent<DragonBullet>().SetUp(targetPos);
+        while (Vector3.Distance(shootElement.transform.position, targetPos) >0.2f)
+        {
+            yield return null;
+        }
         Player.GetComponent<Player>().StartGetHit(hitDamage);
-        yield return new WaitForSeconds(0.65f);
+        Destroy(shootElement);
+        yield return new WaitForSeconds(0.55f);
         RemoveObject();
     }
+
+  
 
     public void ReadyToDie()
     {

@@ -19,6 +19,8 @@ TagManager:
   - BombBullet
   - RageSkill
   - TowerBase
+  - enemyBug
+  - ChainBullet
   layers:
   - Default
   - TransparentFX

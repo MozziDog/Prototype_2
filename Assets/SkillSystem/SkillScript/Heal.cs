@@ -28,6 +28,7 @@ public class Heal : MonoBehaviour
 
     private void Start()
     {
+        _upgraded = PlayerPrefs.GetInt("grade_Heal");
         _audio = GetComponent<AudioSource>();
         if (_upgraded >= 1 && _upgraded < 6)
             _moneyAmount = 150;
@@ -43,6 +44,7 @@ public class Heal : MonoBehaviour
         _Cool_Info_txt.GetComponent<Text>().text = string.Format("{0:0.#}", coolTime) + "√ ";
         _player = GameObject.Find("Player1");
         _moneyManager = GameObject.Find("InGameShopManager").GetComponent<MoneyManager>();
+        
     }
 
     private void Update()
