@@ -15574,10 +15574,10 @@ MonoBehaviour:
   _myposition: []
   LV: 4
   type: F
-  bulletSpeed: 10
-  bulletDamage: 10
-  attackRate: 2
-  attackRange: 10
+  bulletSpeed: 20
+  bulletDamage: 4
+  attackRate: 0.2
+  attackRange: 3.5
   bombRange: 0
   bulletAmmoCount: 0
   burstRate: 0

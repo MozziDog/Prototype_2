@@ -2617,9 +2617,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e65849df17bbc894e8fa388880afd1d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 200
+  maxHP: 4000
   currentHP: 200
-  moveSpeed: 1
+  moveSpeed: 1.4
   hitDamage: 50
   headPos: {fileID: 4601082593021035535}
   bodyPos: {fileID: 4601082593021063279}

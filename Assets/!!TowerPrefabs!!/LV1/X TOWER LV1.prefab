@@ -1444,8 +1444,8 @@ MonoBehaviour:
   LV: 1
   type: X
   bulletSpeed: 30
-  bulletDamage: 20
-  attackRate: 2.5
+  bulletDamage: 24
+  attackRate: 3
   attackRange: 5.5
   bombRange: 0
   bulletAmmoCount: 0
