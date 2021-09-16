@@ -1471,7 +1471,7 @@ MonoBehaviour:
   burstRate: 0
   maxChainCount: 0
   chainRadius: 0
-  poisonDamage: 25
+  poisonDamage: 30
   poisonDuration: 5
   poisonRate: 1
   stunDuration: 0
