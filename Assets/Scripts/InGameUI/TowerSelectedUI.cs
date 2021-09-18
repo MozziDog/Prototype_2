@@ -15,7 +15,7 @@ public class TowerSelectedUI : MonoBehaviour
 
     public void SetUI(GameObject tower, bool isOn)
     {
-        Debug.Log("setui : " + isOn);
+        // Debug.Log("setui : " + isOn);
         if (isOn == true)
         {
             Debug.LogWarning("tower selected!");
