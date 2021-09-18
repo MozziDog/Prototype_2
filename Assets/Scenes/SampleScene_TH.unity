@@ -581,7 +581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &81398817
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3135,7 +3135,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7290195104510254359, guid: acd5971cff513e74dbf12af3324cc7c4, type: 3}
       propertyPath: maxHP
-      value: 100
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7290195104510254359, guid: acd5971cff513e74dbf12af3324cc7c4, type: 3}
       propertyPath: hpText
@@ -4270,7 +4270,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &739964953
 RectTransform:
   m_ObjectHideFlags: 0

@@ -794,6 +794,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 0}
+  labelText: {fileID: 134266636694593558}
+  towerImage: {fileID: 8576511942306885325}
+  pentominoImage: {fileID: 774794545727771012}
+  priceText: {fileID: 7606247252310362481}
 --- !u!1 &8085675409801140969
 GameObject:
   m_ObjectHideFlags: 0

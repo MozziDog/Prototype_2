@@ -50,4 +50,31 @@ public class TowerShopToggle : MonoBehaviour
         gameObject.GetComponentInChildren<Outline>().enabled = isOn;
     }
 
+    [SerializeField] Text labelText;
+    [SerializeField] Image towerImage;
+    [SerializeField] Image pentominoImage;
+    [SerializeField] Text priceText;
+    public void SetToggleItem(TowerBase tower)
+    {
+        if (labelText == null)
+            labelText = gameObject.GetComponentInChildren<Text>();
+        if (labelText != null)
+        {
+            labelText.text = tower.type + " 타워";
+        }
+        if (towerImage == null)
+            towerImage = gameObject.transform.Find("Preview")?.GetComponent<Image>();
+        if (towerImage != null)
+        {
+            towerImage.sprite = tower.towerImage;
+        }
+        if (pentominoImage == null)
+            pentominoImage = gameObject.transform.Find("Pentomino")?.GetComponent<Image>();
+        if (towerImage != null)
+        {
+            pentominoImage.sprite = tower.pentominoImage;
+        }
+        priceText.text = tower.GetPrice().ToString();
+    }
+
 }
