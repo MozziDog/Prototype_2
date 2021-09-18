@@ -96,21 +96,8 @@ public class TowerShop : MonoBehaviour
         Debug.Log(_towerAll[towerCode].name);
         // towerIndex가 주어지면 그에 따라 상점 버튼 꾸미기
         TowerBase towerData = _towerAll[towerCode].GetComponent<TowerBase>();
-        Text label = newButton.GetComponentInChildren<Text>();
-        if (label != null)
-        {
-            label.text = towerData.type + " 타워";
-        }
-        Image towerImage = newButton.transform.Find("Preview").GetComponent<Image>();
-        if (towerImage != null)
-        {
-            towerImage.sprite = towerData.towerImage;
-        }
-        Image pentominoImage = newButton.transform.Find("Pentomino").GetComponent<Image>();
-        if (towerImage != null)
-        {
-            pentominoImage.sprite = towerData.pentominoImage;
-        }
+        TowerShopToggle shopToggle = newButton.GetComponent<TowerShopToggle>();
+        shopToggle.SetToggleItem(towerData);
     }
 
     public void CheckShoppingCart()

@@ -20,6 +20,7 @@ public class SoundVolumeSlider : MonoBehaviour
     public void OnSliderChange()
     {
         float value = gameObject.GetComponent<Slider>().value;
-        Option.ChangeSoundVolume(value);
+        Global.SetSoundVolume(value);
+        //Option.ChangeSoundVolume(value);
     }
 }

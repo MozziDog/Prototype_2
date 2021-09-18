@@ -23,11 +23,10 @@ public class WaveManager : MonoBehaviour
     private ObstacleManager obstacleManager;
     public Player player;
     private int currentWaveIndex = -1;
-    private static bool isWaveProceeding = false;
+    public static bool isInGame = false;
     public bool allWaveClear = false;
 
     public WaveData[] waveData;
-    public bool isInGame = false;
 
     [SerializeField] GameObject ShopUI;
     [SerializeField] GameObject ClearUI;
@@ -47,7 +46,7 @@ public class WaveManager : MonoBehaviour
             currentWaveIndex++;
             obstacleManager.WayObstacleActiveSwitch();
             enemySpawner.StartWave(waves[currentWaveIndex]);
-            isWaveProceeding = true;
+            isInGame = true;
         }
     }
 
@@ -74,7 +73,7 @@ public class WaveManager : MonoBehaviour
     public void MidTermReward()
     {
         Debug.LogWarning("WaveDone");//�� ���̺� �ϼ� �� ����
-        isWaveProceeding = false;
+        isInGame = false;
         _towerShop.MakeShoppingList();
         moneyManager.AddMoney(rewardPerWave);
         if (!ShopUI.activeInHierarchy)
@@ -93,6 +92,7 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
+        isInGame = false;
         if (GameObject.Find("Heal"))
             _Heal = GameObject.Find("Heal");
         Array.Resize(ref waves, waveData.Length);
@@ -133,7 +133,7 @@ public class WaveManager : MonoBehaviour
 
     public static bool isWaveOn()
     {
-        return isWaveProceeding;
+        return isInGame;
     }
 }
 
