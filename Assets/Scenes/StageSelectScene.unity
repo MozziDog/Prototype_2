@@ -14346,7 +14346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StaminaRechargeTimer: {fileID: 0}
   StaminaAmountLabel: {fileID: 0}
-  StaminaRechargeInterval: 5
+  StaminaRechargeInterval: 60
 --- !u!1 &1092964799
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,7 +30,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        SetResolution();
+        // Resolution Error!!!!!!
+        // SetResolution();
     }
     void SetResolution()
     {
