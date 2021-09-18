@@ -3050,7 +3050,6 @@ MonoBehaviour:
   player: {fileID: 2112650839}
   allWaveClear: 0
   waveData: []
-  isInGame: 0
   ShopUI: {fileID: 1516585923}
   ClearUI: {fileID: 2108247175}
   _towerShop: {fileID: 1761398617}
@@ -4298,7 +4297,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &739964953
 RectTransform:
   m_ObjectHideFlags: 0
