@@ -543,6 +543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2853487471602013370}
   - component: {fileID: 2946903408408051042}
+  - component: {fileID: 8624225108309369161}
   m_Layer: 11
   m_Name: ShortRangeTower
   m_TagString: Untagged
@@ -590,6 +591,18 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+--- !u!114 &8624225108309369161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2850077269096730888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2850152815148232970
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,6 +805,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3955863510327201579}
   - component: {fileID: 4150650152768153331}
+  - component: {fileID: 1893806533176674117}
   m_Layer: 11
   m_Name: ShortRangeTower
   m_TagString: Untagged
@@ -839,6 +853,18 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+--- !u!114 &1893806533176674117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3959246225173842585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3959321277840976539
 GameObject:
   m_ObjectHideFlags: 0
@@ -1944,6 +1970,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7809941215521387467}
   - component: {fileID: 7142254489490463251}
+  - component: {fileID: 2293709974161493259}
   m_Layer: 11
   m_Name: ShortRangeTower
   m_TagString: Untagged
@@ -1991,6 +2018,18 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+--- !u!114 &2293709974161493259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7815541653613393529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8310692416242285440
 GameObject:
   m_ObjectHideFlags: 0

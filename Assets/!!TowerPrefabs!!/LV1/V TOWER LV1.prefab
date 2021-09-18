@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 565430839473927407}
   - component: {fileID: 576244627411116193}
   - component: {fileID: 551878739506124216}
+  - component: {fileID: 5136825139054965830}
   m_Layer: 11
   m_Name: VTowerLV1
   m_TagString: Untagged
@@ -139,6 +140,18 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+--- !u!114 &5136825139054965830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551878739506124215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &552130342360042953
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,6 +622,7 @@ GameObject:
   - component: {fileID: 6149331657317054019}
   - component: {fileID: 6156767836095619597}
   - component: {fileID: 6135778595560019732}
+  - component: {fileID: 842756782728929056}
   m_Layer: 11
   m_Name: VTowerLV1
   m_TagString: Untagged
@@ -706,6 +720,18 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+--- !u!114 &842756782728929056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6135778595560019739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6136030571304013669
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,6 +864,7 @@ GameObject:
   - component: {fileID: 7280059428422000225}
   - component: {fileID: 7286855323881982511}
   - component: {fileID: 7311468560087072566}
+  - component: {fileID: 3306972050256056717}
   m_Layer: 11
   m_Name: VTowerLV1
   m_TagString: Untagged
@@ -935,6 +962,18 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+--- !u!114 &3306972050256056717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7311468560087072569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7454545231653059525
 GameObject:
   m_ObjectHideFlags: 0

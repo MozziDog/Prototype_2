@@ -40,6 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 148177106387378412}
   - component: {fileID: 6746442985458053424}
+  - component: {fileID: 2996863177125956636}
   m_Layer: 0
   m_Name: NTowerLV1
   m_TagString: Untagged
@@ -89,6 +90,18 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+--- !u!114 &2996863177125956636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151087762389381682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &151212663342088242
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,6 +336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1206587009978616005}
   - component: {fileID: 5697308699271878937}
+  - component: {fileID: 962866908785003905}
   m_Layer: 0
   m_Name: NTowerLV1
   m_TagString: Untagged
@@ -372,6 +386,18 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+--- !u!114 &962866908785003905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200213362950035995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1200379913643935149
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,6 +855,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1278148026028302161}
   - component: {fileID: 5625739987044470413}
+  - component: {fileID: 2174803875162040478}
   m_Layer: 0
   m_Name: NTowerLV1
   m_TagString: Untagged
@@ -878,6 +905,18 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+--- !u!114 &2174803875162040478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272916793831755151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1273066850945208889
 GameObject:
   m_ObjectHideFlags: 0
@@ -5942,6 +5981,7 @@ MonoBehaviour:
   _myposition: []
   LV: 1
   type: N
+  price: 30
   bulletSpeed: 2
   bulletDamage: 0
   attackRate: 2

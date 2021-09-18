@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 800272496641809792}
   - component: {fileID: 809778855587117724}
   - component: {fileID: 822032354905010383}
+  - component: {fileID: 4903996755621579238}
   m_Layer: 11
   m_Name: PTowerLV1
   m_TagString: Untagged
@@ -110,6 +111,18 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+--- !u!114 &4903996755621579238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822032354905010380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &822077723533788842
 GameObject:
   m_ObjectHideFlags: 0
@@ -19546,6 +19559,7 @@ GameObject:
   - component: {fileID: 964181356349774799}
   - component: {fileID: 956662912149470419}
   - component: {fileID: 941855266715760256}
+  - component: {fileID: 9094822497089952954}
   m_Layer: 11
   m_Name: PTowerLV1
   m_TagString: Untagged
@@ -19644,6 +19658,18 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+--- !u!114 &9094822497089952954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941855266715760259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &942040775866155237
 GameObject:
   m_ObjectHideFlags: 0
@@ -29748,6 +29774,7 @@ GameObject:
   - component: {fileID: 5268970356803714715}
   - component: {fileID: 5276229281903860103}
   - component: {fileID: 5290732398118245332}
+  - component: {fileID: 3433297810191784553}
   m_Layer: 11
   m_Name: PTowerLV1
   m_TagString: Untagged
@@ -29846,6 +29873,18 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+--- !u!114 &3433297810191784553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5290732398118245335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5290775540074997169
 GameObject:
   m_ObjectHideFlags: 0
