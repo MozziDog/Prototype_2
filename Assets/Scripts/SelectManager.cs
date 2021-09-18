@@ -40,7 +40,7 @@ public class SelectManager : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Floor")))
         {
 
-            if (hit.transform.CompareTag("Tower"))// 타워 터치된 경우
+            if (hit.transform.CompareTag("Tower") || hit.transform.CompareTag("TowerBase"))// 타워 터치된 경우
             {
                 GameObject tower = hit.collider.gameObject;
                 tower = GetTowerFromTowerParts(tower);
@@ -51,7 +51,7 @@ public class SelectManager : MonoBehaviour
             }
             else // 바닥 터치된 경우
             {
-                if (selectedTower != null)
+                //if (selectedTower != null)
                 {
                     SendMessage("OnTowerUnselected", selectedTower);
                     selectedTower = null;
