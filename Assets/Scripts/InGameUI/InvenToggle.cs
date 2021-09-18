@@ -9,6 +9,8 @@ public class InvenToggle : MonoBehaviour
     Toggle toggle;
     [SerializeField] Button infoButton;
     TowerInfoUI towerInfoUI;
+    AudioSource audioSource;
+    public AudioClip clickSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,7 @@ public class InvenToggle : MonoBehaviour
         // towerInfoUI = GameObject.Find("TowerInfoUI")?.GetComponent<TowerInfoUI>();
         infoButton.onClick.AddListener(OnClickInfoButton);
         toggle.onValueChanged.AddListener(OnToggleSelected);
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -33,10 +36,12 @@ public class InvenToggle : MonoBehaviour
         Debug.Log(towerInfoUI);
         towerInfoUI.SetTowerInfoUIContents(towerPrefab);
         towerInfoUI.OpenTowerInfoUI();
+        audioSource.PlayOneShot(clickSound);
     }
 
     void OnToggleSelected(bool isSelected)
     {
         infoButton.gameObject.SetActive(isSelected);
+        audioSource.PlayOneShot(clickSound);
     }
 }

@@ -20,6 +20,6 @@ public class Option : MonoBehaviour
     public static void ChangeSoundVolume(float value)
     {
         soundVolume = value;
-        GameObject.Find("SoundManager").GetComponent<SoundManager>().SetVolume(value);
+        // GameObject.Find("SoundManager").GetComponent<BGMManager>().SetVolume(value);
     }
 }

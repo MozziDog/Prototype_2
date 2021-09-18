@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    
+
     public float maxHP;
     public float currentHP;
     [SerializeField]
@@ -16,14 +16,15 @@ public class Player : MonoBehaviour
     public Text hpText;
     [SerializeField]
     private GameObject getHitFx;
+    public AudioClip hitSound;
 
 
-    
+
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         this.anim = transform.GetComponent<Animator>();
-        currentHP = maxHP; 
+        currentHP = maxHP;
         UpdateHpText(currentHP);
 
 
@@ -34,7 +35,7 @@ public class Player : MonoBehaviour
         if (currentHP <= 0) StartCoroutine(OnDie());
     }
 
-    public void UpdateHpText(float hp) // ÇÇ°Ý½Ã ½ÇÇà
+    public void UpdateHpText(float hp) // ï¿½Ç°Ý½ï¿½ ï¿½ï¿½ï¿½ï¿½
     {
         if (hp < 0)
         {
@@ -58,9 +59,9 @@ public class Player : MonoBehaviour
         UpdateHpText(currentHP);
     }
 
-
     public IEnumerator GetHitCoroutine(float damage)
     {
+        SFXManager.Play(hitSound);
         currentHP -= damage;
         UpdateHpText(currentHP);
         anim.SetBool("isHit", true);
@@ -78,10 +79,10 @@ public class Player : MonoBehaviour
         anim.SetBool("isDead", true);
         gameManager.isGameOver = true;
         yield return null;
-        
+
     }
 
-    
-   
-    
+
+
+
 }

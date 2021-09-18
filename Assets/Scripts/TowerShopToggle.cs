@@ -7,11 +7,14 @@ public class TowerShopToggle : MonoBehaviour
 {
     public GameObject towerPrefab;
     TowerShop shopManager;
+    AudioSource audioSource;
+    public AudioClip clickSound;
     // Start is called before the first frame update
     void Start()
     {
         shopManager = GameObject.Find("GameManager").GetComponentInChildren<TowerShop>();
         gameObject.GetComponent<Toggle>().onValueChanged.AddListener((bool isOn) => OnToggleChanged(isOn));
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

@@ -27,6 +27,8 @@ public class StageSelectSceneManager : MonoBehaviour
     bool tweenAnimationFinished = true;
     int screenWidth;
 
+    public AudioClip clickSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -249,5 +251,9 @@ public class StageSelectSceneManager : MonoBehaviour
     public void CloseInventoryUI()
     {
         InvenUI.SetActive(false);
+    }
+    public void PlayClickSound()
+    {
+        SFXManager.Play(clickSound);
     }
 }
