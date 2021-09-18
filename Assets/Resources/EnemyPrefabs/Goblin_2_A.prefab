@@ -588,8 +588,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 0.35845155, z: 0.43423554}
-  m_Center: {x: -2.121357e-17, y: 0.57922566, z: -0.017117769}
+  m_Size: {x: 0.4, y: 0.55402446, z: 0.43423554}
+  m_Center: {x: -2.121357e-17, y: 0.5535775, z: -0.017117769}
 --- !u!195 &3665047144953706796
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -624,9 +624,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1532b18a1bb20fa4180eee64278fa334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 130
+  maxHP: 300
   currentHP: 100
-  moveSpeed: 1.4
+  moveSpeed: 2.2
   hitDamage: 1
   headPos: {fileID: 4377398408182198343}
   bodyPos: {fileID: 6574669686413793387}

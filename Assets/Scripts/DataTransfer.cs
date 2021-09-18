@@ -18,7 +18,8 @@ public class DataTransfer : MonoBehaviour
     void Start()
     {
         waveManager = GameObject.Find("GameManager").GetComponent<WaveManager>();
-
+        chapter = Global._chapter;
+        stage = Global._stage;
         SetStageData();
     }
 

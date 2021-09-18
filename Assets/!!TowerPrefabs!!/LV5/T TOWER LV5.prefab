@@ -1954,10 +1954,11 @@ MonoBehaviour:
   _myposition: []
   LV: 5
   type: T
+  price: 20
   bulletSpeed: 20
-  bulletDamage: 10
-  attackRate: 1
-  attackRange: 15
+  bulletDamage: 12
+  attackRate: 0.5
+  attackRange: 3.5
   bombRange: 0
   bulletAmmoCount: 0
   burstRate: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 199688445190505096}
   m_Layer: 14
   m_Name: Smoke_trail2
-  m_TagString: Untagged
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4771,7 +4771,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1db238f484fcb6540ac8790ca96d838b, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4830,7 +4829,7 @@ GameObject:
   - component: {fileID: 199379706988374528}
   m_Layer: 14
   m_Name: Smoke_trail1
-  m_TagString: Untagged
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9588,7 +9587,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 82c09a66d8e49fb4aa4c4c038f7d94c7, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9763,7 +9761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BombAreaEffect: {fileID: 6809944706259094419, guid: 037187ee0b205234f80397dd81e564d9, type: 3}
-  impactParticle: {fileID: 1191811519933358, guid: 274f043ea1351e74887b9465be612e2b, type: 3}
+  impactParticle: {fileID: 1338360299038112, guid: ea4dce2707d1d8248966b113f93210fa, type: 3}
   StunFx: {fileID: 6702027334493932133, guid: a7b3cc5cfdc13b74596308805c12f761, type: 3}
   LV: 0
   BulletName: 
@@ -9776,7 +9774,6 @@ MonoBehaviour:
   firingAngle: 45
   gravity: 9.8
   BombRadius: 0
-  musicPlayer: {fileID: 6715165789167260622}
   shootSound: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
 --- !u!82 &6715165789167260622
 AudioSource:
@@ -9790,7 +9787,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.831
   m_Pitch: 1
   Loop: 0
   Mute: 0

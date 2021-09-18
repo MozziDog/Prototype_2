@@ -1379,6 +1379,7 @@ MonoBehaviour:
   _myposition: []
   LV: 4
   type: W
+  price: 120
   bulletSpeed: 1
   bulletDamage: 0
   attackRate: 7
@@ -1391,8 +1392,8 @@ MonoBehaviour:
   poisonDamage: 0
   poisonDuration: 0
   poisonRate: 0
-  stunDuration: 2.5
-  mujeockTime: 5
+  stunDuration: 3
+  mujeockTime: 10
   slowIntensity: 0
   slowRange: 0
   numberOfBlocks: 0

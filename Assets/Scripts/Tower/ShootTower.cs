@@ -98,6 +98,8 @@ public class ShootTower : MonoBehaviour,TowerInterFace
                     continue;
                 if (BulletPrefab.tag == "BombBullet" && enemyList[i].tag == "FlyingEnemy")
                     continue;
+                if (BulletPrefab.tag == "ChainBullet" && enemyList[i].tag == "FlyingEnemy")
+                    continue;
                 if (enemyList[i].GetComponent<EnemyInterFace>().CheckDead())
                     continue;
 
@@ -151,9 +153,11 @@ public class ShootTower : MonoBehaviour,TowerInterFace
     private void SpawnBullet() //발사체 생성
     {
         bulletinfo.attackTarget = this.attackTarget;
-        GameObject clone = Instantiate(BulletPrefab, BulletSpawnPoint.position, Quaternion.identity);
+        // GameObject clone = Instantiate(BulletPrefab, BulletSpawnPoint.position, Quaternion.identity);
+        GameObject clone = BulletObjectPull.GetObject(BulletPrefab,BulletSpawnPoint.position);
         BulletInterFace bullet = clone.GetComponent<BulletInterFace>();
         bullet.SetUp(bulletinfo);
+        clone.transform.LookAt(attackTarget);
     }
 
   

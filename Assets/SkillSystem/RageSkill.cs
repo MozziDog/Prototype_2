@@ -29,8 +29,9 @@ public class RageSkill : MonoBehaviour
                 {
                     if (hits[i].transform.GetChild(index).GetComponent<NavMeshModifier>())
                     {
+                        Color originColor = hits[i].transform.GetChild(index).GetComponent<MeshRenderer>().material.color;
                         hits[i].transform.GetChild(index).GetComponent<MeshRenderer>().material.color = Color.red;
-                        StartCoroutine(ColorChange(hits[i].transform.GetChild(index)));
+                        StartCoroutine(ColorChange(hits[i].transform.GetChild(index), originColor));
                     }
                 }
                 StartCoroutine(BuffOff(hits[i].transform.gameObject, originAttackRate, originBulletDamage));
@@ -48,10 +49,10 @@ public class RageSkill : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    IEnumerator ColorChange(Transform _gameObject)
+    IEnumerator ColorChange(Transform _gameObject, Color _originColor)
     {
         yield return new WaitForSeconds(3.9f);
-        _gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
+        _gameObject.GetComponent<MeshRenderer>().material.color = _originColor;
     }
 
     void OnDrawGizmosSelected()

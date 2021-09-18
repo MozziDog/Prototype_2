@@ -182,6 +182,7 @@ MonoBehaviour:
   _myposition: []
   LV: 5
   type: I
+  price: 30
   bulletSpeed: 0
   bulletDamage: 0
   attackRate: 0
@@ -5838,6 +5839,7 @@ MonoBehaviour:
   _myposition: []
   LV: 5
   type: I
+  price: 30
   bulletSpeed: 0
   bulletDamage: 0
   attackRate: 0
@@ -16516,6 +16518,7 @@ MonoBehaviour:
   _myposition: []
   LV: 5
   type: I
+  price: 150
   bulletSpeed: 0
   bulletDamage: 0
   attackRate: 0
@@ -16531,7 +16534,7 @@ MonoBehaviour:
   stunDuration: 0
   mujeockTime: 0
   slowIntensity: 0.6
-  slowRange: 2.5
+  slowRange: 5
   numberOfBlocks: 3
   Towers:
   - {fileID: 1753085419196476990}
@@ -16684,6 +16687,7 @@ MonoBehaviour:
   _myposition: []
   LV: 5
   type: I
+  price: 30
   bulletSpeed: 0
   bulletDamage: 0
   attackRate: 0

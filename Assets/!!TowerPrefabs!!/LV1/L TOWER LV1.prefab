@@ -10442,10 +10442,11 @@ MonoBehaviour:
   _myposition: []
   LV: 1
   type: L
+  price: 40
   bulletSpeed: 1
-  bulletDamage: 25
-  attackRate: 1
-  attackRange: 7
+  bulletDamage: 1.2
+  attackRate: 0.5
+  attackRange: 3
   bombRange: 2.5
   bulletAmmoCount: 0
   burstRate: 0

@@ -559,8 +559,6 @@ GameObject:
   - component: {fileID: 3404058602429819282}
   - component: {fileID: 3405866596418252030}
   - component: {fileID: 3413936967317508574}
-  - component: {fileID: 3448314494877781450}
-  - component: {fileID: 3361081977556708628}
   m_Layer: 12
   m_Name: EnemyBug
   m_TagString: enemyBug
@@ -631,32 +629,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3448314494877781450
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3401874850272764130}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3361081977556708628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3401874850272764130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b6d63bc97dbdbd4cbb197d5c4dacdfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemyHP: 200
 --- !u!1 &3401884984484019414
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,8 +911,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 0.8673344}
-  m_Center: {x: 6.7263966e-16, y: 1.457, z: 0.17233278}
+  m_Size: {x: 1.0703981, y: 1.4375162, z: 1.094553}
+  m_Center: {x: 0.02591765, y: 1.7383361, z: 0.05872345}
 --- !u!195 &773668258933895564
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -975,9 +947,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1532b18a1bb20fa4180eee64278fa334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 5000
+  maxHP: 6000
   currentHP: 100
-  moveSpeed: 1
+  moveSpeed: 1.2
   hitDamage: 1
   headPos: {fileID: 3396826767718023496}
   bodyPos: {fileID: 3662036691625394908}

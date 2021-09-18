@@ -9,20 +9,22 @@ public class TowerSelectedUI : MonoBehaviour
     GameObject targetTower = null;
     [SerializeField] TowerInfoUI towerInfoUI;
     [SerializeField] TowerAdvance towerAdvance;
+    [SerializeField] Text sellPriceText;
     public TowerManager towerManager;
+
 
     public void SetUI(GameObject tower, bool isOn)
     {
-        Debug.Log("setui");
+        Debug.Log("setui : " + isOn);
         if (isOn == true)
         {
             Debug.LogWarning("tower selected!");
             targetTower = tower;
             towerAdvance.SetAdvanceTarget(targetTower);
+            sellPriceText.text = targetTower.GetComponent<TowerBase>()?.GetPrice().ToString();
             gameObject.SetActive(isOn);
             SetUIPosition(tower);
             UIOnAnimation();
-
         }
         else
         {
@@ -58,7 +60,8 @@ public class TowerSelectedUI : MonoBehaviour
         {
             StopCoroutine(UIAnimationCoroutine);
         }
-        UIAnimationCoroutine = StartCoroutine(UIAnimation());
+        //UIAnimationCoroutine = StartCoroutine(UIAnimation());
+        gameObject.SetActive(false);
     }
 
     public void SetUIPosition(Vector2 position)
@@ -88,6 +91,6 @@ public class TowerSelectedUI : MonoBehaviour
     public void OnClickTowerAdvanceButton()
     {
         towerAdvance.TryAdvance();
-        
+
     }
 }

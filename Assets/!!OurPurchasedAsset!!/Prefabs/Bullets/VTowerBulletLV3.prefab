@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4723599956809368}
   m_Layer: 14
   m_Name: SCALE
-  m_TagString: Untagged
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 96433253619468528}
   m_Layer: 14
   m_Name: Trail (1)
-  m_TagString: Untagged
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 96178632147299890}
   m_Layer: 14
   m_Name: Trail
-  m_TagString: Untagged
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 96837895614204246}
   m_Layer: 14
   m_Name: Trail (3)
-  m_TagString: Untagged
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 96579855132496564}
   m_Layer: 14
   m_Name: Trail (2)
-  m_TagString: Untagged
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -564,7 +564,7 @@ GameObject:
   - component: {fileID: 199075928806647574}
   m_Layer: 14
   m_Name: Triangles_tail
-  m_TagString: Untagged
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1151,7 +1151,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 750
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -1469,7 +1469,7 @@ ParticleSystem:
     rateOverDistance:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 30
+      scalar: 8
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -5454,7 +5454,6 @@ MonoBehaviour:
   firingAngle: 45
   gravity: 9.8
   BombRadius: 0
-  musicPlayer: {fileID: -2624324898204936759}
   shootSound: {fileID: 8300000, guid: 8c8ead0e2239ae8418fa0700611da715, type: 3}
 --- !u!82 &-2624324898204936759
 AudioSource:
@@ -5468,7 +5467,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.823
   m_Pitch: 1
   Loop: 0
   Mute: 0

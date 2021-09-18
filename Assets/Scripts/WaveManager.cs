@@ -23,11 +23,10 @@ public class WaveManager : MonoBehaviour
     private ObstacleManager obstacleManager;
     public Player player;
     private int currentWaveIndex = -1;
-    private static bool isWaveProceeding = false;
+    public static bool isInGame = false;
     public bool allWaveClear = false;
 
     public WaveData[] waveData;
-    public bool isInGame = false;
 
     [SerializeField] GameObject ShopUI;
     [SerializeField] GameObject ClearUI;
@@ -47,7 +46,7 @@ public class WaveManager : MonoBehaviour
             currentWaveIndex++;
             obstacleManager.WayObstacleActiveSwitch();
             enemySpawner.StartWave(waves[currentWaveIndex]);
-            isWaveProceeding = true;
+            isInGame = true;
         }
     }
 
@@ -59,6 +58,7 @@ public class WaveManager : MonoBehaviour
             && enemySpawner.enemyKilledCount >= waves[currentWaveIndex].maxEnemyCount
             && enemySpawner.CurrentEnemyList.Count == 0)
         {
+            enemySpawner.isWaveEnd();
             isInGame = false;
             return true;
         }
@@ -73,7 +73,7 @@ public class WaveManager : MonoBehaviour
     public void MidTermReward()
     {
         Debug.LogWarning("WaveDone");//�� ���̺� �ϼ� �� ����
-        isWaveProceeding = false;
+        isInGame = false;
         _towerShop.MakeShoppingList();
         moneyManager.AddMoney(rewardPerWave);
         if (!ShopUI.activeInHierarchy)
@@ -82,14 +82,17 @@ public class WaveManager : MonoBehaviour
 
     public void FinalReward()
     {
+        /*
         if (_Heal != null)
             _Heal.GetComponent<Heal>()._usage = 1;
-        ClearUI.SetActive(true);
-        allWaveClear = true; //��ü ���̺� �ϼ� �� ����ȭ�� �̵� , allWaveDone ��  GameManager �� ����� ����
+       */
+        GameObject.Find("GameManager").GetComponent<GameManager>().GiveStageClearReward();
+        allWaveClear = true; //��ü ���̺� �ϼ� �� ����ȭ�� �̵� , allWaveclear ��  GameManager �� ����� ����
     }
 
     private void Start()
     {
+        isInGame = false;
         if (GameObject.Find("Heal"))
             _Heal = GameObject.Find("Heal");
         Array.Resize(ref waves, waveData.Length);
@@ -130,7 +133,7 @@ public class WaveManager : MonoBehaviour
 
     public static bool isWaveOn()
     {
-        return isWaveProceeding;
+        return isInGame;
     }
 }
 

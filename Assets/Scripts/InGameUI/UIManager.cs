@@ -6,6 +6,7 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] GameObject spellWindow;
     [SerializeField] GameObject inventoryWindow;
+    public AudioClip clickSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,21 +21,24 @@ public class UIManager : MonoBehaviour
 
     public void ChangeBottomUI()
     {
-        if (spellWindow.activeSelf)
-            SetButtonUI_inventory();
-        else
+        if (inventoryWindow.activeSelf)
             SetButtonUI_spell();
+        else
+            SetButtonUI_inventory();
     }
 
     public void SetButtonUI_spell()
     {
-        spellWindow.SetActive(true);
         inventoryWindow.SetActive(false);
     }
 
     public void SetButtonUI_inventory()
     {
-        spellWindow.SetActive(false);
         inventoryWindow.SetActive(true);
+    }
+
+    public void PlayClickSound()
+    {
+        SFXManager.Play(clickSound);
     }
 }

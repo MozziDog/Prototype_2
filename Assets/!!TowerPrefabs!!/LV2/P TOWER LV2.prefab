@@ -44578,10 +44578,11 @@ MonoBehaviour:
   _myposition: []
   LV: 2
   type: P
+  price: 60
   bulletSpeed: 20
-  bulletDamage: 18
+  bulletDamage: 36
   attackRate: 3
-  attackRange: 10
+  attackRange: 5.5
   bombRange: 0
   bulletAmmoCount: 0
   burstRate: 0

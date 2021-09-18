@@ -811,11 +811,12 @@ MonoBehaviour:
   _myposition: []
   LV: 5
   type: V
-  bulletSpeed: 2
-  bulletDamage: 25
-  attackRate: 2
-  attackRange: 10
-  bombRange: 3.5
+  price: 50
+  bulletSpeed: 1.5
+  bulletDamage: 8.4
+  attackRate: 0.5
+  attackRange: 5.5
+  bombRange: 3
   bulletAmmoCount: 0
   burstRate: 0
   maxChainCount: 0
