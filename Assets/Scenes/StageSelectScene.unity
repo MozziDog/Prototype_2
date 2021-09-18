@@ -376,6 +376,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 792318417}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: OnClickButton_notPrepared
@@ -659,6 +671,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 792318417}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: CancelPurchase
@@ -1478,7 +1502,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u20A9 5,500"
+  m_Text: 
 --- !u!222 &85004568
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1994,7 +2018,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u20A9 1,200"
+  m_Text: 
 --- !u!222 &112579715
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2088,10 +2112,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5000
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 792318417}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
-        m_MethodName: OnClickButton_PurchaseGem
-        m_Mode: 3
+        m_MethodName: NotPrepared
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2296,10 +2332,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 100
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 792318417}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
-        m_MethodName: OnClickButton_PurchaseGem
-        m_Mode: 3
+        m_MethodName: NotPrepared
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2504,6 +2552,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 792318417}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: OnClickButton_notEnoughMoney
@@ -2931,10 +2991,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3000
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 792318417}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
-        m_MethodName: OnClickButton_PurchaseGem
-        m_Mode: 3
+        m_MethodName: NotPrepared
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3429,6 +3501,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1825866854}
         m_TargetAssemblyTypeName: SkillManager, Assembly-CSharp
         m_MethodName: UpgradeSpell
@@ -3882,6 +3966,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3000
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 792318417}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: OnClickButton_PurchaseGold
@@ -4468,7 +4564,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 362658196}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
 --- !u!1 &368269716
 GameObject:
   m_ObjectHideFlags: 0
@@ -4630,6 +4738,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1092964800}
         m_TargetAssemblyTypeName: AdManager, Assembly-CSharp
         m_MethodName: OnClickAdButton0
@@ -4917,6 +5037,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: CancelPurchase
@@ -5242,10 +5374,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1000
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 792318417}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
-        m_MethodName: OnClickButton_PurchaseGem
-        m_Mode: 3
+        m_MethodName: NotPrepared
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5404,7 +5548,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 407257261}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
 --- !u!114 &407257261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5696,6 +5852,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1355421045}
         m_TargetAssemblyTypeName: SkillInven, Assembly-CSharp
         m_MethodName: EquipChange
@@ -5785,6 +5953,34 @@ PrefabInstance:
       propertyPath: m_Group
       value: 
       objectReference: {fileID: 198479316}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1845384435}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayClickSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: StageSelectSceneManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1567809028094556369, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
       propertyPath: stage
       value: 4
@@ -6195,6 +6391,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1845384435}
         m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
         m_MethodName: OpenShopUI
@@ -6659,6 +6867,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1845384435}
         m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
         m_MethodName: OpenShopUI
         m_Mode: 1
         m_Arguments:
@@ -6708,6 +6928,34 @@ PrefabInstance:
       propertyPath: m_Group
       value: 
       objectReference: {fileID: 198479316}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1845384435}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayClickSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: StageSelectSceneManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1567809028094556369, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
       propertyPath: stage
       value: 2
@@ -7290,6 +7538,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1825866854}
         m_TargetAssemblyTypeName: SkillManager, Assembly-CSharp
         m_MethodName: TestAdd
@@ -7814,7 +8074,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 596781643}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
 --- !u!114 &596781643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8091,6 +8363,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: OnClickButton_notPrepared
@@ -8224,6 +8508,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1450556939}
         m_TargetAssemblyTypeName: SkillInven, Assembly-CSharp
         m_MethodName: EquipChange
@@ -8829,7 +9125,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 662064945}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
 --- !u!114 &662064945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8950,6 +9258,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1845384435}
         m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
         m_MethodName: OnClickBeforeChapter
@@ -9552,7 +9872,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u20A9 1,1000\n"
+  m_Text: 
 --- !u!222 &701626929
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9725,10 +10045,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 500
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 792318417}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
-        m_MethodName: OnClickButton_PurchaseGem
-        m_Mode: 3
+        m_MethodName: NotPrepared
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9861,6 +10193,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 30000
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 792318417}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: OnClickButton_PurchaseGold
@@ -10073,6 +10417,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1825866859}
         m_TargetAssemblyTypeName: InventoryMenuManager, Assembly-CSharp
         m_MethodName: OnClickButton_notPrepared
@@ -10193,7 +10549,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u20A9 55,000\n"
+  m_Text: 
 --- !u!222 &716226190
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10361,6 +10717,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1845384435}
         m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
         m_MethodName: OpenShopUI
@@ -10618,7 +10986,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 747087308}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
 --- !u!114 &747087308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11089,6 +11469,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 470445570}
         m_TargetAssemblyTypeName: SkillInven, Assembly-CSharp
         m_MethodName: EquipChange
@@ -13008,6 +13400,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 150000
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 792318417}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: OnClickButton_PurchaseGold
@@ -13875,6 +14279,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1845384435}
         m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
         m_MethodName: OpenShopUI
         m_Mode: 1
         m_Arguments:
@@ -14445,6 +14861,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1039407353}
         m_TargetAssemblyTypeName: SkillInven, Assembly-CSharp
         m_MethodName: EquipChange
@@ -14607,7 +15035,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1122227781}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
 --- !u!114 &1122227781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14685,6 +15125,34 @@ PrefabInstance:
       propertyPath: m_Group
       value: 
       objectReference: {fileID: 198479316}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1845384435}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayClickSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: StageSelectSceneManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1567809028094556369, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
       propertyPath: stage
       value: 5
@@ -15209,6 +15677,34 @@ PrefabInstance:
       propertyPath: m_Group
       value: 
       objectReference: {fileID: 526908370}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1845384435}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayClickSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: StageSelectSceneManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1567809028094556369, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
       propertyPath: stage
       value: 4
@@ -15655,6 +16151,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1845384435}
         m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
         m_MethodName: OnClickNextChapter
         m_Mode: 1
         m_Arguments:
@@ -15939,6 +16447,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1845384435}
         m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
         m_MethodName: CloseOptionUI
         m_Mode: 1
         m_Arguments:
@@ -16187,6 +16707,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1845384435}
         m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
         m_MethodName: OpenOptionUI
         m_Mode: 1
         m_Arguments:
@@ -16274,6 +16806,34 @@ PrefabInstance:
       propertyPath: m_Group
       value: 
       objectReference: {fileID: 526908370}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1845384435}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayClickSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: StageSelectSceneManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1567809028094556369, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
       propertyPath: stage
       value: 3
@@ -16751,6 +17311,34 @@ PrefabInstance:
       propertyPath: m_Group
       value: 
       objectReference: {fileID: 198479316}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1845384435}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayClickSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: StageSelectSceneManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1567809028094556369, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
       propertyPath: stage
       value: 3
@@ -18531,6 +19119,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1845384435}
         m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
         m_MethodName: OpenInventoryUI
         m_Mode: 1
         m_Arguments:
@@ -18772,6 +19372,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1845384435}
         m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
         m_MethodName: CloseShopUI
@@ -19176,6 +19788,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1555920795}
         m_TargetAssemblyTypeName: SkillInven, Assembly-CSharp
         m_MethodName: EquipChange
@@ -19342,6 +19966,34 @@ PrefabInstance:
       propertyPath: m_Group
       value: 
       objectReference: {fileID: 526908370}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1845384435}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayClickSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: StageSelectSceneManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1567809028094556369, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
       propertyPath: stage
       value: 5
@@ -20243,6 +20895,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 792318417}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: ConfirmPurchase
@@ -21023,7 +21687,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u20A9 110,000"
+  m_Text: 
 --- !u!222 &1563492361
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21193,6 +21857,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1359150957}
         m_TargetAssemblyTypeName: AdManager, Assembly-CSharp
         m_MethodName: OnClickAdButton1
@@ -21595,10 +22271,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10000
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 792318417}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
-        m_MethodName: OnClickButton_PurchaseGem
-        m_Mode: 3
+        m_MethodName: NotPrepared
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -21684,6 +22372,34 @@ PrefabInstance:
       propertyPath: m_Group
       value: 
       objectReference: {fileID: 198479316}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1845384435}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayClickSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: StageSelectSceneManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1567809028094556369, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
       propertyPath: chapter
       value: 2
@@ -22228,6 +22944,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1845384435}
         m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
         m_MethodName: TryStartStage
         m_Mode: 1
         m_Arguments:
@@ -22628,6 +23356,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1825866859}
         m_TargetAssemblyTypeName: InventoryManagaer, Assembly-CSharp
         m_MethodName: NotPrepared
@@ -23818,6 +24558,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 15000
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 792318417}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: OnClickButton_PurchaseGold
@@ -24027,6 +24779,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: ConfirmPurchase
@@ -24780,6 +25544,7 @@ MonoBehaviour:
   OptionUI: {fileID: 2129851421}
   staminaManager: {fileID: 1092936363}
   noStaminaWindow: {fileID: 1834456731}
+  clickSound: {fileID: 8300000, guid: 7287af5ae3e9075409399add5bdb15e3, type: 3}
 --- !u!4 &1845384436
 Transform:
   m_ObjectHideFlags: 0
@@ -25161,6 +25926,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1810684559}
         m_TargetAssemblyTypeName: SkillInven, Assembly-CSharp
         m_MethodName: EquipChange
@@ -25417,6 +26194,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 90000
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 792318417}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: OnClickButton_PurchaseGold
@@ -25818,6 +26607,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7500
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 792318417}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: OnClickButton_PurchaseGold
@@ -26028,7 +26829,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1953469847}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
 --- !u!114 &1953469846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26240,7 +27053,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u20A9 33,000"
+  m_Text: 
 --- !u!222 &1961906074
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -26995,7 +27808,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2049199837}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
 --- !u!114 &2049199837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27846,7 +28671,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2096486770}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
 --- !u!114 &2096486770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28000,6 +28837,34 @@ PrefabInstance:
       propertyPath: m_Group
       value: 
       objectReference: {fileID: 526908370}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1845384435}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayClickSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: StageSelectSceneManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1567809028094556369, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
       propertyPath: stage
       value: 2
@@ -28602,6 +29467,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1845384435}
         m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1845384435}
+        m_TargetAssemblyTypeName: StageSelectSceneManager, Assembly-CSharp
         m_MethodName: CloseInventoryUI
         m_Mode: 1
         m_Arguments:
@@ -29120,6 +29997,34 @@ PrefabInstance:
       propertyPath: m_Group
       value: 
       objectReference: {fileID: 526908370}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1845384435}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayClickSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: StageSelectSceneManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567809028094556368, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1567809028094556370, guid: b4c187a498d193f469476a1863da3b2b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -9,12 +9,13 @@ public class TutorialManager : MonoBehaviour
     public GameObject[] tutorialWindow;
     public Text tutorialText;
     int currentTutorialPage = 0;
+    public bool alwaysDisplay;
 
     // Start is called before the first frame update
     void Start()
     {
         // 인게임 화면 진입하기 전 메인 화면에서 이미 저장 데이터 로드되었다고 가정.
-        if (Global.userProperty.TutorialFinishFlag == true)
+        if (Global.userProperty.TutorialFinishFlag == true && alwaysDisplay == false)
         {
             Destroy(gameObject);
         }

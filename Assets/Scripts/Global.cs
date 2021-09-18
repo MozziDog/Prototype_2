@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 // Global variables
 public static class Global
@@ -19,6 +20,17 @@ public static class Global
     public static int grade_Earthquake = 1;
     public static int grade_Heal = 1;
     public static int grade_Sacrifice = 1;
+    public static float soundVolume = 1;
+
+
+    public delegate void VolumeChangeEvent();
+    public static VolumeChangeEvent OnVolumeChanged;
+    public static void SetSoundVolume(float value)
+    {
+        soundVolume = Mathf.Clamp(value, 0, 1);
+        //if (OnVolumeChanged != null)
+        OnVolumeChanged();
+    }
 }
 
 
