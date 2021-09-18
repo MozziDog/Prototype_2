@@ -44,7 +44,10 @@ public class SelectManager : MonoBehaviour
             {
                 GameObject tower = hit.collider.gameObject;
                 tower = GetTowerFromTowerParts(tower);
-                selectedTower = tower;
+                if (tower.GetComponent<TowerBase>() != null)
+                    selectedTower = tower;
+                else
+                    selectedTower = null;
             }
             else // 바닥 터치된 경우
             {
