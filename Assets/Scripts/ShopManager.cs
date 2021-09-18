@@ -107,4 +107,38 @@ public class ShopManager : MonoBehaviour
         CancelPurchase();
         notEnoughMoneyWindow.SetActive(false);
     }
+
+    public GameObject staminaChargeUI;
+    public void OpenStaminaChargeUI()
+    {
+        staminaChargeUI.SetActive(true);
+    }
+
+    public void CloseStaminaChargeUI()
+    {
+        staminaChargeUI.SetActive(false);
+    }
+    public void OnClickButton_BuyStamina()
+    {
+        if (Global.userProperty.ruby < 50)
+        {
+            notEnoughMoneyWindow.SetActive(true);
+        }
+        else
+        {
+            staminaManager.AddStamina(100);
+            Global.userProperty.ruby -= 50;
+            GameObject.Find("StageSelectManager").GetComponent<StageSelectSceneManager>().RefreshUserPropertyData();
+            GameObject.Find("SaveLoadManager").GetComponent<SaveLoadManager>().Save();
+            staminaChargeUI.SetActive(false);
+            buyCompleteWindow.SetActive(true);
+        }
+    }
+
+    public GameObject buyCompleteWindow;
+
+    public void OnClickButton_buyComplete()
+    {
+        buyCompleteWindow.SetActive(false);
+    }
 }

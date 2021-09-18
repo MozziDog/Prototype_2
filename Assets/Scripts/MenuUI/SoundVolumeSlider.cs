@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class SoundVolumeSlider : MonoBehaviour
 {
+    Slider slider;
     // Start is called before the first frame update
     void Start()
     {
-
+        slider = gameObject.GetComponent<Slider>();
+        slider.value = Global.soundVolume;
     }
 
     // Update is called once per frame
@@ -19,7 +21,7 @@ public class SoundVolumeSlider : MonoBehaviour
 
     public void OnSliderChange()
     {
-        float value = gameObject.GetComponent<Slider>().value;
+        float value = slider.value;
         Global.SetSoundVolume(value);
         //Option.ChangeSoundVolume(value);
     }

@@ -27,10 +27,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject clearUI;
     [SerializeField] StageClaerReward[] claerRewards;
     [SerializeField] Text clearRewardText;
+    public int stageReward;
 
     private void Awake()
     {
-        SetResolution();
+        // Resolution Error!!!!!!
+        // SetResolution();
     }
     void SetResolution()
     {
@@ -145,12 +147,20 @@ public class GameManager : MonoBehaviour
 
     public void GiveStageClearReward()
     {
-        int reward = claerRewards[Global._chapter - 1].rewards[Global._stage - 1];
-        clearRewardText.text = reward.ToString();
-        Global.userProperty.gold += reward;
+        stageReward = claerRewards[Global._chapter - 1].rewards[Global._stage - 1];
+        clearRewardText.text = stageReward.ToString();
+        Global.userProperty.gold += stageReward;
         GameObject saveManager = GameObject.Find("SaveLoadManager");
         saveManager?.GetComponent<SaveLoadManager>().Save();
         clearUI.SetActive(true);
+    }
+
+    public void GiveAdBonusReward()
+    {
+        Global.userProperty.gold += stageReward;
+        clearRewardText.text = (stageReward * 2).ToString();
+        GameObject saveManager = GameObject.Find("SaveLoadManager");
+        saveManager?.GetComponent<SaveLoadManager>().Save();
     }
 
 }

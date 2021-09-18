@@ -140,7 +140,7 @@ public class TowerBase : MonoBehaviour
 
     public string GetAttackRate()
     {
-        return attackRate != 0 ? attackRange.ToString() : "-";
+        return attackRate != 0 ? string.Format("{0:0.00}", (1 / attackRate)) : "-";
     }
 
     public string GetAttackArea()
