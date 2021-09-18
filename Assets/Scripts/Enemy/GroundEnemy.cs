@@ -81,6 +81,12 @@ public class GroundEnemy : MonoBehaviour, EnemyInterFace
 
 
     }
+
+    public void setDest()
+    {
+        agent.SetDestination(target.transform.position);
+    }
+
     private void Update()
     {
        

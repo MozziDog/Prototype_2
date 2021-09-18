@@ -66,12 +66,16 @@ public class ParticleCollisionInstance : MonoBehaviour
     {
         while (true)
         {
-            var hits = Physics.SphereCastAll(transform.position, 2f, Vector3.up, 0f);
+            var hits = Physics.SphereCastAll(transform.position, 2f, Vector3.up, 1f);
             for (int i = 0; i < hits.Length; i++)
             {
                 if (hits[i].transform.tag == "GroundEnemy")
                 {
                     hits[i].transform.GetComponent<GroundEnemy>().GetDamage(hits[i].transform.GetComponent<GroundEnemy>().maxHP * damage / 100);
+                } 
+                else if (hits[i].transform.tag == "FlyingEnemy")
+                {
+                    hits[i].transform.GetComponent<FlyingEnemy>().GetDamage(hits[i].transform.GetComponent<FlyingEnemy>().maxHP * damage / 100);
                 }
             }
             yield return new WaitForSeconds(1f);

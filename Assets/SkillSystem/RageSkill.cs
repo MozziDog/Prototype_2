@@ -14,7 +14,7 @@ public class RageSkill : MonoBehaviour
     {
         Instantiate(RageEffect, transform);
         Destroy(gameObject, 4.1f);
-        var hits = Physics.SphereCastAll(transform.position, 2f, Vector3.up, 0f);
+        var hits = Physics.SphereCastAll(transform.position, 3f, Vector3.up, 0f);
         for(int i = 0; i < hits.Length; i++)
         {
             if(hits[i].transform.tag == "TowerBase" && !hits[i].transform.gameObject.GetComponent<TowerBase>().isBuffed)
