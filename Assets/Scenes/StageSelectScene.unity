@@ -1478,7 +1478,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u20A9 5,500"
+  m_Text: 
 --- !u!222 &85004568
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1994,7 +1994,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u20A9 1,200"
+  m_Text: 
 --- !u!222 &112579715
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2090,8 +2090,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 792318417}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
-        m_MethodName: OnClickButton_PurchaseGem
-        m_Mode: 3
+        m_MethodName: NotPrepared
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2298,8 +2298,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 792318417}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
-        m_MethodName: OnClickButton_PurchaseGem
-        m_Mode: 3
+        m_MethodName: NotPrepared
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2933,8 +2933,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 792318417}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
-        m_MethodName: OnClickButton_PurchaseGem
-        m_Mode: 3
+        m_MethodName: NotPrepared
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5244,8 +5244,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 792318417}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
-        m_MethodName: OnClickButton_PurchaseGem
-        m_Mode: 3
+        m_MethodName: NotPrepared
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9552,7 +9552,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u20A9 1,1000\n"
+  m_Text: 
 --- !u!222 &701626929
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9727,8 +9727,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 792318417}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
-        m_MethodName: OnClickButton_PurchaseGem
-        m_Mode: 3
+        m_MethodName: NotPrepared
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10193,7 +10193,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u20A9 55,000\n"
+  m_Text: 
 --- !u!222 &716226190
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21023,7 +21023,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u20A9 110,000"
+  m_Text: 
 --- !u!222 &1563492361
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21597,8 +21597,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 792318417}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
-        m_MethodName: OnClickButton_PurchaseGem
-        m_Mode: 3
+        m_MethodName: NotPrepared
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -26240,7 +26240,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u20A9 33,000"
+  m_Text: 
 --- !u!222 &1961906074
 CanvasRenderer:
   m_ObjectHideFlags: 0
