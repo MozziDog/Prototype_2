@@ -35,11 +35,14 @@ public class WaveManager : MonoBehaviour
     [SerializeField] GameObject _waveText;
     [SerializeField] GameObject _Heal;
 
+    [SerializeField] GameObject _invenUI;
+
     public int rewardPerWave = 100;
     // Start is called before the first frame update
 
     public void StartWave()
     {
+        _invenUI.SetActive(false);
         if (enemySpawner.CurrentEnemyList.Count == 0 && currentWaveIndex < waves.Length - 1) //���̺� ����
         {
             isInGame = true;
@@ -78,6 +81,7 @@ public class WaveManager : MonoBehaviour
         moneyManager.AddMoney(rewardPerWave);
         if (!ShopUI.activeInHierarchy)
             ShopUI.SetActive(true);
+        _invenUI.SetActive(true);
     }
 
     public void FinalReward()
@@ -92,6 +96,9 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
+        _invenUI = GameObject.Find("Inventory Window");
+        if (GameObject.Find("TutorialUI"))
+            ShopUI.SetActive(false);
         isInGame = false;
         if (GameObject.Find("Heal"))
             _Heal = GameObject.Find("Heal");
