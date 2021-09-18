@@ -103,6 +103,7 @@ public class SelectManager : MonoBehaviour
                 }
             }
         }
+        selectedTower = null;
     }
 
     GameObject GetTowerFromTowerParts(GameObject towerPart)

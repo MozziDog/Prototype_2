@@ -83,9 +83,11 @@ public class WaveManager : MonoBehaviour
 
     public void FinalReward()
     {
+        /*
         if (_Heal != null)
             _Heal.GetComponent<Heal>()._usage = 1;
-        ClearUI.SetActive(true);
+       */
+        GameObject.Find("GameManager").GetComponent<GameManager>().GiveStageClearReward();
         allWaveClear = true; //��ü ���̺� �ϼ� �� ����ȭ�� �̵� , allWaveclear ��  GameManager �� ����� ����
     }
 

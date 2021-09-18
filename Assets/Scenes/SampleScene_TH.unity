@@ -2628,7 +2628,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e43f69d3dd5fc41e69095efdb02ef031, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3fb23bf6552b44aafb168ed0584e1641, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2966,7 +2966,7 @@ MonoBehaviour:
   _floor: {fileID: 46099908}
   enemyManager: {fileID: 1021901921}
   towerManager: {fileID: 625576663}
-  waveManager: {fileID: 0}
+  waveManager: {fileID: 625576662}
   towerShop: {fileID: 1761398617}
   wallet: {fileID: 1761398616}
   _selected:
@@ -2974,9 +2974,17 @@ MonoBehaviour:
   - {fileID: 1859883239}
   _rangeGizmo: {fileID: 794885303}
   GameOverPanel: {fileID: 472260057}
-  StageClearPanel: {fileID: 0}
+  StageClearPanel: {fileID: 2108247175}
   _scaleFactor: 1
   isGameOver: 0
+  clearUI: {fileID: 2108247175}
+  claerRewards:
+  - rewards: 84030000b6030000e80300001a040000b0040000
+  - rewards: 78050000aa050000dc0500000e060000a4060000
+  - rewards: 6c0700009e070000d00700000208000098080000
+  - rewards: 6009000092090000c4090000f60900008c0a0000
+  - rewards: 540b0000860b0000b80b0000ea0b0000800c0000
+  clearRewardText: {fileID: 500508338}
 --- !u!114 &625576662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7788,7 +7796,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1335075983}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 625576661}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: GameExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1335075983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18396,9 +18416,57 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1101040597}
     m_Modifications:
+    - target: {fileID: 2032113113, guid: 3fd9e438688368b498d7abdd65a25801, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693507565222024010, guid: 3fd9e438688368b498d7abdd65a25801, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693507565222024010, guid: 3fd9e438688368b498d7abdd65a25801, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693507565222024010, guid: 3fd9e438688368b498d7abdd65a25801, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693507565222024010, guid: 3fd9e438688368b498d7abdd65a25801, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693507565222024010, guid: 3fd9e438688368b498d7abdd65a25801, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693507565222024010, guid: 3fd9e438688368b498d7abdd65a25801, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693507565229081793, guid: 3fd9e438688368b498d7abdd65a25801, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 60.7616
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693507565229081793, guid: 3fd9e438688368b498d7abdd65a25801, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 69.6809
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693507565229081793, guid: 3fd9e438688368b498d7abdd65a25801, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -44
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693507565229081793, guid: 3fd9e438688368b498d7abdd65a25801, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 60.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693507565229081794, guid: 3fd9e438688368b498d7abdd65a25801, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b7f3c32c855a846c5bb5d8c57de050fd, type: 3}
     - target: {fileID: 8693507565462188951, guid: 3fd9e438688368b498d7abdd65a25801, type: 3}
       propertyPath: m_Interactable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8693507565462188951, guid: 3fd9e438688368b498d7abdd65a25801, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
