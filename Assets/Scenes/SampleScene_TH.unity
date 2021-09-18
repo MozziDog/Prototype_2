@@ -3056,6 +3056,7 @@ MonoBehaviour:
   moneyManager: {fileID: 1761398616}
   _waveText: {fileID: 1350372776}
   _Heal: {fileID: 2026463611}
+  _invenUI: {fileID: 0}
   rewardPerWave: 100
 --- !u!114 &625576663
 MonoBehaviour:
@@ -9292,7 +9293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1516585925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19451,6 +19452,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorialManager
       objectReference: {fileID: 0}
+    - target: {fileID: 9171931058044479655, guid: fc39ae5a84424d345878b81ce32e7b85, type: 3}
+      propertyPath: _ShopUI
+      value: 
+      objectReference: {fileID: 1516585923}
+    - target: {fileID: 9171931058044479655, guid: fc39ae5a84424d345878b81ce32e7b85, type: 3}
+      propertyPath: _ShopUI.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9171931058044479655, guid: fc39ae5a84424d345878b81ce32e7b85, type: 3}
+      propertyPath: _ShopUI.Array.data[0]
+      value: 
+      objectReference: {fileID: 1516585923}
     - target: {fileID: 9171931058044479656, guid: fc39ae5a84424d345878b81ce32e7b85, type: 3}
       propertyPath: m_RootOrder
       value: 25

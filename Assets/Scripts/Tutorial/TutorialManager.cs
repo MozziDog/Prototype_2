@@ -7,6 +7,7 @@ public class TutorialManager : MonoBehaviour
 {
     public GameObject tutorialHighlight;
     public GameObject[] tutorialWindow;
+    public GameObject _ShopUI;
     public Text tutorialText;
     int currentTutorialPage = 0;
     public bool alwaysDisplay;
@@ -60,6 +61,7 @@ public class TutorialManager : MonoBehaviour
             {
                 Debug.LogWarning("Tutorial file save error");
             }
+            _ShopUI.SetActive(true);
             Destroy(gameObject);
         }
         else
@@ -82,6 +84,7 @@ public class TutorialManager : MonoBehaviour
         {
             Debug.LogWarning("Tutorial file save error");
         }
+        _ShopUI.SetActive(true);
         Destroy(gameObject);
     }
 }

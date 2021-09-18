@@ -81,6 +81,7 @@ public class WaveManager : MonoBehaviour
         moneyManager.AddMoney(rewardPerWave);
         if (!ShopUI.activeInHierarchy)
             ShopUI.SetActive(true);
+        _invenUI.SetActive(true);
     }
 
     public void FinalReward()
@@ -96,6 +97,8 @@ public class WaveManager : MonoBehaviour
     private void Start()
     {
         _invenUI = GameObject.Find("Inventory Window");
+        if (GameObject.Find("TutorialUI"))
+            ShopUI.SetActive(false);
         isInGame = false;
         if (GameObject.Find("Heal"))
             _Heal = GameObject.Find("Heal");
