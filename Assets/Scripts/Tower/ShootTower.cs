@@ -153,9 +153,11 @@ public class ShootTower : MonoBehaviour,TowerInterFace
     private void SpawnBullet() //발사체 생성
     {
         bulletinfo.attackTarget = this.attackTarget;
-        GameObject clone = Instantiate(BulletPrefab, BulletSpawnPoint.position, Quaternion.identity);
+        // GameObject clone = Instantiate(BulletPrefab, BulletSpawnPoint.position, Quaternion.identity);
+        GameObject clone = BulletObjectPull.GetObject(BulletPrefab,BulletSpawnPoint.position);
         BulletInterFace bullet = clone.GetComponent<BulletInterFace>();
         bullet.SetUp(bulletinfo);
+        clone.transform.LookAt(attackTarget);
     }
 
   
