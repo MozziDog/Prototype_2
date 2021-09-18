@@ -81,8 +81,9 @@ public class Meteor : MonoBehaviour
                     StartCoolTime();
                 }
             }
-            else if (Input.GetMouseButtonUp(0))
+            else if (Input.GetMouseButton(0))
             {
+                isSpellMode = false;
                 Destroy(_indicator);
             }
         }
