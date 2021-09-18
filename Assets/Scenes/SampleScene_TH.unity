@@ -1394,7 +1394,7 @@ GameObject:
   - component: {fileID: 314193391}
   - component: {fileID: 314193390}
   m_Layer: 5
-  m_Name: AttackDamage (2)
+  m_Name: AttackSpeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2215,6 +2215,7 @@ GameObject:
   - component: {fileID: 472260058}
   - component: {fileID: 472260060}
   - component: {fileID: 472260059}
+  - component: {fileID: 472260062}
   - component: {fileID: 472260061}
   m_Layer: 5
   m_Name: GameOverPanel
@@ -2381,6 +2382,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &472260062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472260057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf9c3d1d1358d7b46bde351b32ccc5af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &492548029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4534,7 +4547,7 @@ GameObject:
   - component: {fileID: 749840773}
   - component: {fileID: 749840772}
   m_Layer: 5
-  m_Name: AttackDamage (3)
+  m_Name: AttackArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8499,7 +8512,7 @@ GameObject:
   - component: {fileID: 1407699205}
   - component: {fileID: 1407699204}
   m_Layer: 5
-  m_Name: AttackDamage (4)
+  m_Name: SpecialEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10265,7 +10278,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629214609}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
@@ -16986,8 +16999,8 @@ MonoBehaviour:
   UI: {fileID: 1629214609}
   towerImage: {fileID: 1300597406}
   attackDamageText: {fileID: 1266983492}
-  attackRangeText: {fileID: 31456395}
-  attackSpeedText: {fileID: 863158487}
+  attackRangeText: {fileID: 1081860968}
+  attackSpeedText: {fileID: 31456395}
   attackAreaText: {fileID: 863158487}
   specialEffectText: {fileID: 48161587}
   towerDescription: {fileID: 1906111186}
@@ -18230,6 +18243,7 @@ GameObject:
   - component: {fileID: 2108247176}
   - component: {fileID: 2108247178}
   - component: {fileID: 2108247177}
+  - component: {fileID: 2108247180}
   - component: {fileID: 2108247179}
   m_Layer: 5
   m_Name: StageClearPanel
@@ -18395,6 +18409,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2108247180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108247175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf9c3d1d1358d7b46bde351b32ccc5af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2112650839 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7290195104510254359, guid: acd5971cff513e74dbf12af3324cc7c4, type: 3}
