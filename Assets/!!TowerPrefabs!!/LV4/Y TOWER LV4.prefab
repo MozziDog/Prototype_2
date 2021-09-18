@@ -1809,7 +1809,7 @@ MonoBehaviour:
   type: Y
   price: 120
   bulletSpeed: 20
-  bulletDamage: 12
+  bulletDamage: 15
   attackRate: 1
   attackRange: 2.5
   bombRange: 0

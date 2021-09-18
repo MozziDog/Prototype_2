@@ -44580,7 +44580,7 @@ MonoBehaviour:
   type: P
   price: 60
   bulletSpeed: 20
-  bulletDamage: 36
+  bulletDamage: 42
   attackRate: 3
   attackRange: 5.5
   bombRange: 0

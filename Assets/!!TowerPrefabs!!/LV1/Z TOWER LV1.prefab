@@ -1629,8 +1629,9 @@ MonoBehaviour:
   _myposition: []
   LV: 1
   type: Z
+  price: 30
   bulletSpeed: 20
-  bulletDamage: 10
+  bulletDamage: 15
   attackRate: 1
   attackRange: 3
   bombRange: 0

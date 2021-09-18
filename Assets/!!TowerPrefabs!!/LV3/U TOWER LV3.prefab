@@ -20712,8 +20712,8 @@ MonoBehaviour:
   type: U
   price: 90
   bulletSpeed: 1
-  bulletDamage: 42
-  attackRate: 6
+  bulletDamage: 60
+  attackRate: 5
   attackRange: 5.5
   bombRange: 2.5
   bulletAmmoCount: 0

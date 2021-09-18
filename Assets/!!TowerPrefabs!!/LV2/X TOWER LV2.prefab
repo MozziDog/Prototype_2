@@ -1445,7 +1445,7 @@ MonoBehaviour:
   type: X
   price: 60
   bulletSpeed: 30
-  bulletDamage: 36
+  bulletDamage: 42
   attackRate: 3
   attackRange: 5.5
   bombRange: 0

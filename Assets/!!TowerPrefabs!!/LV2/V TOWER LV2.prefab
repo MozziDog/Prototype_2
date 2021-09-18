@@ -1012,7 +1012,7 @@ MonoBehaviour:
   type: V
   price: 60
   bulletSpeed: 1.5
-  bulletDamage: 4.2
+  bulletDamage: 3
   attackRate: 0.5
   attackRange: 5.5
   bombRange: 2

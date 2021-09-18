@@ -20597,9 +20597,10 @@ MonoBehaviour:
   _myposition: []
   LV: 1
   type: U
+  price: 30
   bulletSpeed: 1
-  bulletDamage: 24
-  attackRate: 6
+  bulletDamage: 25
+  attackRate: 5
   attackRange: 5.5
   bombRange: 2.5
   bulletAmmoCount: 0
