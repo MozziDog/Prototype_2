@@ -686,6 +686,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5202155466533831888}
   - component: {fileID: 4968528350033047755}
+  - component: {fileID: 6752267067640940433}
   m_Layer: 0
   m_Name: Y2
   m_TagString: Untagged
@@ -735,6 +736,18 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+--- !u!114 &6752267067640940433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5204667695448393148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5204730626860946632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,6 +1123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5868364701774553506}
   - component: {fileID: 6751626444834657721}
+  - component: {fileID: 632220594951792723}
   m_Layer: 0
   m_Name: Y2
   m_TagString: Untagged
@@ -1159,6 +1173,18 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+--- !u!114 &632220594951792723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5871546017870684366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5871565322867028490
 GameObject:
   m_ObjectHideFlags: 0
@@ -1428,6 +1454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7020815702187974221}
   - component: {fileID: 7902960064176089686}
+  - component: {fileID: 4898471539717013237}
   m_Layer: 0
   m_Name: Y2
   m_TagString: Untagged
@@ -1477,6 +1504,18 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+--- !u!114 &4898471539717013237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7018164899374833441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7018175819141680613
 GameObject:
   m_ObjectHideFlags: 0

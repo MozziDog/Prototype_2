@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //k all
-public class NormalBullet : MonoBehaviour, BulletInterFace
+public class NormalBullet : Bullet_base, BulletInterFace
 {
     public float LV;
     public float bulletSpeed;
@@ -13,7 +13,7 @@ public class NormalBullet : MonoBehaviour, BulletInterFace
     public Vector3 aimPosition;
     private AudioSource musicPlayer;
     public AudioClip shootSound;
-    
+
     public void SetUp(BulletInfo bulletinfo)
     {
         this.LV = bulletinfo.LV;
@@ -22,30 +22,33 @@ public class NormalBullet : MonoBehaviour, BulletInterFace
         this.bulletDamage = bulletinfo.bulletDamage;
     }
 
-    private void OnTriggerEnter(Collider other) //Àû°ú Ãæµ¹½Ã »óÈ£ÀÛ¿ë
+    private void OnTriggerEnter(Collider other) //ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½ï¿½ ï¿½ï¿½È£ï¿½Û¿ï¿½
     {
-        if(other.transform != target) return;
-        if ( other.gameObject.layer != LayerMask.NameToLayer("Enemy")) return;
+        if (other.transform != target) return;
+        if (other.gameObject.layer != LayerMask.NameToLayer("Enemy")) return;
         if (other.gameObject.GetComponent<EnemyInterFace>() == null) return;
         other.GetComponent<EnemyInterFace>().GetDamage(bulletDamage);
-        
+
 
         //hit particle spawn
         GameObject clone = Instantiate(impactParticle, target.gameObject.GetComponent<EnemyInterFace>().GetBodyPos().position, Quaternion.identity) as GameObject;
         clone.transform.parent = target.transform;
-        Destroy(clone, 1f);
-
+        // Destroy(clone, 1f);
+        Disable(clone, 1f);
         //destroy bullet prefab
-        Destroy(gameObject,0.22f);
-      
+        // Destroy(gameObject,0.22f);
+        Disable(gameObject, 0.22f);
+
     }
 
     IEnumerator DestroyIfNoTarget()
     {
         yield return new WaitForSeconds(0.5f);
         GameObject clone = Instantiate(impactParticle, this.gameObject.transform.position, Quaternion.identity) as GameObject;
-        Destroy(gameObject);
-        Destroy(clone, 1f);
+        //Destroy(gameObject);
+        Disable(gameObject);
+        // Destroy(clone, 1f);
+        Disable(clone, 1f);
     }
 
     void Shoot()
@@ -55,7 +58,7 @@ public class NormalBullet : MonoBehaviour, BulletInterFace
         transform.LookAt(aimPosition);
         this.transform.position = Vector3.MoveTowards(this.transform.position, aimPosition, bulletSpeed * Time.deltaTime);
     }
-   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,24 +66,24 @@ public class NormalBullet : MonoBehaviour, BulletInterFace
         musicPlayer.clip = shootSound;
         musicPlayer.time = 0;
         musicPlayer.Play();
-        Destroy(gameObject,2.3f);
+        // Destroy(gameObject, 2.3f);
+        Disable(gameObject, 2.3f);
     }
 
     // Update is called once per frame
     void Update()
     {
         Shoot();
-        if (target!= null && target.gameObject.GetComponent<EnemyInterFace>().CheckDead())
+        if (target != null && target.gameObject.GetComponent<EnemyInterFace>().CheckDead())
         {
-          
+
             StartCoroutine(DestroyIfNoTarget());
         }
-     
+
         else if (target == null)
         {
             StartCoroutine(DestroyIfNoTarget());
         }
     }
-
 
 }

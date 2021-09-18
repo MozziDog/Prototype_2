@@ -490,6 +490,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1835845555520801820}
   - component: {fileID: 7222624127250606681}
+  - component: {fileID: 1262701893073417836}
   m_Layer: 0
   m_Name: WTowerLV1
   m_TagString: Untagged
@@ -538,6 +539,18 @@ MonoBehaviour:
   SpawnPoint: {fileID: 0}
   wavemanager: {fileID: 0}
   enemyList: []
+--- !u!114 &1262701893073417836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832908414325572732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1973342285770508967
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,6 +1043,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5941248383905277750}
   - component: {fileID: 3400882113207435635}
+  - component: {fileID: 3158176536711400590}
   m_Layer: 0
   m_Name: WTowerLV1
   m_TagString: Untagged
@@ -1078,6 +1092,18 @@ MonoBehaviour:
   SpawnPoint: {fileID: 0}
   wavemanager: {fileID: 0}
   enemyList: []
+--- !u!114 &3158176536711400590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5937567706637594454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5937610391472347606
 GameObject:
   m_ObjectHideFlags: 0
@@ -1266,6 +1292,7 @@ MonoBehaviour:
   _myposition: []
   LV: 1
   type: W
+  price: 30
   bulletSpeed: 1
   bulletDamage: 0
   attackRate: 8
@@ -1455,6 +1482,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7752216139290616130}
   - component: {fileID: 1645140078114866951}
+  - component: {fileID: 7489658982322111934}
   m_Layer: 0
   m_Name: WTowerLV1
   m_TagString: Untagged
@@ -1503,6 +1531,18 @@ MonoBehaviour:
   SpawnPoint: {fileID: 0}
   wavemanager: {fileID: 0}
   enemyList: []
+--- !u!114 &7489658982322111934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7746349907770403106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7746459563042610210
 GameObject:
   m_ObjectHideFlags: 0

@@ -237,6 +237,8 @@ GameObject:
   - component: {fileID: 1622291023135961574}
   - component: {fileID: 1632490382458710242}
   - component: {fileID: 4948339306500886387}
+  - component: {fileID: 9139333027476172492}
+  - component: {fileID: 4636262317575633317}
   m_Layer: 11
   m_Name: LTowerLV1
   m_TagString: Tower
@@ -335,6 +337,30 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+--- !u!114 &9139333027476172492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653122355212831410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4636262317575633317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653122355212831410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1653284850094502320
 GameObject:
   m_ObjectHideFlags: 0
@@ -5366,6 +5392,8 @@ GameObject:
   - component: {fileID: 6124828810141319805}
   - component: {fileID: 6114638251244313465}
   - component: {fileID: 490965120403979496}
+  - component: {fileID: 5306739954045550761}
+  - component: {fileID: 8728710185120230665}
   m_Layer: 11
   m_Name: LTowerLV1
   m_TagString: Tower
@@ -5464,6 +5492,30 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+--- !u!114 &5306739954045550761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6092622951094974761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8728710185120230665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6092622951094974761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6092789216632455723
 GameObject:
   m_ObjectHideFlags: 0
@@ -15397,6 +15449,8 @@ GameObject:
   - component: {fileID: 8105705419555039858}
   - component: {fileID: 8095515478328013686}
   - component: {fileID: 2473251715236566247}
+  - component: {fileID: 3845557910944738594}
+  - component: {fileID: 2810245987858473434}
   m_Layer: 11
   m_Name: LTowerLV1
   m_TagString: Tower
@@ -15495,6 +15549,30 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+--- !u!114 &3845557910944738594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8074913669096165670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2810245987858473434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8074913669096165670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8310692416242285440
 GameObject:
   m_ObjectHideFlags: 0
