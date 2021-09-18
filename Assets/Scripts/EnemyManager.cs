@@ -32,6 +32,7 @@ public class EnemyManager : MonoBehaviour
     {
         CurrentEnemyList = new List<GameObject>(); //���� �����Ǿ��ִ� �� ���� ������ ����Ʈ
         navMeshPath = new UnityEngine.AI.NavMeshPath();
+        BakeNav();
 
 
     }
