@@ -11019,6 +11019,9 @@ MonoBehaviour:
   - {fileID: 1981182019128834767}
   isTemp: 1
   isBuffed: 0
+  towerTransform:
+    reverted: 0
+    rotation: 0
 --- !u!65 &-1897853594193804921
 BoxCollider:
   m_ObjectHideFlags: 0
