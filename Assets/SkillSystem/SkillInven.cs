@@ -139,7 +139,7 @@ public class SkillInven : MonoBehaviour, IPointerClickHandler, IPointerExitHandl
             _upgraded = PlayerPrefs.GetInt("grade_Meteor");
             coolTime = 20f - (_upgraded - 1) * 5f / 19f;
             _coolTxt.text = string.Format("{0:0.#}", coolTime) + "초";
-            info = "스킬 시전시 하늘에서 불덩이들을 소환하여\n3초간 초당 " + string.Format("{0:0.#}", (2f + (_upgraded - 1) * 3f / 19f)) + "의 데미지를 입힌다.";
+            info = "스킬 시전시 하늘에서 불덩이들을 소환하여\n3초간 초당 " + string.Format("{0:0.#}", (2f + (_upgraded - 1) * 3f / 19f)) + "%의 데미지를 입힌다.";
         }
         else if (skillName == "Sacrifice")
         {
