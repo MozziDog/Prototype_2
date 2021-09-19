@@ -19703,7 +19703,9 @@ PrefabInstance:
       propertyPath: towerManager
       value: 
       objectReference: {fileID: 625576663}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8693507566174192879, guid: 3fd9e438688368b498d7abdd65a25801, type: 3}
+    - {fileID: 2816623244655663400, guid: 3fd9e438688368b498d7abdd65a25801, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3fd9e438688368b498d7abdd65a25801, type: 3}
 --- !u!1 &8693507566174192877 stripped
 GameObject:
@@ -19757,10 +19759,10 @@ MonoBehaviour:
     - {fileID: 7454545231653059525, guid: 970135450d395eb45927dc55336746bf, type: 3}
   - TYPE: L
     UpgradeList:
-    - {fileID: 7454545231653059525, guid: 91b4442cc6c1c5146a960b5b9e20b8d8, type: 3}
-    - {fileID: 7454545231653059525, guid: 6bfd42b6a6896eb4b8af3641c3a5e199, type: 3}
-    - {fileID: 7454545231653059525, guid: 23eb7926954fbd44a938dd810697acdd, type: 3}
-    - {fileID: 7454545231653059525, guid: ba07ddde284f63141bab5eae02a6e7ff, type: 3}
+    - {fileID: 7454545231653059525, guid: c202575385927e742bd137b8123943ee, type: 3}
+    - {fileID: 7454545231653059525, guid: 1867938ce46c50842add7ff9a3782c22, type: 3}
+    - {fileID: 7454545231653059525, guid: f6d5de105f3862a4b8844754eb6f977c, type: 3}
+    - {fileID: 7454545231653059525, guid: 3ea8ed1e5a387d143ad876c8a52e9d06, type: 3}
   - TYPE: N
     UpgradeList:
     - {fileID: 7454545231653059525, guid: 668938b55336286478ea8ef8f574011c, type: 3}
