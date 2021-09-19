@@ -31,10 +31,10 @@ public class LandSmash : MonoBehaviour
         _upgraded = PlayerPrefs.GetInt("grade_LandSmash");
         coolTime = 30f - (_upgraded - 1) * 5f / 19f;
         wallTime = 2f + (_upgraded - 1) * 2f / 19f;
-        _Cool_Info_txt.GetComponent<Text>().text = string.Format("{0:0.#}", coolTime) + "√ ";
+        _Cool_Info_txt.GetComponent<Text>().text = string.Format("{0:0.#}", coolTime) + "Ï¥à";
         _wall.GetComponent<Wall>().duration = wallTime;
         _audio = GetComponent<AudioSource>();
-        
+
     }
 
     private void Update()
@@ -57,7 +57,7 @@ public class LandSmash : MonoBehaviour
                 {
                     _cool_Img.fillAmount = ratio;
                 }
-                _cool_txt.GetComponent<Text>().text = Mathf.Floor(leftTime).ToString() + " √ ";
+                _cool_txt.GetComponent<Text>().text = Mathf.Floor(leftTime).ToString() + " Ï¥à";
             }
 
         if (isSpellMode)

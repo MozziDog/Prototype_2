@@ -295,7 +295,7 @@ public class AdManager : MonoBehaviour
         {
             if (isReady >= 1)
             {
-                rechargeTimer.text = " ";
+                rechargeTimer.text = "받기!";
             }
             else
             {

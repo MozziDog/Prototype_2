@@ -31,9 +31,9 @@ public class PowerUp : MonoBehaviour
         _upgraded = PlayerPrefs.GetInt("grade_PowerUp");
         coolTime = 15f - (+_upgraded - 1) * 2f / 19f;
         _rageSkill.GetComponent<RageSkill>().rageAmount = 1f + (_upgraded - 1) * 3f / 19f;
-        _Cool_Info_txt.GetComponent<Text>().text = string.Format("{0:0.#}", coolTime) + "√ ";
+        _Cool_Info_txt.GetComponent<Text>().text = string.Format("{0:0.#}", coolTime) + "Ï¥à";
         _audio = GetComponent<AudioSource>();
-        
+
     }
 
     private void Update()
@@ -56,7 +56,7 @@ public class PowerUp : MonoBehaviour
                 {
                     _cool_Img.fillAmount = ratio;
                 }
-                _cool_txt.GetComponent<Text>().text = Mathf.Floor(leftTime).ToString() + " √ ";
+                _cool_txt.GetComponent<Text>().text = Mathf.Floor(leftTime).ToString() + " Ï¥à";
             }
 
         if (isSpellMode)

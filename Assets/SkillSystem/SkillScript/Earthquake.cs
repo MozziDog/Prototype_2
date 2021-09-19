@@ -33,9 +33,9 @@ public class Earthquake : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
         _upgraded = PlayerPrefs.GetInt("grade_Earthquake");
         holdTime = 1f + (_upgraded - 1) * 2f / 19f;
         coolMaxTime = 35f - (_upgraded - 1) * 10f / 19f;
-        _Cool_Info_txt.GetComponent<Text>().text = string.Format("{0:0.#}", coolMaxTime) + "√ ";
+        _Cool_Info_txt.GetComponent<Text>().text = string.Format("{0:0.#}", coolMaxTime) + "Ï¥à";
         _enemyManager = GameObject.Find("SpawnPointGroup").GetComponent<EnemyManager>();
-        
+
     }
     private void Update()
     {
@@ -57,13 +57,13 @@ public class Earthquake : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
                 {
                     _cool_Img.fillAmount = ratio;
                 }
-                _cool_txt.GetComponent<Text>().text = Mathf.Floor(leftTime).ToString() + " √ ";
+                _cool_txt.GetComponent<Text>().text = Mathf.Floor(leftTime).ToString() + " Ï¥à";
             }
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if(leftTime == 0f)
+        if (leftTime == 0f)
         {
             isClicked = true;
             StartCoroutine(CountDown());
@@ -100,7 +100,7 @@ public class Earthquake : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
                 _enemyManager.CurrentEnemyList[i].GetComponent<GroundEnemy>().agent.speed = 1f;
             }
         }
-        
+
     }
 
     private void OnLongPress()
@@ -125,7 +125,7 @@ public class Earthquake : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
             yield return null;
         }
     }
-    
+
     IEnumerator EarthquakeSkill()
     {
         while (true)

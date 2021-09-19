@@ -235,6 +235,7 @@ public class StageSelectSceneManager : MonoBehaviour
     {
         ShopUI.SetActive(true);
         DoTween(ShopUI_movingPart.transform, ShopUI_movingPart.transform.position, new Vector3(screenWidth / 2, ShopUI_movingPart.transform.position.y, ShopUI_movingPart.transform.position.z), tweenTime);
+        CloseInventoryUI();
     }
 
     public void CloseShopUI()
@@ -262,6 +263,7 @@ public class StageSelectSceneManager : MonoBehaviour
     public void OpenInventoryUI()
     {
         InvenUI.SetActive(true);
+        CloseShopUI();
     }
 
     public void CloseInventoryUI()

@@ -39,10 +39,10 @@ public class Sacrifice : MonoBehaviour
         else if (_upgraded <= 20)
             _hpAmount = 7;
 
-        _Cool_Info_txt.GetComponent<Text>().text = string.Format("{0:0.#}", coolTime) + "√ ";
+        _Cool_Info_txt.GetComponent<Text>().text = string.Format("{0:0.#}", coolTime) + "Ï¥à";
         _player = GameObject.Find("Player1");
         _moneyManager = GameObject.Find("InGameShopManager").GetComponent<MoneyManager>();
-        
+
     }
 
     private void Update()
@@ -65,7 +65,7 @@ public class Sacrifice : MonoBehaviour
                 {
                     _cool_Img.fillAmount = ratio;
                 }
-                _cool_txt.GetComponent<Text>().text = Mathf.Floor(leftTime).ToString() + " √ ";
+                _cool_txt.GetComponent<Text>().text = Mathf.Floor(leftTime).ToString() + " Ï¥à";
             }
     }
 

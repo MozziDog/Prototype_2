@@ -31,9 +31,9 @@ public class Meteor : MonoBehaviour
         _upgraded = PlayerPrefs.GetInt("grade_Meteor");
         coolTime = 20f - (_upgraded - 1) * 5f / 19f;
         damage = 2f + (_upgraded - 1) * 3f / 19f;
-        _Cool_Info_txt.GetComponent<Text>().text = string.Format("{0:0.#}", coolTime) + "√ ";
+        _Cool_Info_txt.GetComponent<Text>().text = string.Format("{0:0.#}", coolTime) + "Ï¥à";
         _meteorRain.GetComponent<ParticleCollisionInstance>().damage = damage;
-        
+
     }
 
     private void Update()
@@ -56,10 +56,10 @@ public class Meteor : MonoBehaviour
                 {
                     _cool_Img.fillAmount = ratio;
                 }
-                _cool_txt.GetComponent<Text>().text = Mathf.Floor(leftTime).ToString() + " √ ";
+                _cool_txt.GetComponent<Text>().text = Mathf.Floor(leftTime).ToString() + "Ï¥à";
             }
 
-        if(isSpellMode)
+        if (isSpellMode)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit = new RaycastHit();

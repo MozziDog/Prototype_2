@@ -41,7 +41,7 @@ public class Heal : MonoBehaviour
         else if (_upgraded == 20)
             _moneyAmount = 100;
         //_healAmount += (_upgraded - 1) * _healUpgradeAmount;
-        _Cool_Info_txt.GetComponent<Text>().text = string.Format("{0:0.#}", coolTime) + "��";
+        _Cool_Info_txt.GetComponent<Text>().text = string.Format("{0:0.#}", coolTime) + "초";
         _player = GameObject.Find("Player1");
         _moneyManager = GameObject.Find("InGameShopManager").GetComponent<MoneyManager>();
         _usage = 1;
@@ -67,7 +67,7 @@ public class Heal : MonoBehaviour
                 {
                     _cool_Img.fillAmount = ratio;
                 }
-                _cool_txt.GetComponent<Text>().text = Mathf.Floor(leftTime).ToString() + " ��";
+                _cool_txt.GetComponent<Text>().text = Mathf.Floor(leftTime).ToString() + "초";
             }
     }
 
