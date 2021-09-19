@@ -18,7 +18,7 @@ GameObject:
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5932973011032698045
 Transform:
@@ -326,7 +326,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pullingBullets: []
 --- !u!1 &2778535685548991207
 GameObject:
   m_ObjectHideFlags: 0
@@ -10173,7 +10172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pullingBullets: []
 --- !u!1 &3018983328116773044
 GameObject:
   m_ObjectHideFlags: 0
@@ -15201,7 +15199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pullingBullets: []
 --- !u!1 &4317124959800029011
 GameObject:
   m_ObjectHideFlags: 0
@@ -15313,7 +15310,7 @@ GameObject:
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &422679915232912341
 Transform:
@@ -15538,7 +15535,7 @@ GameObject:
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1242927307761709770
 Transform:
@@ -15650,7 +15647,7 @@ GameObject:
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1715897181330726408
 Transform:
@@ -15763,7 +15760,7 @@ GameObject:
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1781843638884664035
 Transform:
