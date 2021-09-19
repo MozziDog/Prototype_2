@@ -9,6 +9,12 @@ public class NormalBombRotation : MonoBehaviour
     [SerializeField]
     private float bulletSpeed;
     // Start is called before the first frame update
+
+    private void OnEnable()
+    {
+        this.transform.rotation = new Quaternion(0, 0, 0, 0);        
+    }
+
     void Start()
     {
 
