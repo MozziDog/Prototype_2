@@ -168,6 +168,7 @@ public class TowerBase : MonoBehaviour
     }
 }
 
+[System.Serializable]
 public class TowerTransform
 {
     public bool reverted = false;

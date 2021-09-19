@@ -49,7 +49,6 @@ public class WaveManager : MonoBehaviour
             currentWaveIndex++;
             obstacleManager.WayObstacleActiveSwitch();
             enemySpawner.StartWave(waves[currentWaveIndex]);
-            isInGame = true;
         }
     }
 
