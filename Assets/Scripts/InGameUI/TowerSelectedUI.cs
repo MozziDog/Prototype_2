@@ -21,7 +21,7 @@ public class TowerSelectedUI : MonoBehaviour
             Debug.LogWarning("tower selected!");
             targetTower = tower;
             towerAdvance.SetAdvanceTarget(targetTower);
-            sellPriceText.text = targetTower.GetComponent<TowerBase>()?.GetPrice().ToString();
+            sellPriceText.text = (targetTower.GetComponent<TowerBase>()?.GetPrice() / 2).ToString();
             gameObject.SetActive(isOn);
             SetUIPosition(tower);
             UIOnAnimation();
