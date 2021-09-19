@@ -14,7 +14,7 @@ public class StaminaManager : MonoBehaviour
 
     private int m_StaminaAmount = 0; //보유 하트 개수
     private DateTime m_LastModifiedTime = new DateTime(1970, 1, 1).ToLocalTime();
-    private const int MAX_STAMINA = 10; //하트 최대값
+    private const int MAX_STAMINA = 100; //하트 최대값
     public int StaminaRechargeInterval = 600;// 하트 충전 간격(단위:초)
     private Coroutine m_RechargeTimerCoroutine = null;
     private int m_RechargeRemainTime = 0;

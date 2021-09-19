@@ -23,7 +23,7 @@ public class StageSelectSceneManager : MonoBehaviour
     public GameObject OptionUI;
     public GameObject CreditUI;
     [SerializeField] StaminaManager staminaManager;
-    readonly int STAMINA_PER_STAGE = 5;
+    readonly int STAMINA_PER_STAGE = 10;
     public GameObject noStaminaWindow;
     bool tweenAnimationFinished = true;
     int screenWidth;
