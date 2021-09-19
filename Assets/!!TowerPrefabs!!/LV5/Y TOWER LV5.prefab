@@ -1381,7 +1381,7 @@ MonoBehaviour:
   attackRange: 2.5
   bombRange: 0
   bulletAmmoCount: 2
-  burstRate: 0.3
+  burstRate: 0.2
   maxChainCount: 2
   chainRadius: 5
   poisonDamage: 0
