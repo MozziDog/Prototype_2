@@ -1254,7 +1254,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 0, g: 1, b: 0.9696944, a: 0}
-        key1: {r: 0, g: 0.3400528, b: 0.6226415, a: 1}
+        key1: {r: 0, g: 0.3400528, b: 0.6226415, a: 0.5647059}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -4952,7 +4952,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0.654902, b: 1, a: 0.78431374}
+      maxColor: {r: 0, g: 0.654902, b: 1, a: 0.6039216}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5523,7 +5523,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.55
+      scalar: 0.28
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -5648,13 +5648,13 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.23264492
-          value: 1
-          inSlope: 0.05764279
-          outSlope: 0.05764279
+          time: 0.47902858
+          value: 0.8122444
+          inSlope: 0.56624985
+          outSlope: 0.56624985
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.1622506
+          inWeight: 0.17684427
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
@@ -5971,7 +5971,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 0, g: 1, b: 0.9696944, a: 0}
-        key1: {r: 0, g: 0.3400528, b: 0.6226415, a: 1}
+        key1: {r: 0, g: 0.3400528, b: 0.6226415, a: 0.56723285}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -5987,9 +5987,9 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 32575
+        atime1: 33539
         atime2: 65535
-        atime3: 0
+        atime3: 65535
         atime4: 0
         atime5: 0
         atime6: 0

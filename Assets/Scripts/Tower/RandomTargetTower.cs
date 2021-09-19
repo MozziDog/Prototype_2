@@ -28,10 +28,10 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
     public WaveManager wavemanager;
     public List<GameObject> enemyList;
     private Transform homeY;
-    private bool isAiming;
-    private bool isShooting;
 
     private bool lockOn = false;
+    private bool isBulletCharged = true;
+    private bool isBulletCharging = false;
     GameObject temp;
     BulletObjectPull objectPool;
     public void SetUp(TowerInfo towerinfo)
@@ -120,7 +120,7 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
 
             if (attackTarget != null && !attackTarget.GetComponent<EnemyInterFace>().CheckDead())
             {
-
+                lockOn = true;
                 ChangeState(WeaponState.AttackToTarget);
                 break;
             }
@@ -131,29 +131,30 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
 
     private IEnumerator AttackToTarget() //�� ����
     {
-        yield return new WaitForSeconds(1.25f);
-
-
-
-        //|| attackTarget.gameObject.layer == LayerMask.NameToLayer("Dead")
-
-
-
-        float distance = Vector3.Distance(attackTarget.position, transform.position);
-
-
-        if (distance > attackRange)
+        yield return new WaitForSeconds(1.15f);
+        while (true)
         {
-            attackTarget = null;
-            ChangeState(WeaponState.SearchTarget);
 
+            float distance = Vector3.Distance(attackTarget.position, transform.position);
+            if (distance > attackRange)
+            {
+                lockOn = false;
+                attackTarget = null;
+                ChangeState(WeaponState.SearchTarget);
+                break;
+            }
+
+            if (isBulletCharged)
+            {
+                isBulletCharged = false;
+                SpawnBullet();
+                //yield return new WaitForSeconds(attackRate);
+                attackTarget = null;
+                ChangeState(WeaponState.SearchTarget);
+            }
+
+            yield return null;
         }
-
-        SpawnBullet();
-        yield return new WaitForSeconds(attackRate);
-        attackTarget = null;
-        ChangeState(WeaponState.SearchTarget);
-
     }
 
 
@@ -166,7 +167,7 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
         clone.transform.position = BulletSpawnPoint.position;
         BulletInterFace bullet = clone.GetComponent<BulletInterFace>();
         bullet.SetUp(bulletinfo);
-
+        clone.transform.LookAt(attackTarget);
 
 
     }
@@ -175,11 +176,19 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
 
         if (!attackTarget || attackTarget.GetComponent<EnemyInterFace>().CheckDead())
         {
+            lockOn = false;
             attackTarget = null;
             ChangeState(WeaponState.SearchTarget);
             return;
         }
 
+    }
+
+    IEnumerator ChargeBullet()
+    {
+        yield return new WaitForSeconds(attackRate);
+        isBulletCharged = true;
+        isBulletCharging = false;
     }
 
 
@@ -201,15 +210,18 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
     // Update is called once per frame
     void Update()
     {
+        CheckTarget();
         this.enemyList = SpawnPoint.GetComponent<EnemyManager>().CurrentEnemyList; //�� �����Ӹ��� �� ����Ʈ ����
 
-
-        CheckTarget();
-
-        if (attackTarget)
-        {
+        if (lockOn)
             RotateToTarget();
+
+        if (!isBulletCharged && !isBulletCharging)
+        {
+            isBulletCharging = true;
+            StartCoroutine(ChargeBullet());
         }
+
     }
 
 }
