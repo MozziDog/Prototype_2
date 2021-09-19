@@ -21,6 +21,7 @@ public static class Global
     public static int grade_Heal = 1;
     public static int grade_Sacrifice = 1;
     public static float soundVolume = 1;
+    public static bool isDebug = false;
 
 
     public delegate void VolumeChangeEvent();
