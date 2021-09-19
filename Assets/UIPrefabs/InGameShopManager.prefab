@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3811928672714195176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3811928672714195177}
+  - component: {fileID: 3811928672714195175}
+  - component: {fileID: 3811928672714195174}
+  - component: {fileID: 3811928672714195172}
+  m_Layer: 0
+  m_Name: InGameShopManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3811928672714195177
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3811928672714195176}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3811928672714195175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3811928672714195176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd3b4eddee22394b96bcdd06090218d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shopButtonPrefab: {fileID: 7766615226275607285, guid: 24c9137f97e79ff4dac7bda748f50373, type: 3}
+  _inven: {fileID: 3811928672714195172}
+  _towerManager: {fileID: 0}
+  _wallet: {fileID: 3811928672714195174}
+  _shopUI: {fileID: 0}
+  _shopButtonsGrid: {fileID: 0}
+  _towerAll:
+  - {fileID: 7454545231653059525, guid: 82edf50bc8122c14487173c04c698cb8, type: 3}
+  - {fileID: 7454545231653059525, guid: 00ab1cef0abf18048802c012e68566f8, type: 3}
+  - {fileID: 7454545231653059525, guid: c1922f05e0237f244b1632f906507f53, type: 3}
+  - {fileID: 7454545231653059525, guid: 44536502fe05b5541adf2c7f0f8f0cdb, type: 3}
+  - {fileID: 7454545231653059525, guid: a28283291c2f79e4a9ae42fb802516bc, type: 3}
+  - {fileID: 7454545231653059525, guid: 0dc1e9ab532c70547b1a832b0aff2041, type: 3}
+  - {fileID: 7454545231653059525, guid: 443e8ae0f7a693e45841829dee5ca449, type: 3}
+  - {fileID: 7454545231653059525, guid: 537dd7cc95364ca479b62b18f3ee3274, type: 3}
+  - {fileID: 7454545231653059525, guid: 318f808664fb3754da22c6746e75208f, type: 3}
+  - {fileID: 7454545231653059525, guid: 40180ee1a2601aa429ebe4bf965881f9, type: 3}
+  - {fileID: 7454545231653059525, guid: aaf271a0929204d43bcef20e6fe1283c, type: 3}
+  _totalPriceText: {fileID: 0}
+  rerollPrice: 10
+--- !u!114 &3811928672714195174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3811928672714195176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c6045d0b30dced43914c77787bb5c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _UIText: {fileID: 0}
+  leftMoney: 0
+  stageBaseMoney:
+  - value: a0000000a0000000a0000000a000000084030000
+  - value: a0000000a0000000a0000000a0000000b0040000
+  waveClearRewardMoney:
+  - value: 3200000032000000320000003200000000000000
+  - value: 3c0000003c0000003c0000003c00000000000000
+--- !u!114 &3811928672714195172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3811928672714195176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e5199de88873164b8cf714e312ebb4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MAX_INVENTORY_CAPACITY: 5
+  _towerManager: {fileID: 0}
+  _toggle: []
+  _tower: []
+  _toggleGrid: {fileID: 0}
+  _togglePrefab: {fileID: 3482198535489228031, guid: dfa2861066fa940418ba78243cafc6bf, type: 3}

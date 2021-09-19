@@ -37,7 +37,7 @@ public struct TowerInfo
     public float attackRate;
     public float attackRange;
 
-  
+
     //if bomb-type
     public float bombRange;
 
@@ -60,7 +60,7 @@ public struct TowerInfo
     //slow
     public float slowIntensity;
     public float slowRange;
-   
+
 
 }
 
@@ -94,16 +94,16 @@ public struct BulletInfo
 
 public class InterFaceManager : MonoBehaviour
 {
-    
+
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

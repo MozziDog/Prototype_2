@@ -64,7 +64,6 @@ public class GameManager : MonoBehaviour
         // CheckTileUnderCursor();
         // _floor.GetComponent<Renderer>().material.SetFloat("_GridScaleFactor", _scaleFactor);
         CheckGameOver();
-        CheckStageClear();
     }
 
 
@@ -80,17 +79,16 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void CheckStageClear()
+    public void OnStageClear()
     {
-        if (waveManager.allWaveClear)
-            StartCoroutine(Reward());
+        StartCoroutine(StageClearReward());
     }
 
-    IEnumerator Reward()
+    IEnumerator StageClearReward()
     {
-        yield return new WaitForSeconds(2.2f);
+        yield return new WaitForSeconds(1.7f);
+        GiveStageClearReward();
         StageClearPanel.SetActive(true);
-
     }
 
     IEnumerator GameOver()
@@ -142,7 +140,6 @@ public class GameManager : MonoBehaviour
     public void OnEnemyDie(int rewardMoney)
     {
         wallet.AddMoney(rewardMoney);
-        CheckStageClear();
     }
 
     public void GiveStageClearReward()
@@ -150,10 +147,26 @@ public class GameManager : MonoBehaviour
         stageReward = claerRewards[Global._chapter - 1].rewards[Global._stage - 1];
         clearRewardText.text = stageReward.ToString();
         Global.userProperty.gold += stageReward;
+        if (Global.userProperty.LastReachedChapter < Global._chapter)
+        {
+            Global.userProperty.LastReachedChapter = Global._chapter;
+            Global.userProperty.LastReachedStage = Global._stage;
+        }
+        else if (Global.userProperty.LastReachedStage < Global._stage)
+        {
+            Global.userProperty.LastReachedStage = Global._stage;
+        }
         GameObject saveManager = GameObject.Find("SaveLoadManager");
         saveManager?.GetComponent<SaveLoadManager>().Save();
+        nextStageButton.interactable = Global._stage switch
+        {
+            5 => false,
+            _ => true
+        };
         clearUI.SetActive(true);
     }
+
+    [SerializeField] Button nextStageButton;
 
     public void GiveAdBonusReward()
     {
@@ -161,6 +174,12 @@ public class GameManager : MonoBehaviour
         clearRewardText.text = (stageReward * 2).ToString();
         GameObject saveManager = GameObject.Find("SaveLoadManager");
         saveManager?.GetComponent<SaveLoadManager>().Save();
+    }
+
+    public void OnClickButton_NextStage()
+    {
+        Global._stage++;
+        SceneLoader.LoadScene("SampleScene_TH");
     }
 
 }
