@@ -36,15 +36,8 @@ public class StageSelectSceneManager : MonoBehaviour
         LoadSaveData();
         FadeIn();
         ShopUI_movingPart.transform.position = new Vector3(Screen.width, ShopUI_movingPart.transform.position.y, ShopUI_movingPart.transform.position.z);
-        ShopUI.SetActive(false);                
+        ShopUI.SetActive(false);
         screenWidth = Screen.width;
-        Debug.Log(Global.userProperty.LastReachedChapter);
-        if (Global.userProperty.LastReachedChapter != 1)
-            for (int i = 0; i < Global.userProperty.LastReachedChapter - 1; i++)
-            {
-                Debug.Log("next");
-                OnClickNextChapter();
-            }
     }
 
     // Update is called once per frame
@@ -131,9 +124,6 @@ public class StageSelectSceneManager : MonoBehaviour
 
     void StartStage()
     {
-        Debug.Log(Global._chapter);
-        Global.userProperty.LastReachedChapter = Global._chapter;
-        GameObject.Find("SaveLoadManager").GetComponent<SaveLoadManager>().Save();
         string SceneString = GetSelectedStage();
         //SceneManager.LoadScene("Stage" + stageCode);
         SceneLoader.LoadScene(SceneString);
