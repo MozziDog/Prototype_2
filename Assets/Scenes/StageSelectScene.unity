@@ -17964,7 +17964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StaminaRechargeTimer: {fileID: 0}
   StaminaAmountLabel: {fileID: 0}
-  StaminaRechargeInterval: 60
+  StaminaRechargeInterval: 120
 --- !u!1 &1092964799
 GameObject:
   m_ObjectHideFlags: 0
@@ -29303,7 +29303,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: " (\uD300\uC7A5) BM \uAE30\uD68D"
+  m_Text: "(\uD300\uC7A5) \uC0AC\uC5C5 PM"
 --- !u!222 &1713301848
 CanvasRenderer:
   m_ObjectHideFlags: 0

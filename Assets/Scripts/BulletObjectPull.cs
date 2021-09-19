@@ -22,7 +22,7 @@ public class BulletObjectPull : MonoBehaviour
         if (pool.Count < 1)
         {
             GameObject newObject = Instantiate(prefab, Vector3.zero, Quaternion.identity);
-            newObject.transform.SetParent(gameObject.transform);
+            // newObject.transform.SetParent(gameObject.transform);
             pool.Add(newObject);
             index = pool.Count - 1;
             lastIndex = index;
@@ -36,18 +36,18 @@ public class BulletObjectPull : MonoBehaviour
             if (pool[index].activeInHierarchy == false)
             {
                 lastIndex = index;
-              
+
                 pool[index].SetActive(true);
                 return pool[index];
             }
             if (lastIndex == index)
             {
                 GameObject newObject = Instantiate(prefab, Vector3.zero, Quaternion.identity);
-                newObject.transform.SetParent(gameObject.transform);
+                // newObject.transform.SetParent(gameObject.transform);
                 pool.Add(newObject);
                 index = pool.Count - 1;
                 lastIndex = index;
-                
+
                 newObject.SetActive(true);
                 return newObject;
             }

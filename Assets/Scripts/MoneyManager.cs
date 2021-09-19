@@ -55,7 +55,9 @@ public class MoneyManager : MonoBehaviour
 
     public void GiveWaveClearReward()
     {
+        Debug.LogWarning("WaveClearReward");
         leftMoney += waveClearRewardMoney[Global._chapter - 1].value[Global._stage - 1];
+        RefreshUI();
     }
 }
 
