@@ -66,6 +66,7 @@ public class SaveLoadManager : MonoBehaviour
         PlayerPrefs.SetInt("gold", Global.userProperty.gold);
         PlayerPrefs.SetInt("ruby", Global.userProperty.ruby);
         PlayerPrefs.SetInt("TutorialFinishFlag", Global.userProperty.TutorialFinishFlag ? 1 : 0);
+        PlayerPrefs.SetInt("StartStoryFinishFlag", Global.userProperty.startStoryFinishFlag ? 1 : 0);
         PlayerPrefs.SetInt("lastReachedChapter", Global.userProperty.LastReachedChapter);
         PlayerPrefs.SetInt("lastReachedStage", Global.userProperty.LastReachedStage);
         PlayerPrefs.Save();
@@ -79,6 +80,7 @@ public class SaveLoadManager : MonoBehaviour
             Global.userProperty.gold = PlayerPrefs.GetInt("gold");
             Global.userProperty.ruby = PlayerPrefs.GetInt("ruby");
             Global.userProperty.TutorialFinishFlag = PlayerPrefs.GetInt("TutorialFinishFlag") == 1 ? true : false;
+            Global.userProperty.startStoryFinishFlag = PlayerPrefs.GetInt("StartStoryFinishFlag") == 1 ? true : false;
             Global.userProperty.LastReachedChapter = PlayerPrefs.GetInt("lastReachedChapter");
             Global.userProperty.LastReachedStage = PlayerPrefs.GetInt("lastReachedStage");
             Debug.Log($"gold: {Global.userProperty.gold}, ruby: {Global.userProperty.ruby}");

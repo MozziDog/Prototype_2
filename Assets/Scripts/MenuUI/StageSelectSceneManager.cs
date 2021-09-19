@@ -34,9 +34,13 @@ public class StageSelectSceneManager : MonoBehaviour
     void Start()
     {
         LoadSaveData();
+        if (Global.userProperty.startStoryFinishFlag == false)
+        {
+            SceneLoader.LoadScene("StoryCutIn");
+        }
         FadeIn();
         ShopUI_movingPart.transform.position = new Vector3(Screen.width, ShopUI_movingPart.transform.position.y, ShopUI_movingPart.transform.position.z);
-        ShopUI.SetActive(false);                
+        ShopUI.SetActive(false);
         screenWidth = Screen.width;
         Debug.Log(Global.userProperty.LastReachedChapter);
         if (Global.userProperty.LastReachedChapter != 1)

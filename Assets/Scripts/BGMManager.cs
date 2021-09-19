@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class BGMManager : MonoBehaviour
 {
     public AudioSource audioSource;
-    public AudioClip[] ChapterBGM;
+    public AudioClip[] BGM;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +14,7 @@ public class BGMManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         SceneManager.sceneLoaded += OnSceneLoaded;
         Global.OnVolumeChanged += OnVolumeChanged;
+        audioSource.loop = true;
     }
 
     public void OnVolumeChanged()
@@ -29,11 +30,11 @@ public class BGMManager : MonoBehaviour
             switch (Global._chapter)
             {
                 case 1:
-                    audioSource.clip = ChapterBGM[0];
+                    audioSource.clip = BGM[1];
                     audioSource.Play();
                     break;
                 case 2:
-                    audioSource.clip = ChapterBGM[1];
+                    audioSource.clip = BGM[2];
                     audioSource.Play();
                     break;
             }
@@ -41,13 +42,14 @@ public class BGMManager : MonoBehaviour
         }
         else
         {
-            if (audioSource.clip == ChapterBGM[0])
+            if (audioSource.clip == BGM[0])
             {
                 // DO NOTHING;
             }
             else
             {
-                audioSource.clip = ChapterBGM[0];
+                audioSource.clip = BGM[0];
+                audioSource.Play();
             }
         }
     }
