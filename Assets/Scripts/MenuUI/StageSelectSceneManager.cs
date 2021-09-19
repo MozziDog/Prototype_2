@@ -37,7 +37,7 @@ public class StageSelectSceneManager : MonoBehaviour
         LoadSaveData();
         if (Global.userProperty.startStoryFinishFlag == false)
         {
-            SceneLoader.LoadScene("StoryCutIn");
+            WatchStoryCutIn();
         }
         FadeIn();
         ShopUI_movingPart.transform.position = new Vector3(Screen.width, ShopUI_movingPart.transform.position.y, ShopUI_movingPart.transform.position.z);
@@ -277,6 +277,11 @@ public class StageSelectSceneManager : MonoBehaviour
     public void CloseCreditWindow()
     {
         CreditUI.SetActive(false);
+    }
+
+    public void WatchStoryCutIn()
+    {
+        SceneLoader.LoadScene("StoryCutIn");
     }
 
     public void PlayClickSound()
