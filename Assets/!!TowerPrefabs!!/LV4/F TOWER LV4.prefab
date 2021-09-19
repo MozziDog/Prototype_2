@@ -15615,7 +15615,7 @@ MonoBehaviour:
   type: F
   price: 20
   bulletSpeed: 20
-  bulletDamage: 4
+  bulletDamage: 5
   attackRate: 0.2
   attackRange: 3.5
   bombRange: 0

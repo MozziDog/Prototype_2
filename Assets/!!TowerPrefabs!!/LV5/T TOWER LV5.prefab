@@ -1995,7 +1995,7 @@ MonoBehaviour:
   type: T
   price: 20
   bulletSpeed: 20
-  bulletDamage: 12
+  bulletDamage: 20
   attackRate: 0.5
   attackRange: 3.5
   bombRange: 0

@@ -15612,7 +15612,7 @@ MonoBehaviour:
   type: L
   price: 40
   bulletSpeed: 1
-  bulletDamage: 2
+  bulletDamage: 3
   attackRate: 0.5
   attackRange: 3
   bombRange: 2.5
