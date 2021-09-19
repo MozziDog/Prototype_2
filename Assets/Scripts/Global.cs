@@ -21,6 +21,7 @@ public static class Global
     public static int grade_Heal = 1;
     public static int grade_Sacrifice = 1;
     public static float soundVolume = 1;
+    public static bool isDebug = false;
 
 
     public delegate void VolumeChangeEvent();
@@ -41,6 +42,7 @@ public struct UserProperty
     public int stamina;
     public long nextStaminaRegenTime;
     public bool TutorialFinishFlag;
+    public bool startStoryFinishFlag;
     public int LastReachedChapter;
     public int LastReachedStage;
     public int skill_1_level;
@@ -65,6 +67,7 @@ public struct UserProperty
         this.stamina = stamina;
         this.nextStaminaRegenTime = 0;
         this.TutorialFinishFlag = false;
+        this.startStoryFinishFlag = false;
         this.LastReachedChapter = 1;
         this.LastReachedStage = 0;
         this.skill_1_level = 1;

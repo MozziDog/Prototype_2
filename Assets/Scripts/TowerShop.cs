@@ -42,7 +42,10 @@ public class TowerShop : MonoBehaviour
         _shoppingCart = new List<ShopItem>();
 
         MakeShoppingList();
-
+        if (_shopUI.activeSelf == false)
+        {
+            ToggleUI();
+        }
     }
 
     public void ToggleUI()

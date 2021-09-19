@@ -16,7 +16,7 @@ public struct Wave
 public class WaveManager : MonoBehaviour
 {
     [SerializeField]
-    private Wave[] waves;
+    public Wave[] waves;
     [SerializeField]
     private EnemyManager enemySpawner;
     [SerializeField]
@@ -77,7 +77,7 @@ public class WaveManager : MonoBehaviour
         Debug.LogWarning("WaveDone");//�� ���̺� �ϼ� �� ����
         isInGame = false;
         _towerShop.MakeShoppingList();
-        moneyManager.AddMoney(rewardPerWave);
+        moneyManager.GiveWaveClearReward();
         if (!ShopUI.activeInHierarchy)
             ShopUI.SetActive(true);
         _invenUI.SetActive(true);
@@ -89,8 +89,8 @@ public class WaveManager : MonoBehaviour
         if (_Heal != null)
             _Heal.GetComponent<Heal>()._usage = 1;
        */
-        GameObject.Find("GameManager").GetComponent<GameManager>().GiveStageClearReward();
         allWaveClear = true; //��ü ���̺� �ϼ� �� ����ȭ�� �̵� , allWaveclear ��  GameManager �� ����� ����
+        GameObject.Find("GameManager").GetComponent<GameManager>().OnStageClear();
     }
 
     private void Start()

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6362289846127611276}
   - component: {fileID: 3032226629521789346}
   - component: {fileID: 220143852337191872}
-  - component: {fileID: 4772934155712914851}
   m_Layer: 11
   m_Name: TTower2Head (2)
   m_TagString: Tower
@@ -114,46 +113,6 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!114 &4772934155712914851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 348881027713062547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 601a20424d76ab646952ee2215c078e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerImage: {fileID: 0}
-  pentominoImage: {fileID: 0}
-  towerDescription: 
-  _myposition: []
-  LV: 3
-  type: T
-  price: 30
-  bulletSpeed: 12
-  bulletDamage: 10
-  attackRate: 1
-  attackRange: 15
-  bombRange: 0
-  bulletAmmoCount: 0
-  burstRate: 0
-  maxChainCount: 0
-  chainRadius: 0
-  poisonDamage: 0
-  poisonDuration: 0
-  poisonRate: 0
-  stunDuration: 0
-  mujeockTime: 0
-  slowIntensity: 0
-  slowRange: 0
-  numberOfBlocks: 0
-  Towers:
-  - {fileID: 2674049828037961322}
-  isTemp: 1
-  isBuffed: 0
 --- !u!1 &1635993474422202157
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,7 +1216,6 @@ GameObject:
   - component: {fileID: 6941675410407845367}
   - component: {fileID: 1299868948481634777}
   - component: {fileID: 4256102089658596283}
-  - component: {fileID: 8800723846223513048}
   m_Layer: 11
   m_Name: TTower2Head (1)
   m_TagString: Tower
@@ -1358,46 +1316,6 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!114 &8800723846223513048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4380265845089859304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 601a20424d76ab646952ee2215c078e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerImage: {fileID: 0}
-  pentominoImage: {fileID: 0}
-  towerDescription: 
-  _myposition: []
-  LV: 3
-  type: T
-  price: 30
-  bulletSpeed: 12
-  bulletDamage: 10
-  attackRate: 1
-  attackRange: 15
-  bombRange: 0
-  bulletAmmoCount: 0
-  burstRate: 0
-  maxChainCount: 0
-  chainRadius: 0
-  poisonDamage: 0
-  poisonDuration: 0
-  poisonRate: 0
-  stunDuration: 0
-  mujeockTime: 0
-  slowIntensity: 0
-  slowRange: 0
-  numberOfBlocks: 0
-  Towers:
-  - {fileID: 2090391234870445585}
-  isTemp: 1
-  isBuffed: 0
 --- !u!1 &6324606493706093425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1411,7 +1329,6 @@ GameObject:
   - component: {fileID: 817853638353098862}
   - component: {fileID: 8720762625239974976}
   - component: {fileID: 5772742535273614882}
-  - component: {fileID: 1237965676960165953}
   m_Layer: 11
   m_Name: TTower2Head
   m_TagString: Tower
@@ -1512,46 +1429,6 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!114 &1237965676960165953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6324606493706093425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 601a20424d76ab646952ee2215c078e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerImage: {fileID: 0}
-  pentominoImage: {fileID: 0}
-  towerDescription: 
-  _myposition: []
-  LV: 3
-  type: T
-  price: 30
-  bulletSpeed: 12
-  bulletDamage: 10
-  attackRate: 1
-  attackRange: 15
-  bombRange: 0
-  bulletAmmoCount: 0
-  burstRate: 0
-  maxChainCount: 0
-  chainRadius: 0
-  poisonDamage: 0
-  poisonDuration: 0
-  poisonRate: 0
-  stunDuration: 0
-  mujeockTime: 0
-  slowIntensity: 0
-  slowRange: 0
-  numberOfBlocks: 0
-  Towers:
-  - {fileID: 8506982265457963912}
-  isTemp: 1
-  isBuffed: 0
 --- !u!1 &7454545231653059525
 GameObject:
   m_ObjectHideFlags: 0

@@ -10218,8 +10218,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1935587835}
-  ChapterBGM:
+  BGM:
   - {fileID: 8300000, guid: 0c28d8c3b39b5bf4db4688b0eeaf1700, type: 3}
+  - {fileID: 8300000, guid: 46adbba87000db843af8fc138325df9c, type: 3}
   - {fileID: 8300000, guid: 0c1ac5675b5ec2f4c9c08b28e86657da, type: 3}
 --- !u!82 &1935587835
 AudioSource:

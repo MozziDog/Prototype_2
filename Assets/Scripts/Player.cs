@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
         {
             hp = 0;
         }
-        hpText.text = string.Format("X {0}", hp);
+        hpText.text = hp.ToString();
     }
 
     public void StartGetHit(float hitDamage)
