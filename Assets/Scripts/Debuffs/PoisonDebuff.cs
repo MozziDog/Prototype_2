@@ -19,7 +19,8 @@ public class PoisonDebuff : MonoBehaviour
     private Transform bodyPos;
     public void SetUp(float LV,float poisonDamage, float poisonDuration,float poisonRate ,GameObject PoisonFx)
     {
-
+        effect = Instantiate(PoisonFx, bodyPos.position, Quaternion.identity);
+        effect.SetActive(false);
         this.LV = LV;
         this.poisonDamage = poisonDamage;
         this.poisonDuration = poisonDuration;
@@ -47,9 +48,13 @@ public class PoisonDebuff : MonoBehaviour
                 yield return new WaitForSeconds(poisonRate);
             currentPoisonDuration -= poisonRate;
             thisEnemy.GetComponent<EnemyInterFace>().GetDamage(poisonDamage);
-            effect = Instantiate(PoisonFx, bodyPos.position, Quaternion.identity);
+            effect.transform.position = bodyPos.position;
+            effect.SetActive(true);
             effect.transform.SetParent(this.gameObject.transform);
-            Destroy(effect, 1f);
+            yield return new WaitForSeconds(poisonRate);
+            effect.transform.position = bodyPos.position;
+            effect.SetActive(false);
+            //Destroy(effect, 1f);
 
         }
         EraseDebuff();

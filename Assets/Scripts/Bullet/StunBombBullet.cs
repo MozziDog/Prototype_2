@@ -29,15 +29,14 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
     public float firingAngle = 45.0f;
     public float gravity = 9.8f;
     public float BombRadius;
+    private bool isShooting = false;
 
-    
-    private AudioSource musicPlayer;
 
-    public AudioClip shootSound;
 
     RaycastHit hit;
     public void SetUp(BulletInfo bulletinfo)
     {
+        isShooting = true;
         this.LV = bulletinfo.LV;
         this.bulletSpeed = bulletinfo.bulletSpeed;
         this.target = bulletinfo.attackTarget;
@@ -74,7 +73,8 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
 
             yield return null;
         }
-        Destroy(gameObject);
+        BulletObjectPull.ReturnObject(this.gameObject);
+        //Destroy(gameObject);
 
     }
 
@@ -140,9 +140,16 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
             }
         }
 
-       
-        Destroy(gameObject);
+        BulletObjectPull.ReturnObject(this.gameObject);
+        //Destroy(gameObject);
     }
+
+    IEnumerator DestroyAfterTime(GameObject Bullet, float Time)
+    {
+        yield return new WaitForSeconds(Time);
+        BulletObjectPull.ReturnObject(this.gameObject);
+    }
+
 
 
     void OnDrawGizmos() //ÆøÅº ¹üÀ§ sphere Ç¥½Ã
@@ -150,31 +157,30 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
         Gizmos.DrawWireSphere(transform.position, BombRadius);
     }
 
-    void MusicPlay()
+    
+    void OnEnable()
     {
-        musicPlayer.clip = shootSound;
-        musicPlayer.time = 0;
-        musicPlayer.Play();
+        StartCoroutine(DestroyAfterTime(this.gameObject, 3f));
+        //Destroy(gameObject, 3f);
     }
-
 
 
     // Start is called before the first frame update
     void Start()
     {
-        if (target)
-        {
-            musicPlayer = GetComponent<AudioSource>();
-            StartCoroutine(SimulateProjectile());
-            MusicPlay(); //shoot effect
-        }
-        Destroy(gameObject, 3f);
+        
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        if (target&& isShooting)
+        {
+            isShooting = false;
+            StartCoroutine(SimulateProjectile());
+
+        }
 
     }
 }

@@ -11,8 +11,6 @@ public class NormalBullet : MonoBehaviour, BulletInterFace
     private Transform target;
     public GameObject impactParticle;
     public Vector3 aimPosition;
-    private AudioSource musicPlayer;
-    public AudioClip shootSound;
     
     public void SetUp(BulletInfo bulletinfo)
     {
@@ -34,18 +32,24 @@ public class NormalBullet : MonoBehaviour, BulletInterFace
         GameObject clone = Instantiate(impactParticle, target.gameObject.GetComponent<EnemyInterFace>().GetBodyPos().position, Quaternion.identity) as GameObject;
         clone.transform.parent = target.transform;
         Destroy(clone, 1f);
-
         //destroy bullet prefab
-        Destroy(gameObject,0.22f);
-      
+        //Destroy(gameObject,0.22f);
+        StartCoroutine(DestroyAfterTime(this.gameObject, 0.22f));
     }
 
     IEnumerator DestroyIfNoTarget()
     {
         yield return new WaitForSeconds(0.5f);
         GameObject clone = Instantiate(impactParticle, this.gameObject.transform.position, Quaternion.identity) as GameObject;
-        Destroy(gameObject);
+        BulletObjectPull.ReturnObject(this.gameObject);
         Destroy(clone, 1f);
+    }
+
+    IEnumerator DestroyAfterTime(GameObject Bullet, float Time)
+    {
+      
+        yield return new WaitForSeconds(Time);
+        BulletObjectPull.ReturnObject(Bullet);
     }
 
     void Shoot()
@@ -55,15 +59,16 @@ public class NormalBullet : MonoBehaviour, BulletInterFace
         transform.LookAt(aimPosition);
         this.transform.position = Vector3.MoveTowards(this.transform.position, aimPosition, bulletSpeed * Time.deltaTime);
     }
+    void OnEnable()
+    {
+        DestroyAfterTime(this.gameObject, 2.3f);
+    }
    
     // Start is called before the first frame update
     void Start()
     {
-        musicPlayer = GetComponent<AudioSource>();
-        musicPlayer.clip = shootSound;
-        musicPlayer.time = 0;
-        musicPlayer.Play();
-        Destroy(gameObject,2.3f);
+        
+       
     }
 
     // Update is called once per frame

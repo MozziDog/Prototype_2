@@ -23,12 +23,11 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
     public float firingAngle = 45.0f;
     public float gravity = 9.8f;
     public float BombRadius;
+
     private bool isShooting=false;
 
     
-    private AudioSource musicPlayer;
-    public AudioClip shootSound;
-
+   
     
 
     RaycastHit hit;
@@ -44,7 +43,7 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
     }
 
 
-    IEnumerator SimulateProjectile()
+    IEnumerator SimulateProjectile()//PALABORA MOVEMENT
     {
         
         ShootArea = Instantiate(BombAreaEffect, new Vector3(target.position.x, 0f, target.position.z), BombAreaEffect.transform.rotation);
@@ -138,18 +137,13 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
         Gizmos.DrawWireSphere(transform.position, BombRadius);
     }
 
-    void MusicPlay()
-    {
-                musicPlayer.clip = shootSound;
-                musicPlayer.time = 0;
-                musicPlayer.Play();   
-    }
+   
 
 
     void OnEnable()
     {
         
-        DestroyAfterTime(this.gameObject, 3f);
+        StartCoroutine(DestroyAfterTime(this.gameObject, 3f));
         //Destroy(gameObject, 3f);
     }
 
