@@ -326,7 +326,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pullingBullets: []
 --- !u!1 &2778535685548991207
 GameObject:
   m_ObjectHideFlags: 0
@@ -10173,7 +10172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pullingBullets: []
 --- !u!1 &3018983328116773044
 GameObject:
   m_ObjectHideFlags: 0
@@ -15201,7 +15199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pullingBullets: []
 --- !u!1 &4317124959800029011
 GameObject:
   m_ObjectHideFlags: 0
@@ -15485,7 +15482,7 @@ MonoBehaviour:
   type: F
   price: 20
   bulletSpeed: 20
-  bulletDamage: 1.8
+  bulletDamage: 1.6
   attackRate: 0.2
   attackRange: 3.5
   bombRange: 0

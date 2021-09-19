@@ -1066,7 +1066,7 @@ MonoBehaviour:
   type: Z
   price: 150
   bulletSpeed: 20
-  bulletDamage: 12
+  bulletDamage: 5
   attackRate: 1
   attackRange: 3
   bombRange: 0
