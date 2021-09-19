@@ -35,6 +35,8 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
 
 
     private bool lockOn = false;
+    private bool isBulletCharged = true;
+    private bool isBulletCharging = false;
     BulletObjectPull objectPool;
 
 
