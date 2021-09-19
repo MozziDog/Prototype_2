@@ -54,7 +54,8 @@ public class TowerManager : MonoBehaviour
     {
         selectedTower = tower;
         towerManagerStatus = TowerManagerMode.TowerSelected;
-        selectedUI.SetUI(tower, true);
+        if(WaveManager.isWaveOn() == false)
+            selectedUI.SetUI(tower, true);
     }
 
     public void OnTowerUnselected()
