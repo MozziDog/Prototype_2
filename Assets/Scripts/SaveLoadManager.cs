@@ -81,8 +81,8 @@ public class SaveLoadManager : MonoBehaviour
             Global.userProperty.TutorialFinishFlag = PlayerPrefs.GetInt("TutorialFinishFlag") == 1 ? true : false;
             Global.userProperty.LastReachedChapter = PlayerPrefs.GetInt("lastReachedChapter");
             Global.userProperty.LastReachedStage = PlayerPrefs.GetInt("lastReachedStage");
-
-            Debug.Log("LastReached:" + Global.userProperty.LastReachedChapter + "-" + Global.userProperty.LastReachedStage);
+            Debug.Log($"gold: {Global.userProperty.gold}, ruby: {Global.userProperty.ruby}");
+            //Debug.Log("LastReached:" + Global.userProperty.LastReachedChapter + "-" + Global.userProperty.LastReachedStage);
         }
         else
         {

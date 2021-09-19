@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //k all
-public class NormalBombBullet : MonoBehaviour, BulletInterFace
+public class NormalBombBullet : Bullet_base, BulletInterFace
 {
     [Header("Gameobject to add")]
     public GameObject BombAreaEffect;
@@ -23,13 +23,13 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
     public float firingAngle = 45.0f;
     public float gravity = 9.8f;
     public float BombRadius;
-    private bool isShooting=false;
+    private bool isShooting = false;
 
-    
+
     private AudioSource musicPlayer;
     public AudioClip shootSound;
 
-    
+
 
     RaycastHit hit;
     public void SetUp(BulletInfo bulletinfo)
@@ -46,7 +46,7 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
 
     IEnumerator SimulateProjectile()
     {
-        
+
         ShootArea = Instantiate(BombAreaEffect, new Vector3(target.position.x, 0f, target.position.z), BombAreaEffect.transform.rotation);
         ChangeAreaScale(ShootArea);
         Projectile.position = this.transform.position + new Vector3(0, 0.0f, 0);
@@ -60,16 +60,17 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
         float flightDuration = target_Distance / Vx;
         Projectile.rotation = Quaternion.LookRotation(target.position - Projectile.position);
         float elapse_time = 0;
-        Destroy(ShootArea, flightDuration/bulletSpeed + 0.22f);
+        Destroy(ShootArea, flightDuration / bulletSpeed + 0.22f);
+        //Disable(ShootArea, flightDuration / bulletSpeed + 0.22f);
         while (elapse_time < flightDuration)
         {
-            Projectile.Translate(0, (Vy - (gravity * elapse_time)) * Time.deltaTime * bulletSpeed, Vx * Time.deltaTime*bulletSpeed);
-            elapse_time += Time.deltaTime*bulletSpeed;
+            Projectile.Translate(0, (Vy - (gravity * elapse_time)) * Time.deltaTime * bulletSpeed, Vx * Time.deltaTime * bulletSpeed);
+            elapse_time += Time.deltaTime * bulletSpeed;
             yield return null;
         }
         BulletObjectPull.ReturnObject(this.gameObject);
         //Destroy(gameObject);
-     
+
     }
 
     private void ChangeAreaScale(GameObject ShootArea)
@@ -92,10 +93,10 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
                 ShootArea.transform.localScale = new Vector3(0.728966f, 0.728966f, 0.728966f);
                 break;
         }
-        
+
 
     }
-    
+
 
 
     private void OnTriggerEnter(Collider other)
@@ -106,19 +107,20 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
 
     void Explode()
     {
-        
+
         //hit particle spawn
         GameObject BoomEffects = Instantiate(impactParticle, Projectile.position, Quaternion.identity) as GameObject;
         Destroy(BoomEffects, 2.2f);
+        //Disable(BoomEffects, 2.2f)
         Collider[] colliders = Physics.OverlapSphere(transform.position, BombRadius);
 
 
         foreach (Collider searchedObject in colliders)
         {
-           
+
             if (searchedObject != null && searchedObject.gameObject.tag == "GroundEnemy")
             {
-                
+
                 searchedObject.gameObject.GetComponent<EnemyInterFace>().GetDamage(bulletDamage);
             }
         }
@@ -140,37 +142,41 @@ public class NormalBombBullet : MonoBehaviour, BulletInterFace
 
     void MusicPlay()
     {
-                musicPlayer.clip = shootSound;
-                musicPlayer.time = 0;
-                musicPlayer.Play();   
+        musicPlayer.clip = shootSound;
+        musicPlayer.time = 0;
+        musicPlayer.volume = Global.soundVolume;
+        musicPlayer.Play();
     }
 
 
     void OnEnable()
     {
-        
-        DestroyAfterTime(this.gameObject, 3f);
+
+        //DestroyAfterTime(this.gameObject, 3f);
         //Destroy(gameObject, 3f);
+        Disable(this.gameObject, 3f);
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
-       
+
     }
 
-    
-    
+
+
 
     // Update is called once per frame
     void Update()
     {
-        if (target&& isShooting)
+        if (target && isShooting)
         {
             isShooting = false;
+            MusicPlay();
             StartCoroutine(SimulateProjectile());
 
         }
     }
+
 }

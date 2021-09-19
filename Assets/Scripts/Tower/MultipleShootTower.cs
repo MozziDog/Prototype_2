@@ -35,6 +35,7 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
 
 
     private bool lockOn = false;
+    BulletObjectPull objectPool;
 
 
     public void SetUp(TowerInfo towerinfo)
@@ -70,7 +71,7 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
 
     }
 
-    public void ChangeState(WeaponState newState) //Àû¿¡ ´ëÇÑ  Å½»ö, °ø°Ý  ¸ðµåÀÇ ÄÚ·çÆ¾ ÀüÈ¯
+    public void ChangeState(WeaponState newState) //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  Å½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú·ï¿½Æ¾ ï¿½ï¿½È¯
     {
         StopCoroutine(weaponState.ToString());
         weaponState = newState;
@@ -81,7 +82,7 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
 
 
 
-    private void RotateToTarget() //ÀûÀ» ¹Ù¶óº½
+    private void RotateToTarget() //ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¶ï¿½
     {
         if (attackTarget)
         {
@@ -94,7 +95,7 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
     }
 
 
-    private IEnumerator SearchTarget() //Àû Å½»ö
+    private IEnumerator SearchTarget() //ï¿½ï¿½ Å½ï¿½ï¿½
     {
         while (true)
         {
@@ -118,7 +119,7 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
                 }
             }
 
-            if (attackTarget != null&& !attackTarget.GetComponent<EnemyInterFace>().CheckDead())
+            if (attackTarget != null && !attackTarget.GetComponent<EnemyInterFace>().CheckDead())
             {
                 lockOn = true;
                 ChangeState(WeaponState.AttackToTarget);
@@ -128,13 +129,13 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
         }
     }
 
-    private IEnumerator AttackToTarget() //Àû °ø°Ý
+    private IEnumerator AttackToTarget() //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     {
         yield return new WaitForSeconds(1.25f);
         while (true)
         {
 
-            
+
 
             float distance = Vector3.Distance(attackTarget.position, transform.position);
 
@@ -147,15 +148,15 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
                     ChangeState(WeaponState.SearchTarget);
                     break;
                 }
-               
+
 
                 SpawnBullet();
                 if (i == bulletAmmoCount - 1) break;
                 yield return new WaitForSeconds(burstRate);
             }
-            
+
             yield return new WaitForSeconds(attackRate);
-          
+
 
 
 
@@ -163,11 +164,12 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
     }
 
 
-    private void SpawnBullet() //¹ß»çÃ¼ »ý¼º
+    private void SpawnBullet() //ï¿½ß»ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
     {
-       
+
         bulletinfo.attackTarget = this.attackTarget;
-        GameObject clone = Instantiate(BulletPrefab, BulletSpawnPoint.position, Quaternion.identity);
+        GameObject clone = objectPool.GetObject(BulletPrefab);
+        clone.transform.position = BulletSpawnPoint.position;
         BulletInterFace bullet = clone.GetComponent<BulletInterFace>();
         bullet.SetUp(bulletinfo);
     }
@@ -192,7 +194,7 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
 
         SpawnPoint = GameObject.Find("SpawnPointGroup");
         this.enemyList = SpawnPoint.GetComponent<EnemyManager>().CurrentEnemyList;
-
+        objectPool = GetComponent<BulletObjectPull>();
     }
 
     private void OnEnable()
@@ -207,7 +209,7 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
     void Update()
     {
         CheckTarget();
-        this.enemyList = SpawnPoint.GetComponent<EnemyManager>().CurrentEnemyList; //¸Å ÇÁ·¹ÀÓ¸¶´Ù Àû ¸®½ºÆ® °»½Å
+        this.enemyList = SpawnPoint.GetComponent<EnemyManager>().CurrentEnemyList; //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ó¸ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
         if (lockOn)
             RotateToTarget();
 

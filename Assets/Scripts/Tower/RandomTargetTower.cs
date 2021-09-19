@@ -33,6 +33,7 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
 
     private bool lockOn = false;
     GameObject temp;
+    BulletObjectPull objectPool;
     public void SetUp(TowerInfo towerinfo)
     {
 
@@ -55,20 +56,20 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
 
     }
 
-    public void ChangeState(WeaponState newState) //Àû¿¡ ´ëÇÑ  Å½»ö, °ø°Ý  ¸ðµåÀÇ ÄÚ·çÆ¾ ÀüÈ¯
+    public void ChangeState(WeaponState newState) //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  Å½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú·ï¿½Æ¾ ï¿½ï¿½È¯
     {
         StopCoroutine(weaponState.ToString());
         weaponState = newState;
         StartCoroutine(weaponState.ToString());
     }
 
-    void OnDrawGizmos() //ÆøÅº ¹üÀ§ sphere Ç¥½Ã
+    void OnDrawGizmos() //ï¿½ï¿½Åº ï¿½ï¿½ï¿½ï¿½ sphere Ç¥ï¿½ï¿½
     {
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 
 
-    private void RotateToTarget() //ÀûÀ» ¹Ù¶óº½
+    private void RotateToTarget() //ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¶ï¿½
     {
         if (attackTarget)
         {
@@ -89,7 +90,7 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
     }
     */
 
-    private IEnumerator SearchTarget() //Àû Å½»ö
+    private IEnumerator SearchTarget() //ï¿½ï¿½ Å½ï¿½ï¿½
     {
         List<Transform> temp = new List<Transform>();
         while (true)
@@ -105,10 +106,10 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
                     continue;
 
                 float distance = Vector3.Distance(enemyList[i].transform.position, transform.position);
-                if (distance <= attackRange )
+                if (distance <= attackRange)
                 {
-                    
-                  temp.Add(enemyList[i].transform);
+
+                    temp.Add(enemyList[i].transform);
                 }
             }
             if (temp.Count > 0)
@@ -128,44 +129,45 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
         }
     }
 
-    private IEnumerator AttackToTarget() //Àû °ø°Ý
+    private IEnumerator AttackToTarget() //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     {
         yield return new WaitForSeconds(1.25f);
-       
-            
-
-            //|| attackTarget.gameObject.layer == LayerMask.NameToLayer("Dead")
 
 
 
-            float distance = Vector3.Distance(attackTarget.position, transform.position);
+        //|| attackTarget.gameObject.layer == LayerMask.NameToLayer("Dead")
 
 
-            if (distance > attackRange)
-            {
-                attackTarget = null;
-                ChangeState(WeaponState.SearchTarget);
-                
-            }
 
-            SpawnBullet();
-            yield return new WaitForSeconds(attackRate);
+        float distance = Vector3.Distance(attackTarget.position, transform.position);
+
+
+        if (distance > attackRange)
+        {
             attackTarget = null;
             ChangeState(WeaponState.SearchTarget);
-        
+
+        }
+
+        SpawnBullet();
+        yield return new WaitForSeconds(attackRate);
+        attackTarget = null;
+        ChangeState(WeaponState.SearchTarget);
+
     }
 
 
-    private void SpawnBullet() //¹ß»çÃ¼ »ý¼º
+    private void SpawnBullet() //ï¿½ß»ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
     {
-       
+
 
         bulletinfo.attackTarget = this.attackTarget;
-        GameObject clone = Instantiate(BulletPrefab, BulletSpawnPoint.position, Quaternion.identity);
+        GameObject clone = objectPool.GetObject(BulletPrefab);
+        clone.transform.position = BulletSpawnPoint.position;
         BulletInterFace bullet = clone.GetComponent<BulletInterFace>();
         bullet.SetUp(bulletinfo);
 
-        
+
 
     }
     void CheckTarget()
@@ -187,19 +189,19 @@ public class RandomTargetTower : MonoBehaviour, TowerInterFace
 
         SpawnPoint = GameObject.Find("SpawnPointGroup");
         this.enemyList = SpawnPoint.GetComponent<EnemyManager>().CurrentEnemyList;
-
+        objectPool = GetComponent<BulletObjectPull>();
     }
 
     private void OnEnable()
     {
-        
+
         ChangeState(WeaponState.SearchTarget);
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.enemyList = SpawnPoint.GetComponent<EnemyManager>().CurrentEnemyList; //¸Å ÇÁ·¹ÀÓ¸¶´Ù Àû ¸®½ºÆ® °»½Å
+        this.enemyList = SpawnPoint.GetComponent<EnemyManager>().CurrentEnemyList; //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ó¸ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 
 
         CheckTarget();

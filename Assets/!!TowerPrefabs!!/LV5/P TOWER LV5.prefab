@@ -14523,6 +14523,7 @@ GameObject:
   - component: {fileID: 192353385145796179}
   - component: {fileID: 182598248584536619}
   - component: {fileID: 1787065303503015192}
+  - component: {fileID: 7591886839925299766}
   m_Layer: 0
   m_Name: P3
   m_TagString: Untagged
@@ -14621,6 +14622,18 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+--- !u!114 &7591886839925299766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205518394942327645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &205712136387859079
 GameObject:
   m_ObjectHideFlags: 0
@@ -14766,7 +14779,7 @@ GameObject:
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5932973011032698045
 Transform:
@@ -14903,6 +14916,7 @@ GameObject:
   - component: {fileID: 1640976610938982703}
   - component: {fileID: 1650063253137978711}
   - component: {fileID: 910401701669935716}
+  - component: {fileID: 7956668208771940534}
   m_Layer: 0
   m_Name: P3
   m_TagString: Untagged
@@ -15001,6 +15015,18 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+--- !u!114 &7956668208771940534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636123943520902177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1636370578092166291
 GameObject:
   m_ObjectHideFlags: 0
@@ -29554,6 +29580,7 @@ GameObject:
   - component: {fileID: 1630586750704199211}
   - component: {fileID: 1622098799061516883}
   - component: {fileID: 920577157386874208}
+  - component: {fileID: 3491207147794780959}
   m_Layer: 0
   m_Name: P3
   m_TagString: Untagged
@@ -29652,6 +29679,18 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+--- !u!114 &3491207147794780959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643892500118874917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1644012299343213311
 GameObject:
   m_ObjectHideFlags: 0
@@ -44275,7 +44314,7 @@ GameObject:
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4853505903951578476
 Transform:
@@ -44388,7 +44427,7 @@ GameObject:
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4845860475761275496
 Transform:
@@ -44501,7 +44540,7 @@ GameObject:
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6291950373612594452
 Transform:
@@ -44673,7 +44712,7 @@ MonoBehaviour:
   type: P
   price: 150
   bulletSpeed: 20
-  bulletDamage: 72
+  bulletDamage: 120
   attackRate: 3
   attackRange: 7
   bombRange: 0
@@ -44726,7 +44765,7 @@ GameObject:
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1242927307761709770
 Transform:

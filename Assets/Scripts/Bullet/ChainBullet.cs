@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class ChainBullet : MonoBehaviour ,BulletInterFace
+public class ChainBullet : Bullet_base, BulletInterFace
 {
     public string BulletName;
     public float bulletSpeed;
@@ -12,7 +12,7 @@ public class ChainBullet : MonoBehaviour ,BulletInterFace
     private Transform currentBodyPos;
     public GameObject impactParticle;
     public Vector3 aimPosition;
-    public int maxChainCount=0;
+    public int maxChainCount = 0;
     public int currentChainCount = 0;
     public float chainRadius = 1.5f;
     public WeaponState weaponState = WeaponState.AttackToTarget;
@@ -20,9 +20,10 @@ public class ChainBullet : MonoBehaviour ,BulletInterFace
     RaycastHit hit;
     private AudioSource musicPlayer;
     public AudioClip shootSound;
-
+    private bool isShooting = false;
     public void SetUp(BulletInfo bulletinfo)
     {
+        isShooting = true;
         this.bulletSpeed = bulletinfo.bulletSpeed;
         this.currentTarget = bulletinfo.attackTarget;
         this.currentBodyPos = currentTarget.GetComponent<EnemyInterFace>().GetBodyPos();
@@ -31,23 +32,23 @@ public class ChainBullet : MonoBehaviour ,BulletInterFace
         this.chainRadius = bulletinfo.chainRadius;
     }
 
-    public void ChangeState(WeaponState newState) //Àû¿¡ ´ëÇÑ  Å½»ö, °ø°Ý  ¸ðµåÀÇ ÄÚ·çÆ¾ ÀüÈ¯
+    public void ChangeState(WeaponState newState) //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  Å½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú·ï¿½Æ¾ ï¿½ï¿½È¯
     {
         StopCoroutine(weaponState.ToString());
         weaponState = newState;
         StartCoroutine(weaponState.ToString());
     }
 
-    private IEnumerator SearchTarget() //Àû Å½»ö
+    private IEnumerator SearchTarget() //ï¿½ï¿½ Å½ï¿½ï¿½
     {
         while (true)
         {
             float closestDistSqr = Mathf.Infinity;
-            Collider[] colliders = Physics.OverlapSphere(transform.position, chainRadius); 
-            
+            Collider[] colliders = Physics.OverlapSphere(transform.position, chainRadius);
+
             if (colliders.Length == 0) //destroy if there's no enemy to chase
-                Destroy(gameObject);
-           
+                Disable(gameObject);
+
             foreach (Collider searchedObject in colliders)
             {
                 if (searchedObject.gameObject.layer != LayerMask.NameToLayer("Enemy"))
@@ -61,11 +62,11 @@ public class ChainBullet : MonoBehaviour ,BulletInterFace
                 {
                     closestDistSqr = distance;
                     currentTarget = searchedObject.transform;
-                    
+
                 }
             }
             if (!currentTarget) //if all searched colliders are already been chased..destroy
-                Destroy(gameObject);
+                Disable(gameObject);
 
             if (currentTarget) //if found new target
             {
@@ -74,44 +75,36 @@ public class ChainBullet : MonoBehaviour ,BulletInterFace
                 ChangeState(WeaponState.AttackToTarget);
             }
 
-            
+
             yield return null;
         }
     }
 
-    private IEnumerator AttackToTarget() //Àû °ø°Ý
+    private IEnumerator AttackToTarget() //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     {
         while (true)
         {
             if (currentTarget == null)
             {
-                
+
                 ChangeState(WeaponState.SearchTarget);
                 break;
             }
 
 
             Shoot();
-            /*
-            if (this.transform.position == currentTarget.transform.position)
-            {
-                currentTarget = null;
-                ChangeState(WeaponState.SearchTarget);
-            }
-            */
-
             yield return null;
         }
     }
 
-    
-    private void OnTriggerEnter(Collider other) //Àû°ú Ãæµ¹½Ã »óÈ£ÀÛ¿ë
-    {
-        
-        if (other.gameObject.layer != 12) return;
-        if(other.transform != currentTarget) return;
 
-        
+    private void OnTriggerEnter(Collider other) //ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½ï¿½ ï¿½ï¿½È£ï¿½Û¿ï¿½
+    {
+
+        if (other.gameObject.layer != 12) return;
+        if (other.transform != currentTarget) return;
+        StopCoroutine(AttackToTarget());
+
 
         if (other.CompareTag("GroundEnemy"))
             other.GetComponent<GroundEnemy>().GetDamage(bulletDamage);
@@ -128,41 +121,61 @@ public class ChainBullet : MonoBehaviour ,BulletInterFace
         currentChainCount++; //count the chain successed
 
         //find the next target
+        StartCoroutine(SearchStateAfterTime(0.12f));
+    }
+
+    IEnumerator SearchStateAfterTime(float Time)
+    {
+        Debug.LogWarning("search after time");
+        yield return new WaitForSeconds(Time);
         currentTarget = null;
-       ChangeState(WeaponState.SearchTarget);
+        ChangeState(WeaponState.SearchTarget);
     }
 
     void Shoot()
     {
-        //Á¶ÁØ¹æÇâÀ¸·Î ¹ß»ç..ÃßÀû±â´É on 
+        //ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½..ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ on 
         aimPosition = currentBodyPos.position;//new Vector3(currentTarget.position.x, currentTarget.position.y + 0.5f, currentTarget.position.z); 
         Physics.Raycast(transform.position, aimPosition, out hit);
         transform.LookAt(aimPosition);
-        
+
         this.transform.position = Vector3.MoveTowards(this.transform.position, aimPosition, bulletSpeed * Time.deltaTime);
     }
-   
-    // Start is called before the first frame update
-    void Start()
+
+    void MusicPlay()
     {
-        currentChainCount = 0;
-        hitTargets = new List<GameObject>();
-        hitTargets.Add(currentTarget.gameObject);
-        StartCoroutine(AttackToTarget());
-
-
         musicPlayer = GetComponent<AudioSource>();
         musicPlayer.clip = shootSound;
         musicPlayer.time = 0;
+        musicPlayer.volume = Global.soundVolume;
         musicPlayer.Play();
     }
-    
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+      
+       
+    }
+
     // Update is called once per frame
     void Update()
     {
-        Destroy(gameObject, 2.5f);
+        if (isShooting)
+        {
+            isShooting = false;
+            currentChainCount = 0;
+            MusicPlay();
+            hitTargets = new List<GameObject>();
+            hitTargets.Add(currentTarget.gameObject);
+            StartCoroutine(AttackToTarget());    
+        }
+
+        Disable(gameObject, 2.5f);
         if (currentChainCount == maxChainCount)
-            Destroy(gameObject);
-        
+            Disable(gameObject);
     }
+
+
 }

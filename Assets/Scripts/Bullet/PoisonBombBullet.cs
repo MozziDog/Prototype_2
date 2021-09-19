@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //k all
-public class PoisonBombBullet : MonoBehaviour, BulletInterFace
+public class PoisonBombBullet : Bullet_base, BulletInterFace
 {
     [Header("Gameobject to add")]
     public GameObject BombAreaEffect;
@@ -31,15 +31,17 @@ public class PoisonBombBullet : MonoBehaviour, BulletInterFace
     public float gravity = 9.8f;
     public float BombRadius;
 
+    private bool isShooting = false;
 
     private AudioSource musicPlayer;
     public AudioClip shootSound;
 
-    
+
 
     RaycastHit hit;
     public void SetUp(BulletInfo bulletinfo)
     {
+        isShooting = true;
         this.LV = bulletinfo.LV;
         this.bulletSpeed = bulletinfo.bulletSpeed;
         this.target = bulletinfo.attackTarget;
@@ -47,14 +49,14 @@ public class PoisonBombBullet : MonoBehaviour, BulletInterFace
         this.poisonDamage = bulletinfo.poisonDamage;
         this.poisonDuration = bulletinfo.poisonDuration;
         this.poisonRate = bulletinfo.poisonRate;
-        this.BombRadius =  bulletinfo.bombRange;
-        Projectile= this.transform;
-}
+        this.BombRadius = bulletinfo.bombRange;
+        Projectile = this.transform;
+    }
 
 
     IEnumerator SimulateProjectile() //PALABORA MOVEMENT
     {
-       
+
 
         ShootArea = Instantiate(BombAreaEffect, new Vector3(target.position.x, 0f, target.position.z), BombAreaEffect.transform.rotation);
         ChangeAreaScale(ShootArea);
@@ -69,18 +71,18 @@ public class PoisonBombBullet : MonoBehaviour, BulletInterFace
         Projectile.rotation = Quaternion.LookRotation(target.position - Projectile.position);
         float flightDuration = target_Distance / Vx;
         float elapse_time = 0;
-        Destroy(ShootArea,flightDuration/bulletSpeed+0.3f);
+        Destroy(ShootArea, flightDuration / bulletSpeed + 0.3f);
         while (elapse_time < flightDuration)
         {
-            Projectile.Translate(0, (Vy - (gravity * elapse_time)) * Time.deltaTime * bulletSpeed, Vx * Time.deltaTime*bulletSpeed);
-            elapse_time += Time.deltaTime*bulletSpeed;
+            Projectile.Translate(0, (Vy - (gravity * elapse_time)) * Time.deltaTime * bulletSpeed, Vx * Time.deltaTime * bulletSpeed);
+            elapse_time += Time.deltaTime * bulletSpeed;
 
-           
-               
+
+
             yield return null;
         }
-        Destroy(gameObject);
-     
+        Disable(gameObject);
+
     }
 
     private void ChangeAreaScale(GameObject ShootArea)
@@ -112,40 +114,40 @@ public class PoisonBombBullet : MonoBehaviour, BulletInterFace
 
     private void OnTriggerEnter(Collider other)
     {
-        
+
         if (other.gameObject.layer == LayerMask.NameToLayer("Floor"))
         {
-           
+
             Explode();
         }
-            
+
     }
 
     void Explode()
     {
-        
+
         //hit particle spawn
         GameObject BoomEffects = Instantiate(impactParticle, Projectile.position, Quaternion.identity) as GameObject;
         Destroy(BoomEffects, 2f);
         Collider[] colliders = Physics.OverlapSphere(transform.position, BombRadius);
         foreach (Collider searchedObject in colliders)
         {
-            
+
             if (searchedObject != null && searchedObject.gameObject.tag == "GroundEnemy"
                 && !searchedObject.GetComponent<EnemyInterFace>().CheckDead())
             {
-               
-                
+
+
                 if (!searchedObject.gameObject.GetComponent<PoisonDebuff>())
                 {
-                    
+
                     searchedObject.gameObject.AddComponent<PoisonDebuff>();
-                    searchedObject.gameObject.GetComponent<PoisonDebuff>().SetUp(LV,poisonDamage,poisonDuration,poisonRate, PoisonFx);
+                    searchedObject.gameObject.GetComponent<PoisonDebuff>().SetUp(LV, poisonDamage, poisonDuration, poisonRate, PoisonFx);
                     searchedObject.gameObject.GetComponent<PoisonDebuff>().ExecuteDebuff();
                 }
-                else 
+                else
                 {
-                   
+
                     searchedObject.gameObject.GetComponent<PoisonDebuff>().RefreshDuration(poisonDuration, poisonDamage, poisonRate);
                 }
 
@@ -156,11 +158,11 @@ public class PoisonBombBullet : MonoBehaviour, BulletInterFace
 
             }
         }
-       
-       
-        Destroy(gameObject);
+
+
+        Disable(gameObject);
     }
-   
+
 
     void OnDrawGizmos() //폭탄 범위 sphere 표시
     {
@@ -172,25 +174,31 @@ public class PoisonBombBullet : MonoBehaviour, BulletInterFace
 
         musicPlayer.clip = shootSound;
         musicPlayer.time = 0;
+        musicPlayer.volume = Global.soundVolume;
         musicPlayer.Play();
     }
 
-
+    void OnEnable()
+    {
+       
+        Disable(gameObject, 3f);
+    }
     // Start is called before the first frame update
     void Start()
     {
-        if (target)
-        {
-            musicPlayer = GetComponent<AudioSource>();
-            StartCoroutine(SimulateProjectile());
-            MusicPlay(); //shoot effect
-        }
-        Destroy(gameObject, 3f);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (target && isShooting)
+        {
+            MusicPlay();
+            isShooting = false;
+            StartCoroutine(SimulateProjectile());
 
+        }
     }
+
 }

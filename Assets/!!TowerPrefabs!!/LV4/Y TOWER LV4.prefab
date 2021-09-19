@@ -18,7 +18,7 @@ GameObject:
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5932973011032698045
 Transform:
@@ -130,7 +130,7 @@ GameObject:
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8371406185264707245
 Transform:
@@ -243,7 +243,7 @@ GameObject:
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4914370188845336898
 Transform:
@@ -356,7 +356,7 @@ GameObject:
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6733448692743334960
 Transform:
@@ -686,6 +686,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5202155466533831888}
   - component: {fileID: 4968528350033047755}
+  - component: {fileID: 4818164042760627061}
   m_Layer: 0
   m_Name: Y2
   m_TagString: Untagged
@@ -735,6 +736,18 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+--- !u!114 &4818164042760627061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5204667695448393148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5204730626860946632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,6 +1123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5868364701774553506}
   - component: {fileID: 6751626444834657721}
+  - component: {fileID: 2568106684579114189}
   m_Layer: 0
   m_Name: Y2
   m_TagString: Untagged
@@ -1159,6 +1173,18 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+--- !u!114 &2568106684579114189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5871546017870684366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5871565322867028490
 GameObject:
   m_ObjectHideFlags: 0
@@ -1428,6 +1454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7020815702187974221}
   - component: {fileID: 7902960064176089686}
+  - component: {fileID: 8081759073774232899}
   m_Layer: 0
   m_Name: Y2
   m_TagString: Untagged
@@ -1477,6 +1504,18 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   SpawnPoint: {fileID: 0}
   enemyList: []
+--- !u!114 &8081759073774232899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7018164899374833441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64640fd40999b478f7c94341b1dd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7018175819141680613
 GameObject:
   m_ObjectHideFlags: 0
@@ -1809,12 +1848,12 @@ MonoBehaviour:
   type: Y
   price: 120
   bulletSpeed: 20
-  bulletDamage: 12
+  bulletDamage: 15
   attackRate: 1
   attackRange: 2.5
   bombRange: 0
   bulletAmmoCount: 2
-  burstRate: 0.3
+  burstRate: 0.2
   maxChainCount: 2
   chainRadius: 5
   poisonDamage: 0
@@ -1862,7 +1901,7 @@ GameObject:
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1242927307761709770
 Transform:

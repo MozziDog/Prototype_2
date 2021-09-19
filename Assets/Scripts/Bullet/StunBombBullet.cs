@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //k all
-public class StunBombBullet : MonoBehaviour, BulletInterFace
+public class StunBombBullet : Bullet_base, BulletInterFace
 {
     [Header("Gameobject to add")]
     public GameObject BombAreaEffect;
@@ -30,7 +30,9 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
     public float gravity = 9.8f;
     public float BombRadius;
 
-    
+
+    private bool isShooting = false;
+
     private AudioSource musicPlayer;
 
     public AudioClip shootSound;
@@ -38,6 +40,7 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
     RaycastHit hit;
     public void SetUp(BulletInfo bulletinfo)
     {
+        isShooting = true;
         this.LV = bulletinfo.LV;
         this.bulletSpeed = bulletinfo.bulletSpeed;
         this.target = bulletinfo.attackTarget;
@@ -65,7 +68,7 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
         float flightDuration = target_Distance / Vx;
         Projectile.rotation = Quaternion.LookRotation(target.position - Projectile.position);
         float elapse_time = 0;
-        Destroy(ShootArea, flightDuration/bulletSpeed + 0.3f);
+        Destroy(ShootArea, flightDuration / bulletSpeed + 0.3f);
         while (elapse_time < flightDuration)
         {
             Projectile.Translate(0, (Vy - (gravity * elapse_time)) * Time.deltaTime * bulletSpeed, Vx * Time.deltaTime * bulletSpeed);
@@ -74,7 +77,7 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
 
             yield return null;
         }
-        Destroy(gameObject);
+        Disable(gameObject);
 
     }
 
@@ -112,7 +115,7 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
 
     void Explode()
     {
-        
+
         //hit particle spawn
         GameObject BoomEffects = Instantiate(impactParticle, Projectile.position, Quaternion.identity) as GameObject;
         Destroy(BoomEffects, 2.2f);
@@ -130,22 +133,22 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
                 {
 
                     searchedObject.gameObject.AddComponent<StunDebuff>();
-                    searchedObject.gameObject.GetComponent<StunDebuff>().SetUp(LV, stunDuration, mujeockTime,StunFx);
+                    searchedObject.gameObject.GetComponent<StunDebuff>().SetUp(LV, stunDuration, mujeockTime, StunFx);
                     searchedObject.gameObject.GetComponent<StunDebuff>().ExecuteDebuff();
                 }
-              
-                
+
+
                 searchedObject.GetComponent<EnemyInterFace>().GetDamage(bulletDamage);
 
             }
         }
 
-       
-        Destroy(gameObject);
+
+        Disable(gameObject);
     }
 
 
-    void OnDrawGizmos() //ÆøÅº ¹üÀ§ sphere Ç¥½Ã
+    void OnDrawGizmos() //ï¿½ï¿½Åº ï¿½ï¿½ï¿½ï¿½ sphere Ç¥ï¿½ï¿½
     {
         Gizmos.DrawWireSphere(transform.position, BombRadius);
     }
@@ -154,27 +157,33 @@ public class StunBombBullet : MonoBehaviour, BulletInterFace
     {
         musicPlayer.clip = shootSound;
         musicPlayer.time = 0;
+        musicPlayer.volume = Global.soundVolume;
         musicPlayer.Play();
     }
 
+
+    void OnEnable()
+    {
+        Disable(gameObject, 3f);
+    }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        if (target)
-        {
-            musicPlayer = GetComponent<AudioSource>();
-            StartCoroutine(SimulateProjectile());
-            MusicPlay(); //shoot effect
-        }
-        Destroy(gameObject, 3f);
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        if (target && isShooting)
+        {
+            isShooting = false;
+            MusicPlay();
+            StartCoroutine(SimulateProjectile());
+
+        }
 
     }
+
 }

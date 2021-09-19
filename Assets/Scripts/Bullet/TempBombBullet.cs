@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //k all
-public class TempBombBullet : MonoBehaviour, BulletInterFace
+public class TempBombBullet : Bullet_base, BulletInterFace
 {
     public string BulletName;
     public float bulletSpeed;
@@ -21,23 +21,23 @@ public class TempBombBullet : MonoBehaviour, BulletInterFace
         this.bulletDamage = bulletinfo.bulletDamage;
     }
 
-    private void OnTriggerEnter(Collider other) //Àû°ú Ãæµ¹½Ã »óÈ£ÀÛ¿ë
+    private void OnTriggerEnter(Collider other) //ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½ï¿½ ï¿½ï¿½È£ï¿½Û¿ï¿½
     {
         if (other.gameObject.layer != 12) return;
-        if(other.transform != target) return;
+        if (other.transform != target) return;
         Explode();
 
-       
-         
-        
+
+
+
     }
     void Explode()
     {
-       
-            
+
+
         //hit particle spawn
         GameObject BoomEffects = Instantiate(impactParticle, this.transform.position, Quaternion.identity) as GameObject;
-       // BoomEffects.transform.parent = target.transform;
+        // BoomEffects.transform.parent = target.transform;
         Destroy(BoomEffects, 3);
         Collider[] colliders = Physics.OverlapSphere(transform.position, BombRadius);
 
@@ -55,22 +55,22 @@ public class TempBombBullet : MonoBehaviour, BulletInterFace
                 }
         }
 
-        Destroy(gameObject);
+        Disable(gameObject);
     }
 
     void Shoot()
     {
-        //Á¶ÁØ¹æÇâÀ¸·Î ¹ß»ç..ÃßÀû±â´É on 
-        aimPosition = new Vector3(target.position.x, target.position.y + 0.5f, target.position.z); 
+        //ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½..ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ on 
+        aimPosition = new Vector3(target.position.x, target.position.y + 0.5f, target.position.z);
         Physics.Raycast(transform.position, aimPosition, out hit);
         transform.LookAt(aimPosition);
         this.transform.position = Vector3.MoveTowards(this.transform.position, aimPosition, bulletSpeed * Time.deltaTime);
     }
-   
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -78,13 +78,14 @@ public class TempBombBullet : MonoBehaviour, BulletInterFace
     {
         if (target != null)
         {
-            
+
             Shoot();
-            
-        } 
+
+        }
         else
         {
-            Destroy(gameObject); //Àû ¼Ò¸ê½Ã ÀÚÃ¼ ÆÄ±«
+            Disable(gameObject); //ï¿½ï¿½ ï¿½Ò¸ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½Ä±ï¿½
         }
     }
+
 }

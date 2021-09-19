@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //k all
-public class NormalBullet : MonoBehaviour, BulletInterFace
+public class NormalBullet : Bullet_base, BulletInterFace
 {
     public float LV;
     public float bulletSpeed;
@@ -13,40 +13,55 @@ public class NormalBullet : MonoBehaviour, BulletInterFace
     public Vector3 aimPosition;
     private AudioSource musicPlayer;
     public AudioClip shootSound;
-    
+    private bool isShooting = false;
     public void SetUp(BulletInfo bulletinfo)
     {
+        musicPlayer=this.GetComponent<AudioSource>();
+        MusicPlay();
         this.LV = bulletinfo.LV;
         this.bulletSpeed = bulletinfo.bulletSpeed;
         this.target = bulletinfo.attackTarget;
         this.bulletDamage = bulletinfo.bulletDamage;
+        isShooting = true;
     }
 
-    private void OnTriggerEnter(Collider other) //Àû°ú Ãæµ¹½Ã »óÈ£ÀÛ¿ë
+    private void OnTriggerEnter(Collider other) //ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½ï¿½ ï¿½ï¿½È£ï¿½Û¿ï¿½
     {
-        if(other.transform != target) return;
-        if ( other.gameObject.layer != LayerMask.NameToLayer("Enemy")) return;
+        if (other.transform != target) return;
+        if (other.gameObject.layer != LayerMask.NameToLayer("Enemy")) return;
         if (other.gameObject.GetComponent<EnemyInterFace>() == null) return;
         other.GetComponent<EnemyInterFace>().GetDamage(bulletDamage);
-        
+        isShooting = false;
 
         //hit particle spawn
         GameObject clone = Instantiate(impactParticle, target.gameObject.GetComponent<EnemyInterFace>().GetBodyPos().position, Quaternion.identity) as GameObject;
         clone.transform.parent = target.transform;
-        Destroy(clone, 1f);
-
+        // Destroy(clone, 1f);
+        Disable(clone, 1f);
         //destroy bullet prefab
-        Destroy(gameObject,0.22f);
-      
+        // Destroy(gameObject,0.22f);
+        Disable(gameObject, 0.22f);
+
     }
 
     IEnumerator DestroyIfNoTarget()
     {
         yield return new WaitForSeconds(0.5f);
         GameObject clone = Instantiate(impactParticle, this.gameObject.transform.position, Quaternion.identity) as GameObject;
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        Disable(gameObject);
+        // Destroy(clone, 1f);
         Destroy(clone, 1f);
     }
+
+    void MusicPlay()
+    {
+        musicPlayer.clip = shootSound;
+        musicPlayer.time = 0;
+        musicPlayer.volume = Global.soundVolume;
+        musicPlayer.Play();
+    }
+
 
     void Shoot()
     {
@@ -55,32 +70,31 @@ public class NormalBullet : MonoBehaviour, BulletInterFace
         transform.LookAt(aimPosition);
         this.transform.position = Vector3.MoveTowards(this.transform.position, aimPosition, bulletSpeed * Time.deltaTime);
     }
-   
+
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
-        musicPlayer = GetComponent<AudioSource>();
-        musicPlayer.clip = shootSound;
-        musicPlayer.time = 0;
-        musicPlayer.Play();
-        Destroy(gameObject,2.3f);
+
+        
+        Disable(gameObject, 2.3f);
     }
+
+    
 
     // Update is called once per frame
     void Update()
-    {
-        Shoot();
-        if (target!= null && target.gameObject.GetComponent<EnemyInterFace>().CheckDead())
+    {      if(target&&isShooting)
+            Shoot();
+        if (target != null && target.gameObject.GetComponent<EnemyInterFace>().CheckDead())
         {
-          
+
             StartCoroutine(DestroyIfNoTarget());
         }
-     
-        else if (target == null)
+
+         if (target == null)
         {
             StartCoroutine(DestroyIfNoTarget());
         }
     }
-
 
 }

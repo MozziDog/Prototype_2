@@ -177,11 +177,15 @@ public class StaminaManager : MonoBehaviour
         Debug.Log("Stamina to add : " + StaminaToAdd);
         var remainTime = timeDifferenceInSec % StaminaRechargeInterval;
         Debug.Log("RemainTime : " + remainTime);
-        m_StaminaAmount += StaminaToAdd;
+        if (m_StaminaAmount < MAX_STAMINA)
+        {
+            m_StaminaAmount += StaminaToAdd;
+            if (m_StaminaAmount >= MAX_STAMINA)
+                m_StaminaAmount = MAX_STAMINA;
+        }
         SetLastModifiedTime();
         if (m_StaminaAmount >= MAX_STAMINA)
         {
-            m_StaminaAmount = MAX_STAMINA;
             SetLastModifiedTime();
             SetStaminaRechargeTimer();
         }
@@ -232,11 +236,9 @@ public class StaminaManager : MonoBehaviour
             m_RechargeRemainTime -= 1;
             yield return new WaitForSeconds(1f);
         }
-        m_StaminaAmount++;
         SetLastModifiedTime();
         if (m_StaminaAmount >= MAX_STAMINA)
         {
-            m_StaminaAmount = MAX_STAMINA;
             SetLastModifiedTime();
             m_RechargeRemainTime = 0;
             SetStaminaRechargeTimer();
@@ -245,6 +247,7 @@ public class StaminaManager : MonoBehaviour
         }
         else
         {
+            m_StaminaAmount += 1;
             m_RechargeTimerCoroutine = StartCoroutine(DoRechargeTimer(StaminaRechargeInterval, onFinish));
         }
         SetStaminaAmountLabel();
@@ -285,6 +288,7 @@ public class StaminaManager : MonoBehaviour
     {
         m_StaminaAmount += value;
         SetStaminaRechargeTimer();
+        StaminaAmountLabel.text = m_StaminaAmount.ToString();
         PlayerPrefs.SetInt("StaminaAmount", m_StaminaAmount);
         PlayerPrefs.Save();
     }
