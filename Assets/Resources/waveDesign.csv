@@ -39,7 +39,7 @@ chapter,stage,spawnTime,enemy,entity,enemy,entity,enemy,entity,enemy,entity,enem
 1,4,1,Goblin_2_C,2,Skeleton_B,8,Goblin_2_C,2,Skeleton_B,1,Goblin_2_C,5,Skeleton_B,1,,,,,,,,,,,,,,
 1,4,1,Goblin_2_C,4,Skeleton_B,3,Goblin_2_C,3,Skeleton_B,1,Goblin_2_C,3,Skeleton_B,7,,,,,,,,,,,,,,
 1,4,1,Goblin_2_C,4,Skeleton_B,7,Lizard2_B,1,Goblin_2_C,6,Skeleton_B,5,Lizard2_B,2,,,,,,,,,,,,,,
-1,5,0.8,Goblin_2_C,10,Skeleton_B,10,Troll_1_A,1,Goblin_2_C,10,Skeleton_B,10,,,,,,,,,,,,,,,,
+1,5,0.8,Goblin_2_C,10,Skeleton_B,10,Troll_1_A,1,Lizard2_B,2,Goblin_2_C,10,Skeleton_B,10,,,,,,,,,,,,,,
 2,1,1,Goblin_1_B,2,Jack_D,1,,,,,,,,,,,,,,,,,,,,,,
 2,1,1,Goblin_1_B,6,Jack_D,2,,,,,,,,,,,,,,,,,,,,,,
 2,1,1,Goblin_1_B,3,Jack_D,2,Goblin_1_B,4,,,,,,,,,,,,,,,,,,,,
