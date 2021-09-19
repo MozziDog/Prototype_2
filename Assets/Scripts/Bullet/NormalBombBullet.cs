@@ -142,6 +142,7 @@ public class NormalBombBullet : Bullet_base, BulletInterFace
 
     void MusicPlay()
     {
+        musicPlayer = GetComponent<AudioSource>();
         musicPlayer.clip = shootSound;
         musicPlayer.time = 0;
         musicPlayer.volume = Global.soundVolume;

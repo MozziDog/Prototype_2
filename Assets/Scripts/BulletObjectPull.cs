@@ -36,7 +36,7 @@ public class BulletObjectPull : MonoBehaviour
             if (pool[index].activeInHierarchy == false)
             {
                 lastIndex = index;
-                Debug.Log("getObject : " + index);
+              
                 pool[index].SetActive(true);
                 return pool[index];
             }
@@ -47,7 +47,7 @@ public class BulletObjectPull : MonoBehaviour
                 pool.Add(newObject);
                 index = pool.Count - 1;
                 lastIndex = index;
-                Debug.Log("getObject : " + index);
+                
                 newObject.SetActive(true);
                 return newObject;
             }
