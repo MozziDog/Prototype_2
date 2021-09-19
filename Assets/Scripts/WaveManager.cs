@@ -78,7 +78,7 @@ public class WaveManager : MonoBehaviour
         Debug.LogWarning("WaveDone");//�� ���̺� �ϼ� �� ����
         isInGame = false;
         _towerShop.MakeShoppingList();
-        moneyManager.AddMoney(rewardPerWave);
+        moneyManager.GiveWaveClearReward();
         if (!ShopUI.activeInHierarchy)
             ShopUI.SetActive(true);
         _invenUI.SetActive(true);

@@ -111,7 +111,7 @@ public class AdManager : MonoBehaviour
     }
     public bool LoadAdInfo()
     {
-        Debug.LogWarning("LoadAdInfo");
+        Debug.Log("LoadAdInfo");
         bool result = false;
         try
         {
