@@ -20,9 +20,10 @@ public class ChainBullet : Bullet_base, BulletInterFace
     RaycastHit hit;
     private AudioSource musicPlayer;
     public AudioClip shootSound;
-
+    private bool isShooting = false;
     public void SetUp(BulletInfo bulletinfo)
     {
+        isShooting = true;
         this.bulletSpeed = bulletinfo.bulletSpeed;
         this.currentTarget = bulletinfo.attackTarget;
         this.currentBodyPos = currentTarget.GetComponent<EnemyInterFace>().GetBodyPos();
@@ -92,14 +93,6 @@ public class ChainBullet : Bullet_base, BulletInterFace
 
 
             Shoot();
-            /*
-            if (this.transform.position == currentTarget.transform.position)
-            {
-                currentTarget = null;
-                ChangeState(WeaponState.SearchTarget);
-            }
-            */
-
             yield return null;
         }
     }
@@ -110,7 +103,7 @@ public class ChainBullet : Bullet_base, BulletInterFace
 
         if (other.gameObject.layer != 12) return;
         if (other.transform != currentTarget) return;
-
+        StopCoroutine(AttackToTarget());
 
 
         if (other.CompareTag("GroundEnemy"))
@@ -128,6 +121,13 @@ public class ChainBullet : Bullet_base, BulletInterFace
         currentChainCount++; //count the chain successed
 
         //find the next target
+        StartCoroutine(SearchStateAfterTime(0.12f));
+    }
+
+    IEnumerator SearchStateAfterTime(float Time)
+    {
+        Debug.LogWarning("search after time");
+        yield return new WaitForSeconds(Time);
         currentTarget = null;
         ChangeState(WeaponState.SearchTarget);
     }
@@ -142,28 +142,39 @@ public class ChainBullet : Bullet_base, BulletInterFace
         this.transform.position = Vector3.MoveTowards(this.transform.position, aimPosition, bulletSpeed * Time.deltaTime);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    void MusicPlay()
     {
-        currentChainCount = 0;
-        hitTargets = new List<GameObject>();
-        hitTargets.Add(currentTarget.gameObject);
-        StartCoroutine(AttackToTarget());
-
-
         musicPlayer = GetComponent<AudioSource>();
         musicPlayer.clip = shootSound;
         musicPlayer.time = 0;
+        musicPlayer.volume = Global.soundVolume;
         musicPlayer.Play();
+    }
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+      
+       
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isShooting)
+        {
+            isShooting = false;
+            currentChainCount = 0;
+            MusicPlay();
+            hitTargets = new List<GameObject>();
+            hitTargets.Add(currentTarget.gameObject);
+            StartCoroutine(AttackToTarget());    
+        }
+
         Disable(gameObject, 2.5f);
         if (currentChainCount == maxChainCount)
             Disable(gameObject);
-
     }
 
 

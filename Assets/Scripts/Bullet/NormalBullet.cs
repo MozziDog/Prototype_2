@@ -16,12 +16,13 @@ public class NormalBullet : Bullet_base, BulletInterFace
     private bool isShooting = false;
     public void SetUp(BulletInfo bulletinfo)
     {
-        isShooting = true;
+        musicPlayer=this.GetComponent<AudioSource>();
         MusicPlay();
         this.LV = bulletinfo.LV;
         this.bulletSpeed = bulletinfo.bulletSpeed;
         this.target = bulletinfo.attackTarget;
         this.bulletDamage = bulletinfo.bulletDamage;
+        isShooting = true;
     }
 
     private void OnTriggerEnter(Collider other) //���� �浹�� ��ȣ�ۿ�
@@ -30,7 +31,7 @@ public class NormalBullet : Bullet_base, BulletInterFace
         if (other.gameObject.layer != LayerMask.NameToLayer("Enemy")) return;
         if (other.gameObject.GetComponent<EnemyInterFace>() == null) return;
         other.GetComponent<EnemyInterFace>().GetDamage(bulletDamage);
-
+        isShooting = false;
 
         //hit particle spawn
         GameObject clone = Instantiate(impactParticle, target.gameObject.GetComponent<EnemyInterFace>().GetBodyPos().position, Quaternion.identity) as GameObject;
@@ -50,7 +51,7 @@ public class NormalBullet : Bullet_base, BulletInterFace
         //Destroy(gameObject);
         Disable(gameObject);
         // Destroy(clone, 1f);
-        Disable(clone, 1f);
+        Destroy(clone, 1f);
     }
 
     void MusicPlay()
@@ -74,7 +75,7 @@ public class NormalBullet : Bullet_base, BulletInterFace
     void OnEnable()
     {
 
-        MusicPlay();
+        
         Disable(gameObject, 2.3f);
     }
 
@@ -82,17 +83,15 @@ public class NormalBullet : Bullet_base, BulletInterFace
 
     // Update is called once per frame
     void Update()
-    {
-        if(target&&isShooting)
+    {      if(target&&isShooting)
             Shoot();
-
-        else if (target != null && target.gameObject.GetComponent<EnemyInterFace>().CheckDead())
+        if (target != null && target.gameObject.GetComponent<EnemyInterFace>().CheckDead())
         {
 
             StartCoroutine(DestroyIfNoTarget());
         }
 
-        else if (target == null)
+         if (target == null)
         {
             StartCoroutine(DestroyIfNoTarget());
         }
