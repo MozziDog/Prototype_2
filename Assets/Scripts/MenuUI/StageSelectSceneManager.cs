@@ -21,8 +21,9 @@ public class StageSelectSceneManager : MonoBehaviour
     public GameObject ShopUI_movingPart;
     public GameObject InvenUI;
     public GameObject OptionUI;
+    public GameObject CreditUI;
     [SerializeField] StaminaManager staminaManager;
-    readonly int STAMINA_PER_STAGE = 5;
+    readonly int STAMINA_PER_STAGE = 10;
     public GameObject noStaminaWindow;
     bool tweenAnimationFinished = true;
     int screenWidth;
@@ -36,7 +37,7 @@ public class StageSelectSceneManager : MonoBehaviour
         LoadSaveData();
         if (Global.userProperty.startStoryFinishFlag == false)
         {
-            SceneLoader.LoadScene("StoryCutIn");
+            WatchStoryCutIn();
         }
         FadeIn();
         ShopUI_movingPart.transform.position = new Vector3(Screen.width, ShopUI_movingPart.transform.position.y, ShopUI_movingPart.transform.position.z);
@@ -267,6 +268,22 @@ public class StageSelectSceneManager : MonoBehaviour
     {
         InvenUI.SetActive(false);
     }
+
+    public void OpenCreditWindow()
+    {
+        CreditUI.SetActive(true);
+    }
+
+    public void CloseCreditWindow()
+    {
+        CreditUI.SetActive(false);
+    }
+
+    public void WatchStoryCutIn()
+    {
+        SceneLoader.LoadScene("StoryCutIn");
+    }
+
     public void PlayClickSound()
     {
         SFXManager.Play(clickSound);
