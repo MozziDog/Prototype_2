@@ -15493,7 +15493,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerImage: {fileID: 21300000, guid: 4059e191aed69494c902e4484e9a6a63, type: 3}
   pentominoImage: {fileID: 21300000, guid: 70caae5ae23b07e4fa0bde0e269557de, type: 3}
-  towerDescription: 
+  towerDescription: "\uB2E4\uBC1C\uC131 \uD3ED\uACA9\uC744 \uAC00\uD558\uB294 \uBB34\uC2DC\uBB34\uC2DC\uD55C
+    \uB140\uC11D\uC774\uB2E4"
   _myposition: []
   LV: 5
   type: L
@@ -15521,6 +15522,9 @@ MonoBehaviour:
   - {fileID: 5566072293008744671}
   isTemp: 1
   isBuffed: 0
+  towerTransform:
+    reverted: 0
+    rotation: 0
 --- !u!65 &-3138356588325104275
 BoxCollider:
   m_ObjectHideFlags: 0

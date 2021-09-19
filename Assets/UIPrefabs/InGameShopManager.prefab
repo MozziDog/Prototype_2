@@ -63,6 +63,7 @@ MonoBehaviour:
   - {fileID: 7454545231653059525, guid: 318f808664fb3754da22c6746e75208f, type: 3}
   - {fileID: 7454545231653059525, guid: 40180ee1a2601aa429ebe4bf965881f9, type: 3}
   - {fileID: 7454545231653059525, guid: aaf271a0929204d43bcef20e6fe1283c, type: 3}
+  - {fileID: 7454545231653059525, guid: 2264cb05c4faacb44be460746b5a27c1, type: 3}
   _totalPriceText: {fileID: 0}
   rerollPrice: 10
 --- !u!114 &3811928672714195174
