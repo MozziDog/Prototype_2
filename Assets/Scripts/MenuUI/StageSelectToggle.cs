@@ -16,7 +16,7 @@ public class StageSelectToggle : MonoBehaviour
         toggleComponent.onValueChanged.AddListener(
             (bool isOn) => { OnToggleSelected(isOn); });
         toggleComponent.isOn = false;
-        if (Global.isDebug == true)
+        if (Global.isDebug == false)
         {
             if (Global.userProperty.LastReachedChapter < this.chapter
                 || Global.userProperty.LastReachedStage < (this.stage - 1))
