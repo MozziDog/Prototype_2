@@ -144,6 +144,7 @@ public class NormalBombBullet : Bullet_base, BulletInterFace
     {
         musicPlayer.clip = shootSound;
         musicPlayer.time = 0;
+        musicPlayer.volume = Global.soundVolume;
         musicPlayer.Play();
     }
 
@@ -172,6 +173,7 @@ public class NormalBombBullet : Bullet_base, BulletInterFace
         if (target && isShooting)
         {
             isShooting = false;
+            MusicPlay();
             StartCoroutine(SimulateProjectile());
 
         }

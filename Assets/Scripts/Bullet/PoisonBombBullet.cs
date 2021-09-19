@@ -31,6 +31,7 @@ public class PoisonBombBullet : Bullet_base, BulletInterFace
     public float gravity = 9.8f;
     public float BombRadius;
 
+    private bool isShooting = false;
 
     private AudioSource musicPlayer;
     public AudioClip shootSound;
@@ -40,6 +41,7 @@ public class PoisonBombBullet : Bullet_base, BulletInterFace
     RaycastHit hit;
     public void SetUp(BulletInfo bulletinfo)
     {
+        isShooting = true;
         this.LV = bulletinfo.LV;
         this.bulletSpeed = bulletinfo.bulletSpeed;
         this.target = bulletinfo.attackTarget;
@@ -175,23 +177,29 @@ public class PoisonBombBullet : Bullet_base, BulletInterFace
         musicPlayer.Play();
     }
 
-
+    void OnEnable()
+    {
+       
+        Disable(gameObject, 3f);
+    }
     // Start is called before the first frame update
     void Start()
     {
-        if (target)
-        {
-            musicPlayer = GetComponent<AudioSource>();
-            StartCoroutine(SimulateProjectile());
-            MusicPlay(); //shoot effect
-        }
-        Disable(gameObject, 3f);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (target && isShooting)
+        {
+            musicPlayer = GetComponent<AudioSource>();
+            musicPlayer.volume = Global.soundVolume;
+            MusicPlay(); //shoot effect
+            isShooting = false;
+            StartCoroutine(SimulateProjectile());
 
+        }
     }
 
 }

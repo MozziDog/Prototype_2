@@ -13,9 +13,11 @@ public class NormalBullet : Bullet_base, BulletInterFace
     public Vector3 aimPosition;
     private AudioSource musicPlayer;
     public AudioClip shootSound;
-
+    private bool isShooting = false;
     public void SetUp(BulletInfo bulletinfo)
     {
+        isShooting = true;
+        MusicPlay();
         this.LV = bulletinfo.LV;
         this.bulletSpeed = bulletinfo.bulletSpeed;
         this.target = bulletinfo.attackTarget;
@@ -51,6 +53,15 @@ public class NormalBullet : Bullet_base, BulletInterFace
         Disable(clone, 1f);
     }
 
+    void MusicPlay()
+    {
+        musicPlayer.clip = shootSound;
+        musicPlayer.time = 0;
+        musicPlayer.volume = Global.soundVolume;
+        musicPlayer.Play();
+    }
+
+
     void Shoot()
     {
         //aim and shoot
@@ -60,21 +71,22 @@ public class NormalBullet : Bullet_base, BulletInterFace
     }
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
-        musicPlayer = GetComponent<AudioSource>();
-        musicPlayer.clip = shootSound;
-        musicPlayer.time = 0;
-        musicPlayer.Play();
-        // Destroy(gameObject, 2.3f);
+
+        MusicPlay();
         Disable(gameObject, 2.3f);
     }
+
+    
 
     // Update is called once per frame
     void Update()
     {
-        Shoot();
-        if (target != null && target.gameObject.GetComponent<EnemyInterFace>().CheckDead())
+        if(target&&isShooting)
+            Shoot();
+
+        else if (target != null && target.gameObject.GetComponent<EnemyInterFace>().CheckDead())
         {
 
             StartCoroutine(DestroyIfNoTarget());
