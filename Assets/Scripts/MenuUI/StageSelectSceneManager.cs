@@ -21,6 +21,7 @@ public class StageSelectSceneManager : MonoBehaviour
     public GameObject ShopUI_movingPart;
     public GameObject InvenUI;
     public GameObject OptionUI;
+    public GameObject CreditUI;
     [SerializeField] StaminaManager staminaManager;
     readonly int STAMINA_PER_STAGE = 5;
     public GameObject noStaminaWindow;
@@ -267,6 +268,17 @@ public class StageSelectSceneManager : MonoBehaviour
     {
         InvenUI.SetActive(false);
     }
+
+    public void OpenCreditWindow()
+    {
+        CreditUI.SetActive(true);
+    }
+
+    public void CloseCreditWindow()
+    {
+        CreditUI.SetActive(false);
+    }
+
     public void PlayClickSound()
     {
         SFXManager.Play(clickSound);
