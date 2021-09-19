@@ -70,12 +70,12 @@ public class AdManager : MonoBehaviour
     void Start()
     {
         //SetStaminaAmountLabel();
-        //OnApplicationFocus(true);
+        OnApplicationFocus(true);
     }
     //게임 초기화, 중간 이탈, 중간 복귀 시 실행되는 함수
     public void OnApplicationFocus(bool value)
     {
-        //Debug.LogWarning("OnApplicationFocus() : " + value);
+        // Debug.LogWarning("OnApplicationFocus() : " + value);
         if (value)
         {
             LoadAdInfo();
