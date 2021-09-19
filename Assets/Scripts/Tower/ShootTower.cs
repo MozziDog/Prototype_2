@@ -30,8 +30,8 @@ public class ShootTower : MonoBehaviour, TowerInterFace
 
 
     private bool lockOn = false;
-
-
+    private bool isBulletCharged = true;
+    private bool isBulletCharging = false;
     public void SetUp(TowerInfo towerinfo)
     {
 
@@ -124,7 +124,7 @@ public class ShootTower : MonoBehaviour, TowerInterFace
 
     private IEnumerator AttackToTarget() //�� ����
     {
-        yield return new WaitForSeconds(1.25f);
+        yield return new WaitForSeconds(1.15f);
         while (true)
         {
 
@@ -140,18 +140,20 @@ public class ShootTower : MonoBehaviour, TowerInterFace
             }
 
 
+            if (isBulletCharged)
+            {
+                isBulletCharged=false;
+                SpawnBullet();
+            }
 
-            SpawnBullet();
-            yield return new WaitForSeconds(attackRate);
 
-
-
+            yield return null;
 
         }
     }
 
 
-    private void SpawnBullet() //�߻�ü ����
+    private void SpawnBullet() 
     {
         bulletinfo.attackTarget = this.attackTarget;
         // GameObject clone = Instantiate(BulletPrefab, BulletSpawnPoint.position, Quaternion.identity);
@@ -177,7 +179,12 @@ public class ShootTower : MonoBehaviour, TowerInterFace
 
     }
 
-
+    IEnumerator ChargeBullet()
+    {
+        yield return new WaitForSeconds(attackRate);
+        isBulletCharged = true;
+        isBulletCharging = false;
+    }
 
 
     void Start()
@@ -204,6 +211,11 @@ public class ShootTower : MonoBehaviour, TowerInterFace
         if (lockOn)
             RotateToTarget();
 
+        if (!isBulletCharged&&!isBulletCharging)
+        {
+            isBulletCharging = true;
+            StartCoroutine(ChargeBullet());
+        }
     }
 
 }
