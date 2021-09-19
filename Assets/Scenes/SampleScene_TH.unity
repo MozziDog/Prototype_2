@@ -1223,11 +1223,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 292303667}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: -10, y: -10}
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 5, y: 5}
   m_UseGraphicAlpha: 1
 --- !u!114 &292303670
 MonoBehaviour:
@@ -3255,11 +3255,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 599487302}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: -10, y: -10}
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 5, y: 5}
   m_UseGraphicAlpha: 1
 --- !u!114 &599487305
 MonoBehaviour:
@@ -5614,7 +5614,7 @@ GameObject:
   - component: {fileID: 916975165}
   - component: {fileID: 916975164}
   m_Layer: 5
-  m_Name: "Text_\uD655\uC778"
+  m_Name: "Text_\uB098\uAC00\uAE30"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5648,11 +5648,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 916975162}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: -3, y: -3}
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1, y: 1}
   m_UseGraphicAlpha: 1
 --- !u!114 &916975165
 MonoBehaviour:
@@ -8122,7 +8122,7 @@ GameObject:
   - component: {fileID: 1352399721}
   - component: {fileID: 1352399720}
   m_Layer: 5
-  m_Name: "Text_\uD655\uC778"
+  m_Name: "Text_\uC7AC\uC2DC\uB3C4"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8156,11 +8156,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1352399718}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: -3, y: -3}
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1, y: 1}
   m_UseGraphicAlpha: 1
 --- !u!114 &1352399721
 MonoBehaviour:
@@ -10354,7 +10354,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u315C\u315C\uAC8C\uC784 \uC624\uBC84\u315C\u315C"
+  m_Text: "\uC2A4\uD0AC \uC5C5\uADF8\uB808\uC774\uB4DC\uC640 \uC0C8\uB85C\uC6B4 \uC804\uB7B5\uC744
+    \uC0AC\uC6A9\uD558\uC5EC \uC7AC\uB3C4\uC804\uD574\uBCF4\uC138\uC694!"
 --- !u!222 &1658903363
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10754,11 +10755,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1744880849}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: -10, y: -10}
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 5, y: 5}
   m_UseGraphicAlpha: 1
 --- !u!114 &1744880852
 MonoBehaviour:
