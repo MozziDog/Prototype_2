@@ -140,12 +140,14 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
 
 
             float distance = Vector3.Distance(attackTarget.position, transform.position);
-
-            for (int i = 0; i < bulletAmmoCount; i++)
+            if (isBulletCharged)
+            {
+                for (int i = 0; i < bulletAmmoCount; i++)
             {
                 if (distance > attackRange)
                 {
                     lockOn = false;
+                    isBulletCharged = false;
                     attackTarget = null;
                     ChangeState(WeaponState.SearchTarget);
                     break;
@@ -156,8 +158,11 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
                 if (i == bulletAmmoCount - 1) break;
                 yield return new WaitForSeconds(burstRate);
             }
+                isBulletCharged = false;
+               
+            }
 
-            yield return new WaitForSeconds(attackRate);
+            yield return null;
 
 
 
@@ -189,7 +194,12 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
 
     }
 
-
+    IEnumerator ChargeBullet()
+    {
+        yield return new WaitForSeconds(attackRate);
+        isBulletCharged = true;
+        isBulletCharging = false;
+    }
 
     void Start()
     {
@@ -214,7 +224,11 @@ public class MultipleShootTower : MonoBehaviour, TowerInterFace
         this.enemyList = SpawnPoint.GetComponent<EnemyManager>().CurrentEnemyList; //�� �����Ӹ��� �� ����Ʈ ����
         if (lockOn)
             RotateToTarget();
-
+        if (!isBulletCharged && !isBulletCharging)
+        {
+            isBulletCharging = true;
+            StartCoroutine(ChargeBullet());
+        }
     }
 
 }
