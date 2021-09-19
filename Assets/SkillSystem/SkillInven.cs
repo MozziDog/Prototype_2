@@ -185,7 +185,7 @@ public class SkillInven : MonoBehaviour, IPointerClickHandler, IPointerExitHandl
             _upgraded = PlayerPrefs.GetInt("grade_Earthquake");
             coolTime = 35f - (_upgraded - 1) * 10f / 19f;
             _coolTxt.text = string.Format("{0:0.#}", coolTime) + "초";
-            info = "스킬을 꾹 누르는 동안 최대 " + string.Format("{0:0.#}", (1f + (_upgraded - 1) * 2f / 19f)) + "만큼 지진을 일으킨다. \n오래 누를수록 쿨타임이 길어진다.";
+            info = "스킬을 꾹 누르는 동안 최대 " + string.Format("{0:0.#}", (1f + (_upgraded - 1) * 2f / 19f)) + "초만큼 지진을 일으킨다. \n오래 누를수록 쿨타임이 길어진다.";
         }
         else if (skillName == "LandSmash")
         {
