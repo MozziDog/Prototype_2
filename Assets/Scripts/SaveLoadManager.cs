@@ -84,7 +84,7 @@ public class SaveLoadManager : MonoBehaviour
             Global.userProperty.LastReachedChapter = PlayerPrefs.GetInt("lastReachedChapter");
             Global.userProperty.LastReachedStage = PlayerPrefs.GetInt("lastReachedStage");
             Debug.Log($"gold: {Global.userProperty.gold}, ruby: {Global.userProperty.ruby}");
-            //Debug.Log("LastReached:" + Global.userProperty.LastReachedChapter + "-" + Global.userProperty.LastReachedStage);
+            Debug.Log($"LastReached: {Global.userProperty.LastReachedChapter} - {Global.userProperty.LastReachedStage}");
         }
         else
         {

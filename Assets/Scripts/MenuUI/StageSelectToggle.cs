@@ -18,10 +18,16 @@ public class StageSelectToggle : MonoBehaviour
         toggleComponent.isOn = false;
         if (Global.isDebug == false)
         {
-            if (Global.userProperty.LastReachedChapter < this.chapter
-                || Global.userProperty.LastReachedStage < (this.stage - 1))
+            Toggle toggle = gameObject.GetComponent<Toggle>();
+            if (Global.userProperty.LastReachedChapter > this.chapter ||
+            (Global.userProperty.LastReachedChapter == this.chapter && Global.userProperty.LastReachedStage >= this.stage - 1) ||
+            (Global.userProperty.LastReachedChapter + 1 == this.chapter && Global.userProperty.LastReachedStage == 5 && this.stage == 1) ||
+            (Global.userProperty.LastReachedStage == 0 /*초기 실행*/ && this.chapter == 1 && this.stage == 1))
             {
-                Toggle toggle = gameObject.GetComponent<Toggle>();
+                toggle.interactable = true;
+            }
+            else
+            {
                 toggle.interactable = false;
             }
         }

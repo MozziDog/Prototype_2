@@ -43,7 +43,6 @@ public class StageSelectSceneManager : MonoBehaviour
         ShopUI_movingPart.transform.position = new Vector3(Screen.width, ShopUI_movingPart.transform.position.y, ShopUI_movingPart.transform.position.z);
         ShopUI.SetActive(false);
         screenWidth = Screen.width;
-        Debug.Log(Global.userProperty.LastReachedChapter);
         if (Global.userProperty.LastReachedChapter != 1)
             for (int i = 0; i < Global.userProperty.LastReachedChapter - 1; i++)
             {
