@@ -96,7 +96,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.05, y: 1, z: 1.05}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1394864796729671667
 MonoBehaviour:
@@ -154,6 +154,9 @@ MonoBehaviour:
   - {fileID: 1753085419196476990}
   isTemp: 1
   isBuffed: 0
+  towerTransform:
+    reverted: 0
+    rotation: 0
 --- !u!1 &1635993474422202157
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,7 +251,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.05, y: 1, z: 1.05}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &333779911383103513
 MonoBehaviour:
@@ -5653,7 +5656,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.05, y: 1, z: 1.05}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5876335330765700726
 MonoBehaviour:
@@ -5711,6 +5714,9 @@ MonoBehaviour:
   - {fileID: 6522149162543640507}
   isTemp: 1
   isBuffed: 0
+  towerTransform:
+    reverted: 0
+    rotation: 0
 --- !u!1 &6521289412524894901
 GameObject:
   m_ObjectHideFlags: 0
@@ -16392,6 +16398,9 @@ MonoBehaviour:
   - {fileID: 7019764512544446454}
   isTemp: 1
   isBuffed: 0
+  towerTransform:
+    reverted: 0
+    rotation: 0
 --- !u!65 &3174891924567541910
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16501,7 +16510,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.05, y: 1, z: 1.05}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7666407922699683387
 MonoBehaviour:
@@ -16559,6 +16568,9 @@ MonoBehaviour:
   - {fileID: 7019764512544446454}
   isTemp: 1
   isBuffed: 0
+  towerTransform:
+    reverted: 0
+    rotation: 0
 --- !u!1 &8310692416242285440
 GameObject:
   m_ObjectHideFlags: 0
@@ -16653,7 +16665,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.05, y: 1, z: 1.05}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6383912377785151571
 MonoBehaviour:
